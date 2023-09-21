@@ -1,0 +1,145 @@
+// Set the nav background color OUTSIDE of the body tag so that it can be overridden by appearance styles
+.public-facing #masthead.navbar.navbar-inverse.navbar-static-top {
+  background: linear-gradient($mediumyellow, rgb(255, 255, 255), $transparentwhite, rgba(255, 255, 255, 0));
+}
+
+body.public-facing {
+  // MAIN NAV
+
+  #masthead {
+    &.navbar.navbar-inverse.navbar-static-top {
+      height: 150px;
+      display: flex;
+      width: 100%;
+      margin-bottom: 0;
+
+      .nav-container {
+        padding-right: 0;
+        padding-left: 0;
+        width: 100%;
+        display: flex;
+        @media (max-width: $lg-max) {
+          flex-wrap: wrap;
+        }
+      }
+
+      .navbar-nav {
+        li {
+          transition: .2s ease-in-out;
+          a, .navbar-link {
+            color: $darkgrey;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: .2s ease-in-out;
+            text-decoration: underline;
+            text-decoration-color: transparent;
+            border-bottom: 1px solid transparent;
+            background-color: transparent;
+            &:hover {
+              color: $mediumgrey;
+              background-color: transparent;
+            }
+          }
+          .active {
+            a, a:hover, a:focus {
+              background-color: transparent;
+            }
+          }
+          .open {
+            a, a:hover, a:focus {
+              background-color: $white;
+            }
+          }
+        }
+        @media (min-width: $lg-min) {
+          a {
+            text-decoration: underline;
+            text-decoration-color: transparent;
+            // border-bottom: 1px solid transparent;
+            padding-bottom: 0;
+            &:hover {
+                // border-bottom: 1px solid $darkgrey;
+                text-decoration-color: $mediumgrey;
+              }
+            }
+          }
+        }
+
+      #logo {
+        align-self: center;
+        img {
+          padding: 10px;
+          max-height: 104px;
+        }
+      }
+    
+      @media (max-width: 553px) {
+        #logo img {
+          max-width: 75%;
+        }
+      }
+      
+      .dropdown-menu {
+        background-color: $white;
+      }
+    }
+
+    .navbar-header {
+      display: flex;
+      width: 100%;
+    }
+
+    @media (min-width: $lg-min) {
+      #top-navbar-collapse {
+        align-items: center;
+        justify-content: flex-end;
+        display: flex !important;
+        flex: 3
+      }
+      .navbar-header {
+        flex: 1;
+      }
+    }
+    
+    // MOBILE NAV
+
+    .navbar-toggle, .facets-toggle {
+      align-self: center;
+      border: 0;
+      background-color:transparent;
+      .icon-bar {
+        background-color: $darkgrey;
+      }
+    }
+
+
+    // MOBILE OPEN MENU 
+    @media (max-width: $lg-max) {
+      ul#user_utility_links {
+        padding: 0;
+        margin: 0;
+        padding-top: 0;
+        background-color: $white;
+      }
+    
+      #top-navbar-collapse {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        width: 100%;
+      }
+    
+      .nav > li {
+        text-align: center;
+      }
+    
+      .nav > li:hover {
+        background-color: $lightgrey;
+      }
+    }
+  }
+}
+
+  

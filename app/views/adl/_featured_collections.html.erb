@@ -1,0 +1,64 @@
+<div class="featured-section">
+  <h2 class="mt-5"><%= t('hyrax.homepage.admin_sets.title') %></h2>
+  <div class="featured-collections-items">
+    <div class="col-xs-12 col-sm-7 featured-collections-card-wrapper">
+      <%# The large featured collection on the left column %>
+      <a class="large-card" href="https://adl.b2.adventistdigitallibrary.org/collections/4cbb9bb5-d67b-4776-a84e-edd37952d7ed?locale=en" alt="George McReady Price Papers">
+        <div class="collection-thumbnail">
+          <%= image_tag('adl-featured-collections/george-mccready-price.jpg', alt: "George McReady Price Papers") %>
+          <div class="collection-info px-4 py-4">
+            <h3 class="collection-title">George McCready Price Papers</h3>
+            <p class="collection-description">The Price collection contains correspondence, manuscripts, articles and poems written by Mr. Price, his wife, and others during the course of his life.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-xs-12 col-sm-5 featured-collections-column-wrapper">
+      <div class="featured-collections-column-scroll d-flex">
+        <%# The four smaller featured collections on the right column %>
+        <a class="small-card" href="https://adl.b2.adventistdigitallibrary.org/collections/ae6b2b1a-2af5-46d8-bca2-d8ab816d74a3?locale=en" alt="Seventh-day Adventist Inventors Collection">
+          <div class="collection-thumbnail">
+            <%= image_tag('adl-featured-collections/adventist-inventors.jpg', alt: "Seventh-day Adventist Inventors Collection") %>
+            <div class="collection-info py-1 px-4">
+              <h3 class="collection-title">Seventh-day Adventist Inventors Collection</h3>
+              <p class="collection-description"><%= 'These items related to Seventh-day Adventist inventors and their inventions were collected by Jim Nix.'.truncate(120, separator: ' ') %>.</p>
+            </div>
+          </div>
+        </a>
+        <a class="small-card" href="https://adl.b2.adventistdigitallibrary.org/collections/17635b76-4ef4-4951-8c3b-bdbdf22ba0d3?locale=en" alt="Warren Eugene Howell Travel Albums">
+          <div class="collection-thumbnail">
+            <%= image_tag('adl-featured-collections/warren-eugene-howell-travel.jpg', alt: "Warren Eugene Howell Travel Albums") %>
+            <div class="collection-info py-1 px-4">
+              <h3 class="collection-title">Warren Eugene Howell Travel Albums</h3>
+              <p class="collection-description"><%= 'Warren Eugene Howell was an active Seventh-day Adventist administrator and educator. Howell was a professor at Healdsburg College, principal of Palama Chinese School in Honolulu, a professor at Emmanuel Missionary College, the first president of the College of Medical Evangelists (now Loma Linda University), and a principal of the Fireside Correspondence School.'.truncate(120, separator: ' ') %>.</p>
+            </div>
+          </div>
+        </a>
+        <a class="small-card" href="https://adl.b2.adventistdigitallibrary.org/collections/11aab197-b630-48c0-91cd-1578d42d9f53?locale=en" alt="Grace Amadon Collection">
+          <div class="collection-thumbnail">
+            <%= image_tag('adl-featured-collections/grace-amadon.jpg', alt: "Grace Amadon Collection") %>
+            <div class="collection-info py-1 px-4">
+              <h3 class="collection-title">Grace Amadon Collection</h3>
+              <p class="collection-description"><%= 'This collection contains Amadon’s research concerning chronologies and time prophecies of the Bible'.truncate(120, separator: ' ') %>.</p>
+            </div>
+          </div>
+        </a>
+        <a class="small-card" href="https://adl.b2.adventistdigitallibrary.org/collections/b1cb4449-c0ee-4499-82da-32c1246daeea?locale=en" alt="Center for Adventist Research Photograph Collection">
+          <div class="collection-thumbnail">
+            <%= image_tag('adl-featured-collections/car-photo.jpg', alt: "Center for Adventist Research Photograph Collection") %>
+            <div class="collection-info py-1 px-4">
+              <h4 class="collection-title">Center for Adventist Research Photograph Collection</h4>
+              <p class="collection-description"><%= 'The Center for Adventist Research (CAR), seeks to promote an understanding and appreciation of the heritage and mission of the Seventh-day Adventist Church'.truncate(120, separator: ' ') %>.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex">
+    <%= link_to main_app.search_catalog_path(f: { human_readable_type_sim: ["Collection"]}), class: 'btn btn-default mt-4 ml-auto' do %>
+      <%= t('hyrax.homepage.admin_sets.link') %>
+      <span class="fa fa-caret-right"></span>
+    <% end %>
+  </div>
+</div>

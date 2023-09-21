@@ -1,0 +1,9 @@
+---
+fr:
+  hyrax:
+    icons:
+      image: fa fa-picture-o
+    select_type:
+      image:
+        description: L'image simple ou multi-page fonctionne.
+        name: Image

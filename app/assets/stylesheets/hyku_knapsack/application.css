@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.viewer-wrapper {
+  height: 900px !important;
+}
+
+.video-embed-viewer {
+  aspect-ratio: auto;
+  width: 100%;
+}

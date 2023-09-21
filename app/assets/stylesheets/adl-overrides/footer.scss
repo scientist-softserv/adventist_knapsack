@@ -1,0 +1,89 @@
+// Set the nav background color OUTSIDE of the body tag so that it can be overridden by appearance styles
+.public-facing .navbar.navbar-inverse.site-footer {
+  background: linear-gradient($lightgrey, $mediumyellow);
+}
+
+body.public-facing {
+
+  /* prevents footer from covering bottom of page */
+  #content-wrapper {
+    margin-bottom: 320px;
+    @media (max-width: $md-max) {
+      margin-bottom: 350px;
+    }
+  }
+
+  .navbar.navbar-inverse.site-footer {
+    font-weight: 600;
+    font-size: smaller;
+    border: none;
+    padding: inherit;
+    height: auto;
+    right: 0;
+    left: 0;
+    .navbar-text {
+      margin: 0;
+    }
+    @media (min-width: $sm-min){
+      .navbar-right {
+        float: right !important;
+        margin: 0;
+      }
+      .navbar-text {
+        float: left !important;
+      }
+    }
+  }
+
+  //SECONDARY FOOTER
+
+  .secondary-footer {
+      min-height: 200px;
+      background-color: $lightgrey;
+      padding: 40px 10px;
+      position: absolute;
+      bottom: 37px;
+      display: block;
+      width: 100%;
+      right: 0;
+      left: 0;
+      @media (max-width: $sm-max) {
+            bottom: 70px;
+      }
+      .footer-row {
+        @media (max-width: $sm-max) {
+          flex-direction: column;
+        }
+      }
+      .footer-link-col {
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        @media (max-width: $sm-max) {
+          order: 1;
+          text-align: center;
+        }
+      }
+      .footer-logo {
+        height: 120px;
+        overflow: hidden;
+        img {
+          object-fit: contain;
+          width: 100%;
+          height: 100%;
+          @media (min-width: $md-min) {
+                object-position: right;
+          }
+        }
+      }
+      .footer-navlink {
+        margin-top: 20px;
+      }
+    }
+
+  @media (max-width: $sm-max) {
+    body {
+        margin-bottom: 145px;
+    }
+  }
+}

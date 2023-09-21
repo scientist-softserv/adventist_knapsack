@@ -1,0 +1,27 @@
+<div class="featured-section">
+  <h2 class="mt-5"><%= t('hyrax.homepage.featured_works.title') %></h2>
+  <% if @featured_work_list.empty? %>
+    <p><%= t('hyrax.homepage.featured_works.no_works') %></p>
+  <% elsif can? :update, FeaturedWork %>
+    <%= form_for [hyrax, @featured_work_list] do |f| %>
+      <div class="panel-group dd" id="dd">
+        <ol id="featured_works">
+          <%= f.fields_for :featured_works do |featured| %>
+            <%= render 'sortable_featured', f: featured %>
+          <% end %>
+        </ol>
+      </div>
+      <%= f.submit("Save order", class: 'btn btn-default') %>
+    <% end %>
+  <% else %>
+    <div class="row featured-works-items d-flex" id="featured_works">
+      <%= render partial: '/adl/featured', collection: @featured_work_list.featured_works %>
+    </div>
+  <% end %>
+  <div class="d-flex">
+    <%= link_to main_app.search_catalog_path, class: 'btn btn-default mt-4 ml-auto' do %>
+      <%= t('hyrax.homepage.featured_works.link') %>
+      <span class="fa fa-caret-right"></span> 
+    <% end %>
+  </div>
+</div>

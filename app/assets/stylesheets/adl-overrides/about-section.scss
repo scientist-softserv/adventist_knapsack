@@ -1,0 +1,40 @@
+body.public-facing {
+  // these following 2 selectors extend the background color outside of the container
+  .extended-section-background {
+    position: relative;
+  }
+
+  .extended-section-background:before {
+    content: "";
+    background-color: $lightgrey;
+    position: absolute;
+    height: 100%;
+    width: 200vw;
+    left: -100vw;
+    z-index: -1;
+    overflow-x: hidden;
+  }
+  .about-section {
+    background-color: $lightgrey;
+
+    h4, 
+    .h4 {
+      text-transform: uppercase;
+    }
+
+    .h2 {
+      margin-top: 0;
+      padding-top: 6rem;
+    }
+
+    .news-widget-wrapper {
+      border: 1px solid $lightgreyborder;
+      border-radius: 10px;
+      overflow: hidden;
+      .news-widget-scroll {
+        max-height: 550px;
+        overflow-y: scroll;
+      }
+    }
+  }
+}

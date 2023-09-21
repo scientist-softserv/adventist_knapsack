@@ -1,0 +1,9 @@
+---
+de:
+  hyrax:
+    icons:
+      image: fa fa-picture-o
+    select_type:
+      image:
+        description: Einzel- oder mehrseitiges Bild funktioniert.
+        name: Bild

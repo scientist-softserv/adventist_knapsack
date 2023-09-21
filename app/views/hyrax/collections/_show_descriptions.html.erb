@@ -1,0 +1,12 @@
+<%# OVERRIDE View from hyrax 2.9.1 to hide identifier line %>
+
+<dl>
+  <% present_terms(presenter, presenter.terms_with_values) do |r, term| %>
+    <% if r.label(term) != 'Identifier' %>
+      <div>
+        <dt><%= r.label(term) %></dt>
+        <dd><%= r.value(term) %></dd>
+      </div>
+    <% end %>
+  <% end %>
+</dl>

@@ -1,0 +1,478 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
+
+body.public-facing {
+  font-family: "Source Sans Pro" !important;
+  font-size: 17px;
+  color: $darkgrey;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    font-family: "Source Sans Pro" !important;
+    font-weight: 600;
+  }
+
+  p {
+    color: $darkgrey;
+  }
+
+  .lh-40 {
+    line-height: 40px;
+  }
+
+  /* LINK COLORS */
+
+  a {
+    color: $darkyellow;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+    &:hover, &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  p.terms-of-use a {
+    color: $black;
+  }
+
+  .btn.btn-primary {
+    background-color: $white;
+    border-color: $mediumyellow;
+    border: 1px solid $mediumyellow;
+    color: $darkyellow;
+    outline: 0;
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active,
+    &.active:hover,
+    &.active:focus,
+    &:active:hover,
+    &:active:focus,
+    &:active.focus,
+    &.active.focus {
+      border-color: $darkyellow;
+      border: 1px solid $darkyellow;
+      color: $darkyellow;
+      background-color: rbga(255, 255, 255, .8);
+      &a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .btn.btn-default {
+    background-color: $white;
+    border-color: $darkyellow;
+    border: 2px solid $darkyellow;
+    color: $darkyellow;
+    outline: 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: small;
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active,
+    &.active:hover,
+    &.active:focus,
+    &:active:hover,
+    &:active:focus,
+    &:active.focus,
+    &.active.focus {
+      border-color: $mediumgrey;
+      border: 2px solid $mediumgrey;
+      color: $darkgrey;
+      background-color: rbga(255, 255, 255, .8);
+      &a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .btn.btn-primary, .btn.btn-default {
+    &.disabled:hover,
+    &.disabled:hover,
+    &.disabled:focus,
+    &.disabled.focus,
+    &[disabled]:hover,
+    &[disabled]:focus,
+    &[disabled].focus {
+      border-color: $lightgrey2;
+      border: 2px solid $lightgrey2;
+      color: $lightgrey2;
+    }
+  }
+
+  .btn:focus,
+  .facets-toggle:focus,
+  td.toggle input[type="submit"]:focus,
+  .btn.focus,
+  .focus.facets-toggle,
+  td.toggle input.focus[type="submit"],
+  .btn:active:focus,
+  .facets-toggle:active:focus,
+  td.toggle input[type="submit"]:active:focus,
+  .btn:active.focus,
+  .facets-toggle:active.focus,
+  td.toggle input[type="submit"]:active.focus,
+  .btn.active:focus,
+  .active.facets-toggle:focus,
+  td.toggle input.active[type="submit"]:focus,
+  .btn.active.focus,
+  .active.focus.facets-toggle,
+  td.toggle input.active.focus[type="submit"] {
+    outline: 0;
+  }
+
+  /* DEFAULT BUTTON STYLES */
+
+  .btn-link {
+    color: $darkyellow !important;
+  }
+
+  a.btn.btn-danger {
+    color: $black !important;
+  }
+
+  // Breadcrumbs
+  nav.breadcrumb {
+    border: 0 solid $white;
+    background-color: $white;
+    border-radius: 4px !important;
+    margin-top: 50px;
+  }
+
+  // Inputs
+
+  input {
+    background-color: $lightgrey;
+    border-radius: 4px;
+  }
+
+  // /* FACET PANEL STYLES */
+
+  .panel-default > .panel-heading {
+    color: $black !important;
+    background-color: $white !important;
+    border-color: transparent !important;
+  }
+
+  #facets .top-panel-heading {
+    border: 1px solid #ccc;
+    margin-bottom: 1em;
+  }
+
+  .panel-default {
+    border-color: transparent !important;
+    border: 0 solid transparent !important;
+  }
+
+  .panel-heading.collapse-toggle .panel-title:after {
+    color: $black;
+  }
+
+  .panel.panel-default.permissions-confirm {
+    background-color: $white;
+  }
+  .form-actions.panel-footer {
+    border-top: 1px solid $lightgrey;
+  }
+
+  // /*MODALS */
+
+  .modal-header {
+    border-bottom: 1px solid $white;
+  }
+
+  .select-worktype {
+    border-top: 0 solid transparent;
+  }
+
+  .select-work-icon {
+    color: $black !important;
+  }
+
+  .close {
+    color: $black;
+    text-shadow: none;
+    opacity: 0.6;
+  }
+
+  .modal-footer {
+    border-top: 1px solid $white;
+  }
+
+  //WORK-SHOW PAGE
+
+  .select-work-icon {
+    color: $black !important;
+  }
+
+  ul.tabular {
+    font-weight: 300;
+  }
+
+  .metadata-group ul.tabular {
+    margin-bottom: 0;
+  }
+
+  dl.work-show {
+    font-weight: 500;
+  }
+
+  .close {
+    color: $black;
+    text-shadow: none;
+    opacity: 0.6;
+  }
+
+  .work-show.metadata-block {
+    .metadata-group {
+      display: flex;
+      padding: 10px;
+      border-bottom: 1px solid $darkgrey;
+    }
+  }
+
+  .metadata-group {
+    dt {
+      width: 30%;
+    }
+
+    dd {
+      width: 70%;
+    }
+
+    a {
+      color: $darkyellow !important;
+    }
+  }
+
+  .modal-footer {
+    border-top: 1px solid $white;
+  }
+
+  img.representative-media {
+    margin: 0 auto;
+  }
+
+  table.related-files td.thumbnail {
+    margin-bottom: 0;
+    background-color: transparent;
+    border: 0;
+  }
+
+  // SEARCH RESULTS PAGE
+  .constraints-container {
+    border-radius: 4px;
+    background-color: $lightgrey;
+  }
+
+  .search-widgets, #sort-dropdown, #per_page-dropdown {
+    .btn.btn-default {
+      &.view-type-gallery, &.view-type-list, &.view-type-masonry, &.view-type-slideshow, &.dropdown-toggle {
+        border-color: $lightgreyborder;
+        color: $darkgrey;
+      }
+    }
+  }
+
+  .pagination .active span {
+    background-color: $lightgrey;
+    border-color: $lightgreyborder;
+    color: $darkgrey
+  }
+
+  // Announcement Content Block
+
+  div#announcement {
+    color: $darkgrey;
+    font-size: 15px;
+    background-color: $white;
+    border: 2px solid $mediumgrey;
+    padding-top: 0;
+    border-radius: 0;
+    p {
+      margin-top: 10px;
+      font-weight: 600;
+    }
+}
+
+  // ALERTS
+
+  .alert {
+    color: $darkgrey;
+    background: linear-gradient(#efefef, $white, $white, #efefef);
+    border-color: $lightgreyborder;
+    margin-right: 0;
+    margin-left: 0;
+    @media (max-width: $sm-max) {
+      margin-right: 15px;
+      margin-left: 15px;
+    }
+    &.alert-success {
+      background: linear-gradient(#efefef, $white, $white, #efefef);
+    }
+
+    &.alert-info {
+      background: linear-gradient(#dde5ee, #f7f7f7, $white, #f7f7f7, #dde5ee);
+    }
+
+    &.alert-warning {
+      background: linear-gradient(#fff7db, #f7f7f7, $white, #f7f7f7, #fff7db);
+    }
+  }
+
+  .legend {
+    color: $black !important;
+  }
+
+  //changes the colors of icons in the dashboard
+  .dashboard .main-header h1 .fa {
+    color: $darkyellow;
+  }
+
+  //COLLECTION-SHOW PAGE
+
+  .hyc-metadata,
+  .hyc-description {
+    padding: 1em;
+  }
+
+  .hyc-metadata div {
+    dt {
+      min-width: 30%;
+      flex-basis: auto;
+    }
+    dd {
+      word-break: break-all;
+    }
+  }
+
+  .hyc-whitelight {
+    padding: 0;
+  }
+
+  input#collection_search {
+    padding: 18px;
+  }
+
+  .hyc-container {
+    padding: 1em;
+  }
+
+  div.collection-list legend {
+    color: $black;
+  }
+
+  span#select2-chosen-1 {
+    color: $darkgrey;
+  }
+
+  .dropdown-btn {
+    color: $black;
+    background-color: $white;
+    border: 0;
+  }
+
+  .dropdown-btn:hover,
+  li.dropdown-item:hover {
+    color: $darkyellow;
+  }
+
+  li.dropdown-item {
+    padding: 10px;
+    width: 200px;
+  }
+
+  // FORMS
+
+  .form-control,
+  .form-control[readonly] {
+    color: black;
+    background-color: $lightgrey;
+    border: 0;
+  }
+
+  .form-control {
+    transition: border ease-in-out 0.2s, box-shadow ease-in-out 0.15s;
+    &:focus {
+      -webkit-box-shadow: inset 0 0 7px 5px $lightgrey2;
+      box-shadow: inset 0 0 7px 5px $lightgrey;
+      border: 0;
+    }
+  }
+
+  // Breadcrumbs
+  .breadcrumb {
+    border: 0 solid $white !important;
+    background-color: $white !important;
+    border-radius: 4px !important;
+  }
+
+  nav.breadcrumb {
+    margin-top: 50px;
+  }
+
+  //LABELS
+  .label-success {
+    background-color: $mediumyellow;
+  }
+
+  .label-info {
+    background-color: $darkyellow;
+  }
+
+  .label-primary {
+    background-color: $darkyellow;
+  }
+
+  //hides the visibility badge on top of work show page & hides the "user collection" labels in search results
+  .panel-default .panel-heading small span.label,
+  .search-results-title-row span.label,
+  .hyc-title span.label {
+    display: none;
+  }
+
+  //ADD WORK PAGE
+
+  .dashboard .panel {
+    border: 2px solid $lightgrey !important;
+  }
+
+  .panel-footer {
+    background-color: transparent !important;
+  }
+
+  .legend {
+    color: $black;
+  }
+
+}
+
+.dashboard {
+  //fix the collection image thumbnails in the dashboard so they don't overlap with the collection title & so they are square
+  .collections-wrapper .thumbnail-title-wrapper .thumbnail-wrapper > img {
+    width: 30px;
+    object-fit: cover;
+  }
+}
+
+// for catalog search result snippets
+.highlight {
+  background: yellow;
+  font-weight: 700;
+}

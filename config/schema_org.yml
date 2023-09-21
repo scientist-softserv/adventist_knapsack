@@ -1,0 +1,180 @@
+schema_org:
+  abstract:
+    property: description
+    
+  access_provided_by:
+    property: provider
+    type: http://schema.org/Organization
+    value: name
+    
+  advisor:
+    property: contributor
+    type: http://schema.org/Person
+    value: name
+    
+  based_near:
+    property: contentLocation
+    type: http://schema.org/Place
+    value: name
+    
+  based_near_label:
+    property: contentLocation
+    type: http://schema.org/Place
+    value: name
+    
+  contributor:
+    property: contributor
+    type: http://schema.org/Person
+    value: name
+    
+  contributor_combined:
+    property: contributor
+    type: http://schema.org/Person
+    value: name
+    
+  creator:
+    property: creator
+    type: http://schema.org/Person
+    value: name
+    
+  date_available:
+    property: datePublished
+    
+  date_created:
+    property: dateCreated
+    
+  date_published:
+    property: datePublished
+    
+  description:
+    property: description
+    
+  doi:
+    property: identifier
+    
+  edition:
+    property: version
+    
+  editor:
+    property: editor
+    
+  former_identifier:
+    property: identifier
+    
+  funder:
+    property: funder
+    
+  human_readable_type:
+    Conference Item: http://schema.org/ScholarlyArticle
+    Dataset: http://schema.org/Dataset
+    Exam Paper: http://schema.org/CreativeWork
+    Journal Article: http://schema.org/ScholarlyArticle
+    Package: http://schema.org/Dataset
+    Published Work: http://schema.org/CreativeWork
+    
+  identifier:
+    property: identifier
+    
+  isbn:
+    property: identifier
+    
+  issue_number:
+    property: issueNumber
+    
+  keyword:
+    property: keywords
+    
+  language:
+    property: language
+    
+  module_code:
+    property: identifier
+    
+  note:
+    property: note
+    
+  official_url:
+    property: significantLink
+    
+  pagination:
+    property: pagination
+    
+  part:
+    property: isPartOf
+    type: http://schema.org/CreativeWork
+    value: name
+    
+  part_of:
+    property: isPartOf
+    type: http://schema.org/CreativeWork
+    value: name
+    
+  place_of_publication:
+    property: location
+    type: http://schema.org/Place
+    value: name
+    
+  presented_at:
+    property: workPerformed
+    type: http://schema.org/Event
+    value: name
+    
+  publisher:
+    property: publisher
+    type: http://schema.org/Organization
+    value: name
+    
+  related_url:
+    property: relatedLink
+    
+  resource_type:
+    Article: http://schema.org/Article
+    Audio: http://schema.org/AudioObject
+    Book: http://schema.org/Book
+    Conference Proceeding: http://schema.org/ScholarlyArticle
+    Dataset: http://schema.org/Dataset
+    Dissertation: http://schema.org/ScholarlyArticle
+    Image: http://schema.org/ImageObject
+    Map or Cartographic Material: http://schema.org/Map
+    Masters Thesis: http://schema.org/ScholarlyArticle
+    Part of Book: http://schema.org/Book
+    Research Paper: http://schema.org/ScholarlyArticle
+    Software or Program Code: http://schema.org/Code
+    Video: http://schema.org/VideoObject
+    
+  resource_type_general:
+    Audiovisual: http://schema.org/MediaObject
+    Collection: http://bib.schema.org/Collection
+    DataPaper: http://schema.org/CreativeWork
+    Dataset: http://schema.org/Dataset
+    Event: http://schema.org/Event
+    Image: http://schema.org/ImageObject
+    InteractiveResource: http://schema.org/CreativeWork
+    Model: http://schema.org/CreativeWork
+    PhysicalObject: http://schema.org/Thing
+    Service: http://schema.org/Service
+    Software: http://schema.org/Code
+    Sound: http://schema.org/AudioObject
+    Text: http://schema.org/CreativeWork
+    Workflow: http://schema.org/CreativeWork
+    Other: http://schema.org/Thing
+    
+  series:
+    property: isPartOf
+    type: http://schema.org/CreativeWork
+    value: name
+    
+  subject:
+    property: about
+    type: http://schema.org/Thing
+    value: name
+    
+  subtitle:
+    property: name
+    
+  title:
+    property: name
+    
+  volume_number:
+    property: volumeNumber
+    

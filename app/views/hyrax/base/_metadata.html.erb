@@ -1,0 +1,5 @@
+<%# OVERRIDE Hyrax 2.9.5 to add css classes %>
+
+<dl class="work-show metadata-block <%= dom_class(presenter) %>" <%= presenter.microdata_type_to_html %>> 
+    <%= render 'attribute_rows', presenter: presenter %>
+ </dl> 

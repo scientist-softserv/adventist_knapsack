@@ -1,0 +1,12 @@
+<%# OVERRIDE Hyrax 6.7 to remove the hamburger button %>
+<%# main container for facets/limits menu %>
+
+<% if has_facet_values?  %>
+<div id="facets" class="facets sidenav">
+  <div class="top-panel-heading panel-heading">
+    <h2 class='facets-heading'>
+      <%= t('blacklight.search.facets.title') %>
+    </h2>
+  </div>
+  <%= render_facet_partials %>
+<% end %>

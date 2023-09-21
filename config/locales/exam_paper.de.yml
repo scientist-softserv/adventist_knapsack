@@ -1,0 +1,8 @@
+de:
+  hyrax:
+    icons:
+      exam_paper:     'fa fa-file-text-o'
+    select_type:
+      exam_paper:
+        description:        "Exam paper Werke"
+        name:               "Exam Paper"

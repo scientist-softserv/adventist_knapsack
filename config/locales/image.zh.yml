@@ -1,0 +1,9 @@
+---
+zh:
+  hyrax:
+    icons:
+      image: fa fa-picture-o
+    select_type:
+      image:
+        description: 单页或多页图像工作。
+        name: 图片

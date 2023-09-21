@@ -1,0 +1,103 @@
+.featured-section {
+  margin-top: 6rem;
+  @media (max-width: $sm-max) {
+    padding: 20px;
+  }
+
+  .featured-collections-items {
+    display: flex;
+    gap: 2rem;
+    @media (max-width: $sm-max) {
+      flex-direction: column;
+    }
+
+    .featured-collections-column-wrapper {
+      max-height: 620px;
+      overflow: hidden;
+      flex: 1;
+      border-radius: 10px;
+      border: 1px solid $lightgrey;
+      padding: 0;
+      .featured-collections-column-scroll {
+        max-height: inherit;
+        overflow-y: auto;
+        flex-direction: column;
+        gap: 20px;
+        }
+      }
+
+    .featured-collections-card-wrapper {
+      border: 1px solid $lightgrey;
+      border-radius: 10px;
+      padding: 0;
+      flex: 2;
+      @media (max-width: $sm-max) {
+        min-height: 500px;
+      }
+    }
+
+    .collection-thumbnail img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    .collection-info {
+      bottom: 0;
+      width: 100%;
+      border-radius: 0 0 10px 10px;
+      background-color: $transparentwhite;
+      color: $darkgrey;
+    }
+
+    .large-card {
+      .collection-thumbnail img, .collection-info {
+        position: absolute;
+      }
+    }
+
+    .small-card {
+      border: 1px solid $lightgrey;
+      border-radius: 10px;
+      font-size: small;
+      .collection-thumbnail {
+        position: relative;
+        height: 300px;
+        .collection-info {
+          position: absolute;
+        }
+      }
+    }
+  }
+  .featured-works-items {
+    flex-wrap: wrap;
+    .featured-work {
+      border: 1px solid $lightgreyborder;
+      border-radius: 10px;
+      height: 200px;
+      .featured-item-thumbnail {
+        flex: 1;
+        border-radius: 10px 0px 0 10px;
+        border-right: 1px solid $lightgreyborder;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 10px 0 0 10px;
+        }    
+      }
+  
+      .featured-item-info {
+        flex: 1;
+        background-color: $lightgrey;
+        border-radius: 0 10px 10px 0;
+        max-width: 50%;
+        align-items: center;
+        a {
+          color: $darkgrey;
+        }
+      }
+    }
+  }
+}

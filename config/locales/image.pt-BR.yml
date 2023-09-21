@@ -1,0 +1,9 @@
+---
+pt-BR:
+  hyrax:
+    icons:
+      image: fa fa-picture-o
+    select_type:
+      image:
+        description: A imagem de uma ou várias páginas funciona.
+        name: Imagem

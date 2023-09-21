@@ -1,0 +1,28 @@
+<% if controller_name == 'homepage' %>
+  <div class="about-section extended-section-background">
+    <% if (display_content_block? @homepage_about_section_heading).present? %>
+      <%= displayable_content_block @homepage_about_section_heading, class: "h2 #{current_account.name != 'adl' ? 'text-center' : "" }" %>
+    <% end %>
+    <div class="row pb-5">
+      <div class="about-col col-xs-12 py-5<%= current_account.name == "adl" ? " col-sm-4" : " text-center" %>">
+        <% if (display_content_block? @homepage_about_section_content).present? %>
+          <%= displayable_content_block @homepage_about_section_content, class: '' %>
+        <% end %>
+        <%= link_to hyrax.about_path, class: 'btn btn-default mt-4' do %>
+          <%= t('hyrax.homepage.about_section.link') %>
+          <span class="fa fa-caret-right"></span> 
+        <% end %>
+      </div>
+      <% if current_account.name == "adl" %>
+        <div class="news-widget-col col-xs-12 py-5 col-sm-8">
+          <h4 class="">Recent News & Updates</h4>
+          <div class= "news-widget-wrapper">
+            <div class="news-widget-scroll">
+              <a class="twitter-timeline" href="https://twitter.com/AdventistDigLib?ref_src=twsrc%5Etfw">Tweets by AdventistDigLib</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

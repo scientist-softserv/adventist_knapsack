@@ -1,0 +1,166 @@
+---
+zh:
+  activerecord:
+    attributes:
+      site:
+        institution_name_full: 完整的机构名称
+  application:
+    tagline: 下一代存储库解决方案
+  helpers:
+    submit:
+      add_user_to_group:
+        submit: 加
+      group_search:
+        submit: 走
+      page_size:
+        submit: 更新
+      revoke_membership:
+        submit: 去掉
+      user_search:
+        submit: 走
+  hyku:
+    account:
+      signup_disabled: 帐户注册被禁用
+    admin:
+      flash:
+        access_denied: 您无权查看此页面
+      groups:
+        action:
+          create: 创建新组
+          edit: 编辑组和用户
+          members:
+            description: 组成员承担分配给此组的所有权限。
+          per_page: 更新
+          remove:
+            confirmation: 您确定要移除此群组吗？
+            description: 这个行动是不可逆转的。 它将删除通过此组分配的组成员的所有权限。
+            submit: 去掉
+          search:
+            clear: 重启
+        describe_quantity_html: 此存储库中有<b>%{number}组</b>。
+        describe_singular_quantity_html: 此存储库中有<b> 1组</b>。
+        flash:
+          create:
+            failure: 无法创建组
+            invalid: 组必须有一个名称
+            success: "%{group}创建"
+          destroy:
+            failure: "%{group}不能被毁灭"
+            success: "%{group}销毁"
+          update:
+            failure: "%{group}无法更新"
+            success: "%{group}更新"
+        label:
+          actions: 操作
+          created_at: 创建日期
+          members: 用户
+          name: 名称
+          per_page: 每页
+        nav:
+          attributes: 描述
+          delete: 去掉
+          index: 返回管理组
+          members: 用户
+        title:
+          add_user: 将用户添加到组
+          delete: 删除组 "%{group}"
+          edit: 编辑组
+          index: 管理组
+          list_members: 当前组成员
+          members: 小组成员
+          new: 新组
+          remove: 删除组
+      title: 行政
+    footer:
+      admin_login: 管理员登录
+    proprietor:
+      accounts:
+        nav: 帐号
+      users:
+        nav: 用户
+    splash:
+      account_denied: 您无权创建租户
+      account_login: 登录即可开始使用
+      account_signup: 开始使用
+      center_heading: 功能丰富
+      center_text: 您所期待的成熟存储库系统的所有功能。支持一系列内容类型和用例。
+      left_heading: 简单
+      left_text: 适用于大型和小型机构，从博物馆到大学图书馆。几分钟内开始使用
+      right_heading: 灵活
+      right_text: 自定义用户界面，以符合您机构的品牌标识。定制工作流程以符合员工喜欢工作的方式。
+    tagline: 下一代存储库解决方案
+    toolbar:
+      profile:
+        edit_registration: 更改密码
+    users:
+      label:
+        date_joined: 加盟
+        last_login: 最后访问
+        name: 名称
+        user_key: 用户名
+  hyrax:
+    admin:
+      appearances:
+        show:
+          hints:
+            banner_image: 要使用图像作为标头背景，您应该使用至少120像素高和1200像素宽的图像（JPG，GIF或PNG）。 为获得最佳效果，请使用至少1800像素宽的图像。
+            logo_image: 要使用图像作为徽标，您应使用不高于标题且宽度不超过400像素的图像（JPG，GIF或PNG）。
+            directory_image: 要将图像用作目录图像，您应使用不高于标题且宽度不超过400像素的图像（JPG，GIF或PNG）。
+            default_image: 对于默认图像，您应使用具有相同高度和宽度尺寸（100像素宽，100像素高）的图像（JPG，GIF或PNG）
+          tabs:
+            banner_image: 横幅图像
+            directory_image: 目录图像
+            default_images: 默认图像
+            colors: 颜色
+            fonts: 字形
+      sidebar:
+        accounts: 帐号
+        activity_summary: 活动摘要
+        labels: 标签
+        manage_groups: 管理组
+        system_status: 系统状态
+      users:
+        destroy:
+          confirmation: 您确定要删除用户“%{user}”吗？这一行动是不可逆转的。
+          failure: 无法删除用户“%{user}”。
+          success: 用户“%{user}”已成功删除。
+        index:
+          action_label: 行动
+          add: 邀请用户
+          delete: 删除
+          invite_users: 通过电子邮件添加或邀请用户
+          status:
+            active: 活性
+            pending: 有待
+          status_label: 状态
+  proprietor:
+    accounts:
+      edit:
+        fcrepo_endpoint: Fedora 端点
+        header: 编辑帐号
+        solr_endpoint: Solr 端点
+      index:
+        cname: CNAME
+        confirm_delete: 您确定要删除此存储库吗？
+        create_new: 建立新帐户
+        header: 帐号
+        manage: 管理
+        tenant: 承租人 (UUID)
+      new:
+        header: 创建一个新的存储库
+      show:
+        add: 加
+        current_admins:
+          actions: 行动
+          email: 电子邮件地址
+          header: 经常账户管理员
+          no_admins: 没有管理员存在
+        edit: 编辑帐号
+        header: 管理帐户
+        remove: 去掉
+  status:
+    index:
+      services: 服务
+    service:
+      down: 下
+      ok: 好

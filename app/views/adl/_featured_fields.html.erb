@@ -1,0 +1,15 @@
+<div class="d-flex featured-work">
+  <div class="featured-item-thumbnail">
+    <span class="sr-only"><%= t('hyrax.homepage.featured_works.document.title_label') %></span>
+      <%= link_to [main_app, featured] do %>
+        <%= render_thumbnail_tag(featured, {suppress_link: true}) %>
+      <% end %>
+  </div>
+  <div class="featured-item-info py-2 px-3 d-flex">
+    <%= link_to [main_app, featured] do %>
+      <h4>
+        <%= featured.title.first %>
+      </h4>
+    <% end %>
+  </div>
+</div>
