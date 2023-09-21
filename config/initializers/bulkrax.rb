@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-if Settings.bulkrax.enabled
-
+if ENV.fetch('HYKU_BULKRAX_ENABLED', 'true') == 'true'
   Bulkrax.setup do |config|
     # Setting the available parsers for Adventist.
     config.parsers = [

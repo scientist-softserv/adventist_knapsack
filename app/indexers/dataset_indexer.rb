@@ -2,7 +2,7 @@
 
 # Generated via
 #  `rails generate dog_biscuits:work Dataset`
-class DatasetIndexer < WorkIndexer
+class DatasetIndexer < AppIndexer
   include DogBiscuits::IndexesCommon
   # This indexes the default metadata. You can remove it if you want to
   # provide your own metadata and indexing.

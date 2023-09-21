@@ -19,15 +19,11 @@ module GenericWorkDecorator
       IiifPrint::TextExtractionDerivativeService
     ]
   )
-
-  included do
-  validates :title, presence: { message: 'Your work must have a title.' }
-
-  self.indexer = WorkIndexer
-  self.human_readable_type = 'Work'
-
-  prepend OrderAlready.for(:creator)
-  end
 end
 
 GenericWork.prepend(GenericWorkDecorator)
+
+# This must come after the properties because it finalizes the metadata
+# schema (by adding accepts_nested_attributes)
+GenericWork.include SlugMetadata
+GenericWork.include AdventistMetadata

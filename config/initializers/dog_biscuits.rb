@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # load dog_biscuits config
-DOGBISCUITS = YAML.safe_load(File.read(Rails.root.join('config', 'dog_biscuits.yml'))).with_indifferent_access
+DOGBISCUITS = YAML.safe_load(File.read(HykuKnapsack::Engine.root.join('config', 'dog_biscuits.yml'))).with_indifferent_access
 # include Terms
 # Qa::Authorities::Local.register_subauthority('concepts', 'DogBiscuits::Terms::ConceptsTerms')
 # Qa::Authorities::Local.register_subauthority('projects', 'DogBiscuits::Terms::ProjectsTerms')

@@ -17,24 +17,10 @@ module ImageDecorator
       IiifPrint::TextExtractionDerivativeService
     ]
   )
-
-  included do
-    property :extent, predicate: ::RDF::Vocab::DC.extent, multiple: true do |index|
-      index.as :stored_searchable
-    end
-
-    # This must come after the properties because it finalizes the metadata
-    # schema (by adding accepts_nested_attributes)
-    include SlugMetadata
-    include AdventistMetadata
-
-    self.indexer = WorkIndexer
-    # Change this to restrict which works can be added as a child.
-    # self.valid_child_concerns = []
-    validates :title, presence: { message: 'Your work must have a title.' }
-
-    self.human_readable_type = 'Image'
-
-    prepend OrderAlready.for(:creator)
-  end
 end
+
+Image.prepend ImageDecorator
+# This must come after the properties because it finalizes the metadata
+# schema (by adding accepts_nested_attributes)
+Image.include SlugMetadata
+Image.include AdventistMetadata

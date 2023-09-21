@@ -2,7 +2,7 @@
 
 # Generated via
 #  `rails generate dog_biscuits:work ConferenceItem`
-class ConferenceItemIndexer < WorkIndexer
+class ConferenceItemIndexer < AppIndexer
   include DogBiscuits::IndexesCommon
   # This indexes the default metadata. You can remove it if you want to
   # provide your own metadata and indexing.

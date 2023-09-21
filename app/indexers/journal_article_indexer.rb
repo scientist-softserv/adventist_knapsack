@@ -2,7 +2,7 @@
 
 # Generated via
 #  `rails generate dog_biscuits:work JournalArticle`
-class JournalArticleIndexer < WorkIndexer
+class JournalArticleIndexer < AppIndexer
   include DogBiscuits::IndexesCommon
   # This indexes the default metadata. You can remove it if you want to
   # provide your own metadata and indexing.
