@@ -24,6 +24,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", ">= 5.2.0"
   spec.add_dependency "sentry-raven"
-  spec.add_dependency "good_job"
   # spec.add_dependency "dog_biscuits"
 end
