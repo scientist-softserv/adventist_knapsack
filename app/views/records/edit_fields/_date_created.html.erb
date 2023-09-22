@@ -1,0 +1,14 @@
+<div class="form-group optional <%= "#{@curation_concern.class.to_s.underscore}_"%>date_created">
+  <%= f.label :date_created %>
+  <br />
+  <p class="help-block"><%= t(:'simple_form.hints.defaults.date_created') %></p>
+  <ul class="listing" aria-live="polite" style="padding: 0;">
+    <li class="field-wrapper input-group input-append">
+      <%= f.date_field :date_created, required: f.object.required?(key),
+                       value: f.object.date_created,
+                       class: 'form-control',
+                       input_html: { class: 'form-control', multiple: false }
+      %>
+    </li>
+  </ul>
+</div>
