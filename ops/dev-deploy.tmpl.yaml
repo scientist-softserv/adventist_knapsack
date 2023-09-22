@@ -90,6 +90,8 @@ extraEnvVars: &envVars
     value: "true"
   - name: HYKU_BULKRAX_ENABLED
     value: "true"
+  - name: HYKU_CONTACT_EMAIL
+    value: 'changeme@example.com'
   - name: HYKU_DEFAULT_HOST
     value: "%{tenant}.s2.adventistdigitallibrary.org"
   - name: HYKU_MULTITENANT
