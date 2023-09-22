@@ -58,12 +58,6 @@ ingress:
       secretName: adventist-wild-tls
 
 extraEnvVars: &envVars
-  - name: SETTINGS__MULTITENANCY__ADMIN_HOST
-    value: b2.adventistdigitallibrary.org
-  - name: SETTINGS__MULTITENANCY__ROOT_HOST
-    value: b2.adventistdigitallibrary.org
-  - name: SETTINGS__MULTITENANCY__DEFAULT_HOST
-    value: "%{tenant}.b2.adventistdigitallibrary.org"
   - name: CONFDIR
     value: "/app/samvera/hyrax-webapp/solr/config"
   - name: INITIAL_ADMIN_EMAIL
@@ -94,6 +88,28 @@ extraEnvVars: &envVars
     value: /rest
   - name: FEDORA_URL
     value: http://fcrepo.default.svc.cluster.local:8080/rest
+  - name: HYKU_ADMIN_HOST
+    value: b2.adventistdigitallibrary.org
+  - name: HYKU_ADMIN_ONLY_TENANT_CREATION
+    value: "true"
+  - name: HYKU_BULKRAX_ENABLED
+    value: "true"
+  - name: HYKU_CONTACT_EMAIL
+    value: donotreply@adventistdigitallibrary.org
+  - name: HYKU_DEFAULT_HOST
+    value: "%{tenant}.b2.adventistdigitallibrary.org"
+  - name: HYKU_FILE_ACL
+    value: "false"
+  - name: HYKU_MULTITENANT
+    value: "true"
+  - name: HYKU_ROOT_HOST
+    value: b2.adventistdigitallibrary.org
+  - name: HYRAX_ACTIVE_JOB_QUEUE
+    value: good_job
+  - name: HYRAX_FITS_PATH
+    value: /app/fits/fits.sh
+  - name: HYRAX_ANALYTICS
+    value: "true"
   - name: IN_DOCKER
     value: "true"
   - name: LD_LIBRARY_PATH
@@ -114,30 +130,10 @@ extraEnvVars: &envVars
     value: hyku-production-redis-master
   - name: REDIS_URL
     value: redis://:$REDIS_PASSWORD@hyku-production-redis-master:6379/adventist
-  - name: SETTINGS__ACTIVE_JOB__QUEUE_ADAPTER
-    value: good_job
-  - name: SETTINGS__BULKRAX__ENABLED
-    value: "true"
-  - name: SETTINGS__CONTACT_EMAIL
-    value: donotreply@adventistdigitallibrary.org
-  - name: SETTINGS__DEVISE__INVITATION_FROM_EMAIL
-    value: donotreply@adventistdigitallibrary.org
-  - name: SETTINGS__FITS_PATH
-    value: /app/fits/fits.sh
-  - name: SETTINGS__MULTITENANCY__ADMIN_ONLY_TENANT_CREATION
-    value: "true"
-  - name: SETTINGS__MULTITENANCY__DEFAULT_HOST
-    value: "%{tenant}.b2.adventistdigitallibrary.org"
-  - name: SETTINGS__MULTITENANCY__ENABLED
-    value: "true"
-  - name: SETTINGS__SOLR__COLLECTION_OPTIONS__COLLECTION__CONFIG_NAME
-    value: hyku-adventist-production
-  - name: SETTINGS__SOLR__CONFIGSET
-    value: hyku-adventist-production
-  - name: SETTINGS__ZOOKEEPER__CONNECTION_STR
-    value: solr-zookeeper-headless.default:2181/configs
   - name: SOLR_ADMIN_USER
     value: admin
+  - name: SOLR_ADMIN_PASSWORD
+    value: $SOLR_ADMIN_PASSWORD
   - name: SOLR_COLLECTION_NAME
     value: hyku-adventist-production
   - name: SOLR_CONFIGSET_NAME
@@ -147,8 +143,6 @@ extraEnvVars: &envVars
   - name: SOLR_PORT
     value: "8983"
   - name: SOLR_URL
-    value: http://admin:$SOLR_ADMIN_PASSWORD@solr.default:8983/solr/
-  - name: SETTINGS__SOLR__URL
     value: http://admin:$SOLR_ADMIN_PASSWORD@solr.default:8983/solr/
   - name: SMTP_ENABLED
     value: "true"

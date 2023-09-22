@@ -118,23 +118,19 @@ extraEnvVars: &envVars
     value: staging-redis-master
   - name: REDIS_URL
     value: redis://:$REDIS_PASSWORD@staging-redis-master:6379/staging
-  - name: HYRAX_ACTIVE_JOB_QUEUE
-    value: sidekiq
-  - name: HYRAX_ANALYTICS
+  - name: HYKU_ADMIN_ONLY_TENANT_CREATION
     value: "true"
-  - name: HYKU_BULKRAX_ENABLED
-    value: "true"
-  - name: HYKU_CONTACT_EMAIL
-    value: REPLACE_ME
-  - name: HYKU_FILE_ACL
-    value: "false"
-  - name: HYRAX_FITS_PATH
-    value: /app/fits/fits.sh
   - name: HYKU_ADMIN_HOST
     value: RPLACEME
   - name: HYKU_ADMIN_ONLY_TENANT_CREATION
     value: "false"
   - name: HYKU_ALLOW_SIGNUP
+    value: "false"
+  - name: HYKU_BULKRAX_ENABLED
+    value: "true"
+  - name: HYKU_CONTACT_EMAIL
+    value: REPLACE_ME
+  - name: HYKU_FILE_ACL
     value: "false"
   - name: HYKU_DEFAULT_HOST
     value: "%{tenant}.REPLACE_ME"
@@ -142,6 +138,12 @@ extraEnvVars: &envVars
     value: "true"
   - name: HYKU_ROOT_HOST
     value: REPLACE_ME
+  - name: HYRAX_ACTIVE_JOB_QUEUE
+    value: good_job
+  - name: HYRAX_ANALYTICS
+    value: "true"
+  - name: HYRAX_FITS_PATH
+    value: /app/fits/fits.sh
   - name: NEGATIVE_CAPTCHA_SECRET
     value: $NEGATIVE_CAPTCHA_SECRET
   - name: SMTP_ENABLED
