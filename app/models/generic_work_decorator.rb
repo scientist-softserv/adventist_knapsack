@@ -10,7 +10,7 @@ module GenericWorkDecorator
   include DogBiscuits::DateIssued
   include DogBiscuits::Geo
   include DogBiscuits::PartOf
-  include DogBiscuits::PlaceOntistMetadata
+  include DogBiscuits::PlaceOfPublication
   include SlugBug
   include IiifPrint.model_configuration(
     pdf_split_child_model: self,

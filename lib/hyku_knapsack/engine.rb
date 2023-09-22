@@ -18,6 +18,22 @@ module HykuKnapsack
       config.i18n.load_path += Dir["#{config.root}/config/locales/**/*.yml"]
     end
 
+    config.to_prepare do
+      my_engine_root = HykuKnapsack::Engine.root.to_s
+
+      # need collection model first
+      c = "#{my_engine_root}/app/models/collection_decorator.rb"
+      Rails.configuration.cache_classes ? require(c) : load(c)
+
+      Dir.glob(File.join(my_engine_root, "app/**/*_decorator*.rb")).sort.each do |c|
+        Rails.configuration.cache_classes ? require(c) : load(c)
+      end
+
+      Dir.glob(File.join(my_engine_root, "lib/**/*_decorator*.rb")).sort.each do |c|
+        Rails.configuration.cache_classes ? require(c) : load(c)
+      end
+    end
+
     config.after_initialize do
       my_engine_root = HykuKnapsack::Engine.root.to_s
       paths = ActionController::Base.view_paths.collect{|p| p.to_s}
