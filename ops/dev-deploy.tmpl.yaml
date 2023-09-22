@@ -60,10 +60,6 @@ ingress:
 extraEnvVars: &envVars
   - name: CONFDIR
     value: "/app/samvera/hyrax-webapp/solr/config"
-  - name: INITIAL_ADMIN_EMAIL
-    value: support@notch8.com
-  - name: INITIAL_ADMIN_PASSWORD
-    value: testing123
   - name: DATABASE_ADAPTER
     value: postgresql
   - name: DB_ADAPTER
@@ -104,10 +100,12 @@ extraEnvVars: &envVars
     value: good_job
   - name: HYRAX_FITS_PATH
     value: /app/fits/fits.sh
-  - name: INITIAL_ADMIN_EMAIL
-    value: admin@example.com
   - name: IN_DOCKER
     value: "true"
+  - name: INITIAL_ADMIN_EMAIL
+    value: support@notch8.com
+  - name: INITIAL_ADMIN_PASSWORD
+    value: testing123
   - name: LD_LIBRARY_PATH
     value: /app/fits/tools/mediainfo/linux
   - name: PASSENGER_APP_ENV
