@@ -3,12 +3,12 @@
 module Hyrax
   module CollectionPresenterDecorator
     module ClassMethods
-      delegate(*Collection::ADDITIONAL_TERMS, to: :solr_document)
+      delegate(*Collection.additional_terms, to: :solr_document)
 
       # Terms is the list of fields displayed by
       # app/views/collections/_show_descriptions.html.erb
       def terms
-        super + Collection::ADDITIONAL_TERMS
+        super + Collection.additional_terms
       end
     end
   end
