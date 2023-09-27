@@ -34,12 +34,4 @@ class JournalArticle < DogBiscuits::JournalArticle
 end
 
 JournalArticle.instance_variable_set(:@generated_resource_class, nil)
-JournalArticle.resource_class
-
 JournalArticle.resource_class.send(:include, ::Hyrax::BasicMetadata)
-JournalArticle.resource_class.send(:include, SlugBug)
-JournalArticle.resource_class.send(:include, DogBiscuits::BibliographicCitation)
-JournalArticle.resource_class.send(:include, DogBiscuits::DateIssued)
-JournalArticle.resource_class.send(:include, DogBiscuits::Geo)
-JournalArticle.resource_class.send(:include, DogBiscuits::PlaceOfPublication)
-JournalArticle.resource_class.send(:include, DogBiscuits::RemoteUrl)

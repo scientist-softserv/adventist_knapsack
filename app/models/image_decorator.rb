@@ -22,14 +22,4 @@ Image.include SlugMetadata
 Image.include AdventistMetadata
 
 Image.instance_variable_set(:@generated_resource_class, nil)
-Image.resource_class
-
-Image.resource_class.send(:include, SlugMetadata)
 Image.resource_class.send(:include, AdventistMetadata)
-Image.resource_class.send(:include, SlugBug)
-Image.resource_class.send(:include, DogBiscuits::Abstract)
-Image.resource_class.send(:include, DogBiscuits::BibliographicCitation)
-Image.resource_class.send(:include, DogBiscuits::DateIssued)
-Image.resource_class.send(:include, DogBiscuits::Geo)
-Image.resource_class.send(:include, DogBiscuits::PartOf)
-Image.resource_class.send(:include, DogBiscuits::PlaceOfPublication)

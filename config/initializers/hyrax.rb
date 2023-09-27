@@ -15,4 +15,5 @@ Hyrax.config do |config|
   # See https://github.com/scientist-softserv/adventist-dl/issues/183
   # Also, we will continue to extract txt file's text using Adventist::TextFileTextExtractionService
   config.extract_full_text = false
+  config.work_requires_files = false
 end
