@@ -97,10 +97,6 @@ module DogBiscuits
     autoload :Thesis
   end
 
-  autoload_under 'models/concerns' do
-    autoload :ExtendedSolrDocument
-  end
-
   autoload_under 'models/concerns/model_property_sets' do
     autoload :AgentMetadata
     autoload :ConferenceItemMetadata

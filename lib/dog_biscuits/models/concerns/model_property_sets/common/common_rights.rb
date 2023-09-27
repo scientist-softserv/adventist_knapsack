@@ -3,8 +3,11 @@
 module DogBiscuits
   module CommonRights
     extend ActiveSupport::Concern
-    include DogBiscuits::RightsHolder
-    include DogBiscuits::EdmRights
-    include DogBiscuits::Rights
+
+    included do
+      include DogBiscuits::RightsHolder
+      include DogBiscuits::EdmRights
+      include DogBiscuits::Rights
+    end
   end
 end

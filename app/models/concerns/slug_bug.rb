@@ -4,9 +4,9 @@ module SlugBug
   extend ActiveSupport::Concern
 
   included do
-    before_save :set_slug
+    try(:before_save, :set_slug)
     # Cribbed from https://gitlab.com/notch8/louisville-hyku/-/blob/main/app/models/custom_slugs/slug_behavior.rb#L14
-    after_update :remove_index_and_reindex
+    try(:after_update, :remove_index_and_reindex)
   end
 
   def to_param
