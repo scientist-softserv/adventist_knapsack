@@ -18,7 +18,7 @@ class JournalArticle < DogBiscuits::JournalArticle
 
   # This must be included at the end, because it finalizes the metadata
   # schema (by adding accepts_nested_attributes)
-  # include ::Hyrax::BasicMetadata
+  include ::Hyrax::BasicMetadata
   include SlugMetadata
   include DogBiscuits::JournalArticleMetadata
   before_save :combine_dates
@@ -32,3 +32,6 @@ class JournalArticle < DogBiscuits::JournalArticle
     ]
   )
 end
+
+JournalArticle.instance_variable_set(:@generated_resource_class, nil)
+JournalArticle.resource_class.send(:include, ::Hyrax::BasicMetadata)

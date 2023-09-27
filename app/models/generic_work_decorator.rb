@@ -23,15 +23,4 @@ GenericWork.include SlugMetadata
 GenericWork.include AdventistMetadata
 
 GenericWork.instance_variable_set(:@generated_resource_class, nil)
-GenericWork.resource_class
-
-GenericWork.resource_class.send(:include, SlugMetadata)
 GenericWork.resource_class.send(:include, AdventistMetadata)
-GenericWork.resource_class.send(:include, VideoEmbedViewer)
-GenericWork.resource_class.send(:include, DogBiscuits::Abstract)
-GenericWork.resource_class.send(:include, DogBiscuits::BibliographicCitation)
-GenericWork.resource_class.send(:include, DogBiscuits::DateIssued)
-GenericWork.resource_class.send(:include, DogBiscuits::Geo)
-GenericWork.resource_class.send(:include, DogBiscuits::PartOf)
-GenericWork.resource_class.send(:include, DogBiscuits::PlaceOfPublication)
-GenericWork.resource_class.send(:include, SlugBug)

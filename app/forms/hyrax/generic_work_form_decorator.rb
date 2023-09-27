@@ -2,7 +2,6 @@
 
 Hyrax::GenericWorkForm.terms += %i[
   aark_id
-  abstract
   alt
   bibliographic_citation
   date_issued
