@@ -51,6 +51,7 @@ module DogBiscuits
     # Omitting bibliographic_citation
     def base_properties
       %i[title
+         abstract
          creator
          contributor
          description
@@ -270,8 +271,7 @@ module DogBiscuits
     attr_writer :conference_item_properties
 
     def conference_item_properties
-      properties = %i[abstract
-                      date_published
+      properties = %i[date_published
                       date_available
                       date_accepted
                       date_submitted
@@ -323,8 +323,7 @@ module DogBiscuits
 
     attr_writer :published_work_properties
     def published_work_properties
-      properties = %i[abstract
-                      date_published
+      properties = %i[date_published
                       date_available
                       date_accepted
                       date_submitted
@@ -354,8 +353,7 @@ module DogBiscuits
     attr_writer :journal_article_properties
 
     def journal_article_properties
-      properties = %i[abstract
-                      date_published
+      properties = %i[date_published
                       date_available
                       date_accepted
                       date_submitted
@@ -380,8 +378,7 @@ module DogBiscuits
     attr_writer :thesis_properties
     # omitting orcid
     def thesis_properties
-      properties = %i[abstract
-                      advisor
+      properties = %i[advisor
                       date_of_award
                       awarding_institution
                       qualification_level
@@ -422,7 +419,6 @@ module DogBiscuits
     #   these are admin info, not for standard form/view
     def dataset_properties
       properties = %i[
-        abstract
         content_version
         date_accepted
         date_available

@@ -21,7 +21,7 @@ class Thesis < DogBiscuits::Thesis
 
   # This must be included at the end, because it finalizes the metadata
   # schema (by adding accepts_nested_attributes)
-  # include ::Hyrax::BasicMetadata
+  include ::Hyrax::BasicMetadata
   include SlugMetadata
   include DogBiscuits::ThesisMetadata
   before_save :combine_dates
@@ -35,3 +35,6 @@ class Thesis < DogBiscuits::Thesis
     ]
   )
 end
+
+Thesis.instance_variable_set(:@generated_resource_class, nil)
+Thesis.resource_class.send(:include, ::Hyrax::BasicMetadata)
