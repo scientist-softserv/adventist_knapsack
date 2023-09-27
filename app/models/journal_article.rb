@@ -10,6 +10,7 @@ class JournalArticle < DogBiscuits::JournalArticle
   include DogBiscuits::Geo
   include DogBiscuits::PlaceOfPublication
   include DogBiscuits::RemoteUrl
+  include DogBiscuits::BasedNear
 
   self.indexer = ::JournalArticleIndexer
   # Change this to restrict which works can be added as a child.
@@ -31,17 +32,16 @@ class JournalArticle < DogBiscuits::JournalArticle
       IiifPrint::TextExtractionDerivativeService
     ]
   )
-
-  include AdventistMetadata
 end
 
 JournalArticle.instance_variable_set(:@generated_resource_class, nil)
 JournalArticle.resource_class
 
-JournalArticle.resource_class.send(:include, AdventistMetadata)
+JournalArticle.resource_class.send(:include, ::Hyrax::BasicMetadata)
 JournalArticle.resource_class.send(:include, SlugBug)
 JournalArticle.resource_class.send(:include, DogBiscuits::BibliographicCitation)
 JournalArticle.resource_class.send(:include, DogBiscuits::DateIssued)
 JournalArticle.resource_class.send(:include, DogBiscuits::Geo)
 JournalArticle.resource_class.send(:include, DogBiscuits::PlaceOfPublication)
 JournalArticle.resource_class.send(:include, DogBiscuits::RemoteUrl)
+JournalArticle.resource_class.send(:include, DogBiscuits::BasedNear)
