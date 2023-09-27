@@ -18,7 +18,7 @@ class JournalArticle < DogBiscuits::JournalArticle
 
   # This must be included at the end, because it finalizes the metadata
   # schema (by adding accepts_nested_attributes)
-  # include ::Hyrax::BasicMetadata
+  include ::Hyrax::BasicMetadata
   include SlugMetadata
   include DogBiscuits::JournalArticleMetadata
   before_save :combine_dates
@@ -31,4 +31,17 @@ class JournalArticle < DogBiscuits::JournalArticle
       IiifPrint::TextExtractionDerivativeService
     ]
   )
+
+  include AdventistMetadata
 end
+
+JournalArticle.instance_variable_set(:@generated_resource_class, nil)
+JournalArticle.resource_class
+
+JournalArticle.resource_class.send(:include, AdventistMetadata)
+JournalArticle.resource_class.send(:include, SlugBug)
+JournalArticle.resource_class.send(:include, DogBiscuits::BibliographicCitation)
+JournalArticle.resource_class.send(:include, DogBiscuits::DateIssued)
+JournalArticle.resource_class.send(:include, DogBiscuits::Geo)
+JournalArticle.resource_class.send(:include, DogBiscuits::PlaceOfPublication)
+JournalArticle.resource_class.send(:include, DogBiscuits::RemoteUrl)
