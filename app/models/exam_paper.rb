@@ -13,7 +13,7 @@ class ExamPaper < DogBiscuits::ExamPaper
 
   # This must be included at the end, because it finalizes the metadata
   # schema (by adding accepts_nested_attributes)
-  # include ::Hyrax::BasicMetadata
+  include ::Hyrax::BasicMetadata
   include SlugMetadata
   include DogBiscuits::ExamPaperMetadata
   before_save :combine_dates
@@ -28,3 +28,6 @@ class ExamPaper < DogBiscuits::ExamPaper
     ]
   )
 end
+
+ExamPaper.instance_variable_set(:@generated_resource_class, nil)
+ExamPaper.resource_class.send(:include, ::Hyrax::BasicMetadata)

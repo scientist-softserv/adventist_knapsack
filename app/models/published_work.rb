@@ -19,7 +19,7 @@ class PublishedWork < DogBiscuits::PublishedWork
 
   # This must be included at the end, because it finalizes the metadata
   # schema (by adding accepts_nested_attributes)
-  # include ::Hyrax::BasicMetadata
+  include ::Hyrax::BasicMetadata
   include SlugMetadata
   include DogBiscuits::PublishedWorkMetadata
   before_save :combine_dates
@@ -33,3 +33,6 @@ class PublishedWork < DogBiscuits::PublishedWork
     ]
   )
 end
+
+PublishedWork.instance_variable_set(:@generated_resource_class, nil)
+PublishedWork.resource_class.send(:include, ::Hyrax::BasicMetadata)

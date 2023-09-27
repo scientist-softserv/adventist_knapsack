@@ -14,7 +14,7 @@ class Dataset < DogBiscuits::Dataset
 
   # This must be included at the end, because it finalizes the metadata
   # schema (by adding accepts_nested_attributes)
-  # include ::Hyrax::BasicMetadata
+  include ::Hyrax::BasicMetadata
   include SlugMetadata
   include DogBiscuits::DatasetMetadata
   before_save :combine_dates
@@ -28,3 +28,6 @@ class Dataset < DogBiscuits::Dataset
     ]
   )
 end
+
+Dataset.instance_variable_set(:@generated_resource_class, nil)
+Dataset.resource_class.send(:include, ::Hyrax::BasicMetadata)
