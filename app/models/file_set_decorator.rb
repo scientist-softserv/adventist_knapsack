@@ -12,3 +12,5 @@ module FileSetDecorator
 end
 
 FileSet.include FileSetDecorator
+FileSet.instance_variable_set(:@generated_resource_class, nil)
+FileSet.resource_class.send(:include, FileSetDecorator)
