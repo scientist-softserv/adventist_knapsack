@@ -73,6 +73,17 @@ services:
 
   worker:
     <<: *app
+    environment:
+      - HYRAX_ACTIVE_JOB_QUEUE=good_job 
+    command: 
+      - /bin/sh
+      - -c
+      - >
+        if [ "$$HYRAX_ACTIVE_JOB_QUEUE" == "good_job" ]; then
+          exec bundle exec good_job start
+        else
+          exec bundle exec sidekiq
+        fi
     extends:
       file: hyrax-webapp/docker-compose.yml
       service: worker
