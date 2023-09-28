@@ -36,10 +36,10 @@ extraVolumeMounts: &volMounts
 ingress:
   enabled: true
   hosts:
-    - host: REPLACE_ME
+    - host: adventist-knapsack-staging.notch8.cloud
       paths:
         - path: /
-    - host: "*.REPLACE_ME"
+    - host: "*.adventist-knapsack-staging.notch8.cloud"
       paths:
         - path: /
   annotations: {
@@ -49,8 +49,8 @@ ingress:
   }
   tls:
     - hosts:
-        - REPLACE_ME
-        - "*.REPLACE_ME"
+        - adventist-knapsack-staging.notch8.cloud
+        - "*.adventist-knapsack-staging.notch8.cloud"
       secretName: staging-tls
 
 extraEnvVars: &envVars
@@ -93,7 +93,7 @@ extraEnvVars: &envVars
   - name: GOOGLE_OAUTH_PRIVATE_KEY_VALUE
     value: $GOOGLE_OAUTH_PRIVATE_KEY_VALUE
   - name: GOOGLE_OAUTH_CLIENT_EMAIL
-    value: hyku-demo@REPLACE_ME
+    value: hyku-demo@adventist-knapsack-staging.notch8.cloud
   - name: INITIAL_ADMIN_EMAIL
     value: admin@example.com
   - name: INITIAL_ADMIN_PASSWORD
@@ -129,15 +129,15 @@ extraEnvVars: &envVars
   - name: HYKU_BULKRAX_ENABLED
     value: "true"
   - name: HYKU_CONTACT_EMAIL
-    value: REPLACE_ME
+    value: adventist-knapsack-staging.notch8.cloud
   - name: HYKU_FILE_ACL
     value: "false"
   - name: HYKU_DEFAULT_HOST
-    value: "%{tenant}.REPLACE_ME"
+    value: "%{tenant}.adventist-knapsack-staging.notch8.cloud"
   - name: HYKU_MULTITENANT
     value: "true"
   - name: HYKU_ROOT_HOST
-    value: REPLACE_ME
+    value: adventist-knapsack-staging.notch8.cloud
   - name: HYRAX_ACTIVE_JOB_QUEUE
     value: good_job
   - name: HYRAX_ANALYTICS
@@ -214,17 +214,16 @@ redis:
 solr:
   enabled: false
 
-externalFcrepoHost: fcrepo.staging-fcrepo.svc.cluster.local
-
+externalFcrepoHost: fcrepo.default.svc.cluster.local
 externalPostgresql:
-  host: pg-postgresql.staging-postgres.svc.cluster.local
-  username: postgres
-  password: $POSTGRES_PASSWORD
+  host: acid-postgres-cluster-bravo.postgres.svc.cluster.local
+  username: hyku-staging-hyrax
+  password: $DATABASE_PASSWORD
 
-externalSolrHost: solr.staging-solr.svc.cluster.local
+externalSolrHost: solr.default.cluster.local
 externalSolrUser: admin
-externalSolrCollection: "hyku-staging"
 externalSolrPassword: $SOLR_ADMIN_PASSWORD
+externalSolrCollection: "hyku-adventist-staging"
 
 global:
   hyraxName: hyku-staging-hyrax
