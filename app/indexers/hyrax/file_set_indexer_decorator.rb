@@ -1,3 +1,4 @@
+# OVERRIDE Hyrax 3.5.0 to override default_thumbnail and displaying human-readable titles on UV
 module Hyrax
   module FileSetIndexerDecorator
     def generate_solr_document
