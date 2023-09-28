@@ -34,6 +34,47 @@ module Hyrax
 
       end
     end
+
+      private
+
+      def digest_from_content
+        return unless object.original_file
+        object.original_file.digest.first.to_s
+      end
+
+      def original_file_id
+        return unless object.original_file
+        if object.original_file.versions.present?
+          ActiveFedora::File.uri_to_id(object.current_content_version_uri)
+        else
+          object.original_file.id
+        end
+      end
+
+      def file_format
+        if object.mime_type.present? && object.format_label.present?
+          "#{object.mime_type.split('/').last} (#{object.format_label.join(', ')})"
+        elsif object.mime_type.present?
+          object.mime_type.split('/').last
+        elsif object.format_label.present?
+          object.format_label
+        end
+      end
+
+      def human_readable_label_name(parent)
+        return unless parent
+
+        parent_title = parent.title.first
+        # The regex should reflect what is set in the `config/initializers/iiif_print.rb`,
+        # `config.unique_child_title_generator_function`.
+        page_number = parent_title[/Page \d+/]
+        return object.label unless page_number
+
+        work_title = parent.member_of.first&.title&.first
+        return parent_title unless work_title
+
+        "#{work_title} - #{page_number}"
+      end
   end
 end
 
