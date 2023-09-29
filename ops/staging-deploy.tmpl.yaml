@@ -1,5 +1,13 @@
 replicaCount: 2
 
+resources:
+  requests:
+    memory: "4Gi"
+    cpu: "1000m"
+  limits:
+    memory: "8Gi"
+    cpu: "2000m"
+
 livenessProbe:
   enabled: false
 readinessProbe:
@@ -12,9 +20,6 @@ derivativesVolume:
 uploadsVolume:
   storageClass: efs-sc
   size: 200Gi
-
-imagePullSecrets:
- - name: github
 
 extraVolumeMounts: &volMounts
   - name: uploads
@@ -80,20 +85,20 @@ extraEnvVars: &envVars
     value: "8080"
   - name: FCREPO_REST_PATH
     value: rest
-  - name: GOOGLE_ANALYTICS_ID
-    value: $GOOGLE_ANALYTICS_ID
-  - name: GOOGLE_OAUTH_APP_NAME
-    value: hyku_staging
-  - name: GOOGLE_OAUTH_APP_VERSION
-    value: '1.0'
-  - name: GOOGLE_OAUTH_PRIVATE_KEY_SECRET
-    value: $GOOGLE_OAUTH_PRIVATE_KEY_SECRET
-  - name: GOOGLE_OAUTH_PRIVATE_KEY_PATH
-    value: prod-cred.p12
-  - name: GOOGLE_OAUTH_PRIVATE_KEY_VALUE
-    value: $GOOGLE_OAUTH_PRIVATE_KEY_VALUE
-  - name: GOOGLE_OAUTH_CLIENT_EMAIL
-    value: hyku-demo@adventist-knapsack-staging.notch8.cloud
+  # - name: GOOGLE_ANALYTICS_ID
+  #   value: $GOOGLE_ANALYTICS_ID
+  # - name: GOOGLE_OAUTH_APP_NAME
+  #   value: hyku_staging
+  # - name: GOOGLE_OAUTH_APP_VERSION
+  #   value: '1.0'
+  # - name: GOOGLE_OAUTH_PRIVATE_KEY_SECRET
+  #   value: $GOOGLE_OAUTH_PRIVATE_KEY_SECRET
+  # - name: GOOGLE_OAUTH_PRIVATE_KEY_PATH
+  #   value: prod-cred.p12
+  # - name: GOOGLE_OAUTH_PRIVATE_KEY_VALUE
+  #   value: $GOOGLE_OAUTH_PRIVATE_KEY_VALUE
+  # - name: GOOGLE_OAUTH_CLIENT_EMAIL
+  #   value: hyku-demo@adventist-knapsack-staging.notch8.cloud
   - name: INITIAL_ADMIN_EMAIL
     value: admin@example.com
   - name: INITIAL_ADMIN_PASSWORD
@@ -185,13 +190,21 @@ extraEnvVars: &envVars
 
 worker:
   replicaCount: 1
-  extraVolumeMounts: *volMounts
-  extraEnvVars: *envVars
+  resources:
+    requests:
+      memory: "4Gi"
+      cpu: "1000m"
+    limits:
+      memory: "8Gi"
+      cpu: "2000m"
   podSecurityContext:
     runAsUser: 1001
     runAsGroup: 101
     fsGroup: 101
     fsGroupChangePolicy: "OnRootMismatch"
+  extraVolumeMounts: *volMounts
+  extraEnvVars: *envVars
+
 podSecurityContext:
   runAsUser: 1001
   runAsGroup: 101
@@ -202,6 +215,9 @@ embargoRelease:
   enabled: false
 leaseRelease:
   enabled: false
+
+imagePullSecrets:
+  - name: github-registry
 
 fcrepo:
   enabled: false
