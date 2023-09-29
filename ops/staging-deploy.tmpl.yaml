@@ -110,7 +110,7 @@ extraEnvVars: &envVars
   # - name: GOOGLE_OAUTH_CLIENT_EMAIL
   #   value: hyku-demo@adventist-knapsack-staging.notch8.cloud
   - name: HYKU_ADMIN_HOST
-    value: RPLACEME
+    value: "adventist-knapsack-staging.notch8.cloud"
   - name: HYKU_ADMIN_ONLY_TENANT_CREATION
     value: "false"
   - name: HYKU_ALLOW_SIGNUP
@@ -118,7 +118,7 @@ extraEnvVars: &envVars
   - name: HYKU_BULKRAX_ENABLED
     value: "true"
   - name: HYKU_CONTACT_EMAIL
-    value: adventist-knapsack-staging.notch8.cloud
+    value: 'changeme@example.com'
   - name: HYKU_DEFAULT_HOST
     value: "%{tenant}.adventist-knapsack-staging.notch8.cloud"
   - name: HYKU_FILE_ACL
