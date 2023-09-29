@@ -28,17 +28,17 @@ body.public-facing #per_page-dropdown .dropdown-toggle { color: <%= appearance.l
 /* MAIN NAV */
 body.public-facing .navbar-inverse .navbar-link { color: <%= appearance.footer_link_color %>; }
 body.public-facing .navbar-inverse .navbar-link:hover { color: <%= appearance.footer_link_hover_color %> }
-body.public-facing .navbar-inverse { background-color: <%= appearance.header_and_footer_background_color %>; }
+body.public-facing .navbar-inverse { background-color: <%= appearance.header_background_color %>; }
 body.public-facing .navbar-inverse .navbar-nav > .open > a,
 body.public-facing .navbar-inverse .navbar-nav > .open > a:hover,
-body.public-facing .navbar-inverse .navbar-nav > .open > a:focus { background-color: <%= appearance.header_and_footer_background_color %>; }
+body.public-facing .navbar-inverse .navbar-nav > .open > a:focus { background-color: <%= appearance.header_background_color %>; }
 body.public-facing .navbar-inverse .navbar-nav > li > a,
 body.public-facing .navbar-inverse .navbar-text,
-body.public-facing .navbar-inverse .navbar-brand { color: <%= appearance.header_and_footer_text_color %>; }
+body.public-facing .navbar-inverse .navbar-brand { color: <%= appearance.header_text_color %>; }
 body.public-facing .navbar-inverse { border-color: <%= appearance.header_background_border_color %>; }
 
 /* HOME PAGE SEARCH BAR NAV */
-body.public-facing .image-masthead .navbar { background-color: <%= appearance.navbar_background_color_alpha %>; }
+/* body.public-facing .image-masthead .navbar { background-color: <%= appearance.navbar_background_color_alpha %>; }
 body.public-facing .image-masthead .navbar .active > a,
 body.public-facing .image-masthead .navbar .active > a:hover,
 body.public-facing .image-masthead .navbar .active > a:focus {
@@ -47,13 +47,13 @@ body.public-facing .image-masthead .navbar .active > a:focus {
 }
 body.public-facing .image-masthead .navbar .navbar-nav a {
     color: <%= appearance.navbar_link_text_color %>;
-}
+} */
 
-body.public-facing .image-masthead .navbar .navbar-nav a:hover,
+/* body.public-facing .image-masthead .navbar .navbar-nav a:hover,
 body.public-facing .image-masthead .navbar .navbar-nav a:focus {
     background-color: <%= appearance.navbar_link_background_hover_color_alpha %>;
     color: <%= appearance.navbar_link_text_hover_color %>;
-}
+} */
 
 /* HOME PAGE NAV-PILL TABS */
 body.public-facing .nav-pills > li.active > a,
@@ -63,78 +63,78 @@ body.public-facing .nav-pills > li.active > a:focus {
 }
 
 /* PRIMARY BUTTON STYLES */
-body.public-facing .btn-primary {
-  background-color: <%= appearance.primary_button_hover_color %>;
+.public-facing .btn-primary {
+  background-color: <%= appearance.primary_button_background_color %>;
   border-color: <%= appearance.primary_button_border_color %>;
 }
-body.public-facing .btn-primary:focus,
-body.public-facing .btn-primary.focus {
+.public-facing .btn-primary:focus,
+.public-facing .btn-primary.focus {
   background-color: <%= appearance.primary_button_focus_background_color %>;
   border-color: <%= appearance.primary_button_focus_border_color %>;
 }
-body.public-facing .btn-primary:hover {
+.public-facing .btn-primary:hover {
   background-color: <%= appearance.primary_button_hover_background_color %>;
   border-color: <%= appearance.primary_button_hover_border_color %>;
 }
-body.public-facing .btn-primary:active,
-body.public-facing .btn-primary.active {
-  background-color: <%= appearance.primary_button_hover_color %>;
+.public-facing .btn-primary:active,
+.public-facing .btn-primary.active {
+  background-color: <%= appearance.primary_button_background_color %>;
   border-color: <%= appearance.primary_button_border_color %>;
 }
-body.public-facing .btn-primary:active:hover,
-body.public-facing .btn-primary:active:focus,
-body.public-facing .btn-primary:active.focus,
-body.public-facing .btn-primary.active:hover,
-body.public-facing .btn-primary.active:focus,
-body.public-facing .btn-primary.active.focus{
-  background-color: <%= appearance.primary_button_hover_color %>;
+.public-facing .btn-primary:active:hover,
+.public-facing .btn-primary:active:focus,
+.public-facing .btn-primary:active.focus,
+.public-facing .btn-primary.active:hover,
+.public-facing .btn-primary.active:focus,
+.public-facing .btn-primary.active.focus{
+  background-color: <%= appearance.primary_button_background_color %>;
   border-color: <%= appearance.primary_button_border_color %>;
 }
-body.public-facing .btn-primary.disabled:hover,
-body.public-facing .btn-primary.disabled:focus,
-body.public-facing .btn-primary.disabled.focus,
-body.public-facing .btn-primary[disabled]:hover,
-body.public-facing .btn-primary[disabled]:focus,
-body.public-facing .btn-primary[disabled].focus {
-  background-color: <%= appearance.primary_button_hover_color %>;
+.public-facing .btn-primary.disabled:hover,
+.public-facing .btn-primary.disabled:focus,
+.public-facing .btn-primary.disabled.focus,
+.public-facing .btn-primary[disabled]:hover,
+.public-facing .btn-primary[disabled]:focus,
+.public-facing .btn-primary[disabled].focus {
+  background-color: <%= appearance.primary_button_background_color %>;
   border-color: <%= appearance.primary_button_border_color %>;
 }
 
 /* DEFAULT BUTTON STYLES */
-body.public-facing .btn-default {
+.public-facing .btn-default {
   background-color: <%= appearance.default_button_background_color %>;
   border-color: <%= appearance.default_button_border_color %>;
   color: <%= appearance.default_button_text_color %>;;
 }
-body.public-facing .btn-default:focus,
-body.public-facing .btn-default.focus {
+.public-facing .btn-default:focus,
+.public-facing .btn-default.focus {
   background-color: <%= appearance.default_button_focus_background_color %>;
   border-color: <%= appearance.default_button_focus_border_color %>;
 }
-body.public-facing .btn-default:hover {
+.public-facing .btn-default:hover {
   background-color: <%= appearance.default_button_hover_background_color %>;
   border-color: <%= appearance.default_button_hover_border_color %>;
 }
-body.public-facing .btn-default:active,
-body.public-facing .btn-default.active {
+.public-facing .btn-default:active,
+.public-facing .btn-default.active {
   background-color: <%= appearance.default_button_background_color %>;
   border-color: <%= appearance.default_button_border_color %>;
 }
-body.public-facing .btn-default:active:hover,
-body.public-facing .btn-default:active:focus,
-body.public-facing .btn-default:active.focus,
-body.public-facing .btn-default.active:hover,
-body.public-facing .btn-default.active:focus,
-body.public-facing .btn-default.active.focus{
+.public-facing .btn-default:active:hover,
+.public-facing .btn-default:active:focus,
+.public-facing .btn-default:active.focus,
+.public-facing .btn-default.active:hover,
+.public-facing .btn-default.active:focus,
+.public-facing .btn-default.active.focus{
   background-color: <%= appearance.default_button_background_color %>;
   border-color: <%= appearance.default_button_border_color %>;
 }
-body.public-facing .btn-default.disabled:hover,
-body.public-facing .btn-default.disabled:focus,
-body.public-facing .btn-default.disabled.focus,
-body.public-facing .btn-default[disabled]:hover,
-body.public-facing .btn-default[disabled]:focus,
-body.public-facing .btn-default[disabled].focus {
+.public-facing .btn-default.disabled:hover,
+.public-facing .btn-default.disabled:focus,
+.public-facing .btn-default.disabled.focus,
+.public-facing .btn-default[disabled]:hover,
+.public-facing .btn-default[disabled]:focus,
+.public-facing .btn-default[disabled].focus {
   background-color: <%= appearance.default_button_background_color %>;
   border-color: <%= appearance.default_button_border_color %>;
 }
@@ -147,7 +147,6 @@ body.public-facing .panel-default > .panel-heading {
 }
 body.public-facing .panel-default { border-color: <%= appearance.facet_panel_border_color %>; }
 body.public-facing .panel-heading.collapse-toggle .panel-title:after { color: <%= appearance.facet_panel_text_color %>; }
-
 
 /* CUSTOM ADVENTIST DIGITAL LIBRARY OVERRIDE COLOR FOR HEADER & FOOTER */
 .public-facing #masthead.navbar.navbar-inverse.navbar-static-top {
