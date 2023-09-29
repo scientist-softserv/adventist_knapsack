@@ -6,11 +6,11 @@ readinessProbe:
   enabled: false
 
 brandingVolume:
-  storageClass: aws-efs
+  storageClass: efs-sc
 derivativesVolume:
-  storageClass: aws-efs
+  storageClass: efs-sc
 uploadsVolume:
-  storageClass: aws-efs
+  storageClass: efs-sc
   size: 200Gi
 
 imagePullSecrets:
