@@ -26,7 +26,7 @@ jobs:
 
   test:
     needs: build
-    uses: scientist-softserv/actions/.github/workflows/test.yaml@v0.0.15
+    uses: scientist-softserv/actions/.github/workflows/test.yaml@fix_spec_reports
     with:
       confdir: '/app/samvera/hyrax-webapp/solr/conf'
       webTarget: hyku-web
