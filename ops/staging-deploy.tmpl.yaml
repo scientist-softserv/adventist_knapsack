@@ -134,7 +134,7 @@ extraEnvVars: &envVars
   - name: HYRAX_FITS_PATH
     value: /app/fits/fits.sh
   - name: IN_DOCKER
-    value: "true"
+    value: "false"
   - name: INITIAL_ADMIN_EMAIL
     value: admin@example.com
   - name: INITIAL_ADMIN_PASSWORD
