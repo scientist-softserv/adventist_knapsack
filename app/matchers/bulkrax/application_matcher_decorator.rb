@@ -8,7 +8,14 @@ module Bulkrax
     # OVERRIDE Bulkrax 1.0.2 to override default_thumbnail
     def process_parse
       # New parse methods will need to be added here
-      parsed_fields = ['remote_files', 'language', 'subject', 'types', 'model', 'resource_type', 'format_original', 'thumbnail_url']
+      parsed_fields = ['remote_files',
+                       'language',
+                       'subject',
+                       'types',
+                       'model',
+                       'resource_type',
+                       'format_original',
+                       'thumbnail_url']
       # This accounts for prefixed matchers
       parser = parsed_fields.find { |field| to&.include? field }
 

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 # OVERRIDE IiifPrint v1.0.0 to not render thumbnail files in the UV
-
-# rubocop:disable Metrics/BlockLength
 IiifPrint::ManifestBuilderServiceBehavior.module_eval do
   def build_manifest(presenter:)
     manifest = manifest_factory.new(presenter).to_h

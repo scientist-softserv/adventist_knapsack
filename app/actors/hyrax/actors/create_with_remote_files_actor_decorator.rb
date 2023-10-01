@@ -15,7 +15,9 @@ module Hyrax
             # Escape any space characters, so that this is a legal URI
             uri = URI.parse(Addressable::URI.escape(file_info[:url]))
             unless self.class.validate_remote_url(uri)
-              Rails.logger.error "User #{user.user_key} attempted to ingest file from url #{file_info[:url]}, which doesn't pass validation"
+              msg = "User #{user.user_key} attempted to ingest file from url #{file_info[:url]}"
+              msg += ", which doesn't pass validation"
+              Rails.logger.error msg
               return false
             end
             auth_header = file_info.fetch(:auth_header, {})
@@ -35,7 +37,9 @@ module Hyrax
             use_valkyrie = true
           else
             # OVERRIDE Hyrax 3.5 to override default_thumbnail
-            file_set = ::FileSet.new(import_url: import_url, label: file_name, override_default_thumbnail: override_default_thumbnail)
+            file_set = ::FileSet.new(import_url: import_url,
+                                     label: file_name,
+                                     override_default_thumbnail: override_default_thumbnail)
           end
           __create_file_from_url(file_set: file_set, uri: uri, auth_header: auth_header, use_valkyrie: use_valkyrie)
         end
@@ -44,4 +48,6 @@ module Hyrax
   end
 end
 
+# rubocop:disable Metrics/LineLength
 Hyrax::Actors::CreateWithRemoteFilesActor::IngestRemoteFilesService.prepend Hyrax::Actors::CreateWithRemoteFilesActorDecorator::IngestRemoteFilesServiceDecorator
+# rubocop:enable Metrics/LineLength

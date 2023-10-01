@@ -9,7 +9,7 @@ RSpec.describe Hyku::Admin::Group::NavigationPresenter do
     }
   end
 
-  context 'edit page' do
+  context 'with edit page' do
     subject { presenter.tabs }
 
     let(:action) { 'edit' }
@@ -25,7 +25,7 @@ RSpec.describe Hyku::Admin::Group::NavigationPresenter do
     end
   end
 
-  context 'members page' do
+  context 'with members page' do
     subject { presenter.tabs }
 
     let(:action) { 'index' }
@@ -41,7 +41,7 @@ RSpec.describe Hyku::Admin::Group::NavigationPresenter do
     end
   end
 
-  context 'remve page' do
+  context 'with remve page' do
     subject { presenter.tabs }
 
     let(:action) { 'remove' }

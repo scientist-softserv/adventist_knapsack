@@ -24,8 +24,8 @@ module HykuKnapsack
       my_engine_root = HykuKnapsack::Engine.root.to_s
 
       # need collection model first
-      c = "#{my_engine_root}/app/models/collection_decorator.rb"
-      Rails.configuration.cache_classes ? require(c) : load(c)
+      code = "#{my_engine_root}/app/models/collection_decorator.rb"
+      Rails.configuration.cache_classes ? require(code) : load(code)
 
       Dir.glob(File.join(my_engine_root, "app/**/*_decorator*.rb")).sort.each do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
