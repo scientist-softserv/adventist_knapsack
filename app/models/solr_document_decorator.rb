@@ -146,21 +146,21 @@ module SolrDocumentDecorator
     attribute :file_set_ids, Solr::Array, 'file_set_ids_ssim'
     attribute :video_embed, Solr::String, 'video_embed_tesim'
 
-field_semantics.merge!(
-  contributor: 'contributor_tesim',
-  creator: 'creator_tesim',
-  date: 'date_created_tesim',
-  description: 'description_tesim',
-  identifier: 'aark_id_tesim',
-  language: 'language_tesim',
-  publisher: 'publisher_tesim',
-  relation: 'nesting_collection__pathnames_ssim',
-  related_url: 'related_url_tesim',
-  rights: 'rights_statement_tesim',
-  subject: 'subject_tesim',
-  title: 'title_tesim',
-  type: 'human_readable_type_tesim'
-)
+    field_semantics.merge!(
+      contributor: 'contributor_tesim',
+      creator: 'creator_tesim',
+      date: 'date_created_tesim',
+      description: 'description_tesim',
+      identifier: 'aark_id_tesim',
+      language: 'language_tesim',
+      publisher: 'publisher_tesim',
+      relation: 'nesting_collection__pathnames_ssim',
+      related_url: 'related_url_tesim',
+      rights: 'rights_statement_tesim',
+      subject: 'subject_tesim',
+      title: 'title_tesim',
+      type: 'human_readable_type_tesim'
+    )
   end
 
   def to_param

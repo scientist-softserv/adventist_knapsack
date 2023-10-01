@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require "spec_helper"
 require File.expand_path("hyku_specs/rails_helper.rb", __dir__)
@@ -39,5 +40,5 @@ RSpec.configure do |config|
   # TODO is this needed?
   config.include HykuKnapsack::Engine.routes.url_helpers
 
- ## End override
+  ## End override
 end

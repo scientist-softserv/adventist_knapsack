@@ -25,12 +25,11 @@ module Hyrax
           'custom_adl_header_footer_color'     => '#CE8C00'
         }.freeze
 
-
-        # TODO do we need this adl_header_footer_color?
+        # TODO: do we need this adl_header_footer_color?
         # 'custom_adl_header_footer_color'   => '#CE8C00'
         # OVERRIDE here to add adventist's custom header & footer
         def custom_adl_header_footer_color
-         block_for('custom_adl_header_footer_color')
+          block_for('custom_adl_header_footer_color')
         end
       end
     end

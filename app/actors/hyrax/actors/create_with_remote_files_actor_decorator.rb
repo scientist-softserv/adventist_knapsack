@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # OVERRIDE Hyrax 3.6 to add custom default thumbnails
 
 module Hyrax
@@ -24,7 +26,7 @@ module Hyrax
           true
         end
 
-        def create_file_from_url(uri, file_name, auth_header, default_thumbnail = nil)
+        def create_file_from_url(uri, file_name, auth_header, override_default_thumbnail = nil)
           import_url = URI.decode_www_form_component(uri.to_s)
           use_valkyrie = false
           case curation_concern
@@ -37,7 +39,6 @@ module Hyrax
           end
           __create_file_from_url(file_set: file_set, uri: uri, auth_header: auth_header, use_valkyrie: use_valkyrie)
         end
-
       end
     end
   end

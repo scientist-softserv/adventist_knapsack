@@ -10,11 +10,11 @@ GenericWork.include(DogBiscuits::PartOf)
 GenericWork.include(DogBiscuits::PlaceOfPublication)
 GenericWork.include(SlugBug)
 GenericWork.include(IiifPrint.model_configuration(
-  pdf_split_child_model: self,
-  pdf_splitter_service: IiifPrint::SplitPdfs::AdventistPagesToJpgsSplitter,
-  derivative_service_plugins: [
-    IiifPrint::TextExtractionDerivativeService
-  ]
+                      pdf_split_child_model: self,
+                      pdf_splitter_service: IiifPrint::SplitPdfs::AdventistPagesToJpgsSplitter,
+                      derivative_service_plugins: [
+                        IiifPrint::TextExtractionDerivativeService
+                      ]
 ))
 
 # This must come after the properties because it finalizes the metadata

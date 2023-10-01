@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HykuKnapsack
   module ApplicationHelper
     include ::DogBiscuitsHelper
@@ -5,7 +7,7 @@ module HykuKnapsack
 
     def video_embed_viewer_display(work_presenter, locals = {})
       render video_embed_viewer_display_partial(work_presenter),
-        locals.merge(presenter: work_presenter)
+             locals.merge(presenter: work_presenter)
     end
 
     def video_embed_viewer_display_partial(work_presenter)

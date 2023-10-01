@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # OVERRIDE Hyrax 3.5.0 to override default_thumbnail and displaying human-readable titles on UV
 module Hyrax
   module FileSetIndexerDecorator
@@ -32,11 +34,10 @@ module Hyrax
         solr_doc['override_default_thumbnail_ssi'] = object.override_default_thumbnail
         # OVERRIDE Hyrax 3.5 to index the file set's parent work's title for displaying in the UV
         solr_doc['parent_title_tesim'] = human_readable_label_name(object.parent)
-
       end
     end
 
-      private
+    private
 
       def digest_from_content
         return unless object.original_file
@@ -57,8 +58,7 @@ module Hyrax
           "#{object.mime_type.split('/').last} (#{object.format_label.join(', ')})"
         elsif object.mime_type.present?
           object.mime_type.split('/').last
-        elsif object.format_label.present?
-          object.format_label
+          object.format_label.presence
         end
       end
 
