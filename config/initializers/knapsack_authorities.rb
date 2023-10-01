@@ -9,8 +9,7 @@
 # Hyku's.  If two are of the same name, then the one in HykuKnapsack should override the
 # one in Hyku.
 
-# Using relative path because when this gets called we are in the submodule
-HykuKnapsack::AUTHORITIES_PATH = File.expand_path('../config/authorities', Rails.root)
+HykuKnapsack::AUTHORITIES_PATH = File.join(HykuKnapsack::Engine.root, 'config', 'authorities')
 
 module Qa
   module Authorities
