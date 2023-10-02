@@ -130,7 +130,7 @@ extraEnvVars: &envVars
   - name: HYRAX_ACTIVE_JOB_QUEUE
     value: good_job
   - name: HYRAX_ANALYTICS
-    value: "true"
+    value: "false"
   - name: HYRAX_FITS_PATH
     value: /app/fits/fits.sh
   - name: IN_DOCKER
