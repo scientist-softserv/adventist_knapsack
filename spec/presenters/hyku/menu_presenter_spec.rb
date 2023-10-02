@@ -13,19 +13,19 @@ RSpec.describe Hyku::MenuPresenter do
       allow(context).to receive(:controller).and_return(controller)
     end
 
-    context "for the ContentBlocksController" do
+    context "when the ContentBlocksController" do
       let(:controller) { Hyrax::ContentBlocksController.new }
 
       it { is_expected.to be false }
     end
 
-    context "for the StatusController" do
+    context "when the StatusController" do
       let(:controller) { StatusController.new }
 
       it { is_expected.to be true }
     end
 
-    context "for the Hyrax::DashboardController" do
+    context "when the Hyrax::DashboardController" do
       let(:controller) { Hyrax::DashboardController.new }
 
       it { is_expected.to be true }
@@ -40,13 +40,13 @@ RSpec.describe Hyku::MenuPresenter do
       allow(context).to receive(:controller).and_return(controller)
     end
 
-    context "for the ContentBlocksController" do
+    context "when the ContentBlocksController" do
       let(:controller) { Hyrax::ContentBlocksController.new }
 
       it { is_expected.to be true }
     end
 
-    context "for the Admin::GroupsController" do
+    context "when the Admin::GroupsController" do
       let(:controller) { Admin::GroupsController.new }
 
       it { is_expected.to be false }
@@ -61,19 +61,19 @@ RSpec.describe Hyku::MenuPresenter do
       allow(context).to receive(:controller).and_return(controller)
     end
 
-    context "for the Hyrax::UsersController" do
+    context "when the Hyrax::UsersController" do
       let(:controller) { Hyrax::UsersController.new }
 
       it { is_expected.to be false }
     end
 
-    context "for the Hyrax::Admin::UsersController" do
+    context "when the Hyrax::Admin::UsersController" do
       let(:controller) { Hyrax::Admin::UsersController.new }
 
       it { is_expected.to be true }
     end
 
-    context "for the Admin::GroupsController" do
+    context "when the Admin::GroupsController" do
       let(:controller) { Admin::GroupsController.new }
 
       it { is_expected.to be true }
@@ -83,7 +83,7 @@ RSpec.describe Hyku::MenuPresenter do
   describe "#show_configuration?" do
     subject { instance.show_configuration? }
 
-    context "for a regular user" do
+    context "when a regular user" do
       before do
         allow(instance.view_context).to receive(:can?).and_return(false)
       end
@@ -91,7 +91,7 @@ RSpec.describe Hyku::MenuPresenter do
       it { is_expected.to be false }
     end
 
-    context "for a user who can manage users" do
+    context "when a user who can manage users" do
       before do
         allow(instance.view_context).to receive(:can?).and_return(true)
       end
@@ -103,7 +103,7 @@ RSpec.describe Hyku::MenuPresenter do
   describe "#show_admin_menu_items?" do
     subject { instance.show_admin_menu_items? }
 
-    context "for a regular user" do
+    context "when a regular user" do
       before do
         allow(instance.view_context).to receive(:can?).with(:read, :admin_dashboard).and_return(false)
       end
@@ -111,7 +111,7 @@ RSpec.describe Hyku::MenuPresenter do
       it { is_expected.to be false }
     end
 
-    context "for a user who can manage users" do
+    context "when a user who can manage users" do
       before do
         allow(instance.view_context).to receive(:can?).with(:read, :admin_dashboard).and_return(true)
       end

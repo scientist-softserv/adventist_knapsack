@@ -11,7 +11,6 @@ module Hyrax
       return call(thumb) unless thumb.is_a?(::FileSet)
       return_path(thumb)
     end
-
   end
 end
 

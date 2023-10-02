@@ -3,7 +3,8 @@
 RSpec.configure do |config|
   # Look for an overriding spec file and skip if it exists
   config.around do |example|
-    if example.file_path.starts_with?("./spec/hyku_specs") && File.exist?(example.file_path.sub("./spec/hyku_specs", "."))
+    if example.file_path.starts_with?("./spec/hyku_specs") &&
+       File.exist?(example.file_path.sub("./spec/hyku_specs", "."))
       skip "Override exists of this test file in engine."
     else
       example.run

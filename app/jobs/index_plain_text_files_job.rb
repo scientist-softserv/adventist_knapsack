@@ -13,7 +13,6 @@ class IndexPlainTextFilesJob < ApplicationJob
   # @see https://docs.ruby-lang.org/en/2.7.0/String.html#method-i-encode
   class One < ApplicationJob
     # @param file_set_id [String]
-    # rubocop:disable Metrics/BlockLength
     def perform(account, file_set_id, time_to_live = 3, logger: IndexPlainTextFilesJob.default_logger)
       account.switch do
         begin

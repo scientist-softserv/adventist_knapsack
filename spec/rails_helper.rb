@@ -1,17 +1,18 @@
 # frozen_string_literal: true
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require "spec_helper"
 require File.expand_path("hyku_specs/rails_helper.rb", __dir__)
 
 ENV["RAILS_ENV"] ||= "test"
 # require File.expand_path('../config/environment', __dir__)
-require File.expand_path("hyrax-webapp/config/environment", __dir__)
+require File.expand_path("../hyrax-webapp/config/environment", __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 require "factory_bot_rails"
-FactoryBot.definition_file_paths = [File.expand_path("spec/factories", HykuAddons::Engine.root)]
+FactoryBot.definition_file_paths = [File.expand_path("spec/factories", HykuKnapsack::Engine.root)]
 FactoryBot.find_definitions
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -39,5 +40,5 @@ RSpec.configure do |config|
   # TODO is this needed?
   config.include HykuKnapsack::Engine.routes.url_helpers
 
- ## End override
+  ## End override
 end

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 CatalogController.include DogBiscuits::Blacklight::Commands
-
-# rubocop:disable Metrics/BlockLength
 CatalogController.configure_blacklight do |config|
   # Use locally customized AdvSearchBuilder so we can enable blacklight_advanced_search
   config.search_builder_class = AdvSearchBuilder
@@ -36,7 +34,8 @@ CatalogController.configure_blacklight do |config|
   config.add_facet_field 'part_of_sim', limit: 5
   config.add_facet_field 'refereed_sim', limit: 5
 
-  # Prior to this change, the applications specific translations were not loaded. Dogbiscuits were assuming the translations were already loaded.
+  # Prior to this change, the applications specific translations were not loaded.
+  # Dogbiscuits were assuming the translations were already loaded.
   Rails.root.glob("config/locales/*.yml").each do |path|
     I18n.load_path << path.to_s
   end
@@ -57,7 +56,10 @@ CatalogController.configure_blacklight do |config|
   CatalogController.send(:add_index_field, config, index_props)
 
   config.search_fields.delete('all_fields')
-  config.add_search_field('all_fields', label: 'All Fields', include_in_advanced_search: false, advanced_parse: false) do |field|
+  config.add_search_field('all_fields',
+                          label: 'All Fields',
+                          include_in_advanced_search: false,
+                          advanced_parse: false) do |field|
     all_names = (config.show_fields.values.map { |v| v.field.to_s } +
                  DogBiscuits.config.all_properties.map { |p| "#{p}_tesim" }).uniq.join(" ")
     title_name = 'title_tesim'
