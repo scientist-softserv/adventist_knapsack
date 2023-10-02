@@ -9,7 +9,7 @@ module Hyrax
           'custom_adl_header_footer_color'        => '#CE8C00',
           'header_background_color'               => '#000000',
           'active_tabs_background_color'          => '#3c3c3c',
-          'header_background_border_color'       => '#000000',
+          'header_background_border_color'        => '#000000',
           'header_text_color'                     => '#2C2C2C',
           # 'navbar_background_color'             => '#ffffff',
           # 'navbar_link_background_hover_color'  => '#ffffff',
@@ -55,6 +55,10 @@ module Hyrax
 
         def header_background_color
           block_for('header_background_color')
+        end
+
+        def header_background_border_color
+          block_for('header_background_border_color')
         end
 
         def header_text_color
