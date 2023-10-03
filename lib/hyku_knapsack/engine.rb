@@ -44,6 +44,11 @@ module HykuKnapsack
       paths = [my_engine_root + '/app/views'] + paths
       ActionController::Base.view_paths = paths.uniq
       ::ApplicationController.send :helper, HykuKnapsack::Engine.helpers
+
+      # Moves the Dog Biscuits locales to the end of the load path
+      Dir[Pathname.new(my_engine_root).join('config', 'locales', '**', 'dog_biscuits.*.yml')].each do |path|
+        I18n.load_path.push(path)
+      end
     end
   end
 end
