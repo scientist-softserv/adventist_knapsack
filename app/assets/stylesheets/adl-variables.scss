@@ -1,0 +1,46 @@
+@import url(https://fonts.googleapis.com/css?family=Nobile:400,700,300);
+
+$primary-font-family: "Nobile", sans-serif;
+
+$jumbotron-heading-font-size: 2.5em;
+$jumbotron-heading-color: #30373b;
+$jumbotron-sub-heading-color: #444;
+$jumbotron-button-background-color: #7ab55c;
+
+$features-section-background-color: #f4f4f4;
+$features-section-border-color: #ddd;
+
+
+// BRAND COLORS
+$white: #ffffff;
+$lightgrey: #F5F5F6;
+$lightgreyborder: #e5e5e5;
+$lightgrey2: #b8b8b8;
+$mediumgrey: #5b5b5b;
+$darkgrey: #2C2C2C;
+$black: #000000;
+$lightyellow: #FFBD42;
+$mediumyellow: #CE8C00;
+$darkyellow: #985F03;
+$transparentwhite: rgba(255, 255, 255, .8);
+
+// Breakpoints
+
+//use for max widths
+  // X-Small devices (portrait phones, less than 576px)
+  $xs-max: 575.98px;
+  // Small devices (landscape phones, less than 768px)
+  $sm-max: 767.98px;
+  // Medium devices (tablets, less than 992px)
+  $md-max: 991.98px;
+  // Large devices (desktops, less than 1200px)
+  $lg-max: 1251.98px;
+  // X-Large devices (large desktops, less than 1400px)
+  $xl-max: 1399.98px;
+  
+// use for min-widths
+  $xs-min: 576px;
+  $sm-min: 768px;
+  $md-min: 992px;
+  $lg-min: 1252px;
+  $xl-min: 1400px;
