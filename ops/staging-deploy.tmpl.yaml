@@ -128,7 +128,7 @@ extraEnvVars: &envVars
   - name: HYKU_ROOT_HOST
     value: adventist-knapsack-staging.notch8.cloud
   - name: HYRAX_ACTIVE_JOB_QUEUE
-    value: good_job
+    value: sidekiq
   - name: HYRAX_ANALYTICS
     value: "false"
   - name: HYRAX_FITS_PATH
