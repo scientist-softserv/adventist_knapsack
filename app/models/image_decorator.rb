@@ -10,7 +10,7 @@ Image.include(DogBiscuits::Geo)
 Image.include(DogBiscuits::PartOf)
 Image.include(DogBiscuits::PlaceOfPublication)
 Image.include(IiifPrint.model_configuration(
-                pdf_split_child_model: self,
+                pdf_split_child_model: Image,
                 pdf_splitter_service: IiifPrint::SplitPdfs::AdventistPagesToJpgsSplitter,
                 derivative_service_plugins: [
                   IiifPrint::TextExtractionDerivativeService

@@ -10,7 +10,7 @@ GenericWork.include(DogBiscuits::PartOf)
 GenericWork.include(DogBiscuits::PlaceOfPublication)
 GenericWork.include(SlugBug)
 GenericWork.include(IiifPrint.model_configuration(
-                      pdf_split_child_model: self,
+                      pdf_split_child_model: GenericWork,
                       pdf_splitter_service: IiifPrint::SplitPdfs::AdventistPagesToJpgsSplitter,
                       derivative_service_plugins: [
                         IiifPrint::TextExtractionDerivativeService
