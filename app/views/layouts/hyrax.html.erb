@@ -50,5 +50,14 @@
     </div><!-- /#content-wrapper -->
     <%= render partial: 'shared/footer' %>
     <%= render 'shared/ajax_modal' %>
+
+    <footer>
+  <p>View Paths:</p>
+  <ul>
+    <% view_paths.each do |path| %>
+<li><%= path %></li>
+    <% end %>
+  </ul>
+</footer>
   </body>
 </html>
