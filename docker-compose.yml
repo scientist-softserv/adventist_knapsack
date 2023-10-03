@@ -14,6 +14,7 @@ x-app: &app
     # This line is what makes the knapsack include use the local code instead of the remote gem
     - BUNDLE_LOCAL__HYKU_KNAPSACK=/app/samvera
     - BUNDLE_DISABLE_LOCAL_BRANCH_CHECK=true
+    - HYRAX_ACTIVE_JOB_QUEUE=good_job
   volumes:
     - node_modules:/app/samvera/hyrax-webapp/node_modules:cached
     - uploads:/app/samvera/hyrax-webapp/public/uploads:cached
@@ -62,12 +63,13 @@ services:
     extends:
       file: hyrax-webapp/docker-compose.yml
       service: web
-    # command left commented for situations where the Gemfile.lock needs to be updated before the app starts
-    # command: bash -l -c "sleep infinity"
+    # Uncomment command to access container with out starting bin/web. Useful for debugging or updating Gemfile.lock
+    # command: sleep infinity
     environment:
       # This line is what makes the knapsack include use the local code instead of the remote gem
       - BUNDLE_LOCAL__HYKU_KNAPSACK=/app/samvera
       - BUNDLE_DISABLE_LOCAL_BRANCH_CHECK=true
+      - HYRAX_ACTIVE_JOB_QUEUE=good_job
       - VIRTUAL_PORT=3000
       - VIRTUAL_HOST=.hyku.test
 
@@ -77,6 +79,8 @@ services:
       file: hyrax-webapp/docker-compose.yml
       service: worker
     image: ghcr.io/scientist-softserv/adventist_knapsack/worker:${TAG:-latest}
+    # Uncomment command to access container with out starting bin/worker. Useful for debugging or updating Gemfile.lock
+    # command: sleep infinity
     volumes:
       - node_modules:/app/samvera/hyrax-webapp/node_modules:cached
       - uploads:/app/samvera/hyrax-webapp/public/uploads:cached
