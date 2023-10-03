@@ -2,8 +2,10 @@
 
 # Generated via
 #  `rails generate hyrax:work GenericWork`
-module Hyrax
-  class GenericWorkPresenter < Hyku::WorkShowPresenter
-    delegate :aark_id, :abstract, :date_issued, :alt, :part_of, :place_of_publication, :remote_url, to: :solr_document
-  end
-end
+# module Hyrax
+#   class GenericWorkPresenter < Hyku::WorkShowPresenter
+#     delegate :aark_id, :abstract, :date_issued, :alt, :part_of, :place_of_publication, :remote_url, to: :solr_document
+#   end
+# end
+
+Hyrax::GenericWorkPresenter.delegate :aark_id, :abstract, :date_issued, :alt, :part_of, :place_of_publication, :remote_url, to: :solr_document
