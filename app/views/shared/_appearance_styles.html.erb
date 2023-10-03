@@ -16,7 +16,14 @@ body.public-facing h2,
 body.public-facing h3,
 body.public-facing h4,
 body.public-facing h5,
-body.public-facing h6 { font-family: <%= appearance.font_headline_family %>}
+body.public-facing h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 { font-family: <%= appearance.font_headline_family %>
+  }
 
 /* LINK COLORS */
 body.public-facing a { color: <%= appearance.link_color %>; }
@@ -68,7 +75,7 @@ body.public-facing .btn-primary {
   border-color: <%= appearance.primary_button_border_color %>;
 }
 body.public-facing .btn-primary:focus,
-body.public-facing .btn-primary.focus {
+.public-facing .btn-primary.focus {
   background-color: <%= appearance.primary_button_focus_background_color %>;
   border-color: <%= appearance.primary_button_focus_border_color %>;
 }
@@ -147,7 +154,6 @@ body.public-facing .panel-default > .panel-heading {
 }
 body.public-facing .panel-default { border-color: <%= appearance.facet_panel_border_color %>; }
 body.public-facing .panel-heading.collapse-toggle .panel-title:after { color: <%= appearance.facet_panel_text_color %>; }
-
 
 /* CUSTOM ADVENTIST DIGITAL LIBRARY OVERRIDE COLOR FOR HEADER & FOOTER */
 .public-facing #masthead.navbar.navbar-inverse.navbar-static-top {
