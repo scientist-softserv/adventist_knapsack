@@ -34,15 +34,17 @@ module HykuKnapsack
       Dir.glob(File.join(my_engine_root, "lib/**/*_decorator*.rb")).sort.each do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
+
+      # Hyku::Application.theme_view_path_roots.push HykuKnapsack::Engine.root
     end
 
     config.after_initialize do
       my_engine_root = HykuKnapsack::Engine.root.to_s
-      paths = ActionController::Base.view_paths.collect(&:to_s)
+      paths = ::ApplicationController.view_paths.collect(&:to_s)
       # This is the opposite of what you usually want to do. Normally app views override engine views
       # but in our case things in the Knapsack override what is in the application
       paths = [my_engine_root + '/app/views'] + paths
-      ActionController::Base.view_paths = paths.uniq
+      ::ApplicationController.view_paths = paths.uniq
       ::ApplicationController.send :helper, HykuKnapsack::Engine.helpers
 
       # Moves the Dog Biscuits locales to the end of the load path
