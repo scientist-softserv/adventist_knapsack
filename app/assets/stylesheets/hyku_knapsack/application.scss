@@ -1,4 +1,5 @@
-@import "adl-overrides/variables";
+@import "adl-variables";
+@import "../adl-overrides/*";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -14,12 +15,3 @@
  *= require_tree .
  *= require_self
  */
-
-.viewer-wrapper {
-  height: 900px !important;
-}
-
-.video-embed-viewer {
-  aspect-ratio: auto;
-  width: 100%;
-}
