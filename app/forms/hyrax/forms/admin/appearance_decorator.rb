@@ -18,6 +18,7 @@ module Hyrax
           'footer_link_color'                  => '#985F03',
           'footer_link_hover_color'            => '#000000',
           'primary_button_hover_color'         => '#CE8C00',
+          'default_button_background_color'    => '#ffffff',
           'default_button_border_color'        => '#5B5B5B',
           'default_button_text_color'          => '#FFFFFF',
           'active_tabs_background_color'       => '#FFFFFF',
@@ -32,7 +33,7 @@ module Hyrax
 
         # OVERRIDE to add adventist's custom header & footer
         def default_values
-          ADL_DEFAULT_FONTS.merge(ADL_DEFAULT_COLORS)
+          @default_values ||= ADL_DEFAULT_FONTS.merge(ADL_DEFAULT_COLORS)
         end
 
         def custom_adl_header_footer_color
