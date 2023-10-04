@@ -15,5 +15,7 @@ USER app
 
 CMD ./bin/web
 
+ONBUILD RUN RAILS_ENV=production SECRET_KEY_BASE=`bin/rake secret` DB_ADAPTER=nulldb DB_URL='postgresql://fake' bundle exec rake assets:precompile && yarn install
+
 FROM hyku-web as hyku-worker
 CMD ./bin/worker
