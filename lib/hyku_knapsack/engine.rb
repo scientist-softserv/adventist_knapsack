@@ -62,6 +62,9 @@ module HykuKnapsack
       Dir[Pathname.new(my_engine_root).join('config', 'locales', '**', 'dog_biscuits.*.yml')].each do |path|
         I18n.load_path.push(path)
       end
+
+      # Adds the `Adventist::TextFileTextExtractionService` to the front of the Hyrax::DerivativeService.services
+      Hyrax::DerivativeService.services.unshift(Adventist::TextFileTextExtractionService)
     end
   end
 end
