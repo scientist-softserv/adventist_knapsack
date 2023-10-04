@@ -4,6 +4,14 @@
 Rails.application.config.after_initialize do
   if ENV.fetch('HYKU_BULKRAX_ENABLED', 'true') == 'true'
     Bulkrax.setup do |config|
+      ##
+      # By default this is the first registered curation concern.  But based on tests and past
+      # configs, this should be 'GenericWork'.  Note: The below value could change, but it should be
+      # explicit.
+      #
+      # See https://github.com/samvera/hyku/blob/07fde572f9152d513b13f71cae90dd4fdfbfba6c/config/initializers/hyrax.rb#L200-L202
+      config.default_work_type = 'GenericWork'
+
       # Setting the available parsers for Adventist.
       config.parsers = [
         { name: "OAI - Adventist Digital Library", class_name: "Bulkrax::OaiAdventistQdcParser", partial: "oai_adventist_fields" },
