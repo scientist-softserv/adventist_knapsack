@@ -17,7 +17,7 @@ module Hyrax
       # OVERRIDE HYRAX 3.5.0 to hide identifier line
       terms = self.class.terms - [:identifier]
       terms.select { |t| self[t].present? }
-    end 
+    end
   end
 end
 

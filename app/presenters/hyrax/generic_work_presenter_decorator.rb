@@ -8,4 +8,13 @@
 #   end
 # end
 
-Hyrax::GenericWorkPresenter.delegate :aark_id, :abstract, :date_issued, :alt, :part_of, :place_of_publication, :remote_url, to: :solr_document
+Hyrax::GenericWorkPresenter.delegate(
+  :aark_id,
+  :abstract,
+  :alt,
+  :date_issued,
+  :part_of,
+  :place_of_publication,
+  :remote_url,
+  to: :solr_document
+)
