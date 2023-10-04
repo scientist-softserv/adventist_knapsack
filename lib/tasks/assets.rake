@@ -9,7 +9,7 @@ namespace :hyku_knapsack do
     Dir.glob(File.join(HykuKnapsack::Engine.root, 'public', '**')).each do |asset|
       # skip directories
       next unless File.file?(asset)
-      dest_file = File.join(Rails.root, 'public', File.basename(asset))
+      dest_file = Rails.root.join('public', File.basename(asset)).to_s
       FileUtils.copy_file asset, dest_file, true
     end
   end

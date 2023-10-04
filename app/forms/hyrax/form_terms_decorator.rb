@@ -11,6 +11,6 @@ end
 Hyrax::FormTerms.prepend(Hyrax::FormTermsDecorator)
 
 # Explicitly prepending to GenericWorkForm and ImageForm since
-# .prepend didn’t affect classes that include Hyrax::FormTerms
+# .prepend didn't affect classes that include Hyrax::FormTerms
 Hyrax::GenericWorkForm.prepend(Hyrax::FormTermsDecorator)
 Hyrax::ImageForm.prepend(Hyrax::FormTermsDecorator)

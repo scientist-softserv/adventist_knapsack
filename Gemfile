@@ -12,5 +12,7 @@ gemspec
 gemfile_path = File.expand_path("hyrax-webapp/Gemfile", __dir__)
 if File.exist?(gemfile_path)
   gemfile = File.read(gemfile_path).split("\n").reject { |l| l.match('knapsack') }
+  # rubocop:disable Security/Eval
   eval(gemfile.join("\n"), binding)
+  # rubocop:enable Security/Eval
 end

@@ -101,6 +101,7 @@ FactoryBot.define do
     rights_description { ['some additional stuff about rights'] }
     source { ['tomato'] }
     subject { ['Official Heading for Woe'] }
+
     awarding_institution { ['Awarding Institution'] }
     based_near { ['Sheffield'] }
   end
