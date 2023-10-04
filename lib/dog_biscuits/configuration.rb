@@ -51,6 +51,7 @@ module DogBiscuits
     # Omitting bibliographic_citation
     def base_properties
       %i[title
+         alternative_title
          abstract
          creator
          contributor

@@ -14,7 +14,8 @@ RSpec.describe Hyrax::GenericWorkForm do
           visibility ordered_member_ids source in_works_ids member_of_collection_ids
           admin_set_id resource_type aark_id part_of place_of_publication
           date_issued alt bibliographic_citation remote_url video_embed
-          access_right alternative_title rights_notes
+          access_right 
+          rights_notes
         ].sort
       )
     end
