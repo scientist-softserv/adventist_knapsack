@@ -39,6 +39,16 @@ module HykuKnapsack
     end
 
     config.after_initialize do
+      # By default plain text files are not processed for text extraction.  In adding
+      # Adventist::TextFileTextExtractionService to the beginning of the services array we are
+      # enabling text extraction from plain text files.
+      #
+      # https://github.com/scientist-softserv/adventist-dl/blob/97bd05946345926b2b6c706bd90e183a9d78e8ef/config/application.rb#L68-L73
+      Hyrax::DerivativeService.services = [
+        Adventist::TextFileTextExtractionService,
+        IiifPrint::PluggableDerivativeService
+      ]
+
       my_engine_root = HykuKnapsack::Engine.root.to_s
       # This is the opposite of what you usually want to do.  Normally app views override engine
       # views but in our case things in the Knapsack override what is in the application.
