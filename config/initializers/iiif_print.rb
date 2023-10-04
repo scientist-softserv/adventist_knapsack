@@ -103,6 +103,7 @@ require "iiif_print/split_pdfs/adventist_pages_to_jpgs_splitter"
 # Adventist wants to reduce storage size of their split pages; JPGs are a reasonable storage size
 # compared to TIFFs
 DerivativeRodeo::Generators::PdfSplitGenerator.output_extension = 'jpg'
+DerivativeRodeo::Generators::HocrGenerator.additional_tessearct_options = IiifPrint.config.additional_tesseract_options 
 
 ####################################################################################################
 # The DerivativeRodeo is responsible for finding, moving, and/or generating files from various
