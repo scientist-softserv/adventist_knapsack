@@ -10,3 +10,4 @@ Hyrax::GenericWorkForm.terms += %i[
   remote_url
   video_embed
 ]
+Hyrax::GenericWorkForm.terms -= %i[alternative_title]
