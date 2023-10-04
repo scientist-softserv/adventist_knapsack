@@ -79,6 +79,15 @@ services:
     extends:
       file: hyrax-webapp/docker-compose.yml
       service: worker
+    build:
+      context: .
+      target: hyku-worker
+      cache_from:
+        - ghcr.io/samvera/hyku/base:latest
+        - ghcr.io/samvera-labs/hyku_knapsack/worker:latest
+      args:
+        BUILDKIT_INLINE_CACHE: 1
+        APP_PATH: ./hyrax-webapp
     image: ghcr.io/scientist-softserv/adventist_knapsack/worker:${TAG:-latest}
     # Uncomment command to access container with out starting bin/worker. Useful for debugging or updating Gemfile.lock
     # command: sleep infinity

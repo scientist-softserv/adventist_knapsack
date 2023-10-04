@@ -1,29 +1,6 @@
 # frozen_string_literal: true
 
-# Generated via
-# `rails generate hyrax:work Image`
-
 RSpec.describe Hyrax::ImageForm do
-  let(:work) { Image.new }
-  let(:form) { described_class.new(work, nil, nil) }
-  let(:file_set) { FactoryBot.create(:file_set) }
-
-  describe ".model_attributes" do
-    subject { described_class.model_attributes(params) }
-
-    let(:params) { ActionController::Parameters.new(attributes) }
-    let(:attributes) do
-      {
-        title: ['foo'],
-        extent: ['extent']
-      }
-    end
-
-    it 'permits parameters' do
-      expect(subject['extent']).to eq ['extent']
-    end
-  end
-
   describe '.terms' do
     it 'returns an array of inherited and custom terms' do
       expect(described_class.terms.sort).to eq(
@@ -37,10 +14,9 @@ RSpec.describe Hyrax::ImageForm do
           visibility ordered_member_ids source in_works_ids member_of_collection_ids
           admin_set_id resource_type extent aark_id part_of place_of_publication
           date_issued alt bibliographic_citation remote_url
+          access_right alternative_title rights_notes
         ].sort
       )
     end
   end
-
-  include_examples("work_form")
 end

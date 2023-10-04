@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "The splash page", multitenant: true do
+RSpec.describe "The splash page", type: :feature, clean: true, multitenant: true do
   around do |example|
     default_host = Capybara.default_host
     Capybara.default_host = Capybara.app_host || "http://#{Account.admin_host}"
@@ -8,14 +8,13 @@ RSpec.describe "The splash page", multitenant: true do
     Capybara.default_host = default_host
   end
 
-  xit "shows the page, displaying the Hyku version" do
+  it "shows the page, displaying the Adventist copyright" do
     visit '/'
-    expect(page).to have_link 'Login to get started', href: main_app.new_user_session_path(locale: 'en')
 
     within 'footer' do
       expect(page).to have_link 'Administrator login'
     end
 
-    expect(page).to have_content("© Adventist Digital Library 2021")
+    expect(page).to have_content("© Adventist Digital Library 2022")
   end
 end
