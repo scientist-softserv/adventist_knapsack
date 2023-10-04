@@ -264,7 +264,7 @@ GEM
       signet (~> 0.8)
       typhoeus
     builder (3.2.4)
-    bulkrax (5.3.0)
+    bulkrax (5.4.1)
       bagit (~> 0.4)
       coderay
       dry-monads (~> 1.4.0)
@@ -1322,7 +1322,7 @@ DEPENDENCIES
   blacklight_range_limit (= 6.5.0)
   bolognese (>= 1.9.10)
   bootstrap-datepicker-rails
-  bulkrax (~> 5.3)
+  bulkrax (~> 5.4)
   byebug
   capybara
   capybara-screenshot (~> 1.0)

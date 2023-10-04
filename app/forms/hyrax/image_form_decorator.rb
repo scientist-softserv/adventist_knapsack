@@ -9,3 +9,4 @@ Hyrax::ImageForm.terms += %i[
   place_of_publication
   remote_url
 ]
+Hyrax::ImageForm.terms -= %i[alternative_title]

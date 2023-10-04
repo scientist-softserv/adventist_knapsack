@@ -5,10 +5,6 @@ module Hyrax
     def primary_terms
       super + %i[creator keyword]
     end
-
-    def terms
-      super - %i[alternative_title]
-    end
   end
 end
 
