@@ -34,15 +34,28 @@ module HykuKnapsack
       Dir.glob(File.join(my_engine_root, "lib/**/*_decorator*.rb")).sort.each do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
+
+      # Hyku::Application.theme_view_path_roots.push HykuKnapsack::Engine.root
     end
 
     config.after_initialize do
       my_engine_root = HykuKnapsack::Engine.root.to_s
-      paths = ActionController::Base.view_paths.collect(&:to_s)
-      # This is the opposite of what you usually want to do. Normally app views override engine views
-      # but in our case things in the Knapsack override what is in the application
-      paths = [my_engine_root + '/app/views'] + paths
-      ActionController::Base.view_paths = paths.uniq
+      # This is the opposite of what you usually want to do.  Normally app views override engine
+      # views but in our case things in the Knapsack override what is in the application.
+      # Furthermore we need to account for when the ApplicationController and it's descendants set
+      # their individual view_paths.  By looping through all descendants, we ensure that we have
+      # the Knapsack views at the beginning of the list of view_paths.
+      #
+      # In the load sequence, when we load ApplicationController, we establish the view_path for all
+      # future descendants.  When we then encounter a descendant, we copy the
+      # ApplicationController's view_path to the descendant; then later after we've encountered most
+      # all of the descendants we updated the ApplicationController's view_path, but that does not
+      # propogate to the descendants' copied view_path.
+      ([::ApplicationController] + ::ApplicationController.descendants).each do |klass|
+        paths = klass.view_paths.collect(&:to_s)
+        paths = [my_engine_root + '/app/views'] + paths
+        klass.view_paths = paths.uniq
+      end
       ::ApplicationController.send :helper, HykuKnapsack::Engine.helpers
 
       # Moves the Dog Biscuits locales to the end of the load path
