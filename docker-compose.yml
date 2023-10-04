@@ -63,7 +63,7 @@ services:
     extends:
       file: hyrax-webapp/docker-compose.yml
       service: web
-      command: /bin/sh -c "RAILS_ENV=production SECRET_KEY_BASE=`bin/rake secret` DB_ADAPTER=nulldb DB_URL='postgresql://fake' bundle exec rake assets:precompile && yarn install && bundle exec puma -C config/puma.rb"
+    command: /bin/sh -c "RAILS_ENV=production SECRET_KEY_BASE=`bin/rake secret` DB_ADAPTER=nulldb DB_URL='postgresql://fake' bundle exec rake assets:precompile && yarn install && bundle exec puma -C config/puma.rb"
     # Uncomment command to access container with out starting bin/web. Useful for debugging or updating Gemfile.lock
     # command: sleep infinity
     environment:
