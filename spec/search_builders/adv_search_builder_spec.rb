@@ -25,6 +25,17 @@ RSpec.describe AdvSearchBuilder do
       #
       # When we had those duplicates, the :add_advanced_parse_q_to_solr obliterated the join logic
       # for files.
+      #
+      # <2023-10-04 Wed> Oh how I wish I wrote a bit more back in the day.  But alas, I didn't.  So
+      # I must rebuild that context.  Looking at the ":add_advanced_parse_q_to_solr obliterated the
+      # join logic" fragment, I'm assuming that what I meant was "I think that the
+      # 'show_works_or_works_that_contain_files' processor chain should come after the
+      # 'add_advanced_parse_q_to_solr' and 'add_advanced_search_to_solr' processor chains.
+      #
+      # This assumption is bolstered by the implementation of
+      # `Hyrax::CollectionMemberSearchBuilderDecorator` which introduces the
+      # `show_works_or_works_that_contain_files` method.  See
+      # https://github.com/samvera/hyku/blob/07fde572f9152d513b13f71cae90dd4fdfbfba6c/app/search_builders/hyrax/collection_member_search_builder_decorator.rb#L16-L34
       %i[
         default_solr_parameters
         add_query_to_solr
@@ -36,11 +47,11 @@ RSpec.describe AdvSearchBuilder do
         add_group_config_to_solr
         add_facet_paging_to_solr
         add_range_limit_params
-        add_advanced_parse_q_to_solr
-        add_advanced_search_to_solr
         add_access_controls_to_solr_params
         filter_models
         only_active_works
+        add_advanced_parse_q_to_solr
+        add_advanced_search_to_solr
         add_access_controls_to_solr_params
         show_works_or_works_that_contain_files
         show_only_active_records
