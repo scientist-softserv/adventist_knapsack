@@ -68,10 +68,13 @@ module HykuKnapsack
       end
       ::ApplicationController.send :helper, HykuKnapsack::Engine.helpers
 
-      # Moves the Dog Biscuits locales to the end of the load path
-      Dir[Pathname.new(my_engine_root).join('config', 'locales', '**', 'dog_biscuits.*.yml')].each do |path|
-        I18n.load_path.push(path)
+      # Ensure that all knapsack locales are the "first choice" of keys.
+      HykuKnapsack::Engine.root.glob('config/locales/**/*.*').each do |path|
+        I18n.load_path.push(path.to_s)
       end
+
+      # When we add translation files, we need to load them as well.
+      I18n.backend.reload!
     end
   end
 end

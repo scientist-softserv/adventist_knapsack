@@ -34,13 +34,6 @@ CatalogController.configure_blacklight do |config|
   config.add_facet_field 'part_of_sim', limit: 5
   config.add_facet_field 'refereed_sim', limit: 5
 
-  # Prior to this change, the applications specific translations were not loaded.
-  # Dogbiscuits were assuming the translations were already loaded.
-  Rails.root.glob("config/locales/*.yml").each do |path|
-    I18n.load_path << path.to_s
-  end
-  I18n.backend.reload!
-
   # Clobber all existing index and show fields that come from Hyku base but skip
   # the non-DogBiscuit keys that Adventist had already configured in a pre-Knapsack state
   # see: https://github.com/scientist-softserv/adventist-dl/blob/97bd05946345926b2b6c706bd90e183a9d78e8ef/app/controllers/catalog_controller.rb#L38-L40
