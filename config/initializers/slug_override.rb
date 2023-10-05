@@ -1,13 +1,29 @@
 # TESTED
 module FindWithSlug
-    def find(*args)
-      # rubocop:disable Rails/FindBy
-      results = where(slug_tesim: args.first).first
-      # rubocop:enable Rails/FindBy
-      results = super(*args) if results.blank?
+  def find(*args)
+    # rubocop:disable Rails/FindBy
+    results = where(slug_tesim: args.first).first
+    # rubocop:enable Rails/FindBy
+    results = super(*args) if results.blank?
 
-      results
-    end
+    results
+  end
+
+  # if we have a slug with an existing record, previous indexes would have a different id,
+  # resulting extraneous solr indexes remaining (one fedora object with two solr indexes to it)
+  #   1) This happens when a slug gets changed from either empty or a different value
+  #   2) It also apparently happens in some situations where data existed prior to the slug logic
+  # Testing for situation slug_changed? did not adequately prevent the second situation.
+  # This query finds everything indexed by fedora id. The new index will have id: slug
+  #
+  # @see ActiveFedora::Persistence.delete
+  def remove_from_index!(id)
+    # When the slug changed or we are dealing the ActiveFedora::Persistence.delete we need to both
+    # the solr doc id (which was/is the slug) and the fedora_id_ssi (which is the fedora object's
+    # ID)
+    Blacklight.default_index.connection.delete_by_query('id:"' + id + '" OR fedora_id_ssi:"' + id + '"')
+    Blacklight.default_index.connection.commit
+  end
 end
 
 # TESTED
@@ -20,7 +36,7 @@ ActiveFedora::Persistence.class_eval do
     @destroyed = true
 
     id = self.id ## cache so it's still available after delete
-    solr_delete = self.to_param || self.id
+
     # Clear out the ETag
     @ldp_source = build_ldp_resource(id)
     begin
@@ -30,7 +46,7 @@ ActiveFedora::Persistence.class_eval do
     end
 
     ## OVERRIDE change delete to to_param instead of ID
-    ActiveFedora::SolrService.delete(solr_delete) if ActiveFedora.enable_solr_updates?
+    ActiveFedora::Base.remove_from_index!(id) if ActiveFedora.enable_solr_updates?
     self.class.eradicate(id) if opts[:eradicate]
     freeze
   end
