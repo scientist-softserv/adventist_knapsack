@@ -1,6 +1,8 @@
 # Story
 
-Refs #issuenumber
+Refs
+
+- #issuenumber
 
 # Expected Behavior Before Changes
 
