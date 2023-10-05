@@ -49,7 +49,15 @@ module HykuKnapsack
         IiifPrint::PluggableDerivativeService
       ]
 
-      my_engine_root = HykuKnapsack::Engine.root.to_s
+      ##
+      # Engines specified earlier in the array will take lower precedence.
+      #
+      # TODO: Should this be a class attribute for a Knapsack engine?
+      engines_that_superced_hyku = [
+        IiifPrint::Engine,
+        HykuKnapsack::Engine
+      ]
+
       # This is the opposite of what you usually want to do.  Normally app views override engine
       # views but in our case things in the Knapsack override what is in the application.
       # Furthermore we need to account for when the ApplicationController and it's descendants set
@@ -63,7 +71,9 @@ module HykuKnapsack
       # propogate to the descendants' copied view_path.
       ([::ApplicationController] + ::ApplicationController.descendants).each do |klass|
         paths = klass.view_paths.collect(&:to_s)
-        paths = [my_engine_root + '/app/views'] + paths
+        engines_that_superced_hyku.each do |engine|
+          paths = [engine.root.join('app', 'views').to_s] + paths
+        end
         klass.view_paths = paths.uniq
       end
       ::ApplicationController.send :helper, HykuKnapsack::Engine.helpers
