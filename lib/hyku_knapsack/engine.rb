@@ -4,6 +4,19 @@ module HykuKnapsack
   class Engine < ::Rails::Engine
     isolate_namespace HykuKnapsack
 
+    def self.load_translations!
+      HykuKnapsack::Engine.root.glob("config/locales/**/*.yml").each do |path|
+        I18n.load_path << path.to_s
+      end
+
+      # Let's have unique load_paths.  Later entries in the I18n.load_path array take precendence
+      # over earlier entries (e.g. lower array index means lower precedence).  So we need to reverse
+      # the array, then call uniq (which will drop duplicates that show up later in the array).
+      # Then reverse again.  (You know, kind of like an Uno reverse battle.)
+      I18n.load_path = I18n.load_path.reverse.uniq.reverse
+      I18n.backend.reload!
+    end
+
     initializer :append_migrations do |app|
       # only add the migrations if they are not already copied
       # via the rake task. Allows gem to work both with the install:migrations
@@ -20,6 +33,8 @@ module HykuKnapsack
       config.i18n.load_path += Dir["#{config.root}/config/locales/**/*.yml"]
     end
 
+    ##
+    # TODO: Should we move this to the after_initialize?
     config.to_prepare do
       my_engine_root = HykuKnapsack::Engine.root.to_s
 
@@ -68,13 +83,13 @@ module HykuKnapsack
       end
       ::ApplicationController.send :helper, HykuKnapsack::Engine.helpers
 
-      # Ensure that all knapsack locales are the "first choice" of keys.
-      HykuKnapsack::Engine.root.glob('config/locales/**/*.*').each do |path|
-        I18n.load_path.push(path.to_s)
-      end
-
-      # When we add translation files, we need to load them as well.
-      I18n.backend.reload!
+      ##
+      # Ensure that all knapsack locales are the "first choice" of keys.  We've already done this in
+      # the catalog controller to appease the Blacklight constraint of having translations loaded.
+      # However, between loading those translations in the catalog controller and now, the
+      # underlying application and even other engines might have further amended the load path.
+      # This is our "best" chance to do it at the latest possible moment.
+      HykuKnapsack::Engine.load_translations!
     end
   end
 end
