@@ -3,5 +3,4 @@ if ENV['GOOGLE_OAUTH_PRIVATE_KEY_VALUE'] && !ENV['GOOGLE_OAUTH_PRIVATE_KEY_VALUE
   %x{echo #{ENV['GOOGLE_OAUTH_PRIVATE_KEY_VALUE']} | base64 --decode > prod-cred.p12}
 end
 
-exec "bundle exec rake assets:precompile"
 exec "bundle exec puma -v -b tcp://0.0.0.0:3000"
