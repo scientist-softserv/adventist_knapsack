@@ -43,6 +43,13 @@ CatalogController.configure_blacklight do |config|
 
     config.index_fields.delete(key)
   end
+
+  ##
+  # When we specify the index fields, blacklight caches those translations.  However, in the case of
+  # dogbiscuits, those are not yet loaded.  Which results in a translation error; even though we
+  # later load the dog biscuits translations.
+  HykuKnapsack::Engine.load_translations!
+
   index_props = DogBiscuits.config.index_properties.collect do |prop|
     { prop => CatalogController.send(:index_options, prop, DogBiscuits.config.property_mappings[prop]) }
   end
