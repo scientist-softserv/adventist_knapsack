@@ -22,7 +22,7 @@ module HykuKnapsack
     # @param request [ActionDispatch::Request]
     def generate_work_url(doc, request)
       url = super
-      return url unless request.params[:q].present?
+      return url if request.params[:q].blank?
 
       key = doc.any_highlighting? ? 'parent_query' : 'query'
       query = { key => request.params[:q] }.to_query
