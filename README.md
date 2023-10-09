@@ -1,6 +1,6 @@
 # HykuKnapsack
 
-Hyku Knapsack is a little wrapper around Hyku to make development and deployment easier. Primary goals of this project
+[Hyku Knapsack](https://github.com/samvera-labs/hyku_knapsack) is a little wrapper around Hyku to make development and deployment easier. Primary goals of this project
 include making contributing back to the Hyku project easier and making upgrades a snap.
 
 ## Introduction
