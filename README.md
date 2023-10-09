@@ -35,6 +35,39 @@ git branch -M main
 git push -u origin main
 ```
 
+### Hyku and HykuKnapsack
+
+You run your Hyku application by way of the HykuKnapsack.  As mentioned, the HykuKnapsack contains your application's relevant information for running an instance of Hyku.  A newly cloned knapsack will have an empty `./hyrax-webapp` directory.  That is where the Hyku application will exist.  The version of Hyku is managed via a [Git submodule](https://git-scm.com/docs/git-submodule).
+
+To bring that application into your knapsack, you will need to initialize the Hyku submodule:
+
+```bash
+❯ git submodule init
+Submodule 'hyrax-webapp' (https://github.com/samvera/hyku.git) registered for path 'hyrax-webapp'
+```
+
+Then update the submodule to clone the remote Hyku repository into `./hyrax-webapp`.  The `KNAPSACK-SPECIFIED-HYKU-REPOSITORY-SHA` is managed within the Hyku Knapsack (via Git submodules).
+
+```bash
+❯ git submodule update
+Cloning into '/path/to/$PROJECT_NAME_knapsack/hyrax-webapp'...
+Submodule path 'hyrax-webapp': checked out '<KNAPSACK-SPECIFIED-HYKU-REPOSITORY-SHA>'
+```
+
+The configuration of the submodule can be found in the `./.gitmodules` file.  During development, we've specified the submodule's branch (via `git submodule set-branch --branch <NAME> -- ./hyrax-webapp`).
+
+Below is an example of our Adventist Knapsack submodule.
+
+```
+❯ cat .gitmodules
+[submodule "hyrax-webapp"]
+	path = hyrax-webapp
+	url = https://github.com/samvera/hyku.git
+	branch = adventist_dev
+```
+
+When you want to bring down an updated version of your Hyku submodule, use the following: `git submodule update --remote`.  This will checkout the submodule to the HEAD of the specified branch.
+
 ### Overrides
 
 Before overriding anything, please think hard (or ask the community) about whether what you are working on is a bug or feature that can apply to Hyku itself. If it is, please make a branch in your Hyku checkout (`./hyrax-webapp`) and do the work there. [See here](https://github.com/samvera-labs/hyku_knapsack/wiki/Hyku-Branches) for more information about working with Hyku branches in your Knapsack
