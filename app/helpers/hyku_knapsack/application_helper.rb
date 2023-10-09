@@ -13,6 +13,25 @@ module HykuKnapsack
     def video_embed_viewer_display_partial(work_presenter)
       'hyrax/base/' + work_presenter.video_embed_viewer.to_s
     end
+
+    ##
+    # This is in place to coerce the :q string to :query for passing the :q value to the query value
+    # of a IIIF Print manifest.
+    #
+    # @param doc [SolrDocument]
+    # @param request [ActionDispatch::Request]
+    def generate_work_url(doc, request)
+      url = super
+      return url if request.params[:q].blank?
+
+      key = doc.any_highlighting? ? 'parent_query' : 'query'
+      query = { key => request.params[:q] }.to_query
+      if url.include?("?")
+        url + "&#{query}"
+      else
+        url + "?#{query}"
+      end
+    end
   end
 
   # A Blacklight index field helper_method
