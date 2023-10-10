@@ -74,7 +74,6 @@ CatalogController.configure_blacklight do |config|
   config.search_fields.delete('creator')
   config.add_search_field('creator') do |field|
     field.label = "Author"
-    field.solr_parameters = { "spellcheck.dictionary": "creator" }
     solr_name = 'creator_tesim'
     field.solr_local_parameters = {
       qf: solr_name,
@@ -85,14 +84,18 @@ CatalogController.configure_blacklight do |config|
   # TODO: We may remove this block if Hyku changes the date_created search field solr_name
   config.search_fields.delete('date_created')
   config.add_search_field('date_created') do |field|
-    field.solr_parameters = {
-      "spellcheck.dictionary": "date_created"
-    }
     solr_name = ['date_created_tesim', 'sorted_date_isi', 'sorted_month_isi'].join(' ')
     field.solr_local_parameters = {
       qf: solr_name,
       pf: solr_name
     }
+  end
+
+  # Remove spellcheck dictonaries.  This was creating search query errors when attempting to search
+  # within collections.
+  # TODO: Consider moving this to Hyku.
+  config.search_fields.each do |_key, field_config|
+    field_config&.solr_parameters&.delete("spellcheck.dictionary".to_sym)
   end
 
   # Remove all existing sort fields and add the ones we want
