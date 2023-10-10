@@ -3,6 +3,12 @@
 require 'spec_helper'
 
 RSpec.describe HykuKnapsack::Engine do
+  describe 'Devise configuration' do
+    subject { Devise.mappings[:user] }
+
+    it { is_expected.not_to be_registerable }
+  end
+
   describe 'I18n.load_path' do
     it 'has HykuKnapsack translations at a higher precendence than Hyku translations' do
       hyku_root = Rails.root.to_s

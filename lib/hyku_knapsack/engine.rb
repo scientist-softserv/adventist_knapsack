@@ -31,6 +31,18 @@ module HykuKnapsack
 
     config.before_initialize do
       config.i18n.load_path += Dir["#{config.root}/config/locales/**/*.yml"]
+
+      if Hyku::Application.respond_to?(:user_devise_parameters=)
+        Hyku::Application.user_devise_parameters = %i[
+          database_authenticatable
+          invitable
+          recoverable
+          rememberable
+          trackable
+          validatable
+          omniauthable
+        ]
+      end
     end
 
     ##
