@@ -3,7 +3,8 @@
 <%= simple_form_for @form, url: admin_appearance_path do |f| %>
   <div class="panel-body defaultable-fonts">
     <% df = @form.default_values %>
-    <% font = f.object.body_font %>
+    <% body_font = f.object.body_font %>
+    <% headline_font = f.object.headline_font %>
 
     <%= f.input :body_font, label: 'Select Body Font', required: false, input_html: { class: 'font-fields', data: { default_value: df['body_font'] } } %>
     <%= link_to 'Restore Default', '#font', class: 'btn btn-default restore-default-font', data: { default_target: 'body_font' } %>
