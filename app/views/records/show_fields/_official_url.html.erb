@@ -1,0 +1,4 @@
+<% Array(record.official_url).each do |url| %>
+  <%= auto_link(url) { |link| "#{link} <span class='glyphicon glyphicon-new-window'></span>" } %>
+  <br />
+<% end %>
