@@ -26,5 +26,13 @@ RSpec.describe CatalogController do
         end
       end
     end
+
+    describe 'solr dictionaries' do
+      it 'does not specified spellcheck.dictionaries' do
+        # rubocop:disable Metrics/LineLength
+        expect(blacklight_config.search_fields).to(be_none { |_field, config| config&.solr_parameters&.key?('spellcheck.dictionaries'.to_sym) })
+        # rubocop:enable Metrics/LineLength
+      end
+    end
   end
 end
