@@ -88,7 +88,37 @@ Theme files (views, css, etc) can be added in the the Knapsack. We recommend add
 
 It can be useful to add additional gems to the bundle. This can be done w/o editing Hyku by adding them as dependencies to `hyku_knapsack.gemspec`
 
+## Converting a Fork of Hyku to a Knapsack
+
+Prior to Hyku Knapsack, organizations would likely clone [Hyku](https://github.com/samvera/hyku) and begin changing the code to reflect their specific needs.  The result was that the clone would often drift away from Samvera Hyku version.  This drift created challenges in reconciling what you had changed locally as well as how you could easily contribute some of your changes upstream to Samvera's Hyku.
+
+With Hyku Knapsack, the goal is three-fold:
+
+1. To isolate the upstream Samvera Hyku code from your local modifications.  This isolation is via the submodule `./hyrax-webapp` submodule.
+2. To provide a clear and separate space for extending/overriding Hyku functionality.
+3. To provide a cleaner pathway for upgrading the underlying Hyku application; for things such as security updates, bug fixes, and upstream enhancements.
+
+From those goals, we can begin to see what we want in our Hyku Knapsack:
+
+1. Files that are not found in Hyku
+2. Or files that are different from what is in Hyku (and thus will be loaded at a higher precedence)
+
+Assuming you're working from a fork of Samvera's Hyku repository, these are some general steps.  First clone the Hyku Knapsack ([see the Usage section](#usage)).  You'll also want to initialize the git submodule.  Point the `./hyrax-webapp` to the branch/SHA of Samvera's Hyku that you want to use; **Note:** that version must include a `gem 'hyku_knapsack'` declaration (e.g. introduced in  [7853fe5d](https://github.com/samvera/hyku/blob/7853fe5d79afd9d90cec3b9ef666681b287ef4d0/Gemfile)).
+
+You'll also want to have a local copy of your Hyku application.
+
+You can then use `bin/knapsacker` to generate a list of files that need review.  That will give you a list of:
+
+- Files in your Hyku that are exact duplicates of upstream Hyku file (prefix with `=`)
+- Files that are in your Hyku but not in upstream Hyku (prefixed with `+`)
+- Files that are changed in your Hyku relative to upstream Hyku (prefix with `Δ`)
+
+You can pipe that output into a file and begin working on reviewing and moving files into the Knapsack.  This is not an easy to automate task, after all we're paying down considerable tech debt.
+
+Once you've moved over the files, you'll want to boot up your Knapsack and then work through your test plan.
+
 ## Installation
+
 If not using a current version, add this line to Hyku's Gemfile:
 
 ```ruby
