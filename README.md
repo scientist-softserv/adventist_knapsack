@@ -94,7 +94,7 @@ Prior to Hyku Knapsack, organizations would likely clone [Hyku](https://github.c
 
 With Hyku Knapsack, the goal is three-fold:
 
-1. To isolate the upstream Samvera Hyku code from your local modifications.  This isolation is via the submodule `./hyrax-webapp` submodule.
+1. To isolate the upstream Samvera Hyku code from your local modifications.  This isolation is via the `./hyrax-webapp` submodule.
 2. To provide a clear and separate space for extending/overriding Hyku functionality.
 3. To provide a cleaner pathway for upgrading the underlying Hyku application; for things such as security updates, bug fixes, and upstream enhancements.
 
@@ -116,6 +116,8 @@ You can then use `bin/knapsacker` to generate a list of files that need review. 
 You can pipe that output into a file and begin working on reviewing and moving files into the Knapsack.  This is not an easy to automate task, after all we're paying down considerable tech debt.
 
 Once you've moved over the files, you'll want to boot up your Knapsack and then work through your test plan.
+
+The `bin/knapsacker` is general purpose.  I have used it to compare one non-Knapsack Hyku instance against Samvera's Hyku.  I have also used it to compare a Knapsack's file against it's submodule Hyku instance.
 
 ## Installation
 
