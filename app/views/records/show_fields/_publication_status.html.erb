@@ -1,0 +1,2 @@
+<% ps_service = AuthorityService::PublicationStatusesService.new %>
+<%= record.publication_status.map { |ps| ps_service.label(ps) }.join('<br />').html_safe %>
