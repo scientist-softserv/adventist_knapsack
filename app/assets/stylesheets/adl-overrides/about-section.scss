@@ -26,15 +26,5 @@ body.public-facing {
       margin-top: 0;
       padding-top: 6rem;
     }
-
-    .news-widget-wrapper {
-      border: 1px solid $lightgreyborder;
-      border-radius: 10px;
-      overflow: hidden;
-      .news-widget-scroll {
-        max-height: 550px;
-        overflow-y: scroll;
-      }
-    }
   }
 }

@@ -26,7 +26,9 @@ body.public-facing h6,
   }
 
 /* LINK COLORS */
-body.public-facing a { color: <%= appearance.link_color %>; }
+/* TODO: Commenting this line out because it somehow causes the footer to use Hyku's default
+         link_color rather than this app's default link_color.  */
+/*  body.public-facing a { color: <%= appearance.link_color %>; } */
 body.public-facing a:hover,
 body.public-facing a:focus { color: <%= appearance.link_hover_color %>; }
 body.public-facing #sort-dropdown .dropdown-toggle,
