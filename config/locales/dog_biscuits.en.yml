@@ -26,7 +26,7 @@ en:
       date_created: Date created
       date_collected: Date collected
       date_copyrighted: Date copyrighted
-      date_issued: Date issued
+      date_issued: Date
       date_of_award: Date of award
       date_published: Publication date
       date_submitted: Date submitted
@@ -151,7 +151,7 @@ en:
         date_created: Date created
         date_collected: Date collected
         date_copyrighted: Date copyrighted
-        date_issued: Date issued
+        date_issued: Date
         date_of_award: Date of award
         date_published: Publication date
         date_submitted: Date submitted
