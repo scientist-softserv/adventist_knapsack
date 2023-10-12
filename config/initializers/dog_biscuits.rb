@@ -138,7 +138,6 @@ DogBiscuits.config do |config|
     license
     aark_id
   ]
-  config.conference_item_properties_required = Hyrax::GenericWorkForm.required_fields
 
   config.dataset_properties = %i[
     creator
@@ -168,7 +167,6 @@ DogBiscuits.config do |config|
     source
     aark_id
   ]
-  config.dataset_properties_required = Hyrax::GenericWorkForm.required_fields
 
   config.exam_paper_properties = %i[
     creator
@@ -190,7 +188,6 @@ DogBiscuits.config do |config|
     source
     aark_id
   ]
-  config.exam_paper_properties_required = Hyrax::GenericWorkForm.required_fields
 
   config.journal_article_properties = %i[
     title
@@ -228,7 +225,6 @@ DogBiscuits.config do |config|
     bibliographic_citation
     alt
   ]
-  config.journal_article_properties_required = Hyrax::GenericWorkForm.required_fields
 
   config.published_work_properties = %i[
     title
@@ -263,7 +259,6 @@ DogBiscuits.config do |config|
     alt
     bibliographic_citation
   ]
-  config.published_work_properties_required = Hyrax::GenericWorkForm.required_fields
 
   config.thesis_properties = %i[
     title
@@ -298,7 +293,6 @@ DogBiscuits.config do |config|
     bibliographic_citation
     alt
   ]
-  config.thesis_properties_required = Hyrax::GenericWorkForm.required_fields
 
   # PROPERTY MAPPINGS
   config.property_mappings[:bibliographic_citation] = { label: 'Bibliographic Citation' }
