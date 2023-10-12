@@ -8,7 +8,7 @@ CatalogController.configure_blacklight do |config|
 
   # solr fields that will be treated as facets by the blacklight application
   #   The ordering of the field names is the order of the display
-  config.add_facet_field 'source_sim', label: 'Source', limit: 5, collapse: false
+  config.add_facet_field 'source_sim', label: 'Source', limit: 5, collapse: false, helper_method: :iconify_auto_link
   config.add_facet_field(
     'sorted_year_isi',
     label: 'Date Range',
