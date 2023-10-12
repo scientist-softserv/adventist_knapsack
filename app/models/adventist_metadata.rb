@@ -29,8 +29,8 @@ module AdventistMetadata
     # This is for the rights statement
     property :rights_statement, predicate: ::RDF::Vocab::EDM.rights
     property :publisher, predicate: ::RDF::Vocab::DC11.publisher
-    property :date_created, predicate: ::RDF::Vocab::DC.created, multiple: false do |index|
-      index.as :stored_searchable
+    property :date_created, predicate: ::RDF::Vocab::DC.created do |index|
+      index.as :stored_searchable, :facetable, :stored_sortable
     end
     property :subject, predicate: ::RDF::Vocab::DC11.subject
     property :language, predicate: ::RDF::Vocab::DC11.language
