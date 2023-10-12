@@ -12,7 +12,10 @@ module Hyrax
     # Add any local properties here
     self.terms += []
 
-    self.required_fields = DogBiscuits.config.exam_paper_properties_required
+    self.required_fields = %i[
+      title
+      rights_statement
+    ]
 
     # The service that determines the cardinality of each field
     self.field_metadata_service = ::LocalFormMetadataService
