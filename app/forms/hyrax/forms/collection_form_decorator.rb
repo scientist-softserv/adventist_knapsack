@@ -12,4 +12,5 @@ module Hyrax
 end
 
 Hyrax::Forms::CollectionForm.terms += Collection.additional_terms
+Hyrax::Forms::CollectionForm.terms -= [:alternative_title]
 Hyrax::Forms::CollectionForm.prepend(Hyrax::Forms::CollectionFormDecorator)
