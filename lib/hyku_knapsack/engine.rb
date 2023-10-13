@@ -101,6 +101,8 @@ module HykuKnapsack
       # underlying application and even other engines might have further amended the load path.
       # This is our "best" chance to do it at the latest possible moment.
       HykuKnapsack::Engine.load_translations!
+
+      config.consider_all_requests_local = false
     end
   end
 end
