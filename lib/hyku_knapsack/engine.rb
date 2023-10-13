@@ -45,27 +45,19 @@ module HykuKnapsack
       end
     end
 
-    ##
-    # TODO: Should we move this to the after_initialize?
-    config.to_prepare do
-      my_engine_root = HykuKnapsack::Engine.root.to_s
-
-      # need collection model first
-      code = "#{my_engine_root}/app/models/collection_decorator.rb"
-      Rails.configuration.cache_classes ? require(code) : load(code)
-
-      Dir.glob(File.join(my_engine_root, "app/**/*_decorator*.rb")).sort.each do |c|
-        Rails.configuration.cache_classes ? require(c) : load(c)
-      end
-
-      Dir.glob(File.join(my_engine_root, "lib/**/*_decorator*.rb")).sort.each do |c|
-        Rails.configuration.cache_classes ? require(c) : load(c)
-      end
-
-      # Hyku::Application.theme_view_path_roots.push HykuKnapsack::Engine.root
-    end
-
     config.after_initialize do
+      # need collection model first
+      collection_decorator = HykuKnapsack::Engine.root.join("app", "models", "collection_decorator.rb").to_s
+      Rails.configuration.cache_classes ? require(collection_decorator) : load(collection_decorator)
+
+      HykuKnapsack::Engine.root.glob("app/**/*_decorator*.rb").sort.each do |c|
+        Rails.configuration.cache_classes ? require(c) : load(c)
+      end
+
+      HykuKnapsack::Engine.root.glob("lib/**/*_decorator*.rb").sort.each do |c|
+        Rails.configuration.cache_classes ? require(c) : load(c)
+      end
+
       # By default plain text files are not processed for text extraction.  In adding
       # Adventist::TextFileTextExtractionService to the beginning of the services array we are
       # enabling text extraction from plain text files.
