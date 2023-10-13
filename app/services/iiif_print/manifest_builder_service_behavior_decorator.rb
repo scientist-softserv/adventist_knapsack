@@ -1,19 +1,10 @@
 # frozen_string_literal: true
 
-# OVERRIDE IiifPrint v1.0.0 to not render thumbnail files in the UV
-IiifPrint::ManifestBuilderServiceBehavior.module_eval do
+module HykuKnapsack::ManifestBuilderServiceDecorator
   def build_manifest(presenter:)
-    manifest = manifest_factory.new(presenter).to_h
-    hash = JSON.parse(manifest.to_json)
-    parent_and_child_solr_hits = parent_and_child_solr_hits(presenter) if @child_works.present?
-    hash = send("sanitize_v#{@version}", hash: hash, presenter: presenter, solr_doc_hits: parent_and_child_solr_hits)
-    if @child_works.present? && IiifPrint.config.sort_iiif_manifest_canvases_by
-      send("sort_canvases_v#{@version}",
-           hash: hash,
-           sort_field: IiifPrint.config.sort_iiif_manifest_canvases_by)
-    end
-    hash['rendering'] = rendering(presenter: presenter)
-    hash
+    returning_hash = super
+    returning_hash['rendering'] = rendering(presenter: presenter)
+    returning_hash
   end
 
   def rendering(presenter:)
@@ -51,3 +42,5 @@ IiifPrint::ManifestBuilderServiceBehavior.module_eval do
   end
 end
 # rubocop:enable Metrics/BlockLength
+
+Hyrax::ManifestBuilderService.prepend(HykuKnapsack::ManifestBuilderServiceDecorator)
