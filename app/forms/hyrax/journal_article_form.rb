@@ -7,7 +7,6 @@ module Hyrax
     self.model_class = JournalArticle
 
     self.terms -= DogBiscuits.config.base_properties
-    self.terms -= %i[access_right rights_notes]
     self.terms += DogBiscuits.config.journal_article_properties
 
     # Add any local properties here

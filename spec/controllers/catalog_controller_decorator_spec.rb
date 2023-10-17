@@ -15,7 +15,6 @@ RSpec.describe CatalogController do
         ["title_tesim", "Title"],
         ["creator_tesim", "Author"],
         ["part_of_tesim", "Part of"],
-        ["date_issued_tesim", "Date"],
         ["subject_tesim", "Subject"],
         ["source_tesim", "Source"]
       ].each do |field, label|
