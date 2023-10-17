@@ -24,6 +24,8 @@
 <%= presenter.attribute_to_html(:alt, label: 'Publication GeoCode') %>
 <%= presenter.attribute_to_html(:embargo_release_date, render_as: :date, html_dl: true) %>
 <%= presenter.attribute_to_html(:lease_expiration_date, render_as: :date, html_dl: true) %>
+<%= presenter.attribute_to_html(:rights_notes, html_dl: true) %>
+<%= presenter.attribute_to_html(:access_right, html_dl: true) %>
 <%= presenter.attribute_to_html(:license, render_as: :license, html_dl: true) %>
 
 <%= presenter.attribute_to_html(:presented_at, label: I18n.t('dog_biscuits.fields.presented_at')) %>
