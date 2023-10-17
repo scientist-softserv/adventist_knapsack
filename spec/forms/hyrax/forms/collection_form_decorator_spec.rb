@@ -3,6 +3,22 @@
 require 'spec_helper'
 
 RSpec.describe Hyrax::Forms::CollectionForm do
+  describe 'instance' do
+    subject { described_class.new(collection, ability, repository) }
+
+    let(:collection) { Collection.new }
+    let(:ability) { Ability.new(build(:user)) }
+    let(:repository) { double }
+
+    it { is_expected.not_to respond_to :alternative_title }
+
+    describe 'calling #alternative_title' do
+      it "raises a NoMethodError" do
+        expect { subject.alternative_title }.to raise_error(NoMethodError)
+      end
+    end
+  end
+
   describe '.terms' do
     subject { described_class.terms.sort }
 
