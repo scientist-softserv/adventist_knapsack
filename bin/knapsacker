@@ -4,7 +4,7 @@
 #
 # - be removed (e.g. duplicate in Knapsack and Hyku)
 # - be reviewed (e.g. differences between Knapsack and Hyku)
-# - kept outright (e.g. in Knapsack but not Hyku)
+# - perhaps keep outright (e.g. in Knapsack but not Hyku); there are cases where the file may have been removed from Hyku.
 
 require 'optparse'
 config = { yours: './', upstream: './hyrax-webapp', patterns_to_check: ["spec/**/*.*", "app/**/*.*", "lib/**/*.*"] }
