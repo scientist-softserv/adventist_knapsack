@@ -1,28 +1,26 @@
 # frozen_string_literal: true
 
-# OVERRIDE in v2.9.6 of Hyrax
+# OVERRIDE in v3.5.0 of Hyrax
 module ImportUrlJobDecorator
   # OVERRIDE to gain further insight into the StandardError that was reported but hidden.
-  def copy_remote_file(uri, name, headers = {})
+  def copy_remote_file(name)
     filename = File.basename(name)
     dir = Dir.mktmpdir
     Rails.logger.debug("ImportUrlJob: Copying <#{uri}> to #{dir}")
 
-    File.open(File.join(dir, filename), 'wb') do |f|
-      begin
-        write_file(uri, f, headers)
+    begin
+      File.open(File.join(dir, filename), 'wb') do |f|
+        write_file(f)
         yield f
-      rescue StandardError => e
-        # OVERRIDE adding Rails.logger.error call
-        Rails.logger.error(
-          %(ImportUrlJob: Error copying <#{uri}> to #{dir} with #{e.message}.  #{e.backtrace.join("\n")})
-        )
-        send_error(e.message)
-        # TODO: Should we re-raise the exception?  As written this copy_remote_file has a false
-        # success.
       end
+    rescue StandardError => e
+      Rails.logger.error(
+        %(ImportUrlJob: Error copying <#{uri}> to #{dir} with #{e.message}.  #{e.backtrace.join("\n")})
+      )
+      send_error(e.message)
+      # TODO: Consider re-raising the exception if needed
     end
-    Rails.logger.debug("ImportUrlJob: Copying <#{uri}> to #{dir}, closing #{File.join(dir, filename)}")
+    Rails.logger.debug("ImportUrlJob: Closing #{File.join(dir, filename)}")
   end
 
   # OVERRIDE there are calls to send_error that send two arguments.
