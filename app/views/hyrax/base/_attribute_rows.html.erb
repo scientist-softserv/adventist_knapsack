@@ -12,7 +12,7 @@
 <% if can? :read, :admin_dashboard %>
   <%= presenter.attribute_to_html(:resource_type, render_as: :faceted) %>
 <% end %>
-<%= presenter.attribute_to_html(:part_of, render_as: :faceted) %>
+<%= presenter.attribute_to_html(:part_of, render_as: :faceted, label: presenter.part_of_label) %>
 <%= presenter.attribute_to_html(:source, render_as: :faceted) %>
 <%= presenter.attribute_to_html(:aark_id, label: I18n.t('dog_biscuits.fields.aark_id')) %>
 <%= presenter.attribute_to_html(:place_of_publication) %>
