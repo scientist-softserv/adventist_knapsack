@@ -14,12 +14,12 @@ module Hyku
       klass = model_klass
       klass == JournalArticle ? 'Periodical' : 'Part Of'
     end
- 
-      private
 
-      def model_klass
-        model_name.instance_variable_get(:@klass)
-      end
+    private
+
+    def model_klass
+      model_name.instance_variable_get(:@klass)
+    end
   end
 end
 
