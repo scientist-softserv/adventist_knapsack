@@ -2,19 +2,12 @@
 
 CatalogController.include DogBiscuits::Blacklight::Commands
 
-def delete_default_facet_fields(config)
-  default_facet_field_keys = CatalogController.configure_blacklight.facet_fields.keys
-  default_facet_field_keys.each do |key|
-    config.facet_fields.delete(key)
-  end
-end
-
 CatalogController.configure_blacklight do |config|
   # Use locally customized AdvSearchBuilder so we can enable blacklight_advanced_search
   config.search_builder_class = AdvSearchBuilder
 
   # Delete Hyku's default settings
-  delete_default_facet_fields(config)
+  config.facet_fields.clear
 
   # solr fields that will be treated as facets by the blacklight application
   #   The ordering of the field names is the order of the display
