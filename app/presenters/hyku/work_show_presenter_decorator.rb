@@ -17,9 +17,9 @@ module Hyku
 
     private
 
-    def model_klass
-      model_name.instance_variable_get(:@klass)
-    end
+      def model_klass
+        model_name.instance_variable_get(:@klass)
+      end
   end
 end
 
