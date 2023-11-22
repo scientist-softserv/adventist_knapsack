@@ -6,9 +6,13 @@ CatalogController.configure_blacklight do |config|
   # Use locally customized AdvSearchBuilder so we can enable blacklight_advanced_search
   config.search_builder_class = AdvSearchBuilder
 
+  # Delete Hyku's default settings
+  config.facet_fields.clear
+
   # solr fields that will be treated as facets by the blacklight application
   #   The ordering of the field names is the order of the display
   config.add_facet_field 'source_sim', label: 'Source', limit: 5, collapse: false, helper_method: :iconify_auto_link
+  config.add_facet_field 'human_readable_type_sim', label: "Type", limit: 5, collapse: false
   config.add_facet_field(
     'sorted_year_isi',
     label: 'Date Range',
@@ -22,17 +26,18 @@ CatalogController.configure_blacklight do |config|
     },
     facet_field_label: 'Date Range'
   )
-
-  # Delete Hyku version so we can add the Author label
-  config.facet_fields.delete('creator_sim')
+  config.add_facet_field 'resource_type_sim', label: "Resource Type", limit: 5
   config.add_facet_field 'creator_sim', label: "Author", limit: 5
-
-  # Delete default Hyku facets that are no applicable for this Knapsack
-  config.facet_fields.delete('contributor_sim')
-  config.facet_fields.delete('file_format_sim')
-
+  config.add_facet_field 'publisher_sim', limit: 5
+  config.add_facet_field 'keyword_sim', limit: 5
+  config.add_facet_field 'subject_sim', limit: 5
+  config.add_facet_field 'language_sim', limit: 5
+  config.add_facet_field 'based_near_label_sim', limit: 5
   config.add_facet_field 'part_sim', limit: 5, label: 'Part'
   config.add_facet_field 'part_of_sim', limit: 5
+  # config.add_facet_field 'file_format_sim', limit: 5
+  # config.add_facet_field 'contributor_sim', label: "Contributor", limit: 5
+  config.add_facet_field 'member_of_collections_ssim', limit: 5, label: 'Collections'
   config.add_facet_field 'refereed_sim', limit: 5
 
   # Clobber all existing index and show fields that come from Hyku base but skip
