@@ -16,4 +16,9 @@ Hyrax.config do |config|
   # Also, we will continue to extract txt file's text using Adventist::TextFileTextExtractionService
   config.extract_full_text = false
   config.work_requires_files = false
+
+  # Location autocomplete uses geonames to search for named regions.
+  # Specify the user for connecting to geonames:
+  # Register here: http://www.geonames.org/manageaccount
+  config.geonames_username = 'jcoyne'
 end

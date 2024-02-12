@@ -95,6 +95,8 @@ extraEnvVars: &envVars
     value: "8080"
   - name: FCREPO_REST_PATH
     value: rest
+  - name: HYKU_GEONAMES_USERNAME
+    value: 'jcoyne'
   # - name: GOOGLE_ANALYTICS_ID
   #   value: $GOOGLE_ANALYTICS_ID
   # - name: GOOGLE_OAUTH_APP_NAME
