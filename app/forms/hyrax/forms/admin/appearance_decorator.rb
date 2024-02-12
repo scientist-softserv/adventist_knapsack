@@ -27,8 +27,8 @@ module Hyrax
         }.freeze
 
         ADL_DEFAULT_FONTS = {
-          'body_font'     => 'Nobile, sans-serif;',
-          'headline_font' => 'Nobile, sans-serif;'
+          'body_font'     => 'Helvetica Neue, Helvetica, Arial, sans-serif;',
+          'headline_font' => 'Helvetica Neue, Helvetica, Arial, sans-serif;'
         }.freeze
 
         # OVERRIDE to add adventist's custom header & footer
