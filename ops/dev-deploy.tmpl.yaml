@@ -126,6 +126,10 @@ extraEnvVars: &envVars
     value: hyku-dev-redis-master
   - name: REDIS_URL
     value: redis://:$REDIS_PASSWORD@hyku-dev-redis-master:6379/adventist
+  - name: SENTRY_DSN
+    value: $SENTRY_DSN
+  - name: SENTRY_ENVIRONMENT
+    value: "adv-knapsack-dev"
   - name: SOLR_COLLECTION_NAME
     value: hyku-adventist-dev
   - name: SOLR_CONFIGSET_NAME
@@ -156,10 +160,6 @@ extraEnvVars: &envVars
     value: "2525"
   - name: SMTP_TYPE
     value: cram_md5
-  - name: SENTRY_DSN
-    value: https://5ee54fb1e8cd448a9e709c846635ec49@o1008683.ingest.sentry.io/6745020
-  - name: SENTRY_ENVIRONMENT
-    value: "staging"
   - name: OMP_THREAD_LIMIT
     value: "1"
   - name: SECRET_KEY_BASE
