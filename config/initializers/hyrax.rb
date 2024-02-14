@@ -20,5 +20,5 @@ Hyrax.config do |config|
   # Location autocomplete uses geonames to search for named regions.
   # Specify the user for connecting to geonames:
   # Register here: http://www.geonames.org/manageaccount
-  config.geonames_username = ENV.fetch('HYKU_GEONAMES_USERNAME', 'jcoyne')
+  config.geonames_username = 'jcoyne'
 end
