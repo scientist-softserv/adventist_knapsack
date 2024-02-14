@@ -27,5 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", ">= 5.2.0"
   spec.add_dependency "sentry-ruby"
   spec.add_dependency "sentry-rails"
+  spec.add_dependency "sentry-sidekiq"
   # spec.add_dependency "dog_biscuits"
 end
