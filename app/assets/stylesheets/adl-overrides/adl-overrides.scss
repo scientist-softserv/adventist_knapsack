@@ -349,6 +349,16 @@ body.public-facing {
 
   //COLLECTION-SHOW PAGE
 
+  .hyc-title h1 {
+    color: rgb(44,44,44);
+    text-shadow: none;
+  }
+
+  .hyc-last-updated {
+    color: rgb(44,44,44);
+    text-shadow: none;
+  }
+
   .hyc-metadata,
   .hyc-description {
     padding: 1em;
