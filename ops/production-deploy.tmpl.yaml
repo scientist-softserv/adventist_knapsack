@@ -132,6 +132,10 @@ extraEnvVars: &envVars
     value: hyku-production-redis-master
   - name: REDIS_URL
     value: redis://:$REDIS_PASSWORD@hyku-production-redis-master:6379/adventist
+  - name: SENTRY_DSN
+    value: $SENTRY_DSN
+  - name: SENTRY_ENVIRONMENT
+    value: "adv-knapsack-production"
   - name: SOLR_ADMIN_USER
     value: admin
   - name: SOLR_ADMIN_PASSWORD
@@ -160,10 +164,6 @@ extraEnvVars: &envVars
     value: "587"
   - name: SMTP_TYPE
     value: plain
-  - name: SENTRY_DSN
-    value: https://5ee54fb1e8cd448a9e709c846635ec49@o1008683.ingest.sentry.io/6745020
-  - name: SENTRY_ENVIRONMENT
-    value: "production"
   - name: OMP_THREAD_LIMIT
     value: "1"
   - name: SECRET_KEY_BASE
