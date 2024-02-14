@@ -100,8 +100,6 @@ extraEnvVars: &envVars
     value: "%{tenant}.b2.adventistdigitallibrary.org"
   - name: HYKU_FILE_ACL
     value: "false"
-  - name: HYKU_GEONAMES_USERNAME
-    value: 'scientist'
   - name: HYKU_MULTITENANT
     value: "true"
   - name: HYKU_ROOT_HOST
