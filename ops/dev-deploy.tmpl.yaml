@@ -95,7 +95,7 @@ extraEnvVars: &envVars
   - name: HYKU_DEFAULT_HOST
     value: "%{tenant}.s2.adventistdigitallibrary.org"
   - name: HYKU_GEONAMES_USERNAME
-    value: 'scientist'
+    value: $HYKU_GEONAMES_USERNAME
   - name: HYKU_MULTITENANT
     value: "true"
   - name: HYKU_ROOT_HOST

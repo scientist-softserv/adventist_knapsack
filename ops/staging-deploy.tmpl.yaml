@@ -95,8 +95,6 @@ extraEnvVars: &envVars
     value: "8080"
   - name: FCREPO_REST_PATH
     value: rest
-  - name: HYKU_GEONAMES_USERNAME
-    value: 'scientist'
   # - name: GOOGLE_ANALYTICS_ID
   #   value: $GOOGLE_ANALYTICS_ID
   # - name: GOOGLE_OAUTH_APP_NAME
@@ -125,6 +123,8 @@ extraEnvVars: &envVars
     value: "%{tenant}.adventist-knapsack-staging.notch8.cloud"
   - name: HYKU_FILE_ACL
     value: "false"
+  - name: HYKU_GEONAMES_USERNAME 
+    value: $HYKU_GEONAMES_USERNAME
   - name: HYKU_MULTITENANT
     value: "true"
   - name: HYKU_ROOT_HOST
