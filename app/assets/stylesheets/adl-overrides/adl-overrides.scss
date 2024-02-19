@@ -488,3 +488,15 @@ body.public-facing {
   background: yellow;
   font-weight: 700;
 }
+
+// for catalog search bar to remain visible
+@media (max-width: 768px) {
+  #top-navbar-collapse ul.navbar-right .dropdown a {
+    display: inline;
+    vertical-align: top;
+  }
+
+  #user_utility_links li {
+    font-size: 0.8em; /* Adjust this value as needed */
+  }
+}
