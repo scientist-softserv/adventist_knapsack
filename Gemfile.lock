@@ -30,9 +30,24 @@ GIT
       rails (~> 5.1)
 
 GIT
-  remote: https://github.com/scientist-softserv/iiif_print.git
-  revision: eed88649c00e7b78f33425151fafe793db75ac82
+  remote: https://github.com/scientist-softserv/derivative_rodeo.git
+  revision: f8e2173fc907a2f24db37479679a4a84c840e00c
   branch: main
+  specs:
+    derivative-rodeo (0.5.3)
+      activesupport (>= 5)
+      aws-sdk-s3
+      aws-sdk-sqs
+      httparty
+      marcel
+      mime-types
+      mini_magick
+      nokogiri
+
+GIT
+  remote: https://github.com/scientist-softserv/iiif_print.git
+  revision: a9b270c2f07af4cc11111e971b50e4aeb0dc44b6
+  branch: adventist-custom-queue
   specs:
     iiif_print (1.0.0)
       blacklight_iiif_search (>= 1.0, < 3.0)
@@ -343,15 +358,6 @@ GEM
     declarative-option (0.1.0)
     deprecation (1.1.0)
       activesupport
-    derivative-rodeo (0.5.3)
-      activesupport (>= 5)
-      aws-sdk-s3
-      aws-sdk-sqs
-      httparty
-      marcel
-      mime-types
-      mini_magick
-      nokogiri
     devise (4.9.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -1339,6 +1345,7 @@ DEPENDENCIES
   codemirror-rails
   coffee-rails (~> 4.2)
   database_cleaner
+  derivative-rodeo!
   devise
   devise-guests (~> 0.3)
   devise-i18n

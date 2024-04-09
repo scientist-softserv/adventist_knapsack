@@ -6,5 +6,5 @@
 # or `ensure_gem` to make sure a gem is there w/o worrying about if it is an
 # override or not
 
-gem 'derivative-rodeo', git: 'https://github.com/scientist-softserv/derivative_rodeo.git', branch: 'main'
-gem 'iiif_print', git: 'https://github.com/scientist-softserv/iiif_print.git', branch: 'adventist-custom-queue'
+ensure_gem 'derivative-rodeo', git: 'https://github.com/scientist-softserv/derivative_rodeo.git', branch: 'main'
+ensure_gem 'iiif_print', git: 'https://github.com/scientist-softserv/iiif_print.git', branch: 'adventist-custom-queue'

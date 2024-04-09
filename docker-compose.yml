@@ -70,6 +70,7 @@ services:
       - AUXILIARY_QUEUE_TENANTS="sdapi"
       - AWS_S3_BUCKET=space-stone-production-preprocessedbucketf21466dd-15sun4xy658nh
       - AWS_REGION=us-east-1
+      - BUNDLE_BUNDLER_INJECT__GEM_PATH=/app/samvera/bundler.d
       - BUNDLE_LOCAL__HYKU_KNAPSACK=/app/samvera
       - BUNDLE_DISABLE_LOCAL_BRANCH_CHECK=true
       - FITS_SERVLET_URL=http://fits:8080/fits
