@@ -143,7 +143,7 @@ extraEnvVars: &envVars
     value: "%{tenant}.adventist-knapsack-staging.notch8.cloud"
   - name: HYKU_FILE_ACL
     value: "false"
-  - name: HYKU_GEONAMES_USERNAME 
+  - name: HYKU_GEONAMES_USERNAME
     value: 'scientist'
   - name: HYKU_MULTITENANT
     value: "true"
@@ -288,6 +288,7 @@ fcrepo:
 postgresql:
   enabled: false
 redis:
+  architecture: standalone
   cluster:
     enabled: false
   password: $REDIS_PASSWORD
