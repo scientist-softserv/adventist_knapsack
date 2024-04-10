@@ -66,6 +66,10 @@ extraEnvVars: &envVars
     value: space-stone-production-preprocessedbucketf21466dd-15sun4xy658nh
   - name: AWS_SECRET_ACCESS_KEY
     value: $AWS_SECRET_ACCESS_KEY
+  - name: AUXILIARY_QUEUE_TENANTS
+    value: sdapi
+  - name: BUNDLE_BUNDLER_INJECT__GEM_PATH
+    value: /app/samvera/bundler.d
   - name: BUNDLE_DISABLE_LOCAL_BRANCH_CHECK
     value: "true"
   - name: BUNDLE_LOCAL__HYKU_KNAPSACK
@@ -106,6 +110,14 @@ extraEnvVars: &envVars
     value: /rest
   - name: FEDORA_URL
     value: http://fcrepo.default.svc.cluster.local:8080/rest
+  - name: FITS_SERVLET_URL
+    value: http://fits:8080/fits
+  - name: GOOD_JOB_CLEANUP_DISCARDED_JOBS
+    value: "false"
+  - name: GOOD_JOB_CLEANUP_PRESERVED_JOBS_BEFORE_SECONDS_AGO
+    value: "604800"
+  - name: GOOD_JOB_CLEANUP_INTERVAL_SECONDS
+    value: "86400"
   - name: HYKU_ADMIN_HOST
     value: adventist.notch8.cloud
   - name: HYKU_ADMIN_ONLY_TENANT_CREATION
