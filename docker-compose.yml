@@ -67,8 +67,16 @@ services:
     # command: sleep infinity
     environment:
       # This line is what makes the knapsack include use the local code instead of the remote gem
+      - AUXILIARY_QUEUE_TENANTS="sdapi"
+      - AWS_S3_BUCKET=space-stone-production-preprocessedbucketf21466dd-15sun4xy658nh
+      - AWS_REGION=us-east-1
+      - BUNDLE_BUNDLER_INJECT__GEM_PATH=/app/samvera/bundler.d
       - BUNDLE_LOCAL__HYKU_KNAPSACK=/app/samvera
       - BUNDLE_DISABLE_LOCAL_BRANCH_CHECK=true
+      - FITS_SERVLET_URL=http://fits:8080/fits
+      - GOOD_JOB_CLEANUP_DISCARDED_JOBS=false
+      - GOOD_JOB_CLEANUP_PRESERVED_JOBS_BEFORE_SECONDS_AGO=604800
+      - GOOD_JOB_CLEANUP_INTERVAL_SECONDS=86400
       - HYRAX_ACTIVE_JOB_QUEUE=good_job
       - VIRTUAL_PORT=3000
       - VIRTUAL_HOST=.hyku.test

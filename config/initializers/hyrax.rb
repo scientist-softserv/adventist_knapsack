@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Use this to override any Hyrax configuration from the Knapsack
 Hyrax.config do |config|
   # Injected via `rails g hyrax:work ConferenceItem`
   config.register_curation_concern :conference_item
@@ -21,4 +24,9 @@ Hyrax.config do |config|
   # Specify the user for connecting to geonames:
   # Register here: http://www.geonames.org/manageaccount
   config.geonames_username = ENV.fetch('HYKU_GEONAMES_USERNAME', 'jcoyne')
+  # If you have ffmpeg installed and want to transcode audio and video uncomment this line
+  config.enable_ffmpeg = false
+
+  config.branding_path = ENV.fetch('HYRAX_BRANDING_PATH', Rails.root.join('public', 'branding'))
+  config.nested_relationship_reindexer = ->(id:, extent:) {}
 end

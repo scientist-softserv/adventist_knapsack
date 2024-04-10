@@ -6,32 +6,30 @@
 <%= render './shared/additional_citations' %>
 <div class="row work-type">
 <%# OVERRIDE Hyrax 2.9.1 here to hide the work type H1 title on all show-work pages %>
+  <div class="col-xs-12">&nbsp;</div>
   <div itemscope itemtype="http://schema.org/CreativeWork" class="col-xs-12">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <div class="row">
-          <div class="col-sm-8">
-            <%= render 'work_title', presenter: @presenter %>
-          </div>
-          <div class="col-sm-4 text-right">
-            <div class="show-actions">
-              <%= render 'show_actions', presenter: @presenter %>
-            </div>
-          </div>
-        </div>
+        <%= render 'work_title', presenter: @presenter %>
+      </div>
       <div class="panel-body">
         <div class="row">
           <%= render 'workflow_actions_widget', presenter: @presenter %>
-          <% if @presenter.universal_viewer? || @presenter.video_embed_viewer? %>
+          <% if @presenter.pdf_viewer? %>
+            <div class="col-sm-12">
+              <%= render 'pdf_js', file_set_presenter: pdf_file_set_presenter(@presenter) %>
+            </div>
+          <% elsif @presenter.iiif_viewer? || @presenter.video_embed_viewer? %>
             <div class="col-sm-12">
               <%= render 'representative_media', presenter: @presenter, viewer: true %>
             </div>
-          <% end %>
-          <div class="col-sm-5 text-center">
-            <%= render 'representative_media', presenter: @presenter, viewer: false unless (@presenter.universal_viewer? || @presenter.video_embed_viewer?) %>
-            <%= render 'citations', presenter: @presenter %>
-            <%= render 'social_media' %>
-          </div>
+          <% else %>          
+            <div class="col-sm-5 text-center">
+              <%= render 'representative_media', presenter: @presenter, viewer: false unless (@presenter.universal_viewer? || @presenter.video_embed_viewer?) %>
+              <%= render 'citations', presenter: @presenter %>
+              <%= render 'social_media' %>
+            </div>
+            <% end %>
           <div class="col-sm-7">
             <%= render 'metadata', presenter: @presenter %>
           </div>

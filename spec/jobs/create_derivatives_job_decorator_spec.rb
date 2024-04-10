@@ -12,8 +12,8 @@ RSpec.describe CreateDerivativesJobDecorator do
 
     let(:file_set) { double(FileSet, label: label) }
 
-    context 'when the file set is for a non-archival PDF' do
-      let(:label) { "my-non-archival#{described_class::NON_ARCHIVAL_PDF_SUFFIXES.first}" }
+    context 'when the file set is for a skipped suffix' do
+      let(:label) { "my-non-archival#{described_class::FILE_SUFFIXES_TO_SKIP_DERIVATIVE_CREATION.first}" }
 
       it { is_expected.to be_falsey }
     end
