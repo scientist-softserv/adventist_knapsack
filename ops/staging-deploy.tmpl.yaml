@@ -99,8 +99,6 @@ extraEnvVars: &envVars
     value: "5432"
   - name: DB_USER
     value: hyku-staging-hyrax
-  - name: EXTERNAL_IIIF_URL
-    value: https://d3pg70bdc74ala.cloudfront.net/iiif/2
   - name: FCREPO_BASE_PATH
     value: /hykustaging
   - name: FCREPO_HOST
@@ -174,7 +172,7 @@ extraEnvVars: &envVars
   - name: RAILS_CACHE_STORE_URL
     value: redis://:$REDIS_PASSWORD@adventist-knapsack-staging-redis-master:6379/staging
   - name: RAILS_ENV
-    value: staging
+    value: production
   - name: RAILS_LOG_TO_STDOUT
     value: "true"
   - name: RAILS_MAX_THREADS
