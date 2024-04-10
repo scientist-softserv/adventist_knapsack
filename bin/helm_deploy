@@ -24,8 +24,8 @@ DEPLOY_TAG="${DEPLOY_TAG:-latest}"
 WORKER_TAG="${WORKER_TAG:-$DEPLOY_TAG}"
 echo $DEPLOY_TAG
 
-helm pull --untar oci://ghcr.io/samvera/hyrax/hyrax-helm --version 0.22.0
-
+CHART_VERSION="${CHART_VERSION:-2.0.0}"
+helm pull --untar oci://ghcr.io/samvera/charts/hyrax --version $CHART_VERSION
 helm repo update
 
 helm upgrade \
