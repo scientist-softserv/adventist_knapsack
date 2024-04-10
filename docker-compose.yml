@@ -14,6 +14,7 @@ x-app: &app
     # This line is what makes the knapsack include use the local code instead of the remote gem
     - BUNDLE_LOCAL__HYKU_KNAPSACK=/app/samvera
     - BUNDLE_DISABLE_LOCAL_BRANCH_CHECK=true
+    - BUNDLE_BUNDLER_INJECT__GEM_PATH=/app/samvera/bundler.d
     - HYRAX_ACTIVE_JOB_QUEUE=good_job
   volumes:
     - node_modules:/app/samvera/hyrax-webapp/node_modules:cached
@@ -57,6 +58,13 @@ services:
     extends:
       file: hyrax-webapp/docker-compose.yml
       service: db
+
+  base:
+    extends:
+      file: hyrax-webapp/docker-compose.yml
+      service: base
+    image: ghcr.io/samvera/hyku/base:${TAG:-latest}
+    command: bash -l -c "echo 'base is only used for building base images, which in turn reduces image build times. It does not need to be run'"
 
   web:
     <<: *app
