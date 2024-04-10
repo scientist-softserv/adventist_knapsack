@@ -147,7 +147,7 @@ extraEnvVars: &envVars
   - name: INITIAL_ADMIN_EMAIL
     value: donotreply@adventistdigitallibrary.org
   - name: INITIAL_ADMIN_PASSWORD
-    value: testing123
+    value: $INITIAL_ADMIN_PASSWORD
   - name: IN_DOCKER
     value: "true"
   - name: LD_LIBRARY_PATH
