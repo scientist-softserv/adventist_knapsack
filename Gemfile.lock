@@ -47,7 +47,7 @@ GIT
 GIT
   remote: https://github.com/scientist-softserv/iiif_print.git
   revision: a9b270c2f07af4cc11111e971b50e4aeb0dc44b6
-  branch: adventist-custom-queue
+  ref: a9b270c2f07af4cc11111e971b50e4aeb0dc44b6
   specs:
     iiif_print (1.0.0)
       blacklight_iiif_search (>= 1.0, < 3.0)

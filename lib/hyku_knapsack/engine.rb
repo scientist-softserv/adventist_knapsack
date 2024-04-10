@@ -94,6 +94,37 @@ module HykuKnapsack
       # underlying application and even other engines might have further amended the load path.
       # This is our "best" chance to do it at the latest possible moment.
       HykuKnapsack::Engine.load_translations!
+
+      DerivativeRodeo::Generators::HocrGenerator.additional_tessearct_options = "-l eng_best"
+      # See: https://github.com/scientist-softserv/adventist-dl/issues/676
+      IiifPrint::DerivativeRodeoService.named_derivatives_and_generators_filter =
+        lambda do |_file_set:, filename:, named_derivatives_and_generators:|
+          named_derivatives_and_generators.reject do |named_derivative, _generators|
+            named_derivative != :thumbnail && filename.downcase.ends_with?(Hyku::THUMBNAIL_FILE_SUFFIX)
+          end
+        end
+
+      config.active_record.yaml_column_permitted_classes = [
+        OpenStruct, Symbol, Time, URI, BigDecimal, Date, DateTime,
+        ActiveSupport::TimeWithZone, ActiveSupport::Duration,
+        ActiveSupport::TimeZone, ActiveSupport::HashWithIndifferentAccess,
+        ActiveSupport::OrderedHash
+      ]
+      THUMBNAIL_FILE_SUFFIX = '.tn.jpg'
+
+      if Rails.env.development?
+        ##
+        # In the development environment we may not have AWS credentials.  When we do, let's use s3.  When
+        # we don't, we'll use local files (which almost certainly will fail).  This means we'd be locally
+        # using the derivative rodeo's splitting process (which should work without a preprocess lcoation).
+        # rubocop:disable Metrics/LineLength
+        if DerivativeRodeo.config.aws_s3_access_key_id.present? && DerivativeRodeo.config.aws_s3_secret_access_key.present?
+          IiifPrint::DerivativeRodeoService.preprocessed_location_adapter_name = 's3'
+        else
+          IiifPrint::DerivativeRodeoService.preprocessed_location_adapter_name = 'file'
+        end
+        # rubocop:enable Metrics/LineLength
+      end
     end
   end
 end

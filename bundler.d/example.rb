@@ -8,4 +8,7 @@
 # override or not
 
 ensure_gem 'derivative-rodeo', git: 'https://github.com/scientist-softserv/derivative_rodeo.git', branch: 'main'
-ensure_gem 'iiif_print', git: 'https://github.com/scientist-softserv/iiif_print.git', branch: 'adventist-custom-queue'
+# we must ref the sha instead of a branch name
+# rubocop:disable Metrics/LineLength
+ensure_gem 'iiif_print', git: 'https://github.com/scientist-softserv/iiif_print.git', ref: 'a9b270c2f07af4cc11111e971b50e4aeb0dc44b6'
+# rubocop:enable Metrics/LineLength
