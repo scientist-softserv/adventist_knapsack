@@ -91,7 +91,7 @@ extraEnvVars: &envVars
   - name: DB_ADAPTER
     value: postgresql
   - name: DB_HOST
-    value: acid-postgries-cluster-bravo.postgres.svc.cluster.local
+    value: acid-postgres-cluster-bravo.postgres.svc.cluster.local
   - name: DB_NAME
     value: hyku-production-hyrax
   - name: DB_PORT
