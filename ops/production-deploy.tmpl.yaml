@@ -40,10 +40,10 @@ extraVolumeMounts: &volMounts
 ingress:
   enabled: true
   hosts:
-    - host: adventist.notch8.cloud
+    - host: b2.adventistdigitallibrary.org
       paths:
         - path: /
-    - host: "*.adventist.notch8.cloud"
+    - host: "*.b2.adventistdigitallibrary.org"
       paths:
         - path: /
   annotations: {
@@ -53,8 +53,8 @@ ingress:
   }
   tls:
     - hosts:
-      - '*.adventist.notch8.cloud'
-      - adventist.notch8.cloud
+      - '*.b2.adventistdigitallibrary.org'
+      - b2.adventistdigitallibrary.org
       secretName: adventist-wild-tls
 
 extraEnvVars: &envVars
@@ -119,7 +119,7 @@ extraEnvVars: &envVars
   - name: GOOD_JOB_CLEANUP_INTERVAL_SECONDS
     value: "86400"
   - name: HYKU_ADMIN_HOST
-    value: adventist.notch8.cloud
+    value: b2.adventistdigitallibrary.org
   - name: HYKU_ADMIN_ONLY_TENANT_CREATION
     value: "true"
   - name: HYKU_ALLOW_SIGNUP
@@ -129,7 +129,7 @@ extraEnvVars: &envVars
   - name: HYKU_CONTACT_EMAIL
     value: donotreply@adventistdigitallibrary.org
   - name: HYKU_DEFAULT_HOST
-    value: "%{tenant}.adventist.notch8.cloud"
+    value: "%{tenant}.b2.adventistdigitallibrary.org"
   - name: HYKU_FILE_ACL
     value: "false"
   - name: HYKU_GEONAMES_USERNAME
@@ -137,7 +137,7 @@ extraEnvVars: &envVars
   - name: HYKU_MULTITENANT
     value: "true"
   - name: HYKU_ROOT_HOST
-    value: adventist.notch8.cloud
+    value: b2.adventistdigitallibrary.org
   - name: HYRAX_ACTIVE_JOB_QUEUE
     value: good_job
   - name: HYRAX_ANALYTICS
