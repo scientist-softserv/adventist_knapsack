@@ -46,3 +46,6 @@ module PdfJsHelper
     "search=#{q}&phrase=true"
   end
 end
+
+# We need to add this helper method to the ApplicationHelper
+ApplicationHelper.prepend PdfJsHelper
