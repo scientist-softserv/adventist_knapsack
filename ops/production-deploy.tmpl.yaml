@@ -111,7 +111,7 @@ extraEnvVars: &envVars
   - name: FEDORA_URL
     value: http://fcrepo.default.svc.cluster.local:8080/rest
   - name: FITS_SERVLET_URL
-    value: http://fits:8080/fits
+    value: http://adventist-knapsack-production-fits:8080/fits
   - name: GOOD_JOB_CLEANUP_DISCARDED_JOBS
     value: "false"
   - name: GOOD_JOB_CLEANUP_PRESERVED_JOBS_BEFORE_SECONDS_AGO

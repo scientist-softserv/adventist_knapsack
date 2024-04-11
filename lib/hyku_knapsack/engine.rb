@@ -100,7 +100,7 @@ module HykuKnapsack
       IiifPrint::DerivativeRodeoService.named_derivatives_and_generators_filter =
         lambda do |file_set:, filename:, named_derivatives_and_generators:|
           named_derivatives_and_generators.reject do |named_derivative, generators|
-            named_derivative != :thumbnail && filename.downcase.ends_with?(Hyku::THUMBNAIL_FILE_SUFFIX)
+            named_derivative != :thumbnail && filename.downcase.ends_with?(HykuKnapsack::Engine::THUMBNAIL_FILE_SUFFIX)
           end
         end
 
