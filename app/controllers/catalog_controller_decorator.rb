@@ -108,6 +108,11 @@ CatalogController.configure_blacklight do |config|
     config.sort_fields.delete(key)
   end
 
+  def self.uploaded_field
+    ActiveFedora.index_field_mapper.solr_name('system_create', :stored_sortable, type: :date)
+  end
+
+  config.add_sort_field "score desc, #{uploaded_field} desc", label: "Relevance"
   # TODO: replace CatalogController.title_field to return 'title_ssi'
   config.add_sort_field "title_ssi asc", label: "Title"
   # TODO: replace CatalogController.creator_field to return 'creator_ssi'
