@@ -4,6 +4,8 @@ module HykuKnapsack
   module ApplicationHelper
     include ::DogBiscuitsHelper
     include IiifPrint::IiifPrintHelperBehavior
+    include ::PdfJsHelper
+    include ::FeatureHelper
 
     def video_embed_viewer_display(work_presenter, locals = {})
       render video_embed_viewer_display_partial(work_presenter),
