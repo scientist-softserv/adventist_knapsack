@@ -25,7 +25,7 @@ module Hyku
     end
 
     def pdf_extension?
-      file_set_presenters.any? { |fsp| fsp.label.downcase.end_with?('.pdf') }
+      file_set_presenters.any? { |fsp| fsp&.label&.downcase&.end_with?('.pdf') }
     end
 
     def viewer?
