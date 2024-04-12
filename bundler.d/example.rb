@@ -7,8 +7,9 @@
 # or `ensure_gem` to make sure a gem is there w/o worrying about if it is an
 # override or not
 
-ensure_gem 'derivative-rodeo', git: 'https://github.com/scientist-softserv/derivative_rodeo.git', branch: 'main'
+ensure_gem 'derivative-rodeo', '~> 0.5', '>= 0.5.3'
+ensure_gem 'json-canonicalization', '~> 0.3.3'
 # we must ref the sha instead of a branch name
 # rubocop:disable Metrics/LineLength
-ensure_gem 'iiif_print', git: 'https://github.com/scientist-softserv/iiif_print.git', ref: 'a9b270c2f07af4cc11111e971b50e4aeb0dc44b6'
+ensure_gem 'iiif_print', git: 'https://github.com/scientist-softserv/iiif_print.git', ref: 'c6b566e6c4350468d95a7a8890a844b6928d0059'
 # rubocop:enable Metrics/LineLength
