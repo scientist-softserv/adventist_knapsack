@@ -30,28 +30,13 @@ GIT
       rails (~> 5.1)
 
 GIT
-  remote: https://github.com/scientist-softserv/derivative_rodeo.git
-  revision: f8e2173fc907a2f24db37479679a4a84c840e00c
-  branch: main
-  specs:
-    derivative-rodeo (0.5.3)
-      activesupport (>= 5)
-      aws-sdk-s3
-      aws-sdk-sqs
-      httparty
-      marcel
-      mime-types
-      mini_magick
-      nokogiri
-
-GIT
   remote: https://github.com/scientist-softserv/iiif_print.git
-  revision: a9b270c2f07af4cc11111e971b50e4aeb0dc44b6
-  ref: a9b270c2f07af4cc11111e971b50e4aeb0dc44b6
+  revision: c6b566e6c4350468d95a7a8890a844b6928d0059
+  ref: c6b566e6c4350468d95a7a8890a844b6928d0059
   specs:
     iiif_print (1.0.0)
       blacklight_iiif_search (>= 1.0, < 3.0)
-      derivative-rodeo (~> 0.5)
+      derivative-rodeo (~> 0.5, >= 0.5.3)
       hyrax (>= 2.5, < 6)
       nokogiri (>= 1.13.2)
       rdf-vocab (~> 3.0)
@@ -358,6 +343,15 @@ GEM
     declarative-option (0.1.0)
     deprecation (1.1.0)
       activesupport
+    derivative-rodeo (0.5.3)
+      activesupport (>= 5)
+      aws-sdk-s3
+      aws-sdk-sqs
+      httparty
+      marcel
+      mime-types
+      mini_magick
+      nokogiri
     devise (4.9.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -678,7 +672,7 @@ GEM
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
     json (2.6.3)
-    json-canonicalization (0.3.1)
+    json-canonicalization (0.3.3)
     json-jwt (1.15.3)
       activesupport (>= 4.2)
       aes_key_wrap
@@ -1345,7 +1339,7 @@ DEPENDENCIES
   codemirror-rails
   coffee-rails (~> 4.2)
   database_cleaner
-  derivative-rodeo!
+  derivative-rodeo (~> 0.5, >= 0.5.3)
   devise
   devise-guests (~> 0.3)
   devise-i18n
@@ -1366,7 +1360,7 @@ DEPENDENCIES
   iiif_print!
   jbuilder (~> 2.5)
   jquery-rails
-  json-canonicalization (= 0.3.1)
+  json-canonicalization (~> 0.3.3)
   launchy
   listen (>= 3.0.5, < 3.2)
   lograge
