@@ -63,6 +63,13 @@ services:
       file: hyrax-webapp/docker-compose.yml
       service: fcrepo
 
+  fits:
+    image: harvardlts/fitsservlet_container:1.5.0
+    ports:
+      - 9090:8080
+    networks:
+      internal:
+
   db:
     extends:
       file: hyrax-webapp/docker-compose.yml
