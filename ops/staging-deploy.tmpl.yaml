@@ -43,21 +43,20 @@ extraVolumeMounts: &volMounts
 ingress:
   enabled: true
   hosts:
-    - host: adventist-knapsack-staging.notch8.cloud
+    - host: s2.adventistdigitallibrary.org
       paths:
         - path: /
-    - host: "*.adventist-knapsack-staging.notch8.cloud"
+    - host: "*.s2.adventistdigitallibrary.org"
       paths:
         - path: /
-  annotations: {
-    kubernetes.io/ingress.class: "nginx",
-    nginx.ingress.kubernetes.io/proxy-body-size: "0",
-    cert-manager.io/cluster-issuer: letsencrypt-production-dns
-  }
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    cert-manager.io/cluster-issuer: "letsencrypt-production-dns"
   tls:
     - hosts:
-        - adventist-knapsack-staging.notch8.cloud
-        - "*.adventist-knapsack-staging.notch8.cloud"
+        - '*.s2.adventistdigitallibrary.org'
+        - s2.adventistdigitallibrary.org
       secretName: adventist-staging-wild-tls
 
 extraEnvVars: &envVars
@@ -124,7 +123,7 @@ extraEnvVars: &envVars
   # - name: GOOGLE_OAUTH_PRIVATE_KEY_VALUE
   #   value: $GOOGLE_OAUTH_PRIVATE_KEY_VALUE
   # - name: GOOGLE_OAUTH_CLIENT_EMAIL
-  #   value: hyku-demo@adventist-knapsack-staging.notch8.cloud
+  #   value: hyku-demo@s2.adventistdigitallibrary.org
   - name: GOOD_JOB_CLEANUP_DISCARDED_JOBS
     value: "false"
   - name: GOOD_JOB_CLEANUP_PRESERVED_JOBS_BEFORE_SECONDS_AGO
@@ -132,7 +131,7 @@ extraEnvVars: &envVars
   - name: GOOD_JOB_CLEANUP_INTERVAL_SECONDS
     value: "86400"
   - name: HYKU_ADMIN_HOST
-    value: "adventist-knapsack-staging.notch8.cloud"
+    value: "s2.adventistdigitallibrary.org"
   - name: HYKU_ADMIN_ONLY_TENANT_CREATION
     value: "false"
   - name: HYKU_ALLOW_SIGNUP
@@ -142,7 +141,7 @@ extraEnvVars: &envVars
   - name: HYKU_CONTACT_EMAIL
     value: 'changeme@example.com'
   - name: HYKU_DEFAULT_HOST
-    value: "%{tenant}.adventist-knapsack-staging.notch8.cloud"
+    value: "%{tenant}.s2.adventistdigitallibrary.org"
   - name: HYKU_FILE_ACL
     value: "false"
   - name: HYKU_GEONAMES_USERNAME
@@ -150,7 +149,7 @@ extraEnvVars: &envVars
   - name: HYKU_MULTITENANT
     value: "true"
   - name: HYKU_ROOT_HOST
-    value: adventist-knapsack-staging.notch8.cloud
+    value: s2.adventistdigitallibrary.org
   - name: HYRAX_ACTIVE_JOB_QUEUE
     value: good_job
   - name: HYRAX_ANALYTICS
