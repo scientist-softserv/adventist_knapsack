@@ -9,9 +9,11 @@ resources:
     cpu: "2000m"
 
 livenessProbe:
-  enabled: false
+  enabled: true
+  path: "/healthz"
 readinessProbe:
-  enabled: false
+  enabled: true
+  path: "/healthz"
 
 brandingVolume:
   storageClass: efs-sc
