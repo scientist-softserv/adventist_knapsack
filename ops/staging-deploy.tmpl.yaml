@@ -9,9 +9,9 @@ resources:
     cpu: "1000m"
 
 livenessProbe:
-  enabled: false
+  enabled: true
 readinessProbe:
-  enabled: false
+  enabled: true
 
 brandingVolume:
   storageClass: efs-sc
