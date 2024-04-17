@@ -24,6 +24,7 @@ module HykuKnapsack
     # @param request [ActionDispatch::Request]
     def generate_work_url(doc, request)
       url = super
+      url = url.gsub('adventist-knapsack-staging.notch8.cloud/', 's2.adventistdigitallibrary.org/')
       return url if request.params[:q].blank?
 
       key = doc.any_highlighting? ? 'parent_query' : 'query'
