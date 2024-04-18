@@ -2,8 +2,8 @@
 
 module HykuKnapsack
   module ApplicationHelper
-    include ::DogBiscuitsHelper
     include IiifPrint::IiifPrintHelperBehavior
+    include ::DogBiscuitsHelper
     include ::PdfJsHelper
     include ::FeaturesHelper
 
