@@ -89,7 +89,7 @@ extraEnvVars: &envVars
   - name: DATABASE_NAME
     value: hyku-dev-hyrax
   - name: DATABASE_USER
-    value: hyku-staging-hyrax
+    value: hyku-dev-hyrax
   - name: DB_ADAPTER
     value: postgresql
   - name: DB_HOST
@@ -101,7 +101,7 @@ extraEnvVars: &envVars
   - name: DB_PORT
     value: "5432"
   - name: DB_USER
-    value: hyku-staging-hyrax
+    value: hyku-dev-hyrax
   - name: EXTERNAL_IIIF_URL
     value: https://d3pg70bdc74ala.cloudfront.net/iiif/2
   - name: FCREPO_BASE_PATH
@@ -303,7 +303,7 @@ solr:
 externalFcrepoHost: fcrepo.default.svc.cluster.local
 externalPostgresql:
   host: acid-postgres-cluster-bravo.postgres.svc.cluster.local
-  username: hyku-staging-hyrax
+  username: hyku-dev-hyrax
   password: $DATABASE_PASSWORD
   database: hyku-dev-hyrax
 externalSolrHost: solr.default.cluster.local
