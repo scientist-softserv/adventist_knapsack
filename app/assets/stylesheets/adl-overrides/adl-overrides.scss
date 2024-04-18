@@ -452,13 +452,6 @@ body.public-facing {
     background-color: $darkyellow;
   }
 
-  //hides the visibility badge on top of work show page & hides the "user collection" labels in search results
-  .panel-default .panel-heading small span.label,
-  .search-results-title-row span.label,
-  .hyc-title span.label {
-    display: none;
-  }
-
   //ADD WORK PAGE
 
   .dashboard .panel {
@@ -488,3 +481,13 @@ body.public-facing {
   background: yellow;
   font-weight: 700;
 }
+
+//hides the visibility badge on top of work show page & hides the "user collection" labels in search results
+.panel-default .panel-heading small span.label,
+.search-results-title-row span.label,
+.hyc-title span.label, 
+.work-type span.label, 
+.collection-title-row-content span.label {
+  display: none;
+}
+  
