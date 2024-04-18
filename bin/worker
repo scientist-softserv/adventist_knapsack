@@ -9,4 +9,10 @@ else
   puts 'DATABASE_URL not set, no pool change needed'
 end
 
-exec "echo $DATABASE_URL && bundle exec good_job start"
+if ENV['AUX_WORKER']
+  # Run all queues (including :auxiliary)
+  exec "echo $DATABASE_URL && GOOD_JOB_QUEUES='*' bundle exec good_job"
+else
+  # Run all queues (excluding :auxiliary)
+  exec "echo $DATABASE_URL && GOOD_JOB_QUEUES='-auxiliary' bundle exec good_job"
+end
