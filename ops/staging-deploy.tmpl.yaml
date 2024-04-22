@@ -9,11 +9,12 @@ resources:
     cpu: "1000m"
 
 livenessProbe:
-  enabled: true
-  path: "/healthz"
+  enabled: false
 readinessProbe:
   enabled: true
   path: "/healthz"
+  periodSeconds: 30
+  timeoutSeconds: 10
 
 brandingVolume:
   storageClass: efs-sc
@@ -168,6 +169,8 @@ extraEnvVars: &envVars
     value: testing123
   - name: LD_LIBRARY_PATH
     value: /app/fits/tools/mediainfo/linux
+  - name: LOGGING_WITH_COLOR
+    value: "false"
   - name: NEGATIVE_CAPTCHA_SECRET
     value: $NEGATIVE_CAPTCHA_SECRET
   - name: OMP_THREAD_LIMIT
