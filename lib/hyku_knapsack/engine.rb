@@ -58,6 +58,10 @@ module HykuKnapsack
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
 
+      # metaprogramming makes decorating hard
+      c = HykuKnapsack::Engine.root.glob("lib/wings/orm_converter.rb").first
+      Rails.configuration.cache_classes ? require(c) : load(c)
+
       # By default plain text files are not processed for text extraction.  In adding
       # Adventist::TextFileTextExtractionService to the beginning of the services array we are
       # enabling text extraction from plain text files.
