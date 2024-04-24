@@ -259,13 +259,10 @@ worker:
   extraVolumeMounts: *volMounts
   extraEnvVars: *envVars
 
-# When adding/removing key-value pairs to this block, ensure the
-# corresponding changes are made in the `extraDeploy` block below.
 workerAux:
   extraEnvVars:
-    # GOOD_JOB_QUEUES gets set in bin/worker
-    - name: AUX_WORKER
-      value: "true"
+    - name: GOOD_JOB_QUEUES
+      value: "auxiliary_reimport,auxiliary_ingest,auxiliary_destroy_collections,auxiliary_collections,auxiliary_relationships,auxiliary_import,auxiliary_export:5"
 
 extraDeploy:
   - |-
