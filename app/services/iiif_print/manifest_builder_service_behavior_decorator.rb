@@ -32,7 +32,7 @@ module HykuKnapsack
         # Our current presenter is a IiifManifestPresenter, which doesn't have the file_set_presenters we need.
         # So we create a Hyrax presenter for the model, and use that to get the file_set_presenters.
         hyrax_presenter = "Hyrax::#{model}Presenter".constantize.new(presenter, presenter.ability)
-        file_set_presenters = hyrax_presenter.file_set_presenters.reject { |fsp| fsp.mime_type.include?('image') }
+        file_set_presenters = hyrax_presenter.file_set_presenters.reject { |fsp| fsp.mime_type&.include?('image') }
 
         file_set_presenters.map do |fsp|
           {
