@@ -262,7 +262,7 @@ worker:
 workerAux:
   extraEnvVars:
     - name: GOOD_JOB_QUEUES
-      value: "auxiliary_reimport,auxiliary_ingest,auxiliary_destroy_collections,auxiliary_collections,auxiliary_relationships,auxiliary_import,auxiliary_export:5"
+      value: "auxiliary_default,auxiliary_reimport,auxiliary_ingest,auxiliary_destroy_collections,auxiliary_collections,auxiliary_relationships,auxiliary_import,auxiliary_export:5"
 
 extraDeploy:
   - |-
