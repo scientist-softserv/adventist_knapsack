@@ -28,5 +28,4 @@ Hyrax.config do |config|
   config.enable_ffmpeg = false
 
   config.branding_path = ENV.fetch('HYRAX_BRANDING_PATH', Rails.root.join('public', 'branding'))
-  config.nested_relationship_reindexer = ->(id:, extent:) {}
 end

@@ -8,6 +8,14 @@ GIT
       rails (>= 4.2)
 
 GIT
+  remote: https://github.com/samvera-labs/hyku_knapsack.git
+  revision: 5a7c54cace96881a3963ab2fd881ca6ea3f57372
+  branch: required_for_knapsack_instances
+  specs:
+    hyku_knapsack (0.0.1)
+      rails (>= 5.2.0)
+
+GIT
   remote: https://github.com/samvera-labs/hyrax-doi.git
   revision: 9b7ab7f8054a14385b838de1118f55ad2e0f5da8
   branch: rails_hyrax_upgrade
@@ -126,18 +134,6 @@ GIT
       rack (>= 1.3.6)
 
 GIT
-  remote: https://github.com/scientist-softserv/iiif_print.git
-  revision: c6b566e6c4350468d95a7a8890a844b6928d0059
-  ref: c6b566e6c4350468d95a7a8890a844b6928d0059
-  specs:
-    iiif_print (1.0.0)
-      blacklight_iiif_search (>= 1.0, < 3.0)
-      derivative-rodeo (~> 0.5, >= 0.5.3)
-      hyrax (>= 2.5, < 6)
-      nokogiri (>= 1.13.2)
-      rdf-vocab (~> 3.0)
-
-GIT
   remote: https://github.com/scientist-softserv/willow_sword.git
   revision: 38a0906647fae2020e8b0b08e296f85c457fcb34
   branch: main
@@ -156,15 +152,6 @@ GIT
       addressable (~> 2.3)
       nokogiri (~> 1.5)
       omniauth (>= 1.2, < 3)
-
-PATH
-  remote: .
-  specs:
-    hyku_knapsack (0.0.1)
-      rails (>= 5.2.0)
-      sentry-rails
-      sentry-ruby
-      sentry-sidekiq
 
 GEM
   remote: https://rubygems.org/
@@ -741,6 +728,12 @@ GEM
       json
     iiif_manifest (1.3.1)
       activesupport (>= 4)
+    iiif_print (3.0.1)
+      blacklight_iiif_search (>= 1.0, < 3.0)
+      derivative-rodeo (~> 0.5)
+      hyrax (>= 2.5, < 6)
+      nokogiri (>= 1.13.2)
+      rdf-vocab (~> 3.0)
     iso-639 (0.3.6)
     iso8601 (0.9.1)
     jaro_winkler (1.5.6)
@@ -753,7 +746,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.7.1)
-    json-canonicalization (0.3.3)
+    json-canonicalization (0.3.1)
     json-jwt (1.16.3)
       activesupport (>= 4.2)
       aes_key_wrap
@@ -1267,15 +1260,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sentry-rails (5.18.1)
-      railties (>= 5.0)
-      sentry-ruby (~> 5.18.1)
-    sentry-ruby (5.18.1)
-      bigdecimal
-      concurrent-ruby (~> 1.0, >= 1.0.2)
-    sentry-sidekiq (5.18.1)
-      sentry-ruby (~> 5.18.1)
-      sidekiq (>= 3.0)
     shacl (0.3.0)
       json-ld (~> 3.2)
       rdf (~> 3.2, >= 3.2.8)
@@ -1464,7 +1448,6 @@ GEM
 
 PLATFORMS
   aarch64-linux-musl
-  ruby
 
 DEPENDENCIES
   active-fedora (~> 14.0)
@@ -1490,7 +1473,6 @@ DEPENDENCIES
   codemirror-rails
   coffee-rails (~> 4.2)
   database_cleaner
-  derivative-rodeo (~> 0.5, >= 0.5.3)
   devise
   devise-guests (~> 0.3)
   devise-i18n
@@ -1510,10 +1492,10 @@ DEPENDENCIES
   hyrax-iiif_av!
   i18n-debug
   i18n-tasks
-  iiif_print!
+  iiif_print
   jbuilder (~> 2.5)
   jquery-rails
-  json-canonicalization (~> 0.3.3)
+  json-canonicalization (= 0.3.1)
   launchy
   listen (>= 3.0.5, < 3.2)
   lograge
