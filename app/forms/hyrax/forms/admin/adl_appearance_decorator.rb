@@ -4,8 +4,8 @@
 module Hyrax
   module Forms
     module Admin
-      module AppearanceDecorator
-        ADL_DEFAULT_COLORS = {
+      module AdlAppearanceDecorator
+        DEFAULT_COLORS = {
           'custom_adl_header_footer_color'     => '#CE8C00',
           'header_and_footer_background_color' => '#000000',
           'header_and_footer_text_color'       => '#2C2C2C',
@@ -25,16 +25,11 @@ module Hyrax
           'facet_panel_background_color'       => '#000000',
           'facet_panel_text_color'             => '#FFFFFF'
         }.freeze
-
-        ADL_DEFAULT_FONTS = {
+        
+        DEFAULT_FONTS = {
           'body_font'     => 'Helvetica Neue, Helvetica, Arial, sans-serif;',
           'headline_font' => 'Helvetica Neue, Helvetica, Arial, sans-serif;'
         }.freeze
-
-        # OVERRIDE to add adventist's custom header & footer
-        def default_values
-          @default_values ||= ADL_DEFAULT_FONTS.merge(ADL_DEFAULT_COLORS)
-        end
 
         def custom_adl_header_footer_color
           block_for('custom_adl_header_footer_color')
@@ -44,6 +39,6 @@ module Hyrax
   end
 end
 
-Hyrax::Forms::Admin::Appearance.prepend Hyrax::Forms::Admin::AppearanceDecorator
+Hyrax::Forms::Admin::Appearance.prepend Hyrax::Forms::Admin::AdlAppearanceDecorator
 
 Hyrax::Forms::Admin::Appearance.customization_params << :custom_adl_header_footer_color
