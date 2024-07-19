@@ -10,4 +10,4 @@ ensure_gem 'derivative-rodeo', '~> 0.5', '>= 0.5.3'
 ensure_gem 'json-canonicalization', '~> 0.3.3'
 
 # TODO: this is temporary to avoid error until all models have been valkyrized
-ensure_gem 'iiif_print', github: 'https://github.com/scientist-softserv/iiif_print', branch: 'temp-branch-for-adventist-knapsack'
+ensure_gem 'iiif_print', github: 'scientist-softserv/iiif_print', branch: 'temp-branch-for-adventist-knapsack'
