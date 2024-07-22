@@ -1,5 +1,5 @@
 <% # the hyrax version of this file messes singular field display %>
-<% if f.object.class.multiple?(key) %>
+<% f.object.try(:multiple?, key) || f.object.class.try(:multiple?, key) %>
   <%= f.input key, as: :multi_value, input_html: { class: 'form-control' }, required: f.object.required?(key) %>
 <% else %>
   <% value = f.object.model[key] %>
