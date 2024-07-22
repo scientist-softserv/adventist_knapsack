@@ -1,0 +1,45 @@
+# Simple yaml config-driven schema which is used to define model attributes,
+# index key names, and form properties.
+#
+# Attributes must have a type but all other configuration options are optional.
+# Please note: If using Valkyrie's Fedora Metadata Adapter, predicates for attributes
+# must be placed here.
+#
+# attributes:
+#   attribute_name:
+#     type: string
+#     multiple: false
+#     index_keys:
+#       - "attribute_name_sim"
+#     form:
+#       required: true
+#       primary: true
+#       multiple: false
+#
+# @see config/metadata/basic_metadata.yaml for an example configuration
+#
+# Generated via
+#  `rails generate hyrax:work_resource ConferenceItemResource`
+
+attributes:
+# common_properties
+# ref: https://github.com/scientist-softserv/adventist_knapsack/blob/main/lib/dog_biscuits/configuration.rb#L76-L78
+  department:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "department_sim"
+      - "department_tesim"
+    predicate: http://purl.org/dc/terms/department
+  # doi:
+  # former_identifier:
+  # note:
+  # output_of:
+  # lat:
+  # long:
+  # alt:
+  # location:
+  # managing_organisation:
+  # funder:
