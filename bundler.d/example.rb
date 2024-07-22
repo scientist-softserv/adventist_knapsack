@@ -6,8 +6,8 @@
 # or `ensure_gem` to make sure a gem is there w/o worrying about if it is an
 # override or not
 
+# Note: these injected gems are very sticky... it appears that you must rebuild
+# your docker container and rebundle to get rid of an injected gem. 
+
 ensure_gem 'derivative-rodeo', '~> 0.5', '>= 0.5.3'
 ensure_gem 'json-canonicalization', '~> 0.3.3'
-
-# TODO: this is temporary to avoid error until all models have been valkyrized
-ensure_gem 'iiif_print', github: 'scientist-softserv/iiif_print', branch: 'temp-branch-for-adventist-knapsack'
