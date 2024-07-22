@@ -20,13 +20,13 @@ class ConferenceItem < DogBiscuits::ConferenceItem
   before_save :combine_dates
 
   prepend OrderAlready.for(:creator)
-  # include IiifPrint.model_configuration(
-  #   pdf_split_child_model: self,
-  #   pdf_splitter_service: IiifPrint::SplitPdfs::AdventistPagesToJpgsSplitter,
-  #   derivative_service_plugins: [
-  #     IiifPrint::TextExtractionDerivativeService
-  #   ]
-  # )
+  include IiifPrint.model_configuration(
+    pdf_split_child_model: self,
+    pdf_splitter_service: IiifPrint::SplitPdfs::AdventistPagesToJpgsSplitter,
+    derivative_service_plugins: [
+      IiifPrint::TextExtractionDerivativeService
+    ]
+  )
 end
 
 ConferenceItem.instance_variable_set(:@generated_resource_class, nil)

@@ -13,13 +13,13 @@ class ConferenceItemResource < Hyrax::Work
 
   Hyrax::ValkyrieLazyMigration.migrating(self, from: ConferenceItem)
 
-  # include IiifPrint.model_configuration(
-  #   pdf_split_child_model: ConferenceItemResource,
-  #   pdf_splitter_service: IiifPrint::SplitPdfs::AdventistPagesToJpgsSplitter,
-  #   derivative_service_plugins: [
-  #     IiifPrint::TextExtractionDerivativeService
-  #   ]
-  # )
+  include IiifPrint.model_configuration(
+    pdf_split_child_model: ConferenceItemResource,
+    pdf_splitter_service: IiifPrint::SplitPdfs::AdventistPagesToJpgsSplitter,
+    derivative_service_plugins: [
+      IiifPrint::TextExtractionDerivativeService
+    ]
+  )
 
   prepend OrderAlready.for(:creator)
 end
