@@ -5,9 +5,10 @@
 #
 # @see https://github.com/samvera/hyrax/wiki/Hyrax-Valkyrie-Usage-Guide#forms
 # @see https://github.com/samvera/valkyrie/wiki/ChangeSets-and-Dirty-Tracking
-class ThesisResourceForm < Hyrax::Forms::PcdmObjectForm(ThesisResource)
+class ThesisResourceForm < Hyrax::Forms::ResourceForm(ThesisResource)
   include Hyrax::FormFields(:basic_metadata)
   include Hyrax::FormFields(:thesis_resource)
+  include Hyrax::FormFields(:with_video_embed)
 
   # Define custom form fields using the Valkyrie::ChangeSet interface
   #
