@@ -3,7 +3,7 @@
 
 Rails.application.config.after_initialize do
   # Add all concerns that are migrating from ActiveFedora here
-  CONCERNS = [ConferenceItem, Dataset, ExamPaper, GenericWork, Image].freeze
+  CONCERNS = [ConferenceItem, Dataset, ExamPaper, GenericWork, Image, JournalArticle].freeze
 
   CONCERNS.each do |klass|
     Wings::ModelRegistry.register("#{klass}Resource".constantize, klass)
@@ -16,6 +16,7 @@ Rails.application.config.after_initialize do
   Wings::ModelRegistry.register(ExamPaperResource, ExamPaper)
   Wings::ModelRegistry.register(GenericWorkResource, GenericWork)
   Wings::ModelRegistry.register(ImageResource, Image)
+  Wings::ModelRegistry.register(JournalArticleResource, JournalArticle)
 
   Valkyrie.config.resource_class_resolver = lambda do |resource_klass_name|
     # TODO: Can we use some kind of lookup.
