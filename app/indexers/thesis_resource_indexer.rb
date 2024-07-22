@@ -5,6 +5,8 @@
 class ThesisResourceIndexer < Hyrax::ValkyrieWorkIndexer
   include Hyrax::Indexer(:basic_metadata)
   include Hyrax::Indexer(:thesis_resource)
+  include Hyrax::Indexer(:with_pdf_viewer)
+  include Hyrax::Indexer(:with_video_embed)
 
   include HykuIndexing
 
