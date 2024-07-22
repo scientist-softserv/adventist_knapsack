@@ -2,9 +2,11 @@
 
 # Generated via
 #  `rails generate hyrax:work_resource ThesisResource`
-class ThesisResourceIndexer < Hyrax::Indexers::PcdmObjectIndexer(ThesisResource)
+class ThesisResourceIndexer < Hyrax::ValkyrieWorkIndexer
   include Hyrax::Indexer(:basic_metadata)
   include Hyrax::Indexer(:thesis_resource)
+
+  include HykuIndexing
 
   # Uncomment this block if you want to add custom indexing behavior:
   #  def to_solr
