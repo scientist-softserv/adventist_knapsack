@@ -2,7 +2,7 @@
 
 # Generated via
 #  `rails generate hyrax:work_resource DatasetResource`
-class DatasetResourceIndexer < Hyrax::Indexers::PcdmObjectIndexer(DatasetResource)
+class DatasetResourceIndexer < Hyrax::ValkyrieWorkIndexer
   include Hyrax::Indexer(:basic_metadata)
   include Hyrax::Indexer(:dataset_resource)
 
