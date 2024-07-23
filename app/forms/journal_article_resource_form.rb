@@ -8,8 +8,10 @@
 class JournalArticleResourceForm < Hyrax::Forms::ResourceForm(JournalArticleResource)
   include Hyrax::FormFields(:basic_metadata)
   include Hyrax::FormFields(:journal_article_resource)
+  include Hyrax::FormFields(:bulkrax_metadata)
   include Hyrax::FormFields(:with_pdf_viewer)
   include Hyrax::FormFields(:with_video_embed)
+  include VideoEmbedBehavior::Validation
 
   # Define custom form fields using the Valkyrie::ChangeSet interface
   #

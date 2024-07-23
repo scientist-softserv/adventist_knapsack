@@ -7,6 +7,7 @@ class DatasetResourceIndexer < Hyrax::ValkyrieWorkIndexer
   include Hyrax::Indexer(:dataset_resource)
   include Hyrax::Indexer(:with_pdf_viewer)
   include Hyrax::Indexer(:with_video_embed)
+  include Hyrax::Indexer(:bulkrax_metadata)
 
   include HykuIndexing
 
