@@ -11,3 +11,5 @@
 
 ensure_gem 'derivative-rodeo', '~> 0.5', '>= 0.5.3'
 ensure_gem 'json-canonicalization', '~> 0.3.3'
+ensure_gem 'rails', '~> 6.0', github: 'rails/rails', branch: '6-1-stable', ref: 'd16199e507086e3d54d94253b7e1d87ead394d9f'
+
