@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 # Generated via
-#  `rails generate hyrax:work_resource ConferenceItemResource`
+#  `rails generate hyrax:work_resource ThesisResource`
 #
 # @see https://github.com/samvera/hyrax/wiki/Hyrax-Valkyrie-Usage-Guide#forms
 # @see https://github.com/samvera/valkyrie/wiki/ChangeSets-and-Dirty-Tracking
-class ConferenceItemResourceForm < Hyrax::Forms::ResourceForm(ConferenceItemResource)
+class ThesisResourceForm < Hyrax::Forms::ResourceForm(ThesisResource)
   include Hyrax::FormFields(:basic_metadata)
-  include Hyrax::FormFields(:conference_item_resource)
+  include Hyrax::FormFields(:thesis_resource)
   include Hyrax::FormFields(:with_pdf_viewer)
   include Hyrax::FormFields(:with_video_embed)
 

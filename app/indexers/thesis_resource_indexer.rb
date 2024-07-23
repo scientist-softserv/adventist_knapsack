@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 # Generated via
-#  `rails generate hyrax:work_resource ConferenceItemResource`
-class ConferenceItemResourceIndexer < Hyrax::ValkyrieWorkIndexer
+#  `rails generate hyrax:work_resource ThesisResource`
+class ThesisResourceIndexer < Hyrax::ValkyrieWorkIndexer
   include Hyrax::Indexer(:basic_metadata)
-  include Hyrax::Indexer(:conference_item_resource)
+  include Hyrax::Indexer(:thesis_resource)
   include Hyrax::Indexer(:with_pdf_viewer)
   include Hyrax::Indexer(:with_video_embed)
 
