@@ -18,4 +18,284 @@
 #
 # @see config/metadata/basic_metadata.yaml for an example configuration
 
-attributes: {}
+attributes:
+  rights_statement:
+    type: string
+    multiple: false
+    form:
+      required: true
+      primary: true
+      multiple: false
+  access_right:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  rights_notes:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  bibliographic_citation:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  creator:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  publisher:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  resource_type:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  abstract:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - abstract_tesim
+    - abstract_si
+  contributor:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  date_created:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - date_created_tesim
+    - date_created_sim
+    - date_created_ssi
+  date_issued:
+    type: date_time
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - date_issued_tesim
+    - date_issued_sim
+    - date_issued_ssi
+  identifier:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  subject:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  keyword:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  language:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  based_near:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  extent:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - extent_tesim
+  related_url:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  license:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  source:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - source_tesim
+    - source_sim
+  aark_id:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - aark_id_tesim
+  import_url:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+  description:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  alternative_title:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  label:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+  arkivo_checksum:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+  relative_path:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+  long:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - long_tesim
+  lat:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - lat_tesim
+  alt:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - alt_tesim
+  part_of:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - part_of_tesim
+    - part_of_sim
+  place_of_publication:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - place_of_publication_tesim
+  slug:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - slug_tesim
+  slug_for_upgrade:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - slug_for_upgrade_tesim
+  remote_url:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - remote_url_tesim

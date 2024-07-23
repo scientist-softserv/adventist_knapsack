@@ -21,4 +21,563 @@
 # Generated via
 #  `rails generate hyrax:work_resource ConferenceItemResource`
 
-attributes: {}
+attributes:
+  rights_statement:
+    type: string
+    multiple: false
+    form:
+      required: true
+      primary: true
+      multiple: false
+    index_keys:
+    - rights_statement_tesim
+    - rights_statement_sim
+  access_right:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  rights_notes:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  bibliographic_citation:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - bibliographic_citation_tesim
+  creator:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - creator_tesim
+    - creator_si
+    - creator_sim
+  publisher:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - publisher_tesim
+    - publisher_si
+    - publisher_sim
+  date_published:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - date_published_tesim
+    - date_published_sim
+    - date_published_ssi
+  resource_type:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - resource_type_tesim
+    - resource_type_si
+  abstract:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - abstract_tesim
+    - abstract_si
+  contributor:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - contributor_tesim
+    - contributor_si
+    - contributor_sim
+  funder:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - funder_tesim
+    - funder_sim
+  output_of:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - output_of_tesim
+    - output_of_sim
+  date_created:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - date_created_tesim
+    - date_created_sim
+    - date_created_ssi
+  doi:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - doi_tesim
+  identifier:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - identifier_tesim
+    - identifier_si
+  subject:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - subject_tesim
+    - subject_sim
+  keyword:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - keyword_tesim
+    - keyword_sim
+  language:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - language_tesim
+    - language_si
+    - language_sim
+  based_near:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  related_url:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - related_url_tesim
+  license:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - license_tesim
+  source:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - source_tesim
+  aark_id:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - aark_id_tesim
+  description:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - description_tesim
+    - description_si
+  import_url:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - import_url_ssim
+  label:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+  slug:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - slug_tesim
+  date_available:
+    type: date_time
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - date_available_tesim
+    - date_available_sim
+    - date_available_ssi
+    - date_available_si
+  slug_for_upgrade:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - slug_for_upgrade_tesim
+  date_submitted:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - date_submitted_tesim
+    - date_submitted_sim
+    - date_submitted_ssi
+  date_accepted:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - date_accepted_tesim
+    - date_accepted_sim
+    - date_accepted_ssi
+  editor:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - editor_tesim
+    - editor_sim
+  event_date:
+    type: date_time
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - event_date_tesim
+    - event_date_sim
+    - event_date_ssi
+    - event_date_si
+  isbn:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - isbn_tesim
+  official_url:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - official_url_tesim
+  pagination:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - pagination_tesim
+  part_of:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - part_of_tesim
+    - part_of_sim
+  place_of_publication:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - place_of_publication_tesim
+  publication_status:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - publication_status_tesim
+    - publication_status_sim
+  arkivo_checksum:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+  alternative_title:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+  relative_path:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+  refereed:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - refereed_tesim
+    - refereed_sim
+  rdfs_label:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - rdfs_label_tesim
+  preflabel:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - preflabel_tesim
+    - preflabel_si
+  rights_description:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - rights_description_tesim
+  date:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - date_tesim
+    - date_sim
+    - date_ssi
+  department:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - department_tesim
+    - department_sim
+  presented_at:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - presented_at_tesim
+    - presented_at_sim
+  altlabel:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - altlabel_tesim
+  rights_holder:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - rights_holder_tesim
+  language_code:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - language_code_tesim
+  lat:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - lat_tesim
+  long:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - long_tesim
+  alt:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - alt_tesim
+  location:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - location_tesim
+    - location_sim
+  managing_organisation:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - managing_organisation_tesim
+    - managing_organisation_sim
+  note:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - note_tesim
+  former_identifier:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - former_identifier_tesim
