@@ -18,6 +18,6 @@
 #
 # @see config/metadata/basic_metadata.yaml for an example configuration
 #
-# Adding an empty file until we can verify & move data from custom work type yamls.
+# Adding an empty file to override basic_metadata from Hyrax.
 
 attributes: {}

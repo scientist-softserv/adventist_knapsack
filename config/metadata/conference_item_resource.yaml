@@ -32,6 +32,7 @@ attributes:
     index_keys:
     - rights_statement_tesim
     - rights_statement_sim
+    predicate: http://www.europeana.eu/schemas/edm/rights
   access_right:
     type: string
     multiple: true
@@ -39,6 +40,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/terms/accessRights
   rights_notes:
     type: string
     multiple: true
@@ -46,6 +49,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/elements/1.1/rights
   bibliographic_citation:
     type: string
     multiple: true
@@ -55,6 +60,7 @@ attributes:
       multiple: true
     index_keys:
     - bibliographic_citation_tesim
+    predicate: http://purl.org/dc/terms/bibliographicCitation
   creator:
     type: string
     multiple: true
@@ -66,6 +72,7 @@ attributes:
     - creator_tesim
     - creator_si
     - creator_sim
+    predicate: http://purl.org/dc/elements/1.1/creator
   publisher:
     type: string
     multiple: true
@@ -77,6 +84,7 @@ attributes:
     - publisher_tesim
     - publisher_si
     - publisher_sim
+    predicate: http://purl.org/dc/elements/1.1/publisher
   date_published:
     type: string
     multiple: false
@@ -88,6 +96,7 @@ attributes:
     - date_published_tesim
     - date_published_sim
     - date_published_ssi
+    predicate: http://schema.org/datePublished
   resource_type:
     type: string
     multiple: true
@@ -98,6 +107,7 @@ attributes:
     index_keys:
     - resource_type_tesim
     - resource_type_si
+    predicate: http://purl.org/dc/terms/type
   abstract:
     type: string
     multiple: true
@@ -108,6 +118,7 @@ attributes:
     index_keys:
     - abstract_tesim
     - abstract_si
+    predicate: http://purl.org/dc/terms/abstract
   contributor:
     type: string
     multiple: true
@@ -119,6 +130,7 @@ attributes:
     - contributor_tesim
     - contributor_si
     - contributor_sim
+    predicate: http://purl.org/dc/elements/1.1/contributor
   funder:
     type: string
     multiple: true
@@ -129,6 +141,7 @@ attributes:
     index_keys:
     - funder_tesim
     - funder_sim
+    predicate: http://id.loc.gov/vocabulary/relators/fnd
   output_of:
     type: string
     multiple: true
@@ -139,6 +152,7 @@ attributes:
     index_keys:
     - output_of_tesim
     - output_of_sim
+    predicate: http://purl.org/cerif/frapo/isOutputOf
   date_created:
     type: string
     multiple: false
@@ -150,6 +164,7 @@ attributes:
     - date_created_tesim
     - date_created_sim
     - date_created_ssi
+    predicate: http://purl.org/dc/terms/created
   doi:
     type: string
     multiple: true
@@ -159,6 +174,7 @@ attributes:
       multiple: true
     index_keys:
     - doi_tesim
+    predicate: http://id.loc.gov/vocabulary/identifiers/doi
   identifier:
     type: string
     multiple: true
@@ -169,6 +185,7 @@ attributes:
     index_keys:
     - identifier_tesim
     - identifier_si
+    predicate: http://purl.org/dc/terms/identifier
   subject:
     type: string
     multiple: true
@@ -179,6 +196,7 @@ attributes:
     index_keys:
     - subject_tesim
     - subject_sim
+    predicate: http://purl.org/dc/elements/1.1/subject
   keyword:
     type: string
     multiple: true
@@ -189,6 +207,7 @@ attributes:
     index_keys:
     - keyword_tesim
     - keyword_sim
+    predicate: http://schema.org/keywords
   language:
     type: string
     multiple: true
@@ -200,6 +219,7 @@ attributes:
     - language_tesim
     - language_si
     - language_sim
+    predicate: http://purl.org/dc/elements/1.1/language
   based_near:
     type: string
     multiple: true
@@ -207,6 +227,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://xmlns.com/foaf/0.1/based_near
   related_url:
     type: string
     multiple: true
@@ -216,6 +238,7 @@ attributes:
       multiple: true
     index_keys:
     - related_url_tesim
+    predicate: http://www.w3.org/2000/01/rdf-schema#seeAlso
   license:
     type: string
     multiple: true
@@ -225,6 +248,7 @@ attributes:
       multiple: true
     index_keys:
     - license_tesim
+    predicate: http://purl.org/dc/terms/rights
   source:
     type: string
     multiple: true
@@ -234,7 +258,8 @@ attributes:
       multiple: true
     index_keys:
     - source_tesim
-  aark_id:
+    predicate: http://purl.org/dc/terms/source
+  import_url:
     type: string
     multiple: false
     form:
@@ -242,7 +267,8 @@ attributes:
       primary: false
       multiple: false
     index_keys:
-    - aark_id_tesim
+    - import_url_ssim
+    predicate: http://scholarsphere.psu.edu/ns#importUrl
   description:
     type: string
     multiple: true
@@ -253,7 +279,17 @@ attributes:
     index_keys:
     - description_tesim
     - description_si
-  import_url:
+    predicate: http://purl.org/dc/elements/1.1/description
+  alternative_title:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/terms/alternative
+  owner:
     type: string
     multiple: false
     form:
@@ -261,7 +297,7 @@ attributes:
       primary: false
       multiple: false
     index_keys:
-    - import_url_ssim
+    predicate: http://opaquenamespace.org/ns/hydra/owner
   label:
     type: string
     multiple: false
@@ -269,7 +305,9 @@ attributes:
       required: false
       primary: false
       multiple: false
-  slug:
+    index_keys:
+    predicate: info:fedora/fedora-system:def/model#downloadFilename
+  on_behalf_of:
     type: string
     multiple: false
     form:
@@ -277,7 +315,17 @@ attributes:
       primary: false
       multiple: false
     index_keys:
-    - slug_tesim
+    - on_behalf_of_ssim
+    predicate: http://scholarsphere.psu.edu/ns#onBehalfOf
+  state:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    predicate: http://fedora.info/definitions/1/0/access/ObjState#objState
   date_available:
     type: date_time
     multiple: false
@@ -290,15 +338,7 @@ attributes:
     - date_available_sim
     - date_available_ssi
     - date_available_si
-  slug_for_upgrade:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    index_keys:
-    - slug_for_upgrade_tesim
+    predicate: http://purl.org/dc/terms/available
   date_submitted:
     type: string
     multiple: false
@@ -310,6 +350,7 @@ attributes:
     - date_submitted_tesim
     - date_submitted_sim
     - date_submitted_ssi
+    predicate: http://london.ac.uk/ontologies/terms#dateSubmitted
   date_accepted:
     type: string
     multiple: false
@@ -321,6 +362,7 @@ attributes:
     - date_accepted_tesim
     - date_accepted_sim
     - date_accepted_ssi
+    predicate: http://purl.org/dc/terms/dateAccepted
   editor:
     type: string
     multiple: true
@@ -331,6 +373,7 @@ attributes:
     index_keys:
     - editor_tesim
     - editor_sim
+    predicate: http://id.loc.gov/vocabulary/relators/edc
   event_date:
     type: date_time
     multiple: false
@@ -343,6 +386,7 @@ attributes:
     - event_date_sim
     - event_date_ssi
     - event_date_si
+    predicate: http://rs.tdwg.org/dwc/terms/eventDate
   isbn:
     type: string
     multiple: true
@@ -352,6 +396,7 @@ attributes:
       multiple: true
     index_keys:
     - isbn_tesim
+    predicate: http://id.loc.gov/vocabulary/identifiers/isbn
   official_url:
     type: string
     multiple: true
@@ -361,6 +406,35 @@ attributes:
       multiple: true
     index_keys:
     - official_url_tesim
+    predicate: http://id.loc.gov/vocabulary/identifiers/uri
+  proxy_depositor:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - proxy_depositor_ssim
+    predicate: http://scholarsphere.psu.edu/ns#proxyDepositor
+  arkivo_checksum:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    predicate: http://scholarsphere.psu.edu/ns#arkivoChecksum
+  relative_path:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    predicate: http://scholarsphere.psu.edu/ns#relativePath
   pagination:
     type: string
     multiple: false
@@ -370,56 +444,7 @@ attributes:
       multiple: false
     index_keys:
     - pagination_tesim
-  part_of:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - part_of_tesim
-    - part_of_sim
-  place_of_publication:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - place_of_publication_tesim
-  publication_status:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    index_keys:
-    - publication_status_tesim
-    - publication_status_sim
-  arkivo_checksum:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-  alternative_title:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-  relative_path:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
+    predicate: http://schema.org/pagination
   refereed:
     type: string
     multiple: false
@@ -430,15 +455,17 @@ attributes:
     index_keys:
     - refereed_tesim
     - refereed_sim
-  rdfs_label:
+    predicate: http://london.ac.uk/ontologies/terms#refereed
+  place_of_publication:
     type: string
-    multiple: false
+    multiple: true
     form:
       required: false
       primary: false
-      multiple: false
+      multiple: true
     index_keys:
-    - rdfs_label_tesim
+    - place_of_publication_tesim
+    predicate: http://id.loc.gov/vocabulary/relators/pup
   preflabel:
     type: string
     multiple: false
@@ -449,7 +476,8 @@ attributes:
     index_keys:
     - preflabel_tesim
     - preflabel_si
-  rights_description:
+    predicate: http://www.w3.org/2004/02/skos/core#prefLabel
+  altlabel:
     type: string
     multiple: true
     form:
@@ -457,7 +485,40 @@ attributes:
       primary: false
       multiple: true
     index_keys:
-    - rights_description_tesim
+    - altlabel_tesim
+    predicate: http://www.w3.org/2004/02/skos/core#altLabel
+  rdfs_label:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - rdfs_label_tesim
+    predicate: http://www.w3.org/2000/01/rdf-schema#label
+  part_of:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - part_of_tesim
+    - part_of_sim
+    predicate: http://id.loc.gov/ontologies/bibframe/partOf
+  publication_status:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - publication_status_tesim
+    - publication_status_sim
+    predicate: http://purl.org/ontology/bibo/status
   date:
     type: string
     multiple: true
@@ -469,6 +530,17 @@ attributes:
     - date_tesim
     - date_sim
     - date_ssi
+    predicate: http://purl.org/dc/terms/date
+  rights_description:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - rights_description_tesim
+    predicate: http://purl.org/dc/elements/1.1/rights
   department:
     type: string
     multiple: true
@@ -479,6 +551,17 @@ attributes:
     index_keys:
     - department_tesim
     - department_sim
+    predicate: http://schema.org/department
+  language_code:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - language_code_tesim
+    predicate: http://purl.org/dc/terms/language
   presented_at:
     type: string
     multiple: true
@@ -489,15 +572,7 @@ attributes:
     index_keys:
     - presented_at_tesim
     - presented_at_sim
-  altlabel:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - altlabel_tesim
+    predicate: http://purl.org/ontology/bibo/presentedAt
   rights_holder:
     type: string
     multiple: true
@@ -507,15 +582,7 @@ attributes:
       multiple: true
     index_keys:
     - rights_holder_tesim
-  language_code:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - language_code_tesim
+    predicate: http://purl.org/dc/terms/rightsHolder
   lat:
     type: string
     multiple: true
@@ -525,6 +592,7 @@ attributes:
       multiple: true
     index_keys:
     - lat_tesim
+    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#lat
   long:
     type: string
     multiple: true
@@ -534,6 +602,7 @@ attributes:
       multiple: true
     index_keys:
     - long_tesim
+    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#long
   alt:
     type: string
     multiple: true
@@ -543,6 +612,7 @@ attributes:
       multiple: true
     index_keys:
     - alt_tesim
+    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#alt
   location:
     type: string
     multiple: true
@@ -553,6 +623,7 @@ attributes:
     index_keys:
     - location_tesim
     - location_sim
+    predicate: http://schema.org/location
   managing_organisation:
     type: string
     multiple: true
@@ -563,6 +634,7 @@ attributes:
     index_keys:
     - managing_organisation_tesim
     - managing_organisation_sim
+    predicate: http://dlib.york.ac.uk/ontologies/pure#pureManagingUnit
   note:
     type: string
     multiple: true
@@ -572,6 +644,7 @@ attributes:
       multiple: true
     index_keys:
     - note_tesim
+    predicate: http://www.w3.org/2004/02/skos/core#note
   former_identifier:
     type: string
     multiple: true
@@ -581,3 +654,4 @@ attributes:
       multiple: true
     index_keys:
     - former_identifier_tesim
+    predicate: http://dlib.york.ac.uk/ontologies/generic#formerIdentifier

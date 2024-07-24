@@ -26,6 +26,8 @@ attributes:
       required: true
       primary: true
       multiple: false
+    index_keys:
+    predicate: http://www.europeana.eu/schemas/edm/rights
   access_right:
     type: string
     multiple: true
@@ -33,6 +35,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/terms/accessRights
   rights_notes:
     type: string
     multiple: true
@@ -40,6 +44,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/elements/1.1/rights
   bibliographic_citation:
     type: string
     multiple: true
@@ -47,6 +53,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/terms/bibliographicCitation
   creator:
     type: string
     multiple: true
@@ -54,6 +62,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/elements/1.1/creator
   publisher:
     type: string
     multiple: true
@@ -61,6 +71,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/elements/1.1/publisher
   resource_type:
     type: string
     multiple: true
@@ -68,6 +80,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/terms/type
   abstract:
     type: string
     multiple: true
@@ -78,6 +92,7 @@ attributes:
     index_keys:
     - abstract_tesim
     - abstract_si
+    predicate: http://purl.org/dc/terms/abstract
   contributor:
     type: string
     multiple: true
@@ -85,6 +100,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/elements/1.1/contributor
   date_created:
     type: string
     multiple: true
@@ -96,6 +113,7 @@ attributes:
     - date_created_tesim
     - date_created_sim
     - date_created_ssi
+    predicate: http://purl.org/dc/terms/created
   date_issued:
     type: date_time
     multiple: true
@@ -107,6 +125,7 @@ attributes:
     - date_issued_tesim
     - date_issued_sim
     - date_issued_ssi
+    predicate: http://purl.org/dc/terms/issued
   identifier:
     type: string
     multiple: true
@@ -114,6 +133,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/terms/identifier
   subject:
     type: string
     multiple: true
@@ -121,6 +142,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/elements/1.1/subject
   keyword:
     type: string
     multiple: true
@@ -128,6 +151,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/elements/1.1/relation
   language:
     type: string
     multiple: true
@@ -135,6 +160,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/elements/1.1/language
   based_near:
     type: string
     multiple: true
@@ -142,6 +169,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://xmlns.com/foaf/0.1/based_near
   related_url:
     type: string
     multiple: true
@@ -149,6 +178,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://www.w3.org/2000/01/rdf-schema#seeAlso
   license:
     type: string
     multiple: true
@@ -156,6 +187,8 @@ attributes:
       required: false
       primary: false
       multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/terms/rights
   source:
     type: string
     multiple: true
@@ -166,50 +199,7 @@ attributes:
     index_keys:
     - source_tesim
     - source_sim
-  aark_id:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    index_keys:
-    - aark_id_tesim
-  description:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-  label:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-  alternative_title:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-  relative_path:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-  arkivo_checksum:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
+    predicate: http://purl.org/dc/terms/source
   import_url:
     type: string
     multiple: false
@@ -217,7 +207,18 @@ attributes:
       required: false
       primary: false
       multiple: false
-  long:
+    index_keys:
+    predicate: http://scholarsphere.psu.edu/ns#importUrl
+  label:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    predicate: info:fedora/fedora-system:def/model#downloadFilename
+  description:
     type: string
     multiple: true
     form:
@@ -225,7 +226,113 @@ attributes:
       primary: false
       multiple: true
     index_keys:
-    - long_tesim
+    predicate: http://purl.org/dc/elements/1.1/description
+  alternative_title:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    predicate: http://purl.org/dc/terms/alternative
+  relative_path:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    predicate: http://scholarsphere.psu.edu/ns#relativePath
+  show_pdf_download_button:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - show_pdf_download_button_tesim
+    predicate: http://id.loc.gov/vocabulary/identifiers/show_pdf_download_button
+  show_pdf_viewer:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - show_pdf_viewer_tesim
+    predicate: http://id.loc.gov/vocabulary/identifiers/show_pdf_viewer
+  arkivo_checksum:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    predicate: http://scholarsphere.psu.edu/ns#arkivoChecksum
+  proxy_depositor:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - proxy_depositor_ssim
+    predicate: http://scholarsphere.psu.edu/ns#proxyDepositor
+  state:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    predicate: http://fedora.info/definitions/1/0/access/ObjState#objState
+  on_behalf_of:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - on_behalf_of_ssim
+    predicate: http://scholarsphere.psu.edu/ns#onBehalfOf
+  owner:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    predicate: http://opaquenamespace.org/ns/hydra/owner
+  bulkrax_identifier:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - bulkrax_identifier_tesim
+    - bulkrax_identifier_sim
+    predicate: https://hykucommons.org/terms/bulkrax_identifier
+  lat:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - lat_tesim
+    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#lat
   alt:
     type: string
     multiple: true
@@ -235,6 +342,27 @@ attributes:
       multiple: true
     index_keys:
     - alt_tesim
+    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#alt
+  long:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - long_tesim
+    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#long
+  place_of_publication:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - place_of_publication_tesim
+    predicate: http://id.loc.gov/vocabulary/relators/pup
   part_of:
     type: string
     multiple: true
@@ -245,42 +373,7 @@ attributes:
     index_keys:
     - part_of_tesim
     - part_of_sim
-  lat:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - lat_tesim
-  place_of_publication:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - place_of_publication_tesim
-  slug:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    index_keys:
-    - slug_tesim
-  slug_for_upgrade:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    index_keys:
-    - slug_for_upgrade_tesim
+    predicate: http://id.loc.gov/ontologies/bibframe/partOf
   remote_url:
     type: string
     multiple: true
@@ -290,3 +383,4 @@ attributes:
       multiple: true
     index_keys:
     - remote_url_tesim
+    predicate: http://id.loc.gov/vocabulary/identifiers/uri
