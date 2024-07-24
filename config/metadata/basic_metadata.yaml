@@ -169,7 +169,6 @@ attributes:
     index_keys:
     - license_tesim
     predicate: http://purl.org/dc/terms/rights
-  # What is this?? unused?
   relative_path:
     type: string
     predicate: http://scholarsphere.psu.edu/ns#relativePath
