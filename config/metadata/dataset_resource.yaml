@@ -33,14 +33,6 @@ attributes:
     - rights_statement_tesim
     - rights_statement_sim
     predicate: http://www.europeana.eu/schemas/edm/rights
-  access_right:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    predicate: http://purl.org/dc/terms/accessRights
   rights_notes:
     type: string
     multiple: true
@@ -49,40 +41,6 @@ attributes:
       primary: false
       multiple: true
     predicate: http://purl.org/dc/elements/1.1/rights
-  bibliographic_citation:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - bibliographic_citation_tesim
-    predicate: http://purl.org/dc/terms/bibliographicCitation
-  creator:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - creator_tesim
-    - creator_si
-    - creator_sim
-    predicate: http://purl.org/dc/elements/1.1/creator
-  publisher:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - publisher_tesim
-    - publisher_si
-    - publisher_sim
-    predicate: http://purl.org/dc/elements/1.1/publisher
   date_published:
     type: string
     multiple: false
@@ -117,29 +75,6 @@ attributes:
     - resource_type_tesim
     - resource_type_si
     predicate: http://purl.org/dc/terms/type
-  abstract:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - abstract_tesim
-    - abstract_si
-    predicate: http://purl.org/dc/terms/abstract
-  contributor:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - contributor_tesim
-    - contributor_si
-    - contributor_sim
-    predicate: http://purl.org/dc/elements/1.1/contributor
   funder:
     type: string
     multiple: true
@@ -175,18 +110,6 @@ attributes:
     - date_collected_ssi
     - date_collected_si
     predicate: http://purl.org/spar/fabio/hasDateCollected
-  date_created:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    index_keys:
-    - date_created_tesim
-    - date_created_sim
-    - date_created_ssi
-    predicate: http://purl.org/dc/terms/created
   date_issued:
     type: date_time
     multiple: false
@@ -209,17 +132,6 @@ attributes:
     index_keys:
     - doi_tesim
     predicate: http://id.loc.gov/vocabulary/identifiers/doi
-  identifier:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - identifier_tesim
-    - identifier_si
-    predicate: http://purl.org/dc/terms/identifier
   subject:
     type: string
     multiple: true
@@ -242,26 +154,6 @@ attributes:
     - keyword_tesim
     - keyword_sim
     predicate: http://schema.org/keywords
-  language:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - language_tesim
-    - language_si
-    - language_sim
-    predicate: http://purl.org/dc/elements/1.1/language
-  based_near:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    predicate: http://xmlns.com/foaf/0.1/based_near
   dc_format:
     type: string
     multiple: true
@@ -312,35 +204,6 @@ attributes:
     index_keys:
     - source_tesim
     predicate: http://purl.org/dc/terms/source
-  import_url:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    index_keys:
-    - import_url_ssim
-    predicate: http://scholarsphere.psu.edu/ns#importUrl
-  description:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - description_tesim
-    - description_si
-    predicate: http://purl.org/dc/elements/1.1/description
-  alternative_title:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    predicate: http://purl.org/dc/terms/alternative
   owner:
     type: string
     multiple: false
@@ -407,14 +270,6 @@ attributes:
     - date_available_ssi
     - date_available_si
     predicate: http://purl.org/dc/terms/available
-  label:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    predicate: info:fedora/fedora-system:def/model#downloadFilename
   on_behalf_of:
     type: string
     multiple: false
@@ -443,14 +298,6 @@ attributes:
     index_keys:
     - proxy_depositor_ssim
     predicate: http://scholarsphere.psu.edu/ns#proxyDepositor
-  arkivo_checksum:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    predicate: http://scholarsphere.psu.edu/ns#arkivoChecksum
   relative_path:
     type: string
     multiple: false
