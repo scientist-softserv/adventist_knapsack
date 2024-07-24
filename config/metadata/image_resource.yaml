@@ -26,7 +26,6 @@ attributes:
       required: true
       primary: true
       multiple: false
-    index_keys:
     predicate: http://www.europeana.eu/schemas/edm/rights
   access_right:
     type: string
@@ -35,7 +34,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/terms/accessRights
   rights_notes:
     type: string
@@ -44,7 +42,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/elements/1.1/rights
   bibliographic_citation:
     type: string
@@ -53,7 +50,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/terms/bibliographicCitation
   creator:
     type: string
@@ -62,7 +58,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/elements/1.1/creator
   publisher:
     type: string
@@ -71,7 +66,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/elements/1.1/publisher
   resource_type:
     type: string
@@ -80,7 +74,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/terms/type
   abstract:
     type: string
@@ -100,7 +93,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/elements/1.1/contributor
   date_created:
     type: string
@@ -133,7 +125,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/terms/identifier
   subject:
     type: string
@@ -142,7 +133,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/elements/1.1/subject
   keyword:
     type: string
@@ -151,7 +141,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/elements/1.1/relation
   language:
     type: string
@@ -160,7 +149,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/elements/1.1/language
   based_near:
     type: string
@@ -169,7 +157,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://xmlns.com/foaf/0.1/based_near
   extent:
     type: string
@@ -188,7 +175,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://www.w3.org/2000/01/rdf-schema#seeAlso
   license:
     type: string
@@ -197,7 +183,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/terms/rights
   source:
     type: string
@@ -217,7 +202,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: http://scholarsphere.psu.edu/ns#relativePath
   description:
     type: string
@@ -226,7 +210,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/elements/1.1/description
   alternative_title:
     type: string
@@ -235,19 +218,7 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/terms/alternative
-  bulkrax_identifier:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    index_keys:
-    - bulkrax_identifier_tesim
-    - bulkrax_identifier_sim
-    predicate: https://hykucommons.org/terms/bulkrax_identifier
   label:
     type: string
     multiple: false
@@ -255,7 +226,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: info:fedora/fedora-system:def/model#downloadFilename
   import_url:
     type: string
@@ -264,28 +234,7 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: http://scholarsphere.psu.edu/ns#importUrl
-  show_pdf_download_button:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    index_keys:
-    - show_pdf_download_button_tesim
-    predicate: http://id.loc.gov/vocabulary/identifiers/show_pdf_download_button
-  show_pdf_viewer:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    index_keys:
-    - show_pdf_viewer_tesim
-    predicate: http://id.loc.gov/vocabulary/identifiers/show_pdf_viewer
   arkivo_checksum:
     type: string
     multiple: false
@@ -293,7 +242,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: http://scholarsphere.psu.edu/ns#arkivoChecksum
   proxy_depositor:
     type: string
@@ -312,7 +260,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: http://fedora.info/definitions/1/0/access/ObjState#objState
   on_behalf_of:
     type: string
@@ -331,7 +278,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: http://opaquenamespace.org/ns/hydra/owner
   long:
     type: string

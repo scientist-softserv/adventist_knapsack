@@ -40,7 +40,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/terms/accessRights
   rights_notes:
     type: string
@@ -49,7 +48,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/elements/1.1/rights
   bibliographic_citation:
     type: string
@@ -227,7 +225,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://xmlns.com/foaf/0.1/based_near
   related_url:
     type: string
@@ -287,7 +284,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/terms/alternative
   owner:
     type: string
@@ -296,7 +292,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: http://opaquenamespace.org/ns/hydra/owner
   label:
     type: string
@@ -305,7 +300,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: info:fedora/fedora-system:def/model#downloadFilename
   on_behalf_of:
     type: string
@@ -324,7 +318,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: http://fedora.info/definitions/1/0/access/ObjState#objState
   date_available:
     type: date_time
@@ -424,7 +417,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: http://scholarsphere.psu.edu/ns#arkivoChecksum
   relative_path:
     type: string
@@ -433,7 +425,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: http://scholarsphere.psu.edu/ns#relativePath
   pagination:
     type: string

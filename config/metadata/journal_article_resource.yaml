@@ -40,7 +40,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/terms/accessRights
   rights_notes:
     type: string
@@ -49,7 +48,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/elements/1.1/rights
   bibliographic_citation:
     type: string
@@ -58,7 +56,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/terms/bibliographicCitation
   creator:
     type: string
@@ -238,7 +235,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://xmlns.com/foaf/0.1/based_near
   related_url:
     type: string
@@ -298,7 +294,6 @@ attributes:
       required: false
       primary: false
       multiple: true
-    index_keys:
     predicate: http://purl.org/dc/terms/alternative
   place_of_publication:
     type: string
@@ -337,7 +332,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: info:fedora/fedora-system:def/model#downloadFilename
   lat:
     type: string
@@ -356,7 +350,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: http://scholarsphere.psu.edu/ns#arkivoChecksum
   proxy_depositor:
     type: string
@@ -375,7 +368,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: http://fedora.info/definitions/1/0/access/ObjState#objState
   on_behalf_of:
     type: string
@@ -419,7 +411,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: http://opaquenamespace.org/ns/hydra/owner
   long:
     type: string
@@ -438,7 +429,6 @@ attributes:
       required: false
       primary: false
       multiple: false
-    index_keys:
     predicate: http://scholarsphere.psu.edu/ns#relativePath
   date_accepted:
     type: string
