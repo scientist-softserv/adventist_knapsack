@@ -4,6 +4,7 @@
 #  `rails generate hyrax:work_resource PublishedWorkResource`
 class PublishedWorkResource < Hyrax::Work
   include Hyrax::Schema(:basic_metadata)
+  include Hyrax::Schema(:adl_metadata)
   include Hyrax::Schema(:published_work_resource)
   include Hyrax::Schema(:bulkrax_metadata)
   include Hyrax::Schema(:with_pdf_viewer)

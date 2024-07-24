@@ -19,166 +19,30 @@
 # @see config/metadata/basic_metadata.yaml for an example configuration
 
 attributes:
-  rights_statement:
-    type: string
-    multiple: false
-    form:
-      required: true
-      primary: true
-      multiple: false
-    predicate: http://www.europeana.eu/schemas/edm/rights
-  rights_notes:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    predicate: http://purl.org/dc/elements/1.1/rights
-  resource_type:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    predicate: http://purl.org/dc/terms/type
   date_issued:
     type: date_time
     multiple: true
     form:
-      required: false
       primary: false
-      multiple: true
     index_keys:
     - date_issued_tesim
     - date_issued_sim
-    - date_issued_ssi
     predicate: http://purl.org/dc/terms/issued
-  subject:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    predicate: http://purl.org/dc/elements/1.1/subject
+  # Can we change this to the standard predicate & put into basic_metadata?
   keyword:
     type: string
     multiple: true
     form:
-      required: false
       primary: false
-      multiple: true
+    index_keys:
+    - keyword_tesim
+    - keyword_sim
     predicate: http://purl.org/dc/elements/1.1/relation
-  related_url:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    predicate: http://www.w3.org/2000/01/rdf-schema#seeAlso
-  license:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    predicate: http://purl.org/dc/terms/rights
-  source:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - source_tesim
-    - source_sim
-    predicate: http://purl.org/dc/terms/source
-  relative_path:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    predicate: http://scholarsphere.psu.edu/ns#relativePath
-  proxy_depositor:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    index_keys:
-    - proxy_depositor_ssim
-    predicate: http://scholarsphere.psu.edu/ns#proxyDepositor
-  state:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    predicate: http://fedora.info/definitions/1/0/access/ObjState#objState
-  on_behalf_of:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    index_keys:
-    - on_behalf_of_ssim
-    predicate: http://scholarsphere.psu.edu/ns#onBehalfOf
-  owner:
-    type: string
-    multiple: false
-    form:
-      required: false
-      primary: false
-      multiple: false
-    predicate: http://opaquenamespace.org/ns/hydra/owner
-  lat:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - lat_tesim
-    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#lat
-  alt:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - alt_tesim
-    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#alt
-  long:
-    type: string
-    multiple: true
-    form:
-      required: false
-      primary: false
-      multiple: true
-    index_keys:
-    - long_tesim
-    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#long
   place_of_publication:
     type: string
     multiple: true
     form:
-      required: false
       primary: false
-      multiple: true
     index_keys:
     - place_of_publication_tesim
     predicate: http://id.loc.gov/vocabulary/relators/pup
@@ -186,9 +50,7 @@ attributes:
     type: string
     multiple: true
     form:
-      required: false
       primary: false
-      multiple: true
     index_keys:
     - part_of_tesim
     - part_of_sim
@@ -197,9 +59,7 @@ attributes:
     type: string
     multiple: true
     form:
-      required: false
       primary: false
-      multiple: true
     index_keys:
     - remote_url_tesim
     predicate: http://id.loc.gov/vocabulary/identifiers/uri

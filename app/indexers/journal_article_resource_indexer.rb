@@ -4,6 +4,7 @@
 #  `rails generate hyrax:work_resource JournalArticleResource`
 class JournalArticleResourceIndexer < Hyrax::ValkyrieWorkIndexer
   include Hyrax::Indexer(:basic_metadata)
+  include Hyrax::Indexer(:adl_metadata)
   include Hyrax::Indexer(:journal_article_resource)
   include Hyrax::Indexer(:with_pdf_viewer)
   include Hyrax::Indexer(:with_video_embed)

@@ -7,6 +7,7 @@
 # @see https://github.com/samvera/valkyrie/wiki/ChangeSets-and-Dirty-Tracking
 class PublishedWorkResourceForm < Hyrax::Forms::ResourceForm(PublishedWorkResource)
   include Hyrax::FormFields(:basic_metadata)
+  include Hyrax::FormFields(:adl_metadata)
   include Hyrax::FormFields(:published_work_resource)
   include Hyrax::FormFields(:bulkrax_metadata)
   include Hyrax::FormFields(:with_pdf_viewer)

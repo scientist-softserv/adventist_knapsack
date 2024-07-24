@@ -18,7 +18,9 @@
 #
 # @see config/metadata/basic_metadata.yaml for an example configuration
 #
-# Adding an empty file to override basic_metadata from Hyrax.
+# Common metadata that is in shared among work models. This includes Hyrax's
+# basic metadata that is in common as well as custom common terms. (Customizations
+# may have been made to Hyrax's metadata)
 
 attributes:
   abstract:
@@ -39,16 +41,16 @@ attributes:
       - "access_right_sim"
       - "access_right_tesim"
     predicate: http://purl.org/dc/terms/accessRights
-  # Commenting out due to slugs using same predicate
-  # alternative_title:
-  #   type: string
-  #   multiple: true
-  #   form:
-  #     primary: false
-  #   index_keys:
-  #     - "alternative_title_sim"
-  #     - "alternative_title_tesim"
-  #   predicate: http://purl.org/dc/terms/alternative
+  # slugs previously used same predicate
+  alternative_title:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "alternative_title_sim"
+      - "alternative_title_tesim"
+    predicate: http://purl.org/dc/terms/alternative
   arkivo_checksum:
     type: string
     multiple: false
@@ -122,7 +124,7 @@ attributes:
   import_url:
     type: string
     predicate: http://scholarsphere.psu.edu/ns#importUrl
-  # Comment out - predicates vary among work models
+  # Comment out - left in each model's yaml... predicates vary among work models
   # keyword:
   #   type: string
   #   multiple: true
@@ -158,13 +160,124 @@ attributes:
       - "language_sim"
       - "language_tesim"
     predicate: http://purl.org/dc/elements/1.1/language
-  # Comment out due to using rights as predicate
-  # license:
-  #   type: string
-  #   multiple: true
-  #   form:
-  #     primary: false
-  #   index_keys:
-  #     - "license_sim"
-  #     - "license_tesim"
-  #   predicate: http://purl.org/dc/terms/license
+  # Override because nonstandard predicate
+  license:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - license_tesim
+    predicate: http://purl.org/dc/terms/rights
+  # What is this?? unused?
+  relative_path:
+    type: string
+    predicate: http://scholarsphere.psu.edu/ns#relativePath
+  related_url:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "related_url_sim"
+      - "related_url_tesim"
+    predicate: http://www.w3.org/2000/01/rdf-schema#seeAlso
+  resource_type:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "resource_type_sim"
+      - "resource_type_tesim"
+    predicate: http://purl.org/dc/terms/type
+  rights_notes:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "rights_notes_sim"
+      - "rights_notes_tesim"
+    predicate: http://purl.org/dc/elements/1.1/rights
+  # nonstandard definition: multiple false, required true
+  rights_statement:
+    type: string
+    multiple: false
+    form:
+      required: true
+      primary: true
+    index_keys:
+    - rights_statement_tesim
+    - rights_statement_sim
+    predicate: http://www.europeana.eu/schemas/edm/rights
+  source:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "source_sim"
+      - "source_tesim"
+    predicate: http://purl.org/dc/terms/source
+  subject:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "subject_sim"
+      - "subject_tesim"
+    predicate: http://purl.org/dc/elements/1.1/subject
+  long:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - long_tesim
+    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#long
+  lat:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - lat_tesim
+    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#lat
+  alt:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - alt_tesim
+    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#alt
+  owner:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    predicate: http://opaquenamespace.org/ns/hydra/owner
+  on_behalf_of:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - on_behalf_of_ssim
+    predicate: http://scholarsphere.psu.edu/ns#onBehalfOf
+  state:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    predicate: http://fedora.info/definitions/1/0/access/ObjState#objState
+  proxy_depositor:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - proxy_depositor_ssim
+    predicate: http://scholarsphere.psu.edu/ns#proxyDepositor
