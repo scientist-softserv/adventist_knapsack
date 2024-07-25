@@ -21,4 +21,48 @@
 # Generated via
 #  `rails generate hyrax:work_resource ExamPaperResource`
 
-attributes: {}
+attributes:
+  keyword:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - keyword_tesim
+    - keyword_sim
+    predicate: http://schema.org/keywords
+  module_code:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - module_code_tesim
+    predicate: http://dlib.york.ac.uk/ontologies/generic#moduleCode
+  qualification_name:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - qualification_name_tesim
+    - qualification_name_sim
+    predicate: http://dlib.york.ac.uk/ontologies/uketd#qualificationName
+  qualification_level:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - qualification_level_tesim
+    - qualification_level_sim
+    predicate: http://dlib.york.ac.uk/ontologies/uketd#qualificationLevel
+  date_available:
+    type: date_time
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - date_available_tesim
+    - date_available_sim
+    predicate: http://purl.org/dc/terms/available

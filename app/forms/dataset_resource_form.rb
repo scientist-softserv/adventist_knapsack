@@ -7,6 +7,7 @@
 # @see https://github.com/samvera/valkyrie/wiki/ChangeSets-and-Dirty-Tracking
 class DatasetResourceForm < Hyrax::Forms::ResourceForm(DatasetResource)
   include Hyrax::FormFields(:basic_metadata)
+  include Hyrax::FormFields(:adl_metadata)
   include Hyrax::FormFields(:dataset_resource)
   include Hyrax::FormFields(:bulkrax_metadata)
   include Hyrax::FormFields(:with_pdf_viewer)

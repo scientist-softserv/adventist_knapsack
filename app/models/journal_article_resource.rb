@@ -4,6 +4,7 @@
 #  `rails generate hyrax:work_resource JournalArticleResource`
 class JournalArticleResource < Hyrax::Work
   include Hyrax::Schema(:basic_metadata)
+  include Hyrax::Schema(:adl_metadata)
   include Hyrax::Schema(:journal_article_resource)
   include Hyrax::Schema(:bulkrax_metadata)
   include Hyrax::Schema(:with_pdf_viewer)
