@@ -8,15 +8,6 @@ attributes:
       multiple: true
     index_keys:
     predicate: http://purl.org/dc/elements/1.1/relation
-  bibliographic_citation:
-    type: string
-    multiple: true
-    form:
-      primary: false
-    index_keys:
-      - "bibliographic_citation_sim"
-      - "bibliographic_citation_tesim"
-    predicate: http://purl.org/dc/terms/bibliographicCitation
   date:
     type: string
     multiple: true
