@@ -9,7 +9,8 @@ class ConferenceItemResource < Hyrax::Work
   include Hyrax::Schema(:bulkrax_metadata)
   include Hyrax::Schema(:with_pdf_viewer)
   include Hyrax::Schema(:with_video_embed)
-
+  include Hyrax::Schema(:slug_metadata)
+  include SlugBugValkyrie
   include Hyrax::ArResource
   include Hyrax::NestedWorks
 

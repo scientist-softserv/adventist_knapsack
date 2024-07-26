@@ -10,7 +10,7 @@ module SlugBug
   end
 
   def to_param
-    slug_for_upgrade || slug || id
+    slug || id
   end
 
   def set_slug
@@ -19,7 +19,6 @@ module SlugBug
                 else
                   id
                 end
-    self.slug_for_upgrade = slug
   end
 
   private
@@ -32,5 +31,3 @@ module SlugBug
       update_index
     end
 end
-
-IiifPrint.config.ancestory_identifier_function = ->(work) { work.to_param }

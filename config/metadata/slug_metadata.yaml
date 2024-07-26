@@ -1,0 +1,21 @@
+attributes: 
+  slug:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - slug_tesim
+    predicate: http://id.loc.gov/vocabulary/identifiers/slug
+  aark_id:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+      multiple: false
+    index_keys:
+    - aark_id_tesim
+    predicate: https://adl-hyku-staging.notch8.cloud/terms/aark_id
