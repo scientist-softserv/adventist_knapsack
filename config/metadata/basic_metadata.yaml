@@ -88,8 +88,8 @@ attributes:
     type: string
     multiple: true
     form:
-      required: true
-      primary: true
+      required: false
+      primary: false
     index_keys:
       - "creator_sim"
       - "creator_tesim"

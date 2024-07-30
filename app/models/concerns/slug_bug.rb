@@ -25,7 +25,7 @@ module SlugBug
 
     # Cribbed from https://gitlab.com/notch8/louisville-hyku/-/blob/main/app/models/custom_slugs/slug_behavior.rb#L14
     def remove_index_and_reindex
-      return unless slug.present? || slug_for_upgrade.present?
+      return unless slug.present?
 
       ActiveFedora::Base.remove_from_index!(id)
       update_index

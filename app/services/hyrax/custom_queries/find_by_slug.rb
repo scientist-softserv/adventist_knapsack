@@ -15,7 +15,7 @@ module Hyrax
       delegate :resource_factory, to: :query_service
     
       def find_by_slug(slug:)
-        Hyrax.query_service.orm_class.find_by_sql(([find_by_slug_query, slug])).lazy.map do |object|
+        Hyrax.query_service.orm_class.find_by_sql(([find_by_slug_query,  "\"#{slug.to_s}\""])).lazy.map do |object|
           resource_factory.to_resource(object: object)
         end.first
       end
@@ -23,7 +23,7 @@ module Hyrax
       def find_by_slug_query
         <<-SQL
           SELECT * FROM orm_resources
-          WHERE (metadata ->> 'slug' = ?)
+          WHERE (metadata -> 'slug' @> ?)
         SQL
       end
     end

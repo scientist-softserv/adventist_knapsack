@@ -3,6 +3,7 @@ attributes:
     type: string
     multiple: false
     form:
+      display: false
       required: false
       primary: false
       multiple: false
