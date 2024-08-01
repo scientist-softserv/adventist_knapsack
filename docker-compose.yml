@@ -3,7 +3,7 @@ x-app: &app
     context: .
     target: hyku-web
     cache_from:
-      - ghcr.io/samvera/hyku/base:latest
+      - ghcr.io/samvera/hyku/base:20b8c56e
       - ghcr.io/samvera-labs/hyku_knapsack:latest
     args:
       BUILDKIT_INLINE_CACHE: 1
@@ -41,7 +41,7 @@ x-app-worker: &app-worker
       context: .
       target: hyku-worker
       cache_from:
-        - ghcr.io/samvera/hyku/base:latest
+        - ghcr.io/samvera/hyku/base:20b8c56e
         - ghcr.io/samvera-labs/hyku_knapsack/worker:latest
       args:
         BUILDKIT_INLINE_CACHE: 1
