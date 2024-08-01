@@ -7,6 +7,8 @@ attributes:
       primary: false
       multiple: true
     index_keys:
+    - keyword_tesim
+    - keyword_sim
     predicate: http://purl.org/dc/elements/1.1/relation
   date:
     type: string

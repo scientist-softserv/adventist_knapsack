@@ -12,7 +12,9 @@ class ThesisResourceForm < Hyrax::Forms::ResourceForm(ThesisResource)
   include Hyrax::FormFields(:bulkrax_metadata)
   include Hyrax::FormFields(:with_pdf_viewer)
   include Hyrax::FormFields(:with_video_embed)
+  include Hyrax::FormFields(:slug_metadata)
   include VideoEmbedBehavior::Validation
+  include(SlugBugValkyrie)
 
   # Define custom form fields using the Valkyrie::ChangeSet interface
   #

@@ -10,7 +10,7 @@ module SlugBug
   end
 
   def to_param
-    slug_for_upgrade || slug || id
+    slug || id
   end
 
   def set_slug
@@ -19,18 +19,15 @@ module SlugBug
                 else
                   id
                 end
-    self.slug_for_upgrade = slug
   end
 
   private
 
     # Cribbed from https://gitlab.com/notch8/louisville-hyku/-/blob/main/app/models/custom_slugs/slug_behavior.rb#L14
     def remove_index_and_reindex
-      return unless slug.present? || slug_for_upgrade.present?
+      return unless slug.present?
 
       ActiveFedora::Base.remove_from_index!(id)
       update_index
     end
 end
-
-IiifPrint.config.ancestory_identifier_function = ->(work) { work.to_param }

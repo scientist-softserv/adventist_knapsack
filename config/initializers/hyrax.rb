@@ -31,6 +31,9 @@ Rails.application.config.after_initialize do
     config.branding_path = ENV.fetch('HYRAX_BRANDING_PATH', Rails.root.join('public', 'branding'))
   end
 
+  # Slug mapping for IiifPrint
+  IiifPrint.config.ancestory_identifier_function = ->(work) { work.to_param }
+
   # Ensure that valid_child_concerns are set with all the curation concerns including
   # the ones registered from the Knapsack
   Hyrax.config.curation_concerns.each do |concern|
