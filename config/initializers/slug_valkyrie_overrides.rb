@@ -12,6 +12,8 @@ Valkyrie::Persistence::Postgres::QueryService.class_eval do
     id = Valkyrie::ID.new(id.to_s) if id.is_a?(String)
     validate_id(id)
     resource_factory.to_resource(object: orm_class.find(id.to_s))
+  rescue ActiveRecord::RecordNotFound
+    nil
   end
 end
 
