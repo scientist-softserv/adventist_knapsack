@@ -7,7 +7,7 @@ module Adl
         include Dry::Monads[:result]
 
         def call(change_set)
-          return change_set if change_set.try(:aark_id).blank? && change_set.model.try(:aark_id).blank?
+          return Success(change_set) if change_set.try(:aark_id).blank? && change_set.model.try(:aark_id).blank?
 
           change_set.slug = change_set.set_slug
 
