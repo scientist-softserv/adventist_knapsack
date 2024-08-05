@@ -95,6 +95,8 @@ IiifPrint.config do |config|
     collection: {}
   }
 
+  # Override IiifPrint's function to substitute Array.wrap prior to gem cleanup.
+  # See https://github.com/scientist-softserv/adventist_knapsack/issues/729
   config.child_work_attributes_function = lambda do |parent_work:, admin_set_id:|
     embargo = parent_work.embargo
     lease = parent_work.lease

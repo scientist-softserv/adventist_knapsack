@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-# OVERRIDE: This is a wholecloth override of
-# https://github.com/scientist-softserv/iiif_print/pull/295/files We're doing this because the IIIF
-# Print build is now taking 2 hours; which means a 4 hour loop to bring updates from IIIF Print.
+# OVERRIDE: Overriding entire job temporarily, pending cleanup via
+# https://github.com/scientist-softserv/adventist_knapsack/issues/728
 require 'iiif_print/jobs/application_job'
 
 module IiifPrint
