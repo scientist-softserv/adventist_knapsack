@@ -3,7 +3,7 @@
 # OVERRIDE BULKRAX v5.4.1 to add BOM support when parsing values
 
 module Bulkrax
-  module CsvParserDecorator
+  module AdventistCsvParserDecorator
     def missing_elements(record)
       keys_from_record = extract_keys_from_record(record)
       keys = collect_keys_from_mapping(keys_from_record)
@@ -46,4 +46,4 @@ module Bulkrax
   end
 end
 
-Bulkrax::CsvParser.prepend(Bulkrax::CsvParserDecorator)
+Bulkrax::CsvParser.prepend(Bulkrax::AdventistCsvParserDecorator)
