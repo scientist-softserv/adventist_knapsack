@@ -8,7 +8,7 @@ module IIIFManifest
       def from(work)
         composite_builder.new(
           *file_set_presenters(work).map do |presenter|
-            next if presenter.label.downcase.end_with?(HykuKnapsack::Engine::THUMBNAIL_FILE_SUFFIX) || !presenter.image?
+            next if presenter&.label&.downcase&.end_with?(HykuKnapsack::Engine::THUMBNAIL_FILE_SUFFIX) || !presenter.image?
             canvas_builder_factory.new(presenter, work)
           end
         )
