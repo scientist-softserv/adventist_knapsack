@@ -15,7 +15,9 @@ module Wings
       delegate :resource_factory, to: :query_service
 
       def find_by_slug(slug:)
-        ActiveFedora::Base.find(slug.to_s).valkyrie_resource
+        ActiveFedora::Base.find(slug.to_s)&.valkyrie_resource
+      rescue ActiveFedora::ObjectNotFoundError
+        nil
       end
     end
   end
