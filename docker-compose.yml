@@ -3,7 +3,7 @@ x-app: &app
     context: .
     target: hyku-web
     cache_from:
-      - ghcr.io/samvera/hyku/base:20b8c56e
+      - ghcr.io/samvera/hyku/base:latest
       - ghcr.io/samvera-labs/hyku_knapsack:latest
     args:
       BUILDKIT_INLINE_CACHE: 1
@@ -23,8 +23,6 @@ x-app: &app
     - HYRAX_ACTIVE_JOB_QUEUE=good_job
     - VIRTUAL_HOST=.hyku.test
     - VIRTUAL_PORT=3000
-
-    - BUNDLE_BUNDLER_INJECT__GEM_PATH=/app/samvera/bundler.d
   volumes:
     - node_modules:/app/samvera/hyrax-webapp/node_modules:cached
     - uploads:/app/samvera/hyrax-webapp/public/uploads:cached
@@ -41,7 +39,7 @@ x-app-worker: &app-worker
       context: .
       target: hyku-worker
       cache_from:
-        - ghcr.io/samvera/hyku/base:20b8c56e
+        - ghcr.io/samvera/hyku/base:latest
         - ghcr.io/samvera-labs/hyku_knapsack/worker:latest
       args:
         BUILDKIT_INLINE_CACHE: 1
