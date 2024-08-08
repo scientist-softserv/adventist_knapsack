@@ -4,7 +4,7 @@ require 'spec_helper'
 
 RSpec.describe FileSetsReprocessJob, clean: true do
   let(:user) { FactoryBot.create(:user) }
-  let(:file_set) { FactoryBot.create(:file_with_work, content: file_content, user: user, label: 'latex.pdf') }
+  let(:file_set) { FactoryBot.create(:file_with_work_and_file_set, content: file_content, user: user, label: 'latex.pdf') }
   let(:file_content) { File.open('spec/fixtures/latex.pdf') }
 
   describe '#perform' do

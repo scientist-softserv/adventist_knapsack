@@ -1,0 +1,131 @@
+# Metadata common to Adl's custom work types only
+
+attributes:
+  funder:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - funder_tesim
+    - funder_sim
+    predicate: http://id.loc.gov/vocabulary/relators/fnd
+  output_of:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - output_of_tesim
+    - output_of_sim
+    predicate: http://purl.org/cerif/frapo/isOutputOf
+  doi:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - doi_tesim
+    predicate: http://id.loc.gov/vocabulary/identifiers/doi
+  location:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - location_tesim
+    - location_sim
+    predicate: http://schema.org/location
+  managing_organisation:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - managing_organisation_tesim
+    - managing_organisation_sim
+    predicate: http://dlib.york.ac.uk/ontologies/pure#pureManagingUnit
+  note:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - note_tesim
+    predicate: http://www.w3.org/2004/02/skos/core#note
+  former_identifier:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - former_identifier_tesim
+    predicate: http://dlib.york.ac.uk/ontologies/generic#formerIdentifier
+  preflabel:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - preflabel_tesim
+    - preflabel_si
+    predicate: http://www.w3.org/2004/02/skos/core#prefLabel
+  altlabel:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - altlabel_tesim
+    predicate: http://www.w3.org/2004/02/skos/core#altLabel
+  rdfs_label:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - rdfs_label_tesim
+    predicate: http://www.w3.org/2000/01/rdf-schema#label
+  # seems to be just a composite field?
+  date:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - date_tesim
+    - date_sim
+    predicate: http://purl.org/dc/terms/date
+  rights_description:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - rights_description_tesim
+    predicate: http://purl.org/dc/elements/1.1/rights
+  department:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - department_tesim
+    - department_sim
+    predicate: http://schema.org/department
+  language_code:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - language_code_tesim
+    predicate: http://purl.org/dc/terms/language
+  rights_holder:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - rights_holder_tesim
+    predicate: http://purl.org/dc/terms/rightsHolder

@@ -17,11 +17,18 @@ module HykuKnapsack
       I18n.backend.reload!
     end
 
+    initializer 'set_custom_queries' do
+      ActiveSupport.on_load(:hyrax) do
+        Hyrax.query_service.services[0].custom_queries.register_query_handler(Hyrax::CustomQueries::FindBySlug)
+        Hyrax.query_service.services[1].custom_queries.register_query_handler(Wings::CustomQueries::FindBySlug)
+      end
+    end
+
     initializer :append_migrations do |app|
       # only add the migrations if they are not already copied
       # via the rake task. Allows gem to work both with the install:migrations
       # and without it.
-      if !app.root.to_s.match(root.to_s) &&
+      if app.root.to_s != HykuKnapsack::Engine.root.to_s &&
          app.root.join('db/migrate').children.none? { |path| path.fnmatch?("*.hyku_knapsack.rb") }
         config.paths["db/migrate"].expanded.each do |expanded_path|
           app.config.paths["db/migrate"] << expanded_path
@@ -43,6 +50,9 @@ module HykuKnapsack
           omniauthable
         ]
       end
+
+      # Ensure we are prepending the Hyrax::SimpleSchemaLoaderDecorator early
+      Hyrax::SimpleSchemaLoader.prepend(Hyrax::SimpleSchemaLoaderDecorator)
     end
 
     config.after_initialize do
@@ -57,10 +67,6 @@ module HykuKnapsack
       HykuKnapsack::Engine.root.glob("lib/**/*_decorator*.rb").sort.each do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
-
-      # metaprogramming makes decorating hard
-      c = HykuKnapsack::Engine.root.glob("lib/wings/orm_converter.rb").first
-      Rails.configuration.cache_classes ? require(c) : load(c)
 
       # By default plain text files are not processed for text extraction.  In adding
       # Adventist::TextFileTextExtractionService to the beginning of the services array we are

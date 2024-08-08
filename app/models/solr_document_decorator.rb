@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SolrDocumentDecorator
+module AdlSolrDocumentDecorator
   extend ActiveSupport::Concern
   class_methods do
     def attribute(name, type, field)
@@ -164,7 +164,7 @@ module SolrDocumentDecorator
   end
 
   def to_param
-    slug || id
+    slug || id.to_s
   end
 
   def thumbnail_url
@@ -176,4 +176,4 @@ module SolrDocumentDecorator
   end
 end
 
-SolrDocument.include(SolrDocumentDecorator)
+SolrDocument.include(AdlSolrDocumentDecorator)
