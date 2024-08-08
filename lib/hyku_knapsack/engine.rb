@@ -17,9 +17,11 @@ module HykuKnapsack
       I18n.backend.reload!
     end
 
-    initializer 'set_custom_queries', after: :finisher_hook do
-      Hyrax.query_service.services[0].custom_queries.register_query_handler(Hyrax::CustomQueries::FindBySlug)
-      Hyrax.query_service.services[1].custom_queries.register_query_handler(Wings::CustomQueries::FindBySlug)
+    initializer 'set_custom_queries' do
+      ActiveSupport.on_load(:hyrax) do
+        Hyrax.query_service.services[0].custom_queries.register_query_handler(Hyrax::CustomQueries::FindBySlug)
+        Hyrax.query_service.services[1].custom_queries.register_query_handler(Wings::CustomQueries::FindBySlug)
+      end
     end
 
     initializer :append_migrations do |app|
