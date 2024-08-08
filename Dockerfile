@@ -1,5 +1,8 @@
 FROM ghcr.io/samvera/hyku/base:20b8c56e as hyku-knap-base
 
+# Ensure the directory exists
+RUN mkdir -p /app/.bundler.d
+
 # This is specifically NOT $APP_PATH but the parent directory
 COPY --chown=1001:101 . /app/samvera
 COPY --chown=1001:101 bundler.d/ /app/.bundler.d/

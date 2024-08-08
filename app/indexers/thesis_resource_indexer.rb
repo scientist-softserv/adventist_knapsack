@@ -4,13 +4,14 @@
 #  `rails generate hyrax:work_resource ThesisResource`
 class ThesisResourceIndexer < Hyrax::ValkyrieWorkIndexer
   include Hyrax::Indexer(:basic_metadata)
+  include Hyrax::Indexer(:adl_metadata)
   include Hyrax::Indexer(:thesis_resource)
   include Hyrax::Indexer(:with_pdf_viewer)
   include Hyrax::Indexer(:with_video_embed)
   include Hyrax::Indexer(:bulkrax_metadata)
-
+  include Hyrax::Indexer(:slug_metadata)
   include HykuIndexing
-
+  include SlugIndexing
   # Uncomment this block if you want to add custom indexing behavior:
   #  def to_solr
   #    super.tap do |index_document|

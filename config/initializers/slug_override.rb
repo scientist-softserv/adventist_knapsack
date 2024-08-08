@@ -65,6 +65,8 @@ ActiveFedora::Relation.class_eval do
           yield(from_fedora)
         rescue Ldp::Gone
           ActiveFedora::Base.logger.error "Although #{hit[ActiveFedora.id_field]} was found in Solr, it doesn't seem to exist in Fedora. The index is out of synch."
+        rescue ActiveFedora::ObjectNotFoundError
+          ActiveFedora::Base.logger.error "Id #{hit[ActiveFedora.id_field]} was not found in Fedora... maybe the object is in PostGres only."
         end
       end
     end

@@ -95,6 +95,42 @@ IiifPrint.config do |config|
     collection: {}
   }
 
+  # Override IiifPrint's function to substitute Array.wrap prior to gem cleanup.
+  # See https://github.com/scientist-softserv/adventist_knapsack/issues/729
+  config.child_work_attributes_function = lambda do |parent_work:, admin_set_id:|
+    embargo = parent_work.embargo
+    lease = parent_work.lease
+    embargo_params = {}
+    lease_params = {}
+    visibility_params = {}
+
+    if embargo
+      embargo_params = {
+        visibility: 'embargo',
+        visibility_after_embargo: embargo.visibility_after_embargo,
+        visibility_during_embargo: embargo.visibility_during_embargo,
+        embargo_release_date: embargo.embargo_release_date
+      }
+    elsif lease
+      lease_params = {
+        visibility: 'lease',
+        visibility_after_lease: lease.visibility_after_lease,
+        visibility_during_lease: lease.visibility_during_lease,
+        lease_release_date: lease.lease_release_date
+      }
+    else
+      visibility_params = { visibility: parent_work.visibility.to_s }
+    end
+
+    params = {
+      admin_set_id: admin_set_id.to_s,
+      creator: Array.wrap(parent_work.creator),
+      rights_statement: Array.wrap(parent_work.rights_statement),
+      is_child: true
+    }
+
+    params.merge!(embargo_params).merge!(lease_params).merge!(visibility_params)
+  end
   # rubocop:enable Metrics/LineLength
 end
 
