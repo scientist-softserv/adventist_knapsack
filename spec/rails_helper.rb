@@ -42,7 +42,6 @@ RSpec.configure do |config|
   # TODO is this needed?
   config.include HykuKnapsack::Engine.routes.url_helpers
   config.include Capybara::DSL
-  config.include Fixtures::FixtureFileUpload
 
   # To run specs locally without the spec/hyku_specs/ directory do: `bundle exec rspec --tag ~hyku`
   config.define_derived_metadata(file_path: %r{spec/hyku_specs/}) do |metadata|

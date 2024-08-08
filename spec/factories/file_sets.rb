@@ -14,7 +14,7 @@ FactoryBot.modify do
 end
 
 FactoryBot.define do
-  factory :file_with_work, parent: :file_set do
+  factory :file_with_work_and_file_set, parent: :file_set do
     after(:build) do |file, _evaluator|
       file.title = ['testfile']
     end
