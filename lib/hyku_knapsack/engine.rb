@@ -17,13 +17,6 @@ module HykuKnapsack
       I18n.backend.reload!
     end
 
-    initializer 'set_custom_queries' do
-      ActiveSupport.on_load(:hyrax) do
-        Hyrax.query_service.services[0].custom_queries.register_query_handler(Hyrax::CustomQueries::FindBySlug)
-        Hyrax.query_service.services[1].custom_queries.register_query_handler(Wings::CustomQueries::FindBySlug)
-      end
-    end
-
     initializer :append_migrations do |app|
       # only add the migrations if they are not already copied
       # via the rake task. Allows gem to work both with the install:migrations
