@@ -10,5 +10,4 @@
 # your docker container and rebundle to get rid of an injected gem. 
 
 ensure_gem 'derivative-rodeo', '~> 0.5', '>= 0.5.3'
-ensure_gem 'json-canonicalization', '~> 0.3.3'
 
