@@ -18,6 +18,7 @@ RSpec.describe Bulkrax::CsvEntry do
     let(:identifier) { 'bl-26-0' }
     let(:data) do
       {
+        "work_type".to_sym => "GenericWork",
         "file".to_sym => "",
         "identifier".to_sym => %(P007204),
         "identifier.ark".to_sym => %(P007204),
