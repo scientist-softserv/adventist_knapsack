@@ -44,7 +44,7 @@ RSpec.describe Bulkrax::CsvEntry do
       entry.build_metadata
       # Yes, based on the present parser, we're expecting this to be GenericWork.  However, there's
       # an outstanding question with the client as to whether that is the correct assumption.
-      expect(entry.factory_class).to eq(GenericWork)
+      expect(entry.factory_class).to eq(GenericWorkResource)
       expect(entry.parsed_metadata.fetch('subject')).to eq ["Andrews, John Nevins 1891-1980", "Smith, John"]
       expect(entry.parsed_metadata.fetch('publisher')).to eq ["First Publisher", "Second Publisher"]
       expect(entry.parsed_metadata.fetch('part_of')).to eq ["Center for Adventist Research Photograph Collection"]

@@ -150,7 +150,7 @@ attributes:
     predicate: http://purl.org/cerif/frapo/isOutputOf
   pagination:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
     index_keys:
@@ -184,7 +184,7 @@ attributes:
     predicate: http://id.loc.gov/vocabulary/relators/pup
   refereed:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
     index_keys:
@@ -234,7 +234,7 @@ attributes:
     predicate: http://www.w3.org/2004/02/skos/core#altLabel
   volume_number:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
     index_keys:

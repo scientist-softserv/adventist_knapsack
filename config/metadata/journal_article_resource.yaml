@@ -120,7 +120,7 @@ attributes:
     predicate: http://purl.org/ontology/bibo/status
   refereed:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
     index_keys:
@@ -145,7 +145,7 @@ attributes:
     predicate: http://id.loc.gov/vocabulary/identifiers/uri
   pagination:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
     index_keys:
@@ -153,7 +153,7 @@ attributes:
     predicate: http://schema.org/pagination
   volume_number:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
     index_keys:

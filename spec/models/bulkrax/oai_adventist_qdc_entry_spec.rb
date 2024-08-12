@@ -70,7 +70,7 @@ RSpec.describe Bulkrax::OaiAdventistQdcEntry do
       it "parses the metadata" do
         entry.build_metadata
 
-        expect(entry.factory_class).to eq(work_type)
+        expect(entry.factory_class).to eq(PublishedWorkResource)
         expect(entry.parsed_metadata.fetch('title')).to eq(["Testimony for the Church: Number 7"])
         expect(entry.parsed_metadata.fetch('part')).to eq(["John N. Andrews Library Collection"])
         expect(entry.parsed_metadata.fetch('pagination')).to eq(["[16]"])
@@ -101,7 +101,7 @@ RSpec.describe Bulkrax::OaiAdventistQdcEntry do
       it "parses the metadata" do
         entry.build_metadata
 
-        expect(entry.factory_class).to eq(work_type)
+        expect(entry.factory_class).to eq(JournalArticleResource)
         expect(entry.parsed_metadata.fetch('title')).to eq(["Testimony for the Church: Number 7"])
         expect(entry.parsed_metadata.fetch('part_of')).to eq(["John N. Andrews Library Collection"])
         expect(entry.parsed_metadata.fetch('pagination')).to eq(["[16]"])
