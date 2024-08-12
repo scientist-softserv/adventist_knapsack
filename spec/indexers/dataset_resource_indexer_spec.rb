@@ -7,7 +7,7 @@ require 'hyrax/specs/shared_specs/indexers'
 
 RSpec.describe DatasetResourceIndexer do
   let(:indexer_class) { described_class }
-  let(:resource) { DatasetResource.new }
+  let(:resource) { Hyrax.persister.save(resource: DatasetResource.new) }
 
   it_behaves_like 'a Hyrax::Resource indexer'
 end

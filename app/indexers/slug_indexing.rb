@@ -1,4 +1,4 @@
-# frozen_string_literal: truehyku
+# frozen_string_literal: true
 
 ##
 # A mixin for all additional Hyku applicable indexing; both Valkyrie and ActiveFedora friendly.

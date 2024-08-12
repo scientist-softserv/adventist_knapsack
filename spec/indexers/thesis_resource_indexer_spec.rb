@@ -7,7 +7,7 @@ require 'hyrax/specs/shared_specs/indexers'
 
 RSpec.describe ThesisResourceIndexer do
   let(:indexer_class) { described_class }
-  let(:resource) { ThesisResource.new }
+  let(:resource) { Hyrax.persister.save(resource: ThesisResource.new) }
 
   it_behaves_like 'a Hyrax::Resource indexer'
 end
