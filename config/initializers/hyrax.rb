@@ -28,6 +28,8 @@ Hyrax.config do |config|
   config.enable_ffmpeg = false
 
   config.branding_path = ENV.fetch('HYRAX_BRANDING_PATH', Rails.root.join('public', 'branding'))
+
+  config.simple_schema_loader_config_search_paths.unshift(HykuKnapsack::Engine.root)
 end
 
 # Slug mapping for IiifPrint
