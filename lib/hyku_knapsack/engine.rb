@@ -43,9 +43,6 @@ module HykuKnapsack
           omniauthable
         ]
       end
-
-      # Ensure we are prepending the Hyrax::SimpleSchemaLoaderDecorator early
-      Hyrax::SimpleSchemaLoader.prepend(Hyrax::SimpleSchemaLoaderDecorator)
     end
 
     config.after_initialize do
