@@ -1,7 +1,7 @@
 <%# OVERRIDE: Add custom header & footer gradients for Adventist Digital Library %>
 
 <% # Dynamic styles added by the admin in the appearances page %>
-<% appearance = Hyrax::Forms::Admin::Appearance.new %>
+<% appearance = Hyku::Forms::Admin::Appearance.new %>
 <style>
 <% unless appearance.body_font.include?('Helvetica') %>
   @import url(//<%= appearance.font_import_body_url %>);

@@ -25,7 +25,7 @@ module Hyrax
           'facet_panel_background_color'       => '#000000',
           'facet_panel_text_color'             => '#FFFFFF'
         }.freeze
-        
+
         DEFAULT_FONTS = {
           'body_font'     => 'Helvetica Neue, Helvetica, Arial, sans-serif;',
           'headline_font' => 'Helvetica Neue, Helvetica, Arial, sans-serif;'
@@ -41,4 +41,4 @@ end
 
 Hyrax::Forms::Admin::Appearance.prepend Hyrax::Forms::Admin::AdlAppearanceDecorator
 
-Hyrax::Forms::Admin::Appearance.customization_params << :custom_adl_header_footer_color
+Hyku::Forms::Admin::Appearance.customization_params << :custom_adl_header_footer_color

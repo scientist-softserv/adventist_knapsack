@@ -13,5 +13,4 @@ module Hyrax
   end
 end
 
-Hyrax::CollectionPresenter.delegate(*Collection.additional_terms, to: :solr_document)
 Hyrax::CollectionPresenter.singleton_class.prepend(Hyrax::CollectionPresenterDecorator::ClassMethods)
