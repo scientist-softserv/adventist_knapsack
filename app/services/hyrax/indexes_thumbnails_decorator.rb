@@ -7,6 +7,11 @@ module Hyrax
     # Returns the value for the thumbnail path to put into the solr document
     # OVERRIDE HERE to enable collection thumbnail uploads
     def thumbnail_path
+      # Active Fedora refers to objce
+      # Specs refer to object as @object
+      # Valkyrie refers to resource
+      object ||= @object || resource
+
       if object.class == Collection && UploadedCollectionThumbnailPathService.uploaded_thumbnail?(object)
         UploadedCollectionThumbnailPathService.call(object)
       else
