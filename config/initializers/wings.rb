@@ -45,5 +45,14 @@ Rails.application.config.after_initialize do
       klass_name.constantize
     end
   end
+
+  Valkyrie::MetadataAdapter.register(
+    Freyja::MetadataAdapter.new,
+    :freyja
+  )
+  Valkyrie.config.metadata_adapter = :freyja
+
+  Hyrax.query_service.services[0].custom_queries.register_query_handler(Hyrax::CustomQueries::FindBySlug)
+  Hyrax.query_service.services[1].custom_queries.register_query_handler(Wings::CustomQueries::FindBySlug)
 end
 # rubocop:enable Metrics/BlockLength

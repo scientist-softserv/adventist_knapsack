@@ -19,13 +19,14 @@ module Bulkrax
       elsif raw_metadata['thumbnail_url']
         parsed_metadata['thumbnail_url'] = parse_thumbnail_url(raw_metadata['thumbnail_url'])
       end
+      self
     end
 
     def parse_thumbnail_url(src)
       return if src.blank?
       src.strip!
       name = Bulkrax::Importer.safe_uri_filename(src)
-      { url: src, file_name: name, default_thumbnail: "true" }
+      { url: src, file_name: name, override_default_thumbnail: "true" }
     end
   end
 end
