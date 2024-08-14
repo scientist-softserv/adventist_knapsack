@@ -1,0 +1,29 @@
+# FileSet Metadata. This includes and adds to Hyku metadata.
+attributes:
+  # is this required for all IiifPrint or just adventist?
+  import_url:
+    type: string
+    predicate: http://scholarsphere.psu.edu/ns#importUrl
+    form:
+      display: false
+  # from Hyku
+  is_derived:
+    type: string
+    predicate: https://hykucommons.org/terms/isDerived
+    multiple: false
+    form:
+      display: false
+      primary: false
+      required: false
+      multiple: false
+    index_keys:
+      - "is_derived_ssi"
+  # used to set the input thumbnail url as the work's thumbnail.
+  override_default_thumbnail:
+    type: string
+    predicate: http://scholarsphere.psu.edu/ns#importUrl
+    form:
+      display: false
+    multiple: false
+    index_keys:
+     - "override_default_thumbnail_ssi"
