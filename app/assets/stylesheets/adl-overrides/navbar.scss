@@ -1,13 +1,18 @@
 // Set the nav background color OUTSIDE of the body tag so that it can be overridden by appearance styles
-.public-facing #masthead.navbar.navbar-inverse.navbar-static-top {
-  background: linear-gradient($mediumyellow, rgb(255, 255, 255), $transparentwhite, rgba(255, 255, 255, 0));
+.adventist_digital_library #masthead.navbar {
+  background: linear-gradient(to bottom, rgb(255, 255, 255), $transparentwhite, rgba(255, 255, 255, 0));
+  z-index: 1;
 }
 
-body.public-facing {
+.adventist_digital_library #masthead.navbar.bg-dark {
+  background-color: transparent !important;
+}
+
+body.adventist_digital_library {
   // MAIN NAV
 
   #masthead {
-    &.navbar.navbar-inverse.navbar-static-top {
+    &.navbar {
       height: 150px;
       display: flex;
       width: 100%;
@@ -74,13 +79,13 @@ body.public-facing {
           max-height: 104px;
         }
       }
-    
+
       @media (max-width: 553px) {
         #logo img {
           max-width: 75%;
         }
       }
-      
+
       .dropdown-menu {
         background-color: $white;
       }
@@ -102,7 +107,7 @@ body.public-facing {
         flex: 1;
       }
     }
-    
+
     // MOBILE NAV
 
     .navbar-toggle, .facets-toggle {
@@ -115,7 +120,7 @@ body.public-facing {
     }
 
 
-    // MOBILE OPEN MENU 
+    // MOBILE OPEN MENU
     @media (max-width: $lg-max) {
       ul#user_utility_links {
         padding: 0;
@@ -123,23 +128,21 @@ body.public-facing {
         padding-top: 0;
         background-color: $white;
       }
-    
+
       #top-navbar-collapse {
         padding: 0;
         margin: 0;
         border: 0;
         width: 100%;
       }
-    
+
       .nav > li {
         text-align: center;
       }
-    
+
       .nav > li:hover {
         background-color: $lightgrey;
       }
     }
   }
 }
-
-  
