@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module AppIndexerDecorator
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def generate_solr_document
     super.tap do |solr_doc|
       solr_doc["account_cname_tesim"] = Site.instance&.account&.cname
@@ -11,9 +12,9 @@ module AppIndexerDecorator
       solr_doc['fedora_id_ssi'] = object.id
       solr_doc[ActiveFedora.id_field.to_sym] = object.to_param
       solr_doc['source_sim'] = solr_doc['source_tesim']
-      solr_doc['file_set_text_tsimv'] = child_works_file_sets(object: object).map { |fs| all_text(object: fs) }
-                                                                             .select(&:present?)
-                                                                             .join("\n---------------------------\n")
+      solr_doc['file_set_text_tsimv'] = child_works_file_sets(object:).map { |fs| all_text(object: fs) }
+                                                                      .select(&:present?)
+                                                                      .join("\n---------------------------\n")
 
       if object.date_created.present?
         # rubocop:disable Metrics/LineLength
@@ -26,7 +27,7 @@ module AppIndexerDecorator
       end
     end
   end
-  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
   def child_works_file_sets(object:)
     object.works.map { |work| work.file_sets.to_a }.flatten

@@ -44,7 +44,7 @@ class ReloadPdfsToSplitJob < ApplicationJob
       @context = "worktype: #{work_type}, work: #{w.to_param}"
 
       # does this work have pdf filesets?
-      next unless w.file_sets&.map { |fs| fs.label.end_with?(".pdf") }.any?
+      next unless w.file_sets&.map { |fs| fs.label.end_with?(".pdf") }&.any?
 
       # does this work have any children?
       # For now we assume that if there are child works, it is correct.
@@ -64,7 +64,7 @@ class ReloadPdfsToSplitJob < ApplicationJob
     @counter += 1
     logger.info("✅ Enqueuing re-import for #{@context}.")
 
-    ReloadSinglePdfJob.perform_later(work: work)
+    ReloadSinglePdfJob.perform_later(work:)
   rescue StandardError => e
     logger.error("😈😈😈 Error: #{e.message} for #{@context}")
     raise e

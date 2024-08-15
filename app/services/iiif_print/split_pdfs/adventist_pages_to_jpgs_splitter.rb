@@ -31,7 +31,7 @@ module IiifPrint
                     splitter: DerivativeRodeoSplitter,
                     suffixes: CreateDerivativesJobDecorator::NON_ARCHIVAL_PDF_SUFFIXES,
                     **args)
-        return [] unless AdventistPagesToJpgsSplitter.split_this?(path: path, suffixes: suffixes)
+        return [] unless AdventistPagesToJpgsSplitter.split_this?(path:, suffixes:)
 
         splitter.call(path, **args)
       end

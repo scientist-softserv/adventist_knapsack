@@ -184,7 +184,7 @@ RSpec.describe "View Range Limit Search Results", type: :feature, clean: true, j
     WebMock.disable!
     Apartment::Tenant.create(account.tenant)
     Apartment::Tenant.switch(account.tenant) do
-      Site.update(account: account)
+      Site.update(account:)
     end
 
     # sign up user 1 at account 1

@@ -19,7 +19,7 @@ class RemoveAccountRelationshipsJob < ApplicationJob
     def perform(account, importer_id)
       account.switch do
         importer = Bulkrax::Importer.find(importer_id)
-        Bulkrax::RemoveRelationshipsForImporter.break_relationships_for!(importer: importer, with_progress_bar: false)
+        Bulkrax::RemoveRelationshipsForImporter.break_relationships_for!(importer:, with_progress_bar: false)
       end
     end
   end

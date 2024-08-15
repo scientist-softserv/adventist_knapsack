@@ -8,8 +8,8 @@ RSpec.describe Bulkrax::CsvEntry do
   describe "#build_metadata" do
     subject(:entry) do
       Bulkrax::EntrySpecHelper.entry_for(
-        data: data,
-        identifier: identifier,
+        data:,
+        identifier:,
         parser_class_name: 'Bulkrax::CsvParser',
         parser_fields: { 'import_file_path' => "spec/fixtures/csv/entry.csv" }
       )

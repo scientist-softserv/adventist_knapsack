@@ -4,7 +4,7 @@ require 'spec_helper'
 
 RSpec.describe FileSetsReprocessJob, clean: true do
   let(:user) { FactoryBot.create(:user) }
-  let(:file_set) { FactoryBot.create(:file_with_work_and_file_set, content: file_content, user: user, label: 'latex.pdf') }
+  let(:file_set) { FactoryBot.create(:file_with_work_and_file_set, content: file_content, user:, label: 'latex.pdf') }
   let(:file_content) { File.open('spec/fixtures/latex.pdf') }
 
   describe '#perform' do
@@ -30,7 +30,7 @@ RSpec.describe FileSetsReprocessJob, clean: true do
 
         expect(IiifPrint::Jobs::RequestSplitPdfJob)
           .to receive(:perform_later)
-          .with(file_set: file_set, user: User.batch_user)
+          .with(file_set:, user: User.batch_user)
         FileSetsReprocessJob::ConditionallyResplitFileSetJob.perform_now(file_set_id: file_set.id)
       end
     end

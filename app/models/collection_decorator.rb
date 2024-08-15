@@ -3,34 +3,36 @@
 module CollectionDecorator
   extend ActiveSupport::Concern
 
+  # rubocop:disable Metrics/BlockLength, Metrics/MethodLength
   class_methods do
     def additional_terms
       %i[abstract
-        alt
-        date
-        date_accepted
-        date_available
-        date_issued
-        date_published
-        date_submitted
-        department
-        doi
-        former_identifier
-        funder
-        issue_number
-        lat
-        location
-        long
-        managing_organisation
-        note
-        official_url
-        output_of
-        pagination
-        part_of
-        place_of_publication
-        publication_status].freeze
+         alt
+         date
+         date_accepted
+         date_available
+         date_issued
+         date_published
+         date_submitted
+         department
+         doi
+         former_identifier
+         funder
+         issue_number
+         lat
+         location
+         long
+         managing_organisation
+         note
+         official_url
+         output_of
+         pagination
+         part_of
+         place_of_publication
+         publication_status].freeze
     end
   end
+  # rubocop:enable Metrics/BlockLength, Metrics/MethodLength
 
   prepend OrderAlready.for(:creator)
 

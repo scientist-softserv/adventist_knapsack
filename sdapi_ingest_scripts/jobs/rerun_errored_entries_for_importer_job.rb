@@ -36,6 +36,7 @@ class RerunErroredEntriesForImporterJob < ApplicationJob
 
   attr_reader :importer, :last_run, :new_run, :logger, :error_classes
 
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def do_it!
     reimport_logging_context = "#{importer.class} ID=#{importer.id} with #{last_run.class} ID=#{last_run.id}"
 
@@ -86,4 +87,5 @@ class RerunErroredEntriesForImporterJob < ApplicationJob
 
     logger.info("Finished submitting re-imports for #{reimport_logging_context}.")
   end
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
 end

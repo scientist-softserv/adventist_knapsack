@@ -15,19 +15,19 @@ module IiifPrint
     # @param admin_set_id: [<String>]
     # rubocop:disable Metrics/MethodLength
     def perform(id, pdf_paths, user, admin_set_id, *)
-      candidate_for_parency = IiifPrint.find_by(id: id)
+      candidate_for_parency = IiifPrint.find_by(id:)
 
       ##
       # We know that we have cases where parent_work is nil, this will definitely raise an
       # exception; which is fine because we were going to do it later anyway.
       @parent_work = if candidate_for_parency.work?
-                        pdf_file_set = nil
-                        candidate_for_parency
-                      else
-                        # We likely have a file set
-                        pdf_file_set = candidate_for_parency
-                        IiifPrint.parent_for(candidate_for_parency)
-                      end
+                       pdf_file_set = nil
+                       candidate_for_parency
+                     else
+                       # We likely have a file set
+                       pdf_file_set = candidate_for_parency
+                       IiifPrint.parent_for(candidate_for_parency)
+                     end
       @child_admin_set_id = admin_set_id
       child_model = @parent_work.iiif_print_config.pdf_split_child_model
 
@@ -47,7 +47,7 @@ module IiifPrint
       # @param parent_model: [<String>] parent model
       # @param child_model: [<String>] child model
       IiifPrint::Jobs::CreateRelationshipsJob.set(wait: 10.minutes).perform_later(
-        user: user,
+        user:,
         parent_id: @parent_work.id.to_s,
         parent_model: @parent_work.class.to_s,
         child_model: child_model.to_s
@@ -84,7 +84,7 @@ module IiifPrint
       # @param [Hash] attributes attributes to apply to all works, including :model
       # @param [Hyrax::BatchCreateOperation] operation
       operation = Hyrax::BatchCreateOperation.create!(
-        user: user,
+        user:,
         operation_type: "PDF Batch Create"
       )
       BatchCreateJob.perform_later(user,
@@ -107,10 +107,10 @@ module IiifPrint
         file_id = create_uploaded_file(user, image_path).to_s
 
         child_title = IiifPrint.config.unique_child_title_generator_function.call(
-          original_pdf_path: original_pdf_path,
-          image_path: image_path,
+          original_pdf_path:,
+          image_path:,
           parent_work: @parent_work,
-          page_number: page_number,
+          page_number:,
           page_padding: number_of_digits(nbr: number_of_pages_in_pdf)
         )
 
@@ -118,7 +118,7 @@ module IiifPrint
         @uploaded_files << file_id
         @child_work_titles[file_id] = child_title
         # save child work info to create the member relationships
-        PendingRelationship.create!(child_title: child_title,
+        PendingRelationship.create!(child_title:,
                                     parent_id: @parent_work.id,
                                     child_order: child_title,
                                     parent_model: @parent_work.class,
@@ -150,7 +150,7 @@ module IiifPrint
 
     def attributes
       IiifPrint.config.child_work_attributes_function.call(parent_work: @parent_work,
-       admin_set_id: @child_admin_set_id)
+                                                           admin_set_id: @child_admin_set_id)
     end
 
     # TODO: Does this method need to be configurable?
