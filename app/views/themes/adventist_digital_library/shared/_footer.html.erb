@@ -1,29 +1,29 @@
 <div class="secondary-footer">
-  <div class="row d-flex footer-row my-auto">
-    <div class="col-xs-12 col-sm-6 footer-link-col">
-      <div class="col-xs-6 py-3 <%= "active" if current_page?(hyrax.root_path) %>">
+  <div class="row">
+    <div class="col-12 col-sm-6 footer-link-col d-flex flex-wrap">
+      <div class="col-6 py-2 <%= "active" if current_page?(hyrax.root_path) %>">
         <%= link_to t(:'hyrax.controls.home'), hyrax.root_path, aria: current_page?(hyrax.root_path) ? {current: 'page'} : nil %>
       </div>
-      <div class="col-xs-6 py-3 <%= "active" if current_page?(hyrax.about_path) %>">
+      <div class="col-6 py-2 <%= "active" if current_page?(hyrax.about_path) %>">
         <%= link_to t(:'hyrax.controls.about'), hyrax.about_path, aria: current_page?(hyrax.about_path) ? {current: 'page'} : nil %>
       </div>
-      <div class="col-xs-6 py-3 <%= "active" if current_page?(hyku_knapsack.resources_path) %>">
+      <div class="col-6 py-2 <%= "active" if current_page?(hyku_knapsack.resources_path) %>">
         <%= link_to t(:'hyrax.controls.resources'), hyku_knapsack.resources_path, aria: current_page?(hyku_knapsack.resources_path) ? {current: 'page'} : nil %>
       </div>
-      <div class="col-xs-6 py-3 <%= "active" if current_page?(hyrax.contact_path) %>">
+      <div class="col-6 py-2 <%= "active" if current_page?(hyrax.contact_path) %>">
         <%= link_to t(:'hyrax.controls.contact'), hyrax.contact_path, aria: current_page?(hyrax.contact_path) ? {current: 'page'} : nil %>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-6">
+    <div class="col-12 col-sm-6">
       <div class="footer-logo">
         <a href="<%= hyrax.root_path %>">
-          <%= image_tag "ADL-footer-logo.png", :class => "logo-img" %>
+          <%= image_tag "ADL-footer-logo.png", class: "logo-img" %>
         </a>
       </div>
     </div>
   </div>
 </div>
-<footer class="navbar navbar-inverse site-footer pt-4">
+<footer class="navbar navbar-inverse site-footer pt-2">
   <div class="container-fluid">
     <div class="navbar-text text-left">
          <p class="terms-of-use"><%= link_to t(:'hyrax.pages.tabs.terms_page'), hyrax.terms_path %></p>

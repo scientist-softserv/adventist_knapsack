@@ -1,18 +1,20 @@
 <% if controller_name == 'homepage' %>
-  <div class="about-section extended-section-background">
+<div class="extended-section-background">
+  <div class="container">
     <% if (display_content_block? @homepage_about_section_heading).present? %>
-      <%= displayable_content_block @homepage_about_section_heading, class: "h2 text-center" %>
+      <%= displayable_content_block @homepage_about_section_heading, class: "h2 text-center pt-5" %>
     <% end %>
     <div class="row pb-5">
-      <div class="about-col col-xs-12 py-5 text-center">
+      <div class="about-col col-12 py-3 text-center">
         <% if (display_content_block? @homepage_about_section_content).present? %>
           <%= displayable_content_block @homepage_about_section_content, class: '' %>
         <% end %>
-        <%= link_to hyrax.about_path, class: 'btn btn-default mt-4' do %>
+        <%= link_to hyrax.about_path, class: 'btn btn-primary mt-4' do %>
           <%= t('hyrax.homepage.about_section.link') %>
-          <span class="fa fa-caret-right"></span> 
+          <span class="fa fa-caret-right"></span>
         <% end %>
       </div>
     </div>
   </div>
+</div>
 <% end %>

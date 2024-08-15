@@ -1,9 +1,9 @@
 // Set the nav background color OUTSIDE of the body tag so that it can be overridden by appearance styles
-.public-facing .navbar.navbar-inverse.site-footer {
+.adventist_digital_library .navbar.navbar-inverse.site-footer {
   background: linear-gradient($lightgrey, $mediumyellow);
 }
 
-body.public-facing {
+body.adventist_digital_library {
 
   /* prevents footer from covering bottom of page */
   #content-wrapper {
@@ -49,6 +49,10 @@ body.public-facing {
       left: 0;
       @media (max-width: $sm-max) {
             bottom: 70px;
+      }
+      .row {
+        margin-right: 0;
+        margin-left: 0;
       }
       .footer-row {
         @media (max-width: $sm-max) {
