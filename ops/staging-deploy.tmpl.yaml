@@ -139,6 +139,10 @@ extraEnvVars: &envVars
     value: "604800"
   - name: GOOD_JOB_CLEANUP_INTERVAL_SECONDS
     value: "86400"
+  - name: HYRAX_VALKYRIE
+    value: "true"
+  - name: HYKU_BLOCK_VALKYRIE_REDIRECT
+    value: "false"
   - name: HYKU_ADMIN_HOST
     value: "s2.adventistdigitallibrary.org"
   - name: HYKU_ADMIN_ONLY_TENANT_CREATION
@@ -265,6 +269,8 @@ extraEnvVars: &envVars
     value: testing123
   - name: VALKYRIE_ID_TYPE
     value: string
+  - name: VALKYRIE_TRANSITION
+    value: "true"
 
 worker:
   replicaCount: 1
