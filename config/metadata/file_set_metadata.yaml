@@ -71,7 +71,9 @@ attributes:
     form:
       primary: false
     predicate: http://purl.org/dc/terms/identifier
-  # missing: import_url
+  import_url:
+    type: string
+    predicate: http://scholarsphere.psu.edu/ns#importUrl
   keyword:
     type: string
     multiple: true
