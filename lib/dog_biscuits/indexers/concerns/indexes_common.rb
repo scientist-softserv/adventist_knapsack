@@ -14,6 +14,7 @@ module DogBiscuits
 
     # Index different contributor types (relators, eg. editor, advisor) into contributor
     # Index the contributor type itself
+    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     def solr_doc_for_contributors(solr_doc)
       if respond_to? :contributors_to_index
         contributors_to_index.each do |v|
@@ -36,11 +37,12 @@ module DogBiscuits
         end
       end
     end
+    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
     # Extract years from all date fields and index into 'date_range_sim'
     def solr_doc_for_dates(solr_doc)
       DogBiscuits.config.date_properties.each do |d|
-        next unless (object.respond_to?(d) && object.send(d).respond_to?(:each))
+        next unless object.respond_to?(d) && object.send(d).respond_to?(:each)
         object.send(d).each do |dd|
           dd.to_s.scan(/\b\d{4}\b/).each do |year|
             if solr_doc['date_range_sim']

@@ -9,8 +9,8 @@ RSpec.describe Bulkrax::OaiAdventistQdcEntry do
     subject(:entry) do
       Bulkrax::EntrySpecHelper.entry_for(
         entry_class: described_class,
-        identifier: identifier,
-        data: data,
+        identifier:,
+        data:,
         parser_class_name: "Bulkrax::OaiAdventistQdcParser",
         parser_fields: {
           "base_url" => "http://oai.adventistdigitallibrary.org/OAI-script"

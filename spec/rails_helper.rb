@@ -35,7 +35,7 @@ Dir[HykuKnapsack::Engine.root.join('spec', 'support', '**', '*.rb')].each { |f| 
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = Rails.root.join('spec', 'fixtures', 'fixtures').to_s
 
   # They enable url_helpers not to throw error in Rspec system spec and request spec.
   # config.include Rails.application.routes.url_helpers

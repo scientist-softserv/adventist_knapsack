@@ -6,7 +6,7 @@ RSpec.describe HykuKnapsack::ApplicationHelper do
   let(:helper) { _view }
 
   let(:cname) { 'hyku-me.test' }
-  let(:account) { build(:search_only_account, cname: cname) }
+  let(:account) { build(:search_only_account, cname:) }
 
   let(:uuid) { SecureRandom.uuid }
   let(:request) do
@@ -14,7 +14,7 @@ RSpec.describe HykuKnapsack::ApplicationHelper do
                     port: 3000,
                     protocol: "https://",
                     host: account.cname,
-                    params: { q: q })
+                    params: { q: })
   end
   let(:doc) { SolrDocument.new(id: uuid, 'has_model_ssim': ['GenericWork'], 'account_cname_tesim': account.cname) }
 

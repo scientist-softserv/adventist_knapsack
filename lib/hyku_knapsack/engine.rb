@@ -45,6 +45,7 @@ module HykuKnapsack
       end
     end
 
+    # rubocop:disable Metrics/BlockLength
     config.after_initialize do
       # need collection model first
       collection_decorator = HykuKnapsack::Engine.root.join("app", "models", "collection_decorator.rb").to_s
@@ -90,8 +91,8 @@ module HykuKnapsack
       DerivativeRodeo::Generators::HocrGenerator.additional_tessearct_options = "-l eng_best"
       # See: https://github.com/scientist-softserv/adventist-dl/issues/676
       IiifPrint::DerivativeRodeoService.named_derivatives_and_generators_filter =
-        lambda do |file_set:, filename:, named_derivatives_and_generators:|
-          named_derivatives_and_generators.reject do |named_derivative, generators|
+        lambda do |_file_set:, filename:, named_derivatives_and_generators:|
+          named_derivatives_and_generators.reject do |named_derivative, _generators|
             named_derivative != :thumbnail && filename.downcase.ends_with?(HykuKnapsack::Engine::THUMBNAIL_FILE_SUFFIX)
           end
         end
@@ -110,13 +111,14 @@ module HykuKnapsack
         # we don't, we'll use local files (which almost certainly will fail).  This means we'd be locally
         # using the derivative rodeo's splitting process (which should work without a preprocess lcoation).
         # rubocop:disable Metrics/LineLength
-        if DerivativeRodeo.config.aws_s3_access_key_id.present? && DerivativeRodeo.config.aws_s3_secret_access_key.present?
-          IiifPrint::DerivativeRodeoService.preprocessed_location_adapter_name = 's3'
-        else
-          IiifPrint::DerivativeRodeoService.preprocessed_location_adapter_name = 'file'
-        end
+        IiifPrint::DerivativeRodeoService.preprocessed_location_adapter_name = if DerivativeRodeo.config.aws_s3_access_key_id.present? && DerivativeRodeo.config.aws_s3_secret_access_key.present?
+                                                                                 's3'
+                                                                               else
+                                                                                 'file'
+                                                                               end
         # rubocop:enable Metrics/LineLength
       end
     end
+    # rubocop:enable Metrics/BlockLength
   end
 end

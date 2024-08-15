@@ -3,6 +3,7 @@
 require 'rdf'
 module DogBiscuits
   module Vocab
+    # rubocop:disable Metrics/ClassLength
     class OaisArchivematica < RDF::Vocabulary('http://dlib.york.ac.uk/ontologies/oais-archivematica#')
       # Class definitions
       term :DisseminationInformationPackage,
@@ -112,5 +113,6 @@ module DogBiscuits
            label: 'Generic',
            'owl:versionInfo' => ''
     end
+    # rubocop:enable Metrics/ClassLength
   end
 end

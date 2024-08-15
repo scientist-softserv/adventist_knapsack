@@ -54,7 +54,7 @@ module Adventist
     #      Hyrax::FileSetDerivatives#extract_full_text
     def create_derivatives(filename)
       self.class.assign_extracted_text(
-        file_set: file_set,
+        file_set:,
         text: File.read(filename),
         original_file_name: filename
       )
@@ -66,7 +66,7 @@ module Adventist
     end
 
     def valid?
-      return true if VALID_MIME_TYPES.detect do |valid_mime_type|
+      true if VALID_MIME_TYPES.detect do |valid_mime_type|
         # Because character encoding may be part of the mime_type.  So we want both "text/plain" and
         # "text/plain;charset=UTF-8" to be a valid type.
         valid_mime_type.start_with?(mime_type)

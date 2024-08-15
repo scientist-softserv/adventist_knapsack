@@ -4,7 +4,7 @@
 module CreateDerivativesJobDecorator
   # @note Override to include conditional validation
   def perform(file_set, file_id, filepath = nil)
-    return unless CreateDerivativesJobDecorator.create_derivative_for?(file_set: file_set)
+    return unless CreateDerivativesJobDecorator.create_derivative_for?(file_set:)
     super
   end
 

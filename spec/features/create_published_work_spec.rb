@@ -21,13 +21,12 @@ RSpec.describe 'Create a PublishedWork', js: true do
         active: true,
         name: 'test-workflow',
         permission_template:
-        permission_template
       )
     end
 
     before do
       # Create a single action that can be taken
-      Sipity::WorkflowAction.create!(name: 'submit', workflow: workflow)
+      Sipity::WorkflowAction.create!(name: 'submit', workflow:)
 
       # Grant the user access to deposit into the admin set.
       Hyrax::PermissionTemplateAccess.create!(

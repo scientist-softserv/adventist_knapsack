@@ -8,8 +8,8 @@ RSpec.describe Bulkrax::OaiAdventistSetEntry do
     subject(:entry) do
       Bulkrax::EntrySpecHelper.entry_for(
         entry_class: described_class,
-        identifier: identifier,
-        data: data,
+        identifier:,
+        data:,
         parser_class_name: "Bulkrax::OaiAdventistQdcParser"
       )
     end

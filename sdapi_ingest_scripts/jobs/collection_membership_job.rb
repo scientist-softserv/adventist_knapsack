@@ -15,6 +15,7 @@ class CollectionMembershipJob < ApplicationJob
   ].freeze
   # rubocop:enable Metrics/LineLength
 
+  # rubocop:disable Metrics/MethodLength
   def perform(work_type: 'JournalArticle',
               removed_coll_ids: COLLECTIONS_TO_REMOVE)
     wk_count = 0
@@ -38,6 +39,7 @@ class CollectionMembershipJob < ApplicationJob
 
       wk_updated += 1
     end
+    # rubocop:enable Metrics/MethodLength
 
     # rubocop:disable Metrics/LineLength
     Rails.logger.info("💜💜💜 Collection updates for work type #{work_type}: #{wk_count} processed, #{wk_updated} updated.")

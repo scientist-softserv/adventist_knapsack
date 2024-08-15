@@ -16,11 +16,12 @@ class DailySolrContentCheckService
   # @note Why all the logging?  One concern is how this query might affect performance.  And with
   #       each logged moment we have a timestamp with which we can compare the system resource
   #       utilization.
+  # rubocop:disable Metrics/MethodLength
   def self.call(buffer: STDOUT, delimiter: "\t", logger: Rails.logger, fields: FIELDS, query: QUERY)
     logger.info "Starting #{self}.call"
 
     buffer.puts "cname#{delimiter}#{fields.join(delimiter)}"
-    Account.all.each do |account|
+    Account.all.find_each do |account|
       account.switch do
         logger.info "Begin #{self}.call loop for #{account.cname}"
         index = 0
@@ -37,4 +38,5 @@ class DailySolrContentCheckService
     end
     logger.info "Finishing #{self}.call"
   end
+  # rubocop:enable Metrics/MethodLength
 end

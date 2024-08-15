@@ -8,6 +8,7 @@ module Hyrax
       module IngestRemoteFilesServiceDecorator
         ##
         # @return true
+        # rubocop:disable Metrics/MethodLength
         def attach!
           return true unless remote_files
           remote_files.each do |file_info|
@@ -27,21 +28,22 @@ module Hyrax
           add_ordered_members! if ordered
           true
         end
+        # rubocop:enable Metrics/LineLength
 
         def create_file_from_url(uri, file_name, auth_header, override_default_thumbnail = nil)
           import_url = URI.decode_www_form_component(uri.to_s)
           use_valkyrie = false
           case curation_concern
           when Valkyrie::Resource
-            file_set = Hyrax.persister.save(resource: Hyrax::FileSet.new(import_url: import_url, label: file_name))
+            file_set = Hyrax.persister.save(resource: Hyrax::FileSet.new(import_url:, label: file_name))
             use_valkyrie = true
           else
             # OVERRIDE Hyrax 3.5 to override default_thumbnail
-            file_set = ::FileSet.new(import_url: import_url,
+            file_set = ::FileSet.new(import_url:,
                                      label: file_name,
-                                     override_default_thumbnail: override_default_thumbnail)
+                                     override_default_thumbnail:)
           end
-          __create_file_from_url(file_set: file_set, uri: uri, auth_header: auth_header, use_valkyrie: use_valkyrie)
+          __create_file_from_url(file_set:, uri:, auth_header:, use_valkyrie:)
         end
       end
     end

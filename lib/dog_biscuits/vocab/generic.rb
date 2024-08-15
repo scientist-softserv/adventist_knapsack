@@ -3,6 +3,7 @@
 require 'rdf'
 module DogBiscuits
   module Vocab
+    # rubocop:disable Metrics/ClassLength
     class Generic < RDF::Vocabulary('http://dlib.york.ac.uk/ontologies/generic#')
       # Class definitions
       term :GenericWork,
@@ -200,5 +201,6 @@ module DogBiscuits
            label: 'Generic',
            'owl:versionInfo' => ''
     end
+    # rubocop:enable Metrics/ClassLength
   end
 end
