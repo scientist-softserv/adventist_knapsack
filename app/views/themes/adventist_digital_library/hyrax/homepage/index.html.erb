@@ -5,13 +5,13 @@
 <%# OVERRIDE remove share work button and add custom partials  %>
 
 <div class="home-content">
-  <%= render '/adl/about_section' %>
+  <%= render 'about_section' %>
   <%# this conditional hides featured collections in non-adl tenants. fill in your tenant's name, and switch the comments on the following 2 lines to see this section in the development environment %>
   <%# if current_account.name == "<YOUR TENANT NAME HERE>" %>
   <% if current_account.name == "adl" %>
-    <%= render '/adl/featured_collections' %>
+    <%= render 'featured_collections' %>
   <% end %>
-  <%= render '/adl/featured_works' %>
+  <%= render 'featured_works' %>
 </div>
 
 <%= render '/shared/select_work_type_modal', create_work_presenter: @presenter.create_work_presenter if @presenter.draw_select_work_modal? %>

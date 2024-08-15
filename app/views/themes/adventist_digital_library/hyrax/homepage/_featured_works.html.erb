@@ -11,17 +11,17 @@
           <% end %>
         </ol>
       </div>
-      <%= f.submit("Save order", class: 'btn btn-default') %>
+      <%= f.submit("Save order", class: 'btn btn-primary') %>
     <% end %>
   <% else %>
     <div class="row featured-works-items d-flex" id="featured_works">
-      <%= render partial: '/adl/featured', collection: @featured_work_list.featured_works %>
+      <%= render partial: 'featured', collection: @featured_work_list.featured_works %>
     </div>
   <% end %>
   <div class="d-flex">
-    <%= link_to main_app.search_catalog_path, class: 'btn btn-default mt-4 ml-auto' do %>
+    <%= link_to main_app.search_catalog_path, class: 'btn btn-primary mt-4 ml-auto' do %>
       <%= t('hyrax.homepage.featured_works.link') %>
-      <span class="fa fa-caret-right"></span> 
+      <span class="fa fa-caret-right"></span>
     <% end %>
   </div>
 </div>

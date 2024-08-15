@@ -25,12 +25,12 @@
   </head>
   <% content_for(:extra_body_classes, 'public-facing') unless params[:controller].match(/^proprietor/) %>
 
-  <body class="<%= body_class %>">
+  <body class="<%= body_class %> <%= home_page_theme %> <%= search_results_theme %> <%= show_page_theme %>">
     <div class="skip-to-content">
       <%= link_to "Skip to Content", "#skip-to-content" %>
     </div>
     <%= render 'hyrax/homepage/announcement' if controller_name == 'homepage' %>
-    <%= render '/masthead' %>
+    <%= render '/masthead', placement_class: nil %>
     <%= content_for(:navbar) %>
     <%= content_for(:precontainer_content) %>
     <div id="content-wrapper" class="container" role="main">

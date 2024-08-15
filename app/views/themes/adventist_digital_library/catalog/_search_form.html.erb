@@ -1,0 +1,37 @@
+<%# OVERRIDE FOR SEARCH FORM TO REMOVE TEXT THAT SAYS "Search Hyku" HYRAX VERSION v5.0.1 %>
+<%= form_tag search_form_action, method: :get, class: "search-form", id: "search-form-header", role: "search" do %>
+  <%= render_hash_as_hidden_fields(search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8)) %>
+  <%= hidden_field_tag :search_field, 'all_fields' %>
+
+  <div class="form-group mb-2">
+    <div class="input-group">
+      <%= text_field_tag :q, current_search_parameters, class: "form-control", id: "search-field-header", placeholder: t("hyrax.search.form.q.placeholder") %>
+
+      <div class="input-group-btn">
+        <button type="submit" class="btn masthead-search-button" id="search-submit-header">
+          <%= t('hyrax.search.button.html') %>
+        </button>
+        <%= link_to "Advanced", "/advanced", class: 'btn masthead-search-button', id: 'advanced-top-button' %>
+
+        <% if current_user %>
+          <a class="dropdown-toggle btn masthead-search-button" type="button" data-toggle="dropdown" aria-expanded="false">
+
+            <span class="sr-only" data-search-element="label"><%= t("hyrax.search.form.option.all.label_long", application_name: application_name) %></span>
+            <span aria-hidden="true"><%= t("hyrax.search.form.option.all.label_short") %></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="searchOptionsDropdown">
+            <%= link_to t("hyrax.search.form.option.all.label_long", application_name: application_name), "#",
+                class: "dropdown-item",
+                data: { "search-option" => main_app.search_catalog_path, "search-label" => t("hyrax.search.form.option.all.label_short") } %>
+            <%= link_to t("hyrax.search.form.option.my_works.label_long"), "#",
+                class: "dropdown-item",
+                data: { "search-option" => hyrax.my_works_path, "search-label" => t("hyrax.search.form.option.my_works.label_short") } %>
+            <%= link_to t("hyrax.search.form.option.my_collections.label_long"), "#",
+                class: "dropdown-item",
+                data: { "search-option" => hyrax.my_collections_path, "search-label" => t("hyrax.search.form.option.my_collections.label_short") } %>
+          </div>
+        <% end %>
+      </div><!-- /.input-group-append -->
+    </div><!-- /.input-group -->
+  </div><!-- /.form-group -->
+<% end %>

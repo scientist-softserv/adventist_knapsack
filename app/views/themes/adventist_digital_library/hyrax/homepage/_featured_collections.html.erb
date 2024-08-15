@@ -1,7 +1,7 @@
 <div class="featured-section">
   <h2 class="mt-5"><%= t('hyrax.homepage.admin_sets.title') %></h2>
   <div class="featured-collections-items">
-    <div class="col-xs-12 col-sm-7 featured-collections-card-wrapper">
+    <div class="col-12 col-sm-7 featured-collections-card-wrapper">
       <%# The large featured collection on the left column %>
       <a class="large-card" href="https://adl.b2.adventistdigitallibrary.org/collections/4cbb9bb5-d67b-4776-a84e-edd37952d7ed?locale=en" alt="George McReady Price Papers">
         <div class="collection-thumbnail">
@@ -13,7 +13,7 @@
         </div>
       </a>
     </div>
-    <div class="col-xs-12 col-sm-5 featured-collections-column-wrapper">
+    <div class="col-12 col-sm-5 featured-collections-column-wrapper">
       <div class="featured-collections-column-scroll d-flex">
         <%# The four smaller featured collections on the right column %>
         <a class="small-card" href="https://adl.b2.adventistdigitallibrary.org/collections/ae6b2b1a-2af5-46d8-bca2-d8ab816d74a3?locale=en" alt="Seventh-day Adventist Inventors Collection">
@@ -56,7 +56,7 @@
     </div>
   </div>
   <div class="d-flex">
-    <%= link_to main_app.search_catalog_path(f: { human_readable_type_sim: ["Collection"]}), class: 'btn btn-default mt-4 ml-auto' do %>
+    <%= link_to main_app.search_catalog_path(f: { human_readable_type_sim: ["Collection"]}), class: 'btn btn-primary mt-4 ml-auto' do %>
       <%= t('hyrax.homepage.admin_sets.link') %>
       <span class="fa fa-caret-right"></span>
     <% end %>
