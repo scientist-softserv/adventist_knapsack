@@ -433,6 +433,7 @@ body.adventist_digital_library {
     border: 0 solid $white !important;
     background-color: $white !important;
     border-radius: 4px !important;
+    padding: 0;
   }
 
   nav.breadcrumb {
@@ -440,15 +441,15 @@ body.adventist_digital_library {
   }
 
   //LABELS
-  .label-success {
+  .badge-success {
     background-color: $mediumyellow;
   }
 
-  .label-info {
+  .badge-info {
     background-color: $darkyellow;
   }
 
-  .label-primary {
+  .badge-primary {
     background-color: $darkyellow;
   }
 
@@ -466,6 +467,13 @@ body.adventist_digital_library {
     color: $black;
   }
 
+}
+
+body.adl_show {
+  .card, .card-header {
+    background-color: transparent;
+    border-color: transparent;
+  }
 }
 
 .dashboard {
