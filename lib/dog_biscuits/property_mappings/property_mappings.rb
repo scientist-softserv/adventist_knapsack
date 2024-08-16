@@ -297,7 +297,7 @@ module DogBiscuits
             label: 'Journal name'
           },
           keyword: {
-            index:  [{ link_to_search: true }],
+            index: [{ link_to_search: true }],
             label: 'Keywords',
             schema_org: {
               property: "keywords"
@@ -305,7 +305,7 @@ module DogBiscuits
             help_text: "Words or phrases you select to describe what the work is about. These are used to search for content."
           },
           language: {
-            index:  [{ link_to_search: true }],
+            index: [{ link_to_search: true }],
             label: 'Language',
             schema_org: {
               property: "language"

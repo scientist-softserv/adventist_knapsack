@@ -15,7 +15,7 @@ GenericWork.include(IiifPrint.model_configuration(
                       derivative_service_plugins: [
                         IiifPrint::TextExtractionDerivativeService
                       ]
-))
+                    ))
 
 # This must come after the properties because it finalizes the metadata
 # schema (by adding accepts_nested_attributes)

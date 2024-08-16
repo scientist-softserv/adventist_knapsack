@@ -31,11 +31,12 @@ module Hyku
     def viewer?
       iiif_viewer? || video_embed_viewer? || pdf_viewer?
     end
+
     private
 
-      def model_klass
-        model_name.instance_variable_get(:@klass)
-      end
+    def model_klass
+      model_name.instance_variable_get(:@klass)
+    end
   end
 end
 

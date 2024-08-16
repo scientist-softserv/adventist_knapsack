@@ -12,7 +12,7 @@ module Bulkrax
       super(field)
     end
 
-    # Note: We're overriding the setting of the thumbnail_url as per prior implementations in
+    # NOTE: We're overriding the setting of the thumbnail_url as per prior implementations in
     # Adventist's code-base.
     def add_thumbnail_url
       true
