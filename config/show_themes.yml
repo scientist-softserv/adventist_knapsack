@@ -7,7 +7,7 @@
 default_show:
   name: Default Show Page
   notes: This is the default Hyku show page. It is recommended for use with cultural repositories.
-adventist_digital_library:
+adl_show:
   name: ADL Show Page
   notes: This is recommended for use with the Adventist Digital Library.
 cultural_show:
