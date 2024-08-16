@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 CatalogController.include DogBiscuits::Blacklight::Commands
+CatalogController.include Hyku::HomePageThemesBehavior
 
 CatalogController.configure_blacklight do |config|
   # Use locally customized AdvSearchBuilder so we can enable blacklight_advanced_search
