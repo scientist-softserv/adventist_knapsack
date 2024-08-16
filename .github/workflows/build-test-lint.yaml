@@ -9,20 +9,15 @@ on:
       - main
   workflow_dispatch:
     inputs:
-      debug_step:
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
         required: false
-        description: 'Pause the selected step to debug using tmate'
-        type: choice
-        default: ''
-        options:
-          - ''
-          - build
-          - test
-          - lint
+        default: false
 
 jobs:
   build:
-    uses: scientist-softserv/actions/.github/workflows/build.yaml@choose-which-step-to-debug-with-tmate
+    uses: scientist-softserv/actions/.github/workflows/build.yaml@v0.0.22
     secrets: inherit
     with:
       platforms: 'linux/amd64'
@@ -31,14 +26,14 @@ jobs:
 
   test:
     needs: build
-    uses: scientist-softserv/actions/.github/workflows/test.yaml@choose-which-step-to-debug-with-tmate
+    uses: scientist-softserv/actions/.github/workflows/test.yaml@v0.0.22
     with:
       confdir: '/app/samvera/hyrax-webapp/solr/conf'
       rspec_cmd: "cd .. && gem install semaphore_test_boosters && bundle && rspec_booster --job $CI_NODE_INDEX/$CI_NODE_TOTAL"
 
   lint:
     needs: build
-    uses: scientist-softserv/actions/.github/workflows/lint.yaml@choose-which-step-to-debug-with-tmate
+    uses: scientist-softserv/actions/.github/workflows/lint.yaml@v0.0.22
     with:
       webTarget: hyku-web
       workerTarget: hyku-worker
