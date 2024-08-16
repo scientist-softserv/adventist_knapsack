@@ -21,7 +21,7 @@ RSpec.describe Adventist::TextFileTextExtractionService do
   end
 
   describe 'position in the array of Hyrax::DerivativeService.services' do
-    # TODO: inspect why this is failing 
+    # TODO: inspect why this is failing
     xit "is in the first position" do
       expect(Hyrax::DerivativeService.services).to(
         match_array(

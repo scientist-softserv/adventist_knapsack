@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# OVERRIDE IiifPrint v3.0.1 to check has_model instead of hydra_model. 
+# OVERRIDE IiifPrint v3.0.1 to check has_model instead of hydra_model.
 # Hyrax.config.curation_concerns does not include "Resource"
 
 module Adl

@@ -45,7 +45,6 @@ module ApplicationJobDecorator
     end
   end
 
-
   def redirect_priority_jobs
     return :ingest unless priority_tenants_array.include? tenant_name
     PRIORITY_QUEUE_NAME
