@@ -1,6 +1,6 @@
 // Set the nav background color OUTSIDE of the body tag so that it can be overridden by appearance styles
 .adventist_digital_library #masthead.navbar {
-  background: linear-gradient(to bottom, rgb(255, 255, 255), $transparentwhite, rgba(255, 255, 255, 0));
+  background: linear-gradient(to bottom, $mediumyellow, rgb(255, 255, 255), $transparentwhite, rgba(255, 255, 255, 0));
   z-index: 1;
 }
 
