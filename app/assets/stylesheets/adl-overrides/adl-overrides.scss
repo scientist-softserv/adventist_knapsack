@@ -164,9 +164,9 @@ body.adventist_digital_library {
     border-radius: 4px;
   }
 
-  // /* FACET PANEL STYLES */
+  /* FACET PANEL STYLES */
 
-  .panel-default > .panel-heading {
+  .card-header {
     color: $black !important;
     background-color: $white !important;
     border-color: transparent !important;
@@ -177,19 +177,31 @@ body.adventist_digital_library {
     margin-bottom: 1em;
   }
 
-  .panel-default {
+  .card {
     border-color: transparent !important;
     border: 0 solid transparent !important;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+
+    h3 button {
+      color: $darkyellow;
+      font-size: 1em;
+    }
   }
 
-  .panel-heading.collapse-toggle .panel-title:after {
+  .card-header.collapse-toggle .card-title:after {
     color: $black;
   }
 
-  .panel.panel-default.permissions-confirm {
+  .card.permissions-confirm {
     background-color: $white;
   }
-  .form-actions.panel-footer {
+
+  .form-actions.card-footer {
     border-top: 1px solid $lightgrey;
   }
 
@@ -488,6 +500,13 @@ body.works-show.adl_show {
 .highlight {
   background: yellow;
   font-weight: 700;
+}
+
+// for collection results on catalog search
+// number of collections and works badges
+// move them inline with the rest of the elements
+.search-result-wrapper.row > div.col-md-4 {
+  max-width: 25%;
 }
 
 //hides the visibility badge on top of work show page & hides the "user collection" labels in search results
