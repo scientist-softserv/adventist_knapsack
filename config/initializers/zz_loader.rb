@@ -45,4 +45,5 @@ Rails.application.config.to_prepare do
   ::Collection.include DogBiscuits::PlaceOfPublication
   ::Collection.include DogBiscuits::RemoteUrl
   Hyrax::CollectionPresenter.delegate(*::Collection.additional_terms, to: :solr_document)
+  Hyrax::CollectionsController.include Hyku::HomePageThemesBehavior
 end
