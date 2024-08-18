@@ -9,7 +9,7 @@
   <%# this conditional hides featured collections in non-adl tenants. fill in your tenant's name, and switch the comments on the following 2 lines to see this section in the development environment %>
   <%# if current_account.name == "<YOUR TENANT NAME HERE>" %>
   <% if current_account.name == "adl" %>
-    <%= render 'featured_collections' %>
+    <%= render 'featured_collection_section' %>
   <% end %>
   <%= render 'featured_works' %>
 </div>
