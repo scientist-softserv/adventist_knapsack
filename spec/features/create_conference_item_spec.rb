@@ -66,9 +66,9 @@ RSpec.describe 'Create a ConferenceItem', js: true do
       # its element
       find('body').click
       choose('conference_item_visibility_open')
-      # rubocop:disable Metrics/LineLength
+      # rubocop:disable Layout/LineLength
       expect(page).to have_content('Please note, making something visible to the world (i.e. marking this as Public) may be viewed as publishing which could impact your ability to')
-      # rubocop:enable Metrics/LineLength
+      # rubocop:enable Layout/LineLength
       check('agreement')
 
       click_on('Save')

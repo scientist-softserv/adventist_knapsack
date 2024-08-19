@@ -17,9 +17,9 @@ module AppIndexerDecorator
                                                                       .join("\n---------------------------\n")
 
       if object.date_created.present?
-        # rubocop:disable Metrics/LineLength
+        # rubocop:disable Layout/LineLength
         date_created = object.date_created.is_a?(ActiveTriples::Relation) ? object.date_created.first : object.date_created
-        # rubocop:enable Metrics/LineLength
+        # rubocop:enable Layout/LineLength
         # expects date created to be array with single string in yyyy-mm-dd format
         solr_doc['sorted_date_isi'] = date_created.tr('-', '').to_i
         solr_doc['sorted_month_isi'] = date_created.tr('-', '').slice(0..5).to_i

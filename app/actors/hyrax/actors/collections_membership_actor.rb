@@ -42,12 +42,12 @@ module Hyrax
         return true unless attributes_collection
 
         # OVERRIDE Hyrax 3.5.0 to skip permission checks if importing
-        # rubocop:disable Metrics/LineLength
+        # rubocop:disable Layout/LineLength
         return false unless env.importing ||
                             valid_membership?(env,
                                               collection_ids: attributes_collection.map { |_, attributes| attributes['id'] })
 
-        # rubocop:enable Metrics/LineLength
+        # rubocop:enable Layout/LineLength
         attributes_collection = attributes_collection.sort_by { |i, _| i.to_i }.map { |_, attributes| attributes }
         # checking for existing works to avoid rewriting/loading works that are already attached
         existing_collections = env.curation_concern.member_of_collection_ids

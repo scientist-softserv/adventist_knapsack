@@ -16,7 +16,7 @@ RSpec.describe Bulkrax::OaiAdventistSetEntry do
 
     let(:identifier) { "20000026" }
     let(:collection_title) { "Rumah Tangga Dan Kesehatan" }
-    # rubocop:disable Metrics/LineLength
+    # rubocop:disable Layout/LineLength
     let(:data) do
       %(<?xml version="1.0" encoding="UTF-8"?>
         <OAI-PMH xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
@@ -35,7 +35,7 @@ RSpec.describe Bulkrax::OaiAdventistSetEntry do
         </OAI-PMH>)
     end
 
-    # rubocop:enable Metrics/LineLength
+    # rubocop:enable Layout/LineLength
     it "does not set a pending relationship for the part_of collection" do
       # This needs to be persisted for saving the entry
       entry.importer.save!

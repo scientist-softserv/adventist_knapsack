@@ -110,13 +110,13 @@ module HykuKnapsack
         # In the development environment we may not have AWS credentials.  When we do, let's use s3.  When
         # we don't, we'll use local files (which almost certainly will fail).  This means we'd be locally
         # using the derivative rodeo's splitting process (which should work without a preprocess lcoation).
-        # rubocop:disable Metrics/LineLength
+        # rubocop:disable Layout/LineLength
         IiifPrint::DerivativeRodeoService.preprocessed_location_adapter_name = if DerivativeRodeo.config.aws_s3_access_key_id.present? && DerivativeRodeo.config.aws_s3_secret_access_key.present?
                                                                                  's3'
                                                                                else
                                                                                  'file'
                                                                                end
-        # rubocop:enable Metrics/LineLength
+        # rubocop:enable Layout/LineLength
       end
     end
     # rubocop:enable Metrics/BlockLength

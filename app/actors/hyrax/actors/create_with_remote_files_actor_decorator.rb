@@ -28,7 +28,7 @@ module Hyrax
           add_ordered_members! if ordered
           true
         end
-        # rubocop:enable Metrics/LineLength
+        # rubocop:enable Layout/LineLength
 
         def create_file_from_url(uri, file_name, auth_header, override_default_thumbnail = nil)
           import_url = URI.decode_www_form_component(uri.to_s)
@@ -50,6 +50,6 @@ module Hyrax
   end
 end
 
-# rubocop:disable Metrics/LineLength
+# rubocop:disable Layout/LineLength
 Hyrax::Actors::CreateWithRemoteFilesActor::IngestRemoteFilesService.prepend Hyrax::Actors::CreateWithRemoteFilesActorDecorator::IngestRemoteFilesServiceDecorator
-# rubocop:enable Metrics/LineLength
+# rubocop:enable Layout/LineLength
