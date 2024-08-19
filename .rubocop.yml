@@ -20,7 +20,7 @@ Layout/HashAlignment:
   - app/forms/hyrax/forms/admin/adl_appearance_decorator.rb
 
 Metrics/BlockLength:
-  IgnoredMethods: ['included', 'describe', 'it', 'context']
+  AllowedMethods: ['included', 'describe', 'it', 'context']
   Exclude:
   - "spec/**/*.rb"
   - app/controllers/catalog_controller_decorator.rb

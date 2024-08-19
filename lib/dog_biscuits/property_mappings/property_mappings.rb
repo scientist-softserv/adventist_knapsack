@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/LineLength
+# rubocop:disable Layout/LineLength
 # rubocop:disable Metrics/MethodLength
 # rubocop:disable Metrics/ModuleLength
 
@@ -580,6 +580,6 @@ module DogBiscuits
   end
 end
 
-# rubocop:enable Metrics/LineLength
+# rubocop:enable Layout/LineLength
 # rubocop:enable Metrics/MethodLength
 # rubocop:enable Metrics/ModuleLength

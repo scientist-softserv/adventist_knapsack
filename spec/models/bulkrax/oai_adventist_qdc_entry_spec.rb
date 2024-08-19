@@ -3,7 +3,7 @@
 require "spec_helper"
 require "bulkrax/entry_spec_helper"
 
-# rubocop:disable Metrics/LineLength
+# rubocop:disable Layout/LineLength
 RSpec.describe Bulkrax::OaiAdventistQdcEntry do
   describe "#build_metadata" do
     subject(:entry) do
@@ -113,4 +113,4 @@ RSpec.describe Bulkrax::OaiAdventistQdcEntry do
     end
   end
 end
-# rubocop:enable Metrics/LineLength
+# rubocop:enable Layout/LineLength

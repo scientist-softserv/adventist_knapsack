@@ -17,7 +17,7 @@ module CreateDerivativesJobDecorator
   # We should not be creating derivatives for thumbnails.
   FILE_SUFFIXES_TO_SKIP_DERIVATIVE_CREATION = ([] + NON_ARCHIVAL_PDF_SUFFIXES).freeze
 
-  # rubocop:disable Metrics/LineLength
+  # rubocop:disable Layout/LineLength
   def self.create_derivative_for?(file_set:)
     # Our options appear to be `file_set.label` or `file_set.original_file.original_name`; in
     # favoring `#label` we are avoiding a call to Fedora.  Is the label likely to be the original
@@ -26,7 +26,7 @@ module CreateDerivativesJobDecorator
 
     true
   end
-  # rubocop:enable Metrics/LineLength
+  # rubocop:enable Layout/LineLength
 end
 
 CreateDerivativesJob.prepend(CreateDerivativesJobDecorator)

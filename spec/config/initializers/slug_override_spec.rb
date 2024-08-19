@@ -15,7 +15,7 @@ RSpec.describe "Slug Override" do
     xit 'deletes via Hyrax::Transactions' do
       doc_id = work.to_param
 
-      # rubocop:disable Metrics/LineLength
+      # rubocop:disable Layout/LineLength
       expect do
         resource = Hyrax.query_service.find_by(id: Valkyrie::ID.new(doc_id))
         transactions['collection_resource.destroy']
@@ -23,7 +23,7 @@ RSpec.describe "Slug Override" do
           .call(resource)
           .value!
       end.to change { ActiveFedora::SolrService.query("id:\"#{doc_id}\"", fl: "id", method: :post, rows: 1).count }.from(1).to(0)
-      # rubocop:enable Metrics/LineLength
+      # rubocop:enable Layout/LineLength
     end
   end
 end

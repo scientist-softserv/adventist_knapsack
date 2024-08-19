@@ -158,7 +158,7 @@ module IiifPrint
       @parent_work.try(:resource_type)
     end
   end
-  # rubocop:enable Metrics/LineLength
+  # rubocop:enable Layout/LineLength
 end
 
 IiifPrint::Jobs::ChildWorksFromPdfJob.prepend(IiifPrint::ChildWorksFromPdfJobDecorator)

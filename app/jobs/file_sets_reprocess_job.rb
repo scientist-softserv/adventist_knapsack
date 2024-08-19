@@ -83,7 +83,7 @@ class FileSetsReprocessJob < ApplicationJob
     # @return [Symbol] A terse explanation of what was done with this job.
     #
     # @raise [ActiveFedora::ObjectNotFoundError] when the given FileSet's parent could not be found.
-    # rubocop:disable Metrics/LineLength
+    # rubocop:disable Layout/LineLength
     def perform(file_set_id:)
       file_set = FileSetFinder.find(file_set_id:)
 
@@ -109,7 +109,7 @@ class FileSetsReprocessJob < ApplicationJob
       IiifPrint::Jobs::RequestSplitPdfJob.perform_later(file_set:, user: User.batch_user)
       :requesting_split
     end
-    # rubocop:enable Metrics/LineLength
+    # rubocop:enable Layout/LineLength
   end
 
   ##
