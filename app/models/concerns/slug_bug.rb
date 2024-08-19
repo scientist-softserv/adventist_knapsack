@@ -23,11 +23,11 @@ module SlugBug
 
   private
 
-    # Cribbed from https://gitlab.com/notch8/louisville-hyku/-/blob/main/app/models/custom_slugs/slug_behavior.rb#L14
-    def remove_index_and_reindex
-      return unless slug.present?
+  # Cribbed from https://gitlab.com/notch8/louisville-hyku/-/blob/main/app/models/custom_slugs/slug_behavior.rb#L14
+  def remove_index_and_reindex
+    return if slug.blank?
 
-      ActiveFedora::Base.remove_from_index!(id)
-      update_index
-    end
+    ActiveFedora::Base.remove_from_index!(id)
+    update_index
+  end
 end

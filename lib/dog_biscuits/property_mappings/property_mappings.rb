@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/LineLength
+# rubocop:disable Layout/LineLength
 # rubocop:disable Metrics/MethodLength
 # rubocop:disable Metrics/ModuleLength
 
@@ -297,7 +297,7 @@ module DogBiscuits
             label: 'Journal name'
           },
           keyword: {
-            index:  [{ link_to_search: true }],
+            index: [{ link_to_search: true }],
             label: 'Keywords',
             schema_org: {
               property: "keywords"
@@ -305,7 +305,7 @@ module DogBiscuits
             help_text: "Words or phrases you select to describe what the work is about. These are used to search for content."
           },
           language: {
-            index:  [{ link_to_search: true }],
+            index: [{ link_to_search: true }],
             label: 'Language',
             schema_org: {
               property: "language"
@@ -580,6 +580,6 @@ module DogBiscuits
   end
 end
 
-# rubocop:enable Metrics/LineLength
+# rubocop:enable Layout/LineLength
 # rubocop:enable Metrics/MethodLength
 # rubocop:enable Metrics/ModuleLength

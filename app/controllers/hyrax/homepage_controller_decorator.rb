@@ -3,7 +3,7 @@
 # OVERRIDE Hyku 5 to add homepage about blocks
 module Hyrax
   module HomepageControllerDecorator
-
+    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     def index
       # BEGIN copy Hyrax prime's Hyrax::HomepageController#index
       @presenter = presenter_class.new(current_ability, collections)
@@ -15,7 +15,7 @@ module Hyrax
       @homepage_about_section_heading = ContentBlock.for(:homepage_about_section_heading)
       @homepage_about_section_content = ContentBlock.for(:homepage_about_section_content)
       # END OVERRIDE
-      
+
       recent
       # END copy
 
@@ -42,8 +42,7 @@ module Hyrax
         document_export_formats(format)
       end
     end
-
-
+    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
   end
 end
 

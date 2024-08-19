@@ -4,6 +4,7 @@ module OAI
   module Provider
     module MetadataFormat
       class AdlDublinCore < OAI::Provider::Metadata::Format
+        # rubocop:disable Lint/MissingSuper
         def initialize
           @prefix = 'oai_adl'
           @schema = 'http://dublincore.org/schemas/xmls/qdc/dcterms.xsd'
@@ -19,8 +20,10 @@ module OAI
                        remote_url resource_type rights_statement source subject title thumbnail_url
                        volume_number work_type]
         end
+        # rubocop:enable Lint/MissingSuper
 
         # Override to strip namespace and header out
+        # rubocop:disable Metrics/MethodLength
         def encode(model, record)
           xml = Builder::XmlMarkup.new
           map = model.respond_to?("map_#{prefix}") ? model.send("map_#{prefix}") : {}
@@ -38,6 +41,7 @@ module OAI
           end
           xml.target!
         end
+        # rubocop:enable Metrics/MethodLength
 
         def header_specification
           {

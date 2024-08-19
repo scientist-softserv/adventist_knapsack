@@ -3,6 +3,7 @@
 require 'rdf'
 module DogBiscuits
   module Vocab
+    # rubocop:disable Metrics/ClassLength
     class BorthwickRegisters < RDF::Vocabulary('http://dlib.york.ac.uk/ontologies/borthwick-registers#')
       # Class definitions
       term :SingleDate,
@@ -317,5 +318,6 @@ module DogBiscuits
            label: 'Borthwick Registers',
            'owl:versionInfo' => ''
     end
+    # rubocop:enable Metrics/ClassLength
   end
 end

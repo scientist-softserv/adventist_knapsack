@@ -10,9 +10,11 @@ module Bulkrax
       # ready to attach to the file_sets.  If we proceed with using the thumbnail_url, we end up
       # attaching that thumbnail as it's own file_set.  Which is likely non-desirous behavior.
       #
-      each_candidate_metadata_node do |node|
-        raw_metadata['thumbnail_url'] = node.content if node.name == 'thumbnail_url'
-      end if self.respond_to?(:each_candidate_metadata_node)
+      if respond_to?(:each_candidate_metadata_node)
+        each_candidate_metadata_node do |node|
+          raw_metadata['thumbnail_url'] = node.content if node.name == 'thumbnail_url'
+        end
+      end
 
       if parser.parser_fields['skip_thumbnail_url'] == "1"
         parsed_metadata.delete('thumbnail_url')

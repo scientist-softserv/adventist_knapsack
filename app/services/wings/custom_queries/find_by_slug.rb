@@ -6,11 +6,11 @@ module Wings
       def self.queries
         [:find_by_slug]
       end
-    
+
       def initialize(query_service:)
         @query_service = query_service
       end
-    
+
       attr_reader :query_service
       delegate :resource_factory, to: :query_service
 

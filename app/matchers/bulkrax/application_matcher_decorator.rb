@@ -6,6 +6,7 @@
 module Bulkrax
   module ApplicationMatcherDecorator
     # OVERRIDE Bulkrax 1.0.2 to override default_thumbnail
+    # rubocop:disable Metrics/MethodLength
     def process_parse
       # New parse methods will need to be added here
       parsed_fields = ['remote_files',
@@ -28,6 +29,7 @@ module Bulkrax
         @result = send("parse_#{parser}", @result)
       end
     end
+    # rubocop:enable Metrics/MethodLength
 
     # OVERRIDE Bulkrax 1.0.2 to override default_thumbnail
     def parse_thumbnail_url(src)

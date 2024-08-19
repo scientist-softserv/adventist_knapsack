@@ -14,7 +14,7 @@ class FileSetsReprocessJob < ApplicationJob
   #        Otherwise, switch to the given tenant and submit a {FileSetsReprocessJob}
   def self.for_tenant(cname = :all)
     if cname == :all
-      Account.all.each do |account|
+      Account.all.find_each do |account|
         account.switch!
         FileSetsReprocessJob.perform_later
       end
@@ -64,7 +64,7 @@ class FileSetsReprocessJob < ApplicationJob
       message = "#{self.class}##{__method__} unable to find FileSet with ID=#{file_set_id}.  " \
                 "It may have been deleted between the enqueuing of this job and running this job."
       Rails.logger.warning(message)
-      return false
+      false
     end
   end
 
@@ -83,9 +83,9 @@ class FileSetsReprocessJob < ApplicationJob
     # @return [Symbol] A terse explanation of what was done with this job.
     #
     # @raise [ActiveFedora::ObjectNotFoundError] when the given FileSet's parent could not be found.
-    # rubocop:disable Metrics/LineLength
+    # rubocop:disable Layout/LineLength
     def perform(file_set_id:)
-      file_set = FileSetFinder.find(file_set_id: file_set_id)
+      file_set = FileSetFinder.find(file_set_id:)
 
       # We've logged this (see FileSetFinder.find) so we'll move along.
       return :file_set_not_found unless file_set
@@ -106,10 +106,10 @@ class FileSetsReprocessJob < ApplicationJob
       # this PDF.
       return :has_children if parent.child_work_ids.any?
 
-      IiifPrint::Jobs::RequestSplitPdfJob.perform_later(file_set: file_set, user: User.batch_user)
+      IiifPrint::Jobs::RequestSplitPdfJob.perform_later(file_set:, user: User.batch_user)
       :requesting_split
     end
-    # rubocop:enable Metrics/LineLength
+    # rubocop:enable Layout/LineLength
   end
 
   ##
@@ -119,10 +119,10 @@ class FileSetsReprocessJob < ApplicationJob
     # @param file_set_id [String]
     # @return [Symbol] A terse explanation of what was done with this job.
     def perform(file_set_id:)
-      file_set = FileSetFinder.find(file_set_id: file_set_id)
+      file_set = FileSetFinder.find(file_set_id:)
 
       # We've logged this (see FileSetFinder.find) so we'll move along.
-      return :file_set_not_found unless file_set
+      :file_set_not_found unless file_set
 
       # TODO: The file set does not appear to have a properly attached file.
     end

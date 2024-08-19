@@ -13,47 +13,46 @@ class IndexPlainTextFilesJob < ApplicationJob
   # @see https://docs.ruby-lang.org/en/2.7.0/String.html#method-i-encode
   class One < ApplicationJob
     # @param file_set_id [String]
+    # rubocop:disable Metrics/BlockLength, Metrics/MethodLength
     def perform(account, file_set_id, time_to_live = 3, logger: IndexPlainTextFilesJob.default_logger)
       account.switch do
-        begin
-          file_set = FileSet.find(file_set_id)
+        file_set = FileSet.find(file_set_id)
 
-          if file_set.extracted_text.present?
-            logger.warn("#{self.class}: FileSet ID=\"#{file_set.id}\" (in #{account.cname}) has extracted text; "\
-                        "moving on.")
-            return true
-          end
-
-          file = file_set.original_file
-
-          unless file
-            logger.error("#{self.class}: FileSet ID=\"#{file_set_id}\" expected to have an original_file; " \
-                         "however it was missing.")
-            return false
-          end
-
-          Adventist::TextFileTextExtractionService.assign_extracted_text(
-            file_set: file_set,
-            text: file.content,
-            original_file_name: Array(file.file_name).first
-          )
-          logger.info("#{self.class}: FileSet ID=\"#{file_set_id}\" text extracted from plain text file.")
+        if file_set.extracted_text.present?
+          logger.warn("#{self.class}: FileSet ID=\"#{file_set.id}\" (in #{account.cname}) has extracted text; "\
+                      "moving on.")
           return true
-        rescue StandardError => e
-          if time_to_live.positive?
-            # It's possible we can recover from this, so we'll give it another go.
-            logger.warn("#{self.class}: FileSet ID=\"#{file_set_id}\" error for #{self.class}: #{e}.  " \
-                        "Retries remaining #{time_to_live - 1}.")
-            One.perform_later(account, file_set_id, time_to_live - 1)
-          else
-            logger.error("#{self.class}: FileSet ID=\"#{file_set_id}\" error for #{self.class}: #{e}.  " \
-                         "No retries remaining.  Backtrace: #{e.backtrace}")
-          end
+        end
+
+        file = file_set.original_file
+
+        unless file
+          logger.error("#{self.class}: FileSet ID=\"#{file_set_id}\" expected to have an original_file; " \
+                       "however it was missing.")
           return false
         end
+
+        Adventist::TextFileTextExtractionService.assign_extracted_text(
+          file_set:,
+          text: file.content,
+          original_file_name: Array(file.file_name).first
+        )
+        logger.info("#{self.class}: FileSet ID=\"#{file_set_id}\" text extracted from plain text file.")
+        return true
+      rescue StandardError => e
+        if time_to_live.positive?
+          # It's possible we can recover from this, so we'll give it another go.
+          logger.warn("#{self.class}: FileSet ID=\"#{file_set_id}\" error for #{self.class}: #{e}.  " \
+                      "Retries remaining #{time_to_live - 1}.")
+          One.perform_later(account, file_set_id, time_to_live - 1)
+        else
+          logger.error("#{self.class}: FileSet ID=\"#{file_set_id}\" error for #{self.class}: #{e}.  " \
+                       "No retries remaining.  Backtrace: #{e.backtrace}")
+        end
+        return false
       end
     end
-    # rubocop:enable Metrics/BlockLength
+    # rubocop:enable Metrics/BlockLength, Metrics/MethodLength
   end
 
   # @param account [Account]

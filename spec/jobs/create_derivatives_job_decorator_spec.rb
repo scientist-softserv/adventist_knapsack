@@ -8,9 +8,9 @@ RSpec.describe CreateDerivativesJobDecorator do
   end
 
   describe '.create_derivative_for?' do
-    subject { described_class.create_derivative_for?(file_set: file_set) }
+    subject { described_class.create_derivative_for?(file_set:) }
 
-    let(:file_set) { double(FileSet, label: label) }
+    let(:file_set) { double(FileSet, label:) }
 
     context 'when the file set is for a skipped suffix' do
       let(:label) { "my-non-archival#{described_class::FILE_SUFFIXES_TO_SKIP_DERIVATIVE_CREATION.first}" }

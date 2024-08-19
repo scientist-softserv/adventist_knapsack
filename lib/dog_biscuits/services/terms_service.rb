@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 module DogBiscuits
+  # rubocop:disable Metrics/ClassLength
   class TermsService < Hyrax::QaSelectService
+    # rubocop:disable Lint/MissingSuper
     def initialize(_authority = nil)
       @authority = self
     end
+    # rubocop:enable Lint/MissingSuper
 
     # Returns the ConceptScheme id for a given Scheme name
     #
@@ -112,51 +115,52 @@ module DogBiscuits
 
     private
 
-      # Reformats the data received from the service
-      #
-      # @param response [SolrResponse] for the Solr query
-      # @return [Hash] authority data
-      def parse_authority_response(response)
-        response['response']['docs'].map do |result|
-          hash = {
-            id: result['id']
-          }
+    # Reformats the data received from the service
+    #
+    # @param response [SolrResponse] for the Solr query
+    # @return [Hash] authority data
+    def parse_authority_response(response)
+      response['response']['docs'].map do |result|
+        hash = {
+          id: result['id']
+        }
 
-          hash[:label] = result['preflabel_tesim'].join if result['preflabel_tesim']
-          hash[:definition] = result['definition_tesim'].join if result['definition_tesim']
+        hash[:label] = result['preflabel_tesim'].join if result['preflabel_tesim']
+        hash[:definition] = result['definition_tesim'].join if result['definition_tesim']
 
-          # Only add broader where it exists (ie. subjects)
-          # Assumes only one broader
-          if result['broader_ssim']
-            hash[:broader_id] = result['broader_ssim'].join
-            hash[:broader_label] = find_label_string(result['broader_ssim'].join).join
-          end
-          hash
+        # Only add broader where it exists (ie. subjects)
+        # Assumes only one broader
+        if result['broader_ssim']
+          hash[:broader_id] = result['broader_ssim'].join
+          hash[:broader_label] = find_label_string(result['broader_ssim'].join).join
         end
+        hash
       end
+    end
 
-      # Parse the id from the solr response
-      #
-      # @param response [SolrResponse] for the Solr query
-      # @return [String] id
-      def parse_terms_id_response(response)
-        id = ''
-        response['response']['docs'].map do |result|
-          id = result['id']
-        end
-        id
+    # Parse the id from the solr response
+    #
+    # @param response [SolrResponse] for the Solr query
+    # @return [String] id
+    def parse_terms_id_response(response)
+      id = ''
+      response['response']['docs'].map do |result|
+        id = result['id']
       end
+      id
+    end
 
-      # Parse the preflabel from the solr response
-      #
-      # @param response [SolrResponse] for the Solr query
-      # @return [String] preflabel
-      def parse_string(response)
-        str = ''
-        response['response']['docs'].map do |result|
-          str = result['preflabel_tesim']
-        end
-        str
+    # Parse the preflabel from the solr response
+    #
+    # @param response [SolrResponse] for the Solr query
+    # @return [String] preflabel
+    def parse_string(response)
+      str = ''
+      response['response']['docs'].map do |result|
+        str = result['preflabel_tesim']
       end
+      str
+    end
   end
+  # rubocop:enable Metrics/ClassLength
 end

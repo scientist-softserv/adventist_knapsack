@@ -4,7 +4,7 @@ require 'spec_helper'
 
 RSpec.describe IiifPrint::SplitPdfs::AdventistPagesToJpgsSplitter do
   describe '.split_this?' do
-    subject { described_class.split_this?(path: path) }
+    subject { described_class.split_this?(path:) }
 
     [
       ["hello.jpg", true],

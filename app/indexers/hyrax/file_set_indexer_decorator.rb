@@ -16,17 +16,17 @@ module Hyrax
 
     private
 
-      def pdf_text
-        text = IO.popen(['pdftotext', '-', '-'], 'r+b') do |pdftotext|
-          pdftotext.write(object.original_file.content)
-          pdftotext.close_write
-          pdftotext.read
-        end
-
-        text.tr("\n", ' ')
-            .squeeze(' ')
-            .encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '') # remove non-UTF-8 characters
+    def pdf_text
+      text = IO.popen(['pdftotext', '-', '-'], 'r+b') do |pdftotext|
+        pdftotext.write(object.original_file.content)
+        pdftotext.close_write
+        pdftotext.read
       end
+
+      text.tr("\n", ' ')
+          .squeeze(' ')
+          .encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '') # remove non-UTF-8 characters
+    end
   end
 end
 

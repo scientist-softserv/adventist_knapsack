@@ -21,8 +21,8 @@ class RerunEntryJob < ApplicationJob
     bulkrax_entry.build
     bulkrax_entry.save
 
-    # rubocop:disable Metrics/LineLength
+    # rubocop:disable Layout/LineLength
     Rails.logger.info("Finished re-submitting entry for for #{bulkrax_entry.class} ID=#{bulkrax_entry.id}. entry status=#{bulkrax_entry.status}")
-    # rubocop:enable Metrics/LineLength
+    # rubocop:enable Layout/LineLength
   end
 end

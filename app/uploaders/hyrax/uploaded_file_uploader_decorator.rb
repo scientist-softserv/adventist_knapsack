@@ -7,7 +7,7 @@ module Hyrax
     end
 
     def original_file_name
-      model.filename 
+      model.filename
     end
   end
 end

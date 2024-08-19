@@ -22,13 +22,14 @@ class ReloadSinglePdfJob < ApplicationJob
     # locate bulkrax work entry
     entry = Bulkrax::Entry.find_by(identifier: work.identifier.first)
     if entry
-      process_work(work: work, entry: entry)
+      process_work(work:, entry:)
     else
       @logger.info("🚫 Bulkrax::Entry not found for #{work.to_param}")
       raise BulkraxEntryNotFound
     end
   end
 
+  # rubocop:disable Metrics/MethodLength
   def process_work(work:, entry:)
     # destroy pending relationships & stray children
     pending_relationships = IiifPrint::PendingRelationship.where(parent_id: work.id)
@@ -55,6 +56,7 @@ class ReloadSinglePdfJob < ApplicationJob
     @logger.error("😈😈😈 Reimport error: #{e.message} for #{work.to_param}")
     raise e
   end
+  # rubocop:enable Metrics/MethodLength
 
   def destroy_potential_children_for(pending_relationships)
     pending_relationships.each do |pending|

@@ -11,7 +11,7 @@ RSpec.describe Hyrax::Forms::CollectionForm do
     let(:repository) { double }
 
     # TODO: convert this to a valkyrie test. the factory is creating a valkyrie
-    # object which is why this fails now. 
+    # object which is why this fails now.
     xit { is_expected.not_to respond_to :alternative_title }
 
     describe 'calling #alternative_title' do

@@ -14,6 +14,7 @@ module Bulkrax
   #
   # From these assumptions we need to be mindful that our collection creation is different than
   # other OAI collection creations.
+  # rubocop:disable Metrics/ClassLength
   class OaiAdventistQdcParser < OaiQualifiedDcParser
     def entry_class
       Bulkrax::OaiAdventistQdcEntry
@@ -120,7 +121,7 @@ module Bulkrax
         # rubocop:disable Style/Next
         if index >= offset
           break if limit_reached?(limit, count_towards_limit)
-          handle_creation_of(record: record, index: index)
+          handle_creation_of(record:, index:)
           self.count_towards_limit += 1
         end
         # rubocop:enable Style/Next
@@ -137,6 +138,7 @@ module Bulkrax
 
     # @param record [Oai::Record]
     # @param index [Integer] the index/position of the Oai::Record in the OAI feed.
+    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     def handle_creation_of(record:, index:)
       return false unless record_has_source_identifier(record, index)
 
@@ -149,14 +151,14 @@ module Bulkrax
       #
       # - What's the entry class
       # - What's the counter to increment
-      entry_class_type = entry_class_type_for(record: record)
+      entry_class_type = entry_class_type_for(record:)
 
       entry_class = send("#{entry_class_type}_entry_class")
 
       # We want to find or create the entry based on non-volatile information.  Then we want to
       # capture the raw metadata for the record; capturing the raw metadata helps in debugging the
       # object.
-      new_entry = entry_class.where(importerexporter: importerexporter, identifier: identifier).first_or_create!
+      new_entry = entry_class.where(importerexporter:, identifier:).first_or_create!
       new_entry.update(raw_metadata: { record_level_xml: record._source.to_s })
 
       # Note the parameters of the delete job and the import jobs are different.  One assumes an
@@ -185,6 +187,7 @@ module Bulkrax
       # entry_class_types tracked on that same index.
       counters[entry_class_type] += 1
     end
+    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
     # @param record [Oai::Record]
     # @param index [Integer] the positional index of the record in the OAI feed.
@@ -206,6 +209,7 @@ module Bulkrax
 
     # @param record [Oai::Record]
     # @return [Symbol] either :collection, :file_set, or :work
+    # rubocop:disable Metrics/MethodLength
     def entry_class_type_for(record:)
       entry_class_type = nil
       model_field_mappings.each do |model_mapping|
@@ -224,4 +228,5 @@ module Bulkrax
       entry_class_type || :work
     end
   end
+  # rubocop:enable Metrics/ClassLength, Metrics/MethodLength
 end

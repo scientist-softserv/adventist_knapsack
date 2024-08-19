@@ -18,7 +18,7 @@ module Bulkrax
         end
       end
 
-      # Note: as of the time of writing this comment, the Bulkrax::OaiSetEntry does not handle
+      # NOTE: as of the time of writing this comment, the Bulkrax::OaiSetEntry does not handle
       # metadata nor does it do anything with visibility, rights statements, or admin sets.  This is
       # added as an override that I'd love to see "removed"
       add_visibility

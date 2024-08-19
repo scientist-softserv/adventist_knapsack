@@ -18,7 +18,7 @@ module Adl
           #   2) It also apparently happens in some situations where data existed prior to the slug logic
           # This query finds everything indexed by the original object's id. The new index will have id: slug.
           original_id = change_set.id.to_s
-          unless original_id.blank?
+          if original_id.present?
             Hyrax::SolrService.delete_by_query('id:"' + original_id + '" OR resource_id_ssi:"' + original_id + '" OR fedora_id_ssi:"' + original_id + '"')
             Hyrax::SolrService.commit
           end

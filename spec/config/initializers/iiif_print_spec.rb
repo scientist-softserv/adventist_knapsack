@@ -38,9 +38,9 @@ RSpec.describe IiifPrint do
         subject { build_manifest_method.source_location[0] }
 
         # Verify that we're using the app services iiif_print decorator
-        # rubocop:disable Metrics/LineLength
+        # rubocop:disable Layout/LineLength
         it { is_expected.to eq(HykuKnapsack::Engine.root.join('app', 'services', 'iiif_print', 'manifest_builder_service_behavior_decorator.rb').to_s) }
-        # rubocop:enable Metrics/LineLength
+        # rubocop:enable Layout/LineLength
       end
 
       describe 'super_method' do
