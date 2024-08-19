@@ -71,8 +71,6 @@ extraEnvVars: &envVars
     value: $AWS_SECRET_ACCESS_KEY
   - name: AUXILIARY_QUEUE_TENANTS
     value: sdapi
-  - name: BUNDLE_BUNDLER_INJECT__GEM_PATH
-    value: /app/samvera/bundler.d
   - name: BUNDLE_DISABLE_LOCAL_BRANCH_CHECK
     value: "true"
   - name: BUNDLE_LOCAL__HYKU_KNAPSACK

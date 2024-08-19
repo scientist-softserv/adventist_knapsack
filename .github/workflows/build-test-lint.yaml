@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    uses: scientist-softserv/actions/.github/workflows/build.yaml@v0.0.22
+    uses: scientist-softserv/actions/.github/workflows/build.yaml@webworkersunited
     secrets: inherit
     with:
       platforms: 'linux/amd64'
@@ -26,14 +26,14 @@ jobs:
 
   test:
     needs: build
-    uses: scientist-softserv/actions/.github/workflows/test.yaml@v0.0.22
+    uses: scientist-softserv/actions/.github/workflows/test.yaml@webworkersunited
     with:
       confdir: '/app/samvera/hyrax-webapp/solr/conf'
       rspec_cmd: "cd .. && gem install semaphore_test_boosters && bundle && rspec_booster --job $CI_NODE_INDEX/$CI_NODE_TOTAL"
 
   lint:
     needs: build
-    uses: scientist-softserv/actions/.github/workflows/lint.yaml@v0.0.22
+    uses: scientist-softserv/actions/.github/workflows/lint.yaml@webworkersunited
     with:
       webTarget: hyku-web
       workerTarget: hyku-worker
