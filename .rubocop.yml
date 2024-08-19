@@ -15,6 +15,10 @@ AllCops:
   - 'vendor/**/*'
   - 'lib/tasks/rubocop.rake'
 
+Layout/HashAlignment:
+  Exclude:
+  - app/forms/hyrax/forms/admin/adl_appearance_decorator.rb
+
 Metrics/BlockLength:
   IgnoredMethods: ['included', 'describe', 'it', 'context']
   Exclude:
