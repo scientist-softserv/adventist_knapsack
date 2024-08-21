@@ -11,10 +11,10 @@
       <%# OVERRIDE here to change the select dropdown to a bootstrap btn group to style them%>
       <div class="btn-group">
         <button id="sort-dropdown-text" type="button" class="btn dropdown-btn">
-        <% if h(params[:sort]).present? %>
+        <% if h(params[:sort]).present? && active_sort_fields[h(params[:sort])].present? %>
           <%= active_sort_fields[h(params[:sort])].label %>
         <% else %>
-          <%= active_sort_fields.first.last.label %>
+          <%= active_sort_fields.first.last&.label %>
         <% end %>
         </button>
         <button type="button" class="btn dropdown-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
