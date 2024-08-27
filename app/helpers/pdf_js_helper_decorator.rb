@@ -5,7 +5,7 @@ module PdfJsHelperDecorator
     # assumes that the download path exists if the file set has been characterized
     url = if file_set_presenter.mime_type
             "/pdf.js/viewer.html?file=#{hyrax.download_path(file_set_presenter.id)}"
-            
+
           else
             file_set_presenter.solr_document["import_url_ssim"].first
           end
