@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
-module PdfJsHelper
+module PdfJsHelperDecorator
   def pdf_js_url(file_set_presenter)
     # assumes that the download path exists if the file set has been characterized
     url = if file_set_presenter.mime_type
-            "/pdf.js/web/viewer.html?file=#{hyrax.download_path(file_set_presenter.id)}"
+            "/pdf.js/viewer.html?file=#{hyrax.download_path(file_set_presenter.id)}"
+            
           else
             file_set_presenter.solr_document["import_url_ssim"].first
           end
@@ -46,3 +47,5 @@ module PdfJsHelper
     "search=#{q}&phrase=true"
   end
 end
+
+PdfJsHelper.prepend(PdfJsHelperDecorator)
