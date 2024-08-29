@@ -11,6 +11,7 @@ module IiifPrint
       # @return [TrueClass] when we should be splitting this path.
       # @return [TrueClass] when we should not be splitting this path.
       def self.split_this?(path:, suffixes: CreateDerivativesJobDecorator::NON_ARCHIVAL_PDF_SUFFIXES)
+        return false unless IiifPrint::TenantConfig.use_iiif_print?
         suffixes.none? { |suffix| path.downcase.end_with?(suffix) }
       end
 
