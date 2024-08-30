@@ -99,8 +99,8 @@ extraEnvVars: &envVars
     value: "5432"
   - name: DB_USER
     value: hyku-production-hyrax
-  - name: EXTERNAL_IIIF_URL
-    value: https://d3pg70bdc74ala.cloudfront.net/iiif/2
+  # - name: EXTERNAL_IIIF_URL
+  #   value: https://d3pg70bdc74ala.cloudfront.net/iiif/2
   - name: FCREPO_BASE_PATH
     value: /adventist-production
   - name: FCREPO_HOST
