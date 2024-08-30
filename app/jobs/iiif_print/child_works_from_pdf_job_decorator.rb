@@ -2,6 +2,8 @@
 
 # OVERRIDE: Overriding entire job temporarily, pending cleanup via
 # https://github.com/scientist-softserv/adventist_knapsack/issues/728
+# OVERRIDE to end job based on pdfjs/uv flipper before doing anything
+# so we don't get job errors
 require 'iiif_print/jobs/application_job'
 
 module IiifPrint
@@ -15,6 +17,7 @@ module IiifPrint
     # @param admin_set_id: [<String>]
     # rubocop:disable Metrics/MethodLength
     def perform(id, pdf_paths, user, admin_set_id, *)
+      return unless IiifPrint::TenantConfig.use_iiif_print?
       candidate_for_parency = IiifPrint.find_by(id:)
 
       ##
