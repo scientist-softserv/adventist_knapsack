@@ -509,11 +509,11 @@ body.works-show.adl_show {
   max-width: 25%;
 }
 
-//hides the visibility badge on top of work show page & hides the "user collection" labels in search results
-.panel-default .panel-heading small span.label,
+// hides the visibility badge on top of work show page & hides the "user collection" badges in search results
+.panel-default .panel-heading small span.badge,
 .search-results-title-row span.badge,
-.hyc-title span.label,
-.title-with-badges span.label,
+.hyc-title span.badge,
+.title-with-badges span.badge,
 .collection-title-row-content span.badge {
   display: none;
 }
