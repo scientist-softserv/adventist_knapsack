@@ -89,7 +89,6 @@ module HykuKnapsack
       config.after_initialize do
         HykuKnapsack::Engine.load_translations!
       end
-      
 
       DerivativeRodeo::Generators::HocrGenerator.additional_tessearct_options = "-l eng_best"
       # See: https://github.com/scientist-softserv/adventist-dl/issues/676
