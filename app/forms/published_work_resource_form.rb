@@ -6,7 +6,8 @@
 # @see https://github.com/samvera/hyrax/wiki/Hyrax-Valkyrie-Usage-Guide#forms
 # @see https://github.com/samvera/valkyrie/wiki/ChangeSets-and-Dirty-Tracking
 class PublishedWorkResourceForm < Hyrax::Forms::ResourceForm(PublishedWorkResource)
-  include Hyrax::FormFields(:basic_metadata)
+  # Commented out basic_metadata because these terms were added to published_work_resource so we can customize it.
+  # include Hyrax::FormFields(:basic_metadata)
   include Hyrax::FormFields(:adl_metadata)
   include Hyrax::FormFields(:published_work_resource)
   include Hyrax::FormFields(:bulkrax_metadata)
