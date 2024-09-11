@@ -1,5 +1,7 @@
-<%# OVERRIDE Hyrax 2.9.5 to add css classes %>
+<%# OVERRIDE Hyrax 5 css classes %>
 
 <dl class="work-show metadata-block <%= dom_class(presenter) %>" <%= presenter.microdata_type_to_html %>> 
     <%= render 'attribute_rows', presenter: presenter %>
- </dl> 
+    <%= presenter.attribute_to_html(:embargo_release_date, render_as: :date, html_dl: true) %>
+    <%= presenter.attribute_to_html(:lease_expiration_date, render_as: :date, html_dl: true) %>
+</dl>
