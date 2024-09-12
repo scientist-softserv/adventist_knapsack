@@ -34,8 +34,6 @@ jobs:
     uses: scientist-softserv/actions/.github/workflows/test.yaml@choose-which-step-to-debug-with-tmate
     with:
       confdir: '/app/samvera/hyrax-webapp/solr/conf'
-      webTarget: hyku-web
-      workerTarget: hyku-worker
       rspec_cmd: "cd .. && gem install semaphore_test_boosters && bundle && rspec_booster --job $CI_NODE_INDEX/$CI_NODE_TOTAL"
 
   lint:
