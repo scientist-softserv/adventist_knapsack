@@ -1,4 +1,4 @@
-name: 'Build Test Lint'
+name: "Build Test Lint"
 run-name: Build Test Lint of ${{ github.ref_name }} by @${{ github.actor }}
 on:
   push:
@@ -9,32 +9,31 @@ on:
       - main
   workflow_dispatch:
     inputs:
-      debug_enabled:
-        type: boolean
-        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+      debug_step:
         required: false
-        default: false
+        description: 'Pause the selected step to debug using tmate'
+        type: choice
+        default: ''
+        options:
+          - ''
+          - build
+          - test
+          - lint
 
 jobs:
   build:
-    uses: scientist-softserv/actions/.github/workflows/build.yaml@webworkersunited
+    uses: scientist-softserv/actions/.github/workflows/build.yaml@choose-which-step-to-debug-with-tmate
     secrets: inherit
     with:
-      platforms: 'linux/amd64'
-      webTarget: hyku-web
+      platforms: "linux/amd64"
+      webTarget: hyku-base
+      solrTarget: hyku-solr
       workerTarget: hyku-worker
-
   test:
     needs: build
-    uses: scientist-softserv/actions/.github/workflows/test.yaml@webworkersunited
-    with:
-      confdir: '/app/samvera/hyrax-webapp/solr/conf'
-      rspec_cmd: "cd .. && gem install semaphore_test_boosters && bundle && rspec_booster --job $CI_NODE_INDEX/$CI_NODE_TOTAL"
-
+    uses: scientist-softserv/actions/.github/workflows/test.yaml@choose-which-step-to-debug-with-tmate
   lint:
     needs: build
-    uses: scientist-softserv/actions/.github/workflows/lint.yaml@webworkersunited
+    uses: scientist-softserv/actions/.github/workflows/lint.yaml@choose-which-step-to-debug-with-tmate
     with:
-      webTarget: hyku-web
-      workerTarget: hyku-worker
-      rubocop_cmd: "cd .. && bundle && bundle exec rubocop --parallel --format progress"
+      rubocop_cmd: 'bundle exec rubocop --parallel --format progress'
