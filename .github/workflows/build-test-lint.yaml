@@ -22,7 +22,7 @@ on:
 
 jobs:
   build:
-    uses: scientist-softserv/actions/.github/workflows/build.yaml@choose-which-step-to-debug-with-tmate
+    uses: scientist-softserv/actions/.github/workflows/build.yaml@v0.0.23
     secrets: inherit
     with:
       platforms: "linux/amd64"
@@ -31,9 +31,9 @@ jobs:
       workerTarget: hyku-worker
   test:
     needs: build
-    uses: scientist-softserv/actions/.github/workflows/test.yaml@choose-which-step-to-debug-with-tmate
+    uses: scientist-softserv/actions/.github/workflows/test.yaml@v0.0.23
   lint:
     needs: build
-    uses: scientist-softserv/actions/.github/workflows/lint.yaml@choose-which-step-to-debug-with-tmate
+    uses: scientist-softserv/actions/.github/workflows/lint.yaml@v0.0.23
     with:
       rubocop_cmd: 'bundle exec rubocop --parallel --format progress'
