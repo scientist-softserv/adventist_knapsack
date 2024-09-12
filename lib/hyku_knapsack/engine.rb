@@ -13,7 +13,7 @@ module HykuKnapsack
       # over earlier entries (e.g. lower array index means lower precedence).  So we need to reverse
       # the array, then call uniq (which will drop duplicates that show up later in the array).
       # Then reverse again.  (You know, kind of like an Uno reverse battle.)
-      I18n.load_path = I18n.load_path.reverse.uniq.reverse
+      # I18n.load_path = I18n.load_path.reverse.uniq.reverse
       I18n.backend.reload!
     end
 
@@ -86,7 +86,9 @@ module HykuKnapsack
       # However, between loading those translations in the catalog controller and now, the
       # underlying application and even other engines might have further amended the load path.
       # This is our "best" chance to do it at the latest possible moment.
-      HykuKnapsack::Engine.load_translations!
+      config.after_initialize do
+        HykuKnapsack::Engine.load_translations!
+      end
 
       DerivativeRodeo::Generators::HocrGenerator.additional_tessearct_options = "-l eng_best"
       # See: https://github.com/scientist-softserv/adventist-dl/issues/676

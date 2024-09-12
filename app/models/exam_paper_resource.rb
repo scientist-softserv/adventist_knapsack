@@ -3,7 +3,8 @@
 # Generated via
 #  `rails generate hyrax:work_resource ExamPaperResource`
 class ExamPaperResource < Hyrax::Work
-  include Hyrax::Schema(:basic_metadata)
+  # Commented out basic_metadata because these terms were added to exam_paper_resource so we can customize it.
+  # include Hyrax::Schema(:basic_metadata)
   include Hyrax::Schema(:adl_metadata)
   include Hyrax::Schema(:exam_paper_resource)
   include Hyrax::Schema(:bulkrax_metadata)
