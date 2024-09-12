@@ -27,7 +27,6 @@ jobs:
     with:
       platforms: "linux/amd64"
       webTarget: hyku-base
-      solrTarget: hyku-solr
       workerTarget: hyku-worker
   test:
     needs: build
