@@ -3,7 +3,7 @@
 module PdfJsHelperDecorator
   def pdf_js_url(file_set_presenter)
     # assumes that the download path exists if the file set has been characterized
-    url = if file_set_presenter.mime_type
+    url = if file_set_presenter.try(:mime_type)
             "/pdf.js/viewer.html?file=#{hyrax.download_path(file_set_presenter.id)}"
 
           else
