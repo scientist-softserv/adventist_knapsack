@@ -1,3 +1,5 @@
+<%# OVERRIDE Hyku v6.0 to override default colors %>
+
 <%= simple_form_for @form, url: admin_appearance_path do |f| %>
   <div class="card-body defaultable-colors">
     <% @form.class::DEFAULT_COLORS.each do |color_name, hex| %>

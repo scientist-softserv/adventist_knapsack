@@ -1,13 +1,13 @@
-<%# OVERRIDE IiifPrint to add bootstrap classes %>
+<%# OVERRIDE Hyku 6.0 to add bootstrap classes %>
 
-<% if presenter.video_embed_viewer? %>
-  <div class="center-block">
-    <%= video_embed_viewer_display presenter %>
-  </div>
-<% elsif presenter.iiif_viewer? %>
-  <% if defined?(viewer) && viewer %>
+<% if presenter.representative_id.present? && presenter.representative_presenter.present? %>
+  <% if defined?(viewer) && viewer && presenter.iiif_viewer?%>
     <div class="center-block">
       <%= iiif_viewer_display presenter %>
+    </div>
+  <% elsif Flipflop.default_pdf_viewer? && presenter.show_pdf_viewer? && presenter.file_set_presenters.any?(&:pdf?) %>
+    <div class="center-block">
+      <%= render 'pdf_js', file_set_presenter: presenter.file_set_presenters.first %>
     </div>
   <% else %>
     <div class="center-block">
@@ -15,5 +15,6 @@
     </div>
   <% end %>
 <% else %>
-  <%= image_tag 'default.png', class: "canonical-image center-block", alt: 'default representative image' %>
+  <% alt = block_for(name: 'default_work_image_text') || 'Default work thumbnail' %>
+  <%= image_tag default_work_image, class: "canonical-image center-block", alt: alt %>
 <% end %>
