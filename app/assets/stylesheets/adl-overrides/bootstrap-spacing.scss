@@ -1,5 +1,6 @@
-  // bootstrap 4 spacing classes since it doesn't look like we're upgrading anytime soon
+// bootstrap 4 spacing classes since it doesn't look like we're upgrading anytime soon
 
+body.adventist_digital_library {
   // flex styles
 
   .d-flex {
@@ -27,11 +28,11 @@
   .ml-2 {
     margin-left: .5rem !important;
   }
-  
+
   .ml-3 {
     margin-left: 1rem !important;
   }
-  
+
   .ml-4 {
     margin-left: 2rem !important;
   }
@@ -47,11 +48,11 @@
   .mr-2 {
     margin-right: .5rem !important;
   }
-  
+
   .mr-3 {
     margin-right: 1rem !important;
   }
-  
+
   .mr-4 {
     margin-right: 2rem !important;
   }
@@ -145,11 +146,11 @@
   .pt-2 {
     padding-top: .5rem !important;
   }
-  
+
   .pt-3 {
     padding-top: 1rem !important;
   }
-  
+
   .pt-4 {
     padding-top: 2rem !important;
   }
@@ -165,11 +166,11 @@
   .pb-2 {
     padding-bottom: .5rem !important;
   }
-  
+
   .pb-3 {
     padding-bottom: 1rem !important;
   }
-  
+
   .pb-4 {
     padding-bottom: 2rem !important;
   }
@@ -185,11 +186,11 @@
   .pl-2 {
     padding-left: .5rem !important;
   }
-  
+
   .pl-3 {
     padding-left: 1rem !important;
   }
-  
+
   .pl-4 {
     padding-left: 2rem !important;
   }
@@ -205,11 +206,11 @@
   .pr-2 {
     padding-right: .5rem !important;
   }
-  
+
   .pr-3 {
     padding-right: 1rem !important;
   }
-  
+
   .pr-4 {
     padding-right: 2rem !important;
   }
@@ -217,4 +218,4 @@
   .pr-5 {
     padding-right: 3rem !important;
   }
-
+}

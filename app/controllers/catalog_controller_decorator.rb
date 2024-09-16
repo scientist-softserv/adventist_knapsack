@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 CatalogController.include DogBiscuits::Blacklight::Commands
+CatalogController.include Hyku::HomePageThemesBehavior
 
 CatalogController.configure_blacklight do |config|
   # Use locally customized AdvSearchBuilder so we can enable blacklight_advanced_search
@@ -123,4 +124,3 @@ CatalogController.configure_blacklight do |config|
   config.add_sort_field "#{CatalogController.modified_field} asc", label: "Upload Date (Ascending)"
   config.add_sort_field "#{CatalogController.modified_field} desc", label: "Upload Date (Descending)"
 end
-# rubocop:enable Metrics/BlockLength

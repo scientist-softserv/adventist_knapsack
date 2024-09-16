@@ -1,4 +1,4 @@
-body.public-facing {
+body.adventist_digital_library {
   font-size: 17px;
   color: $darkgrey;
 
@@ -164,9 +164,9 @@ body.public-facing {
     border-radius: 4px;
   }
 
-  // /* FACET PANEL STYLES */
+  /* FACET PANEL STYLES */
 
-  .panel-default > .panel-heading {
+  .card-header {
     color: $black !important;
     background-color: $white !important;
     border-color: transparent !important;
@@ -177,19 +177,31 @@ body.public-facing {
     margin-bottom: 1em;
   }
 
-  .panel-default {
+  .card {
     border-color: transparent !important;
     border: 0 solid transparent !important;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+
+    h3 button {
+      color: $darkyellow;
+      font-size: 1em;
+    }
   }
 
-  .panel-heading.collapse-toggle .panel-title:after {
+  .card-header.collapse-toggle .card-title:after {
     color: $black;
   }
 
-  .panel.panel-default.permissions-confirm {
+  .card.permissions-confirm {
     background-color: $white;
   }
-  .form-actions.panel-footer {
+
+  .form-actions.card-footer {
     border-top: 1px solid $lightgrey;
   }
 
@@ -433,6 +445,7 @@ body.public-facing {
     border: 0 solid $white !important;
     background-color: $white !important;
     border-radius: 4px !important;
+    padding: 0;
   }
 
   nav.breadcrumb {
@@ -440,15 +453,15 @@ body.public-facing {
   }
 
   //LABELS
-  .label-success {
+  .badge-success {
     background-color: $mediumyellow;
   }
 
-  .label-info {
+  .badge-info {
     background-color: $darkyellow;
   }
 
-  .label-primary {
+  .badge-primary {
     background-color: $darkyellow;
   }
 
@@ -468,6 +481,13 @@ body.public-facing {
 
 }
 
+body.works-show.adl_show {
+  .card, .card-header {
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+
 .dashboard {
   //fix the collection image thumbnails in the dashboard so they don't overlap with the collection title & so they are square
   .collections-wrapper .thumbnail-title-wrapper .thumbnail-wrapper > img {
@@ -482,12 +502,18 @@ body.public-facing {
   font-weight: 700;
 }
 
-//hides the visibility badge on top of work show page & hides the "user collection" labels in search results
-.panel-default .panel-heading small span.label,
-.search-results-title-row span.label,
-.hyc-title span.label, 
-.title-with-badges span.label, 
-.collection-title-row-content span.label {
+// for collection results on catalog search
+// number of collections and works badges
+// move them inline with the rest of the elements
+.search-result-wrapper.row > div.col-md-4 {
+  max-width: 25%;
+}
+
+// hides the visibility badge on top of work show page & hides the "user collection" badges in search results
+.panel-default .panel-heading small span.badge,
+.search-results-title-row span.badge,
+.hyc-title span.badge,
+.title-with-badges span.badge,
+.collection-title-row-content span.badge {
   display: none;
 }
-  

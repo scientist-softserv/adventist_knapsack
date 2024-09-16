@@ -71,8 +71,6 @@ extraEnvVars: &envVars
     value: $AWS_SECRET_ACCESS_KEY
   - name: AUXILIARY_QUEUE_TENANTS
     value: sdapi
-  - name: BUNDLE_BUNDLER_INJECT__GEM_PATH
-    value: /app/samvera/bundler.d
   - name: BUNDLE_DISABLE_LOCAL_BRANCH_CHECK
     value: "true"
   - name: BUNDLE_LOCAL__HYKU_KNAPSACK
@@ -101,8 +99,8 @@ extraEnvVars: &envVars
     value: "5432"
   - name: DB_USER
     value: hyku-production-hyrax
-  - name: EXTERNAL_IIIF_URL
-    value: https://d3pg70bdc74ala.cloudfront.net/iiif/2
+  # - name: EXTERNAL_IIIF_URL
+  #   value: https://d3pg70bdc74ala.cloudfront.net/iiif/2
   - name: FCREPO_BASE_PATH
     value: /adventist-production
   - name: FCREPO_HOST
@@ -134,7 +132,7 @@ extraEnvVars: &envVars
   - name: HYKU_DEFAULT_HOST
     value: "%{tenant}.b2.adventistdigitallibrary.org"
   - name: HYKU_FILE_ACL
-    value: "false"
+    value: "true"
   - name: HYKU_GEONAMES_USERNAME
     value: 'scientist'
   - name: HYKU_MULTITENANT

@@ -11,22 +11,10 @@ module SlugMetadata
                index.as :stored_searchable
              end
 
-    # @deprecated
+    # @deprecated due to inappropriate predicate overlapping alternate_title
     # adding slug field for custom work urls
     property :slug, predicate: ::RDF::Vocab::DC.alternative, multiple: false do |index|
       index.as :stored_searchable
     end
-
-    # We need to move the above :slug from ::RDF::Vocab::DC.alternative to a different predicate.
-    #
-    # This is an internal application-only custom identifier for the use of slugs'
-    # It is important not to reuse any terms on the fedora items, as one would overwrite the other.
-    # This creates an internal term specifically for slug use which will never get overwritten.
-    property(
-      :slug_for_upgrade,
-      # NOTE: this is a made up URI; we don't need it to resolve to an actual page.
-      predicate: ::RDF::URI.intern('http://id.loc.gov/vocabulary/identifiers/slug'),
-      multiple: false
-    ) { |index| index.as :stored_searchable }
   end
 end

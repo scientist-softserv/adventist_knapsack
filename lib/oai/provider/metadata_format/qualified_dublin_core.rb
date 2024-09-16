@@ -4,6 +4,7 @@ module OAI
   module Provider
     module MetadataFormat
       class QualifiedDublinCore < OAI::Provider::Metadata::Format
+        # rubocop:disable Lint/MissingSuper
         def initialize
           @prefix = 'oai_qdc'
           @schema = 'http://dublincore.org/schemas/xmls/qdc/dcterms.xsd'
@@ -17,6 +18,7 @@ module OAI
                        spatial language isPartOf tableOfContents temporal bibliographicCitation relation
                        isReferencedBy hasPart isVersionOf extent format]
         end
+        # rubocop:enable Lint/MissingSuper
 
         def header_specification
           {

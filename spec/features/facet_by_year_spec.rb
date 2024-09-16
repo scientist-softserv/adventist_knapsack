@@ -184,7 +184,7 @@ RSpec.describe "View Range Limit Search Results", type: :feature, clean: true, j
     WebMock.disable!
     Apartment::Tenant.create(account.tenant)
     Apartment::Tenant.switch(account.tenant) do
-      Site.update(account: account)
+      Site.update(account:)
     end
 
     # sign up user 1 at account 1
@@ -250,9 +250,9 @@ RSpec.describe "View Range Limit Search Results", type: :feature, clean: true, j
   end
 
   it "displays plot after facet is expanded" do
-    # rubocop:disable Metrics/LineLength
+    # rubocop:disable Layout/LineLength
     visit "/catalog/range_limit?commit=Limit&locale=en&q=&range_end=2021&range_field=sorted_year_isi&range_start=2&search_field=all_fields"
-    # rubocop:enable Metrics/LineLength
+    # rubocop:enable Layout/LineLength
     expect(page.status_code).to eq 200
   end
 end

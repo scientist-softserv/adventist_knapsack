@@ -8,8 +8,8 @@ RSpec.describe Bulkrax::CsvEntry do
   describe "#build_metadata" do
     subject(:entry) do
       Bulkrax::EntrySpecHelper.entry_for(
-        data: data,
-        identifier: identifier,
+        data:,
+        identifier:,
         parser_class_name: 'Bulkrax::CsvParser',
         parser_fields: { 'import_file_path' => "spec/fixtures/csv/entry.csv" }
       )
@@ -18,6 +18,7 @@ RSpec.describe Bulkrax::CsvEntry do
     let(:identifier) { 'bl-26-0' }
     let(:data) do
       {
+        "work_type".to_sym => "GenericWork",
         "file".to_sym => "",
         "identifier".to_sym => %(P007204),
         "identifier.ark".to_sym => %(P007204),
@@ -43,7 +44,7 @@ RSpec.describe Bulkrax::CsvEntry do
       entry.build_metadata
       # Yes, based on the present parser, we're expecting this to be GenericWork.  However, there's
       # an outstanding question with the client as to whether that is the correct assumption.
-      expect(entry.factory_class).to eq(GenericWork)
+      expect(entry.factory_class).to eq(GenericWorkResource)
       expect(entry.parsed_metadata.fetch('subject')).to eq ["Andrews, John Nevins 1891-1980", "Smith, John"]
       expect(entry.parsed_metadata.fetch('publisher')).to eq ["First Publisher", "Second Publisher"]
       expect(entry.parsed_metadata.fetch('part_of')).to eq ["Center for Adventist Research Photograph Collection"]

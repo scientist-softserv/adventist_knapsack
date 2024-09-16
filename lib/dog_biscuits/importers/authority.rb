@@ -26,40 +26,40 @@ module DogBiscuits
         uri = construct_uri(label) if uri.blank?
         Qa::LocalAuthorityEntry.create(local_authority: @authority,
                                        label: cleanup_label(label),
-                                       uri: uri)
+                                       uri:)
       rescue ActiveRecord::RecordNotUnique
         Rails.logger.warn("Duplicate record: #{label}")
       end
 
       private
 
-        # Replace &amp; with &
-        #
-        # @param label [String] the label for cleanup
-        # @return [String] cleaned up label
-        def cleanup_label(label)
-          label.gsub('&amp;', '&')
-        end
+      # Replace &amp; with &
+      #
+      # @param label [String] the label for cleanup
+      # @return [String] cleaned up label
+      def cleanup_label(label)
+        label.gsub('&amp;', '&')
+      end
 
-        # Create a version of the label for use as a uri:
-        #   replace all non-alphanumeric characters with whitespace
-        #   trim to 50 characters and replace whitespace with a dash
-        #
-        # @param label [String] the label for uri-ification
-        # @return [String] uri-ified label
-        def uri_ifiy_label(label)
-          cleanup_label(label).gsub(/[^\w\s\d]/, ' ')[0..50].parameterize
-        end
+      # Create a version of the label for use as a uri:
+      #   replace all non-alphanumeric characters with whitespace
+      #   trim to 50 characters and replace whitespace with a dash
+      #
+      # @param label [String] the label for uri-ification
+      # @return [String] uri-ified label
+      def uri_ifiy_label(label)
+        cleanup_label(label).gsub(/[^\w\s\d]/, ' ')[0..50].parameterize
+      end
 
-        # Create a default URI for the term
-        #
-        # @param label [String] the label for cleanup
-        # @return [String] cleaned up label
-        def construct_uri(label)
-          hostname = `hostname`.delete("\n")
-          hostname = "example.com" if hostname.include?('localhost')
-          "http://#{hostname}/#{@authority_name}/#{uri_ifiy_label(label)}"
-        end
+      # Create a default URI for the term
+      #
+      # @param label [String] the label for cleanup
+      # @return [String] cleaned up label
+      def construct_uri(label)
+        hostname = `hostname`.delete("\n")
+        hostname = "example.com" if hostname.include?('localhost')
+        "http://#{hostname}/#{@authority_name}/#{uri_ifiy_label(label)}"
+      end
     end
   end
 end

@@ -26,7 +26,7 @@ module ContentBlockDecorator
   end
 
   def resources_page=(value)
-    resources_page.update(value: value)
+    resources_page.update(value:)
   end
 end
 

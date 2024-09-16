@@ -13,7 +13,7 @@ module HykuKnapsack
       # over earlier entries (e.g. lower array index means lower precedence).  So we need to reverse
       # the array, then call uniq (which will drop duplicates that show up later in the array).
       # Then reverse again.  (You know, kind of like an Uno reverse battle.)
-      I18n.load_path = I18n.load_path.reverse.uniq.reverse
+      # I18n.load_path = I18n.load_path.reverse.uniq.reverse
       I18n.backend.reload!
     end
 
@@ -21,7 +21,7 @@ module HykuKnapsack
       # only add the migrations if they are not already copied
       # via the rake task. Allows gem to work both with the install:migrations
       # and without it.
-      if !app.root.to_s.match(root.to_s) &&
+      if app.root.to_s != HykuKnapsack::Engine.root.to_s &&
          app.root.join('db/migrate').children.none? { |path| path.fnmatch?("*.hyku_knapsack.rb") }
         config.paths["db/migrate"].expanded.each do |expanded_path|
           app.config.paths["db/migrate"] << expanded_path
@@ -45,22 +45,11 @@ module HykuKnapsack
       end
     end
 
+    # rubocop:disable Metrics/BlockLength
     config.after_initialize do
       # need collection model first
       collection_decorator = HykuKnapsack::Engine.root.join("app", "models", "collection_decorator.rb").to_s
       Rails.configuration.cache_classes ? require(collection_decorator) : load(collection_decorator)
-
-      HykuKnapsack::Engine.root.glob("app/**/*_decorator*.rb").sort.each do |c|
-        Rails.configuration.cache_classes ? require(c) : load(c)
-      end
-
-      HykuKnapsack::Engine.root.glob("lib/**/*_decorator*.rb").sort.each do |c|
-        Rails.configuration.cache_classes ? require(c) : load(c)
-      end
-
-      # metaprogramming makes decorating hard
-      c = HykuKnapsack::Engine.root.glob("lib/wings/orm_converter.rb").first
-      Rails.configuration.cache_classes ? require(c) : load(c)
 
       # By default plain text files are not processed for text extraction.  In adding
       # Adventist::TextFileTextExtractionService to the beginning of the services array we are
@@ -97,13 +86,15 @@ module HykuKnapsack
       # However, between loading those translations in the catalog controller and now, the
       # underlying application and even other engines might have further amended the load path.
       # This is our "best" chance to do it at the latest possible moment.
-      HykuKnapsack::Engine.load_translations!
+      config.after_initialize do
+        HykuKnapsack::Engine.load_translations!
+      end
 
       DerivativeRodeo::Generators::HocrGenerator.additional_tessearct_options = "-l eng_best"
       # See: https://github.com/scientist-softserv/adventist-dl/issues/676
       IiifPrint::DerivativeRodeoService.named_derivatives_and_generators_filter =
-        lambda do |file_set:, filename:, named_derivatives_and_generators:|
-          named_derivatives_and_generators.reject do |named_derivative, generators|
+        lambda do |_file_set:, filename:, named_derivatives_and_generators:|
+          named_derivatives_and_generators.reject do |named_derivative, _generators|
             named_derivative != :thumbnail && filename.downcase.ends_with?(HykuKnapsack::Engine::THUMBNAIL_FILE_SUFFIX)
           end
         end
@@ -121,14 +112,15 @@ module HykuKnapsack
         # In the development environment we may not have AWS credentials.  When we do, let's use s3.  When
         # we don't, we'll use local files (which almost certainly will fail).  This means we'd be locally
         # using the derivative rodeo's splitting process (which should work without a preprocess lcoation).
-        # rubocop:disable Metrics/LineLength
-        if DerivativeRodeo.config.aws_s3_access_key_id.present? && DerivativeRodeo.config.aws_s3_secret_access_key.present?
-          IiifPrint::DerivativeRodeoService.preprocessed_location_adapter_name = 's3'
-        else
-          IiifPrint::DerivativeRodeoService.preprocessed_location_adapter_name = 'file'
-        end
-        # rubocop:enable Metrics/LineLength
+        # rubocop:disable Layout/LineLength
+        IiifPrint::DerivativeRodeoService.preprocessed_location_adapter_name = if DerivativeRodeo.config.aws_s3_access_key_id.present? && DerivativeRodeo.config.aws_s3_secret_access_key.present?
+                                                                                 's3'
+                                                                               else
+                                                                                 'file'
+                                                                               end
+        # rubocop:enable Layout/LineLength
       end
     end
+    # rubocop:enable Metrics/BlockLength
   end
 end

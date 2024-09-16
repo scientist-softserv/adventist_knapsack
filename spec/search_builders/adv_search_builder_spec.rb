@@ -38,6 +38,7 @@ RSpec.describe AdvSearchBuilder do
       # https://github.com/samvera/hyku/blob/07fde572f9152d513b13f71cae90dd4fdfbfba6c/app/search_builders/hyrax/collection_member_search_builder_decorator.rb#L16-L34
       %i[
         default_solr_parameters
+        add_search_field_default_parameters
         add_query_to_solr
         add_facet_fq_to_solr
         add_facetting_to_solr
@@ -46,6 +47,8 @@ RSpec.describe AdvSearchBuilder do
         add_sorting_to_solr
         add_group_config_to_solr
         add_facet_paging_to_solr
+        add_adv_search_clauses
+        add_additional_filters
         add_range_limit_params
         add_access_controls_to_solr_params
         filter_models

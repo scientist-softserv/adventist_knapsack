@@ -21,13 +21,12 @@ RSpec.describe 'Create a Thesis', js: true do
         active: true,
         name: 'test-workflow',
         permission_template:
-        permission_template
       )
     end
 
     before do
       # Create a single action that can be taken
-      Sipity::WorkflowAction.create!(name: 'submit', workflow: workflow)
+      Sipity::WorkflowAction.create!(name: 'submit', workflow:)
 
       # Grant the user access to deposit into the admin set.
       Hyrax::PermissionTemplateAccess.create!(
@@ -67,10 +66,10 @@ RSpec.describe 'Create a Thesis', js: true do
       # its element
       find('body').click
       choose('thesis_visibility_open')
-      # rubocop:disable Metrics/LineLength
+      # rubocop:disable Layout/LineLength
       expect(page).to have_content('Please note, making something visible to the world (i.e. marking this as Public) may be viewed as publishing which could impact your ability to')
       check('agreement')
-      # rubocop:enable Metrics/LineLength
+      # rubocop:enable Layout/LineLength
 
       click_on('Save')
       expect(page).to have_content('My Test Work')

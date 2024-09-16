@@ -36,6 +36,7 @@ class RerunErroredEntriesForImporterJob < ApplicationJob
 
   attr_reader :importer, :last_run, :new_run, :logger, :error_classes
 
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def do_it!
     reimport_logging_context = "#{importer.class} ID=#{importer.id} with #{last_run.class} ID=#{last_run.id}"
 
@@ -51,18 +52,18 @@ class RerunErroredEntriesForImporterJob < ApplicationJob
       logger.info("Starting re-importing #{reimport_logging_context} with entries that had any error.")
       relation = relation.where.not(error_class: nil)
     else
-      # rubocop:disable Metrics/LineLength
+      # rubocop:disable Layout/LineLength
       logger.info("Starting re-importing #{reimport_logging_context} with entries that had the following errors: #{error_classes.inspect}.")
-      # rubocop:enable Metrics/LineLength
+      # rubocop:enable Layout/LineLength
       relation = relation.where(error_class: error_classes)
     end
 
     # We need to count before we do the select narrowing; otherwise ActiveRecord will throw a SQL
     # error.
     relation_count = relation.count
-    # rubocop:disable Metrics/LineLength
+    # rubocop:disable Layout/LineLength
     logger.info("*****************Found #{relation_count} entries to re-import for #{reimport_logging_context}.*****************")
-    # rubocop:enable Metrics/LineLength
+    # rubocop:enable Layout/LineLength
 
     # No sense loading all the fields; we really only need these two values to resubmit the given job.
     relation = relation.select('id', 'statusable_id', 'statusable_type')
@@ -70,20 +71,21 @@ class RerunErroredEntriesForImporterJob < ApplicationJob
 
     relation.find_each do |status|
       counter += 1
-      # rubocop:disable Metrics/LineLength
+      # rubocop:disable Layout/LineLength
       logger.info("Enqueuing re-import for #{reimport_logging_context} #{status.statusable_type} ID=#{status.statusable_id} (#{counter} of #{relation_count}).")
-      # rubocop:enable Metrics/LineLength
+      # rubocop:enable Layout/LineLength
       begin
-        # rubocop:enable Metrics/LineLength
+        # rubocop:enable Layout/LineLength
         RerunEntryJob.perform_later(entry_class_name: status.statusable_type, entry_id: status.statusable_id)
       rescue StandardError => e
-        # rubocop:disable Metrics/LineLength
+        # rubocop:disable Layout/LineLength
         logger.error("😈😈😈 Error: #{e.message} for #{reimport_logging_context} #{status.statusable_type} ID=#{status.statusable_id}")
-        # rubocop:enable Metrics/LineLength
+        # rubocop:enable Layout/LineLength
         raise e
       end
     end
 
     logger.info("Finished submitting re-imports for #{reimport_logging_context}.")
   end
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
 end

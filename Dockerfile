@@ -1,7 +1,8 @@
-FROM ghcr.io/samvera/hyku/base:d6ef0431 as hyku-knap-base
+FROM ghcr.io/samvera/hyku/base:20b8c56e as hyku-knap-base
 
 # This is specifically NOT $APP_PATH but the parent directory
 COPY --chown=1001:101 . /app/samvera
+RUN ln -s /app/samvera/bundler.d /app/.bundler.d
 ENV BUNDLE_LOCAL__HYKU_KNAPSACK=/app/samvera
 ENV BUNDLE_DISABLE_LOCAL_BRANCH_CHECK=true
 

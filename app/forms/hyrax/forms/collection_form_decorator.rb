@@ -35,7 +35,6 @@ module HykuKnapsack
   end
 end
 
-Hyrax::Forms::CollectionForm.terms += Collection.additional_terms
 # Somehow, someway the alternative_title keeps showing up as one of the terms.  This is yet another
 # step we take to eliminate that.
 Hyrax::Forms::CollectionForm.terms -= [:alternative_title]

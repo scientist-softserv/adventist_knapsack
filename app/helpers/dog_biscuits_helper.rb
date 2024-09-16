@@ -32,13 +32,4 @@ module DogBiscuitsHelper
   def truncate_text(text)
     text.truncate_words(50, omission: ' ...')
   end
-
-  def restricted?(term)
-    return false if DogBiscuits.config.restricted_properties_enabled == false
-    # evaluate restriction
-    (
-      DogBiscuits.config.restricted_properties.include?(term) &&
-        current_user.send("#{DogBiscuits.config.restricted_role}?") == true
-    ) || !DogBiscuits.config.restricted_properties.include?(term)
-  end
 end

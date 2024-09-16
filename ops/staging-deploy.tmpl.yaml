@@ -11,10 +11,7 @@ resources:
 livenessProbe:
   enabled: false
 readinessProbe:
-  enabled: true
-  path: "/healthz"
-  periodSeconds: 30
-  timeoutSeconds: 10
+  enabled: false
 
 brandingVolume:
   storageClass: efs-sc
@@ -40,6 +37,9 @@ extraVolumeMounts: &volMounts
   - name: uploads
     mountPath: /app/samvera/hyrax-webapp/tmp/network_files
     subPath: network-files
+  - name: uploads
+    mountPath: /app/samvera/hyrax-webapp/storage/files
+    subPath: storage-files
 
 ingress:
   enabled: true
@@ -71,12 +71,12 @@ extraEnvVars: &envVars
     value: $AWS_SECRET_ACCESS_KEY
   - name: AUXILIARY_QUEUE_TENANTS
     value: sdapi
-  - name: BUNDLE_BUNDLER_INJECT__GEM_PATH
-    value: /app/samvera/bundler.d
   - name: BUNDLE_DISABLE_LOCAL_BRANCH_CHECK
     value: "true"
   - name: BUNDLE_LOCAL__HYKU_KNAPSACK
     value: /app/samvera
+  - name: CONFDIR
+    value: "/app/samvera/hyrax-webapp/solr/conf"
   - name: CLIENT_ADMIN_USER_EMAIL
     value: $CLIENT_ADMIN_USER_EMAIL
   - name: CLIENT_ADMIN_USER_PASSWORD
@@ -103,8 +103,8 @@ extraEnvVars: &envVars
     value: "5432"
   - name: DB_USER
     value: hyku-dev-hyrax
-  - name: EXTERNAL_IIIF_URL
-    value: https://d3pg70bdc74ala.cloudfront.net/iiif/2
+  # - name: EXTERNAL_IIIF_URL
+  #   value: https://d3pg70bdc74ala.cloudfront.net/iiif/2
   - name: FCREPO_BASE_PATH
     value: /adventist-dev
   - name: FCREPO_HOST
@@ -135,6 +135,10 @@ extraEnvVars: &envVars
     value: "604800"
   - name: GOOD_JOB_CLEANUP_INTERVAL_SECONDS
     value: "86400"
+  - name: HYRAX_VALKYRIE
+    value: "true"
+  - name: HYKU_BLOCK_VALKYRIE_REDIRECT
+    value: "false"
   - name: HYKU_ADMIN_HOST
     value: "s2.adventistdigitallibrary.org"
   - name: HYKU_ADMIN_ONLY_TENANT_CREATION
@@ -148,7 +152,7 @@ extraEnvVars: &envVars
   - name: HYKU_DEFAULT_HOST
     value: "%{tenant}.s2.adventistdigitallibrary.org"
   - name: HYKU_FILE_ACL
-    value: "false"
+    value: "true"
   - name: HYKU_GEONAMES_USERNAME
     value: 'scientist'
   - name: HYKU_MULTITENANT
@@ -259,6 +263,10 @@ extraEnvVars: &envVars
     value: user@example.com
   - name: TEST_USER_PASSWORD
     value: testing123
+  - name: VALKYRIE_ID_TYPE
+    value: string
+  - name: VALKYRIE_TRANSITION
+    value: "true"
 
 worker:
   replicaCount: 1

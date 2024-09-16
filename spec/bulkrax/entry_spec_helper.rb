@@ -32,7 +32,7 @@ module Bulkrax
     #
     # @return [Bulkrax::Entry]
     def self.entry_for(data:, identifier:, parser_class_name:, **options)
-      importer = importer_for(parser_class_name: parser_class_name, **options)
+      importer = importer_for(parser_class_name:, **options)
 
       # Using an instance of the entry_class to dispatch to different
       entry_for_dispatch = options.fetch(:entry_class) { importer.parser.entry_class }.new
@@ -47,7 +47,7 @@ module Bulkrax
       # Yes, we'll raise an error if we didn't find a corresponding key.  And that's okay.
       symbol = entry_class_to_symbol_map.fetch(key)
 
-      send("build_#{symbol}_entry_for", importer: importer, identifier: identifier, data: data, **options)
+      send("build_#{symbol}_entry_for", importer:, identifier:, data:, **options)
     end
 
     DEFAULT_ENTRY_CLASS_TO_SYMBOL_MAP = {
@@ -71,9 +71,7 @@ module Bulkrax
       # Ideally, we could pass in the field_mapping.  However, there is logic that ignores the
       # parser's field_mapping and directly asks for Bulkrax's field_mapping (e.g. model_mapping
       # method).
-      if options.key?(:importer_field_mapping)
-        Rails.logger.warn("You passed :importer_field_mapping as an option.  This may not fully work as desired.")
-      end
+      Rails.logger.warn("You passed :importer_field_mapping as an option.  This may not fully work as desired.") if options.key?(:importer_field_mapping)
       Bulkrax::Importer.new(
         name: options.fetch(:importer_name, "Test importer for identifier"),
         admin_set_id: options.fetch(:importer_admin_set_id, "admin_set/default"),
@@ -81,7 +79,7 @@ module Bulkrax
         limit: options.fetch(:importer_limits, 1),
         parser_klass: parser_class_name,
         field_mapping: options.fetch(:importer_field_mappings) { Bulkrax.field_mappings.fetch(parser_class_name) },
-        parser_fields: parser_fields
+        parser_fields:
       )
     end
     private_class_method :importer_for
@@ -99,7 +97,7 @@ module Bulkrax
     def self.build_csv_entry_for(importer:, data:, identifier:, **_options)
       options.fetch(:entry_class) { importer.parser.entry_class }.new(
         importerexporter: importer,
-        identifier: identifier,
+        identifier:,
         raw_metadata: data
       )
     end
@@ -124,10 +122,10 @@ module Bulkrax
       }
 
       options.fetch(:entry_class) { importer.parser.entry_class }.new(
-        raw_record: raw_record,
+        raw_record:,
         importerexporter: importer,
-        identifier: identifier,
-        raw_metadata: raw_metadata
+        identifier:,
+        raw_metadata:
       )
     end
 
@@ -147,8 +145,8 @@ module Bulkrax
 
       options.fetch(:entry_class) { importer.parser.entry_class }.new(
         importerexporter: importer,
-        identifier: identifier,
-        raw_metadata: raw_metadata
+        identifier:,
+        raw_metadata:
       )
     end
   end

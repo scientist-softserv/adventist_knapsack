@@ -1,0 +1,500 @@
+attributes:
+  keyword:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+      multiple: true
+    index_keys:
+    - keyword_tesim
+    - keyword_sim
+    predicate: http://purl.org/dc/elements/1.1/relation
+  date:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - date_tesim
+    - date_sim
+    predicate: http://purl.org/dc/terms/date
+  date_available:
+    type: date_time
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - date_available_tesim
+    - date_available_sim
+    predicate: http://purl.org/dc/terms/available
+  date_published:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - date_published_tesim
+    - date_published_sim
+    predicate: http://schema.org/datePublished
+  date_submitted:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - date_submitted_tesim
+    - date_submitted_sim
+    predicate: http://london.ac.uk/ontologies/terms#dateSubmitted
+  date_accepted:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - date_accepted_tesim
+    - date_accepted_sim
+    predicate: http://purl.org/dc/terms/dateAccepted
+  date_issued:
+    type: date_time
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - date_issued_tesim
+    - date_issued_sim
+    predicate: http://purl.org/dc/terms/issued
+  doi:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - doi_tesim
+    predicate: http://id.loc.gov/vocabulary/identifiers/doi
+  former_identifier:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - former_identifier_tesim
+    predicate: http://dlib.york.ac.uk/ontologies/generic#formerIdentifier
+  funder:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - funder_tesim
+    - funder_sim
+    predicate: http://id.loc.gov/vocabulary/relators/fnd
+  issue_number:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - issue_number_tesim
+    predicate: http://schema.org/issueNumber
+  location:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - location_tesim
+    - location_sim
+    predicate: http://schema.org/location
+  managing_organisation:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - managing_organisation_tesim
+    - managing_organisation_sim
+    predicate: http://dlib.york.ac.uk/ontologies/pure#pureManagingUnit
+  note:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - note_tesim
+    predicate: http://www.w3.org/2004/02/skos/core#note
+  official_url:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - official_url_tesim
+    predicate: http://id.loc.gov/vocabulary/identifiers/uri
+  orcid:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - orcid_tesim
+    predicate: http://id.loc.gov/vocabulary/identifiers/orcid
+  output_of:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - output_of_tesim
+    - output_of_sim
+    predicate: http://purl.org/cerif/frapo/isOutputOf
+  pagination:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - pagination_tesim
+    predicate: http://schema.org/pagination
+  part_of:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - part_of_tesim
+    - part_of_sim
+    predicate: http://id.loc.gov/ontologies/bibframe/partOf
+  publication_status:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - publication_status_tesim
+    - publication_status_sim
+    predicate: http://purl.org/ontology/bibo/status
+  place_of_publication:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - place_of_publication_tesim
+    predicate: http://id.loc.gov/vocabulary/relators/pup
+  refereed:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - refereed_tesim
+    - refereed_sim
+    predicate: http://london.ac.uk/ontologies/terms#refereed
+  remote_url:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - remote_url_tesim
+    predicate: http://id.loc.gov/vocabulary/identifiers/uri
+  rights_holder:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - rights_holder_tesim
+    predicate: http://purl.org/dc/terms/rightsHolder
+  rights_description:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - rights_description_tesim
+    predicate: http://purl.org/dc/elements/1.1/rights
+  preflabel:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - preflabel_tesim
+    - preflabel_si
+    predicate: http://www.w3.org/2004/02/skos/core#prefLabel
+  altlabel:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - altlabel_tesim
+    predicate: http://www.w3.org/2004/02/skos/core#altLabel
+  volume_number:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - volume_number_tesim
+    predicate: http://schema.org/volumeNumber
+# basic_metadata
+  abstract:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "abstract_sim"
+      - "abstract_tesim"
+    predicate: http://purl.org/dc/terms/abstract
+  access_right:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "access_right_sim"
+      - "access_right_tesim"
+    predicate: http://purl.org/dc/terms/accessRights
+  # slugs previously used same predicate
+  alternative_title:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "alternative_title_sim"
+      - "alternative_title_tesim"
+    predicate: http://purl.org/dc/terms/alternative
+  arkivo_checksum:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    predicate: http://scholarsphere.psu.edu/ns#arkivoChecksum
+  based_near:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "based_near_sim"
+      - "based_near_tesim"
+    predicate: http://xmlns.com/foaf/0.1/based_near
+  bibliographic_citation:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "bibliographic_citation_sim"
+      - "bibliographic_citation_tesim"
+    predicate: http://purl.org/dc/terms/bibliographicCitation
+  contributor:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "contributor_tesim"
+      - "contributor_sim"
+    predicate: http://purl.org/dc/elements/1.1/contributor
+  creator:
+    type: string
+    multiple: true
+    form:
+      required: false
+      primary: false
+    index_keys:
+      - "creator_sim"
+      - "creator_tesim"
+    predicate: http://purl.org/dc/elements/1.1/creator
+  date_created:
+    type: date_time
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "date_created_sim"
+      - "date_created_tesim"
+    predicate: http://purl.org/dc/terms/created
+  description:
+    type: string
+    multiple: true
+    form:
+      primary: true
+    index_keys:
+      - "description_sim"
+      - "description_tesim"
+    predicate: http://purl.org/dc/elements/1.1/description
+  identifier:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "identifier_sim"
+      - "identifier_tesim"
+    predicate: http://purl.org/dc/terms/identifier
+  import_url:
+    type: string
+    predicate: http://scholarsphere.psu.edu/ns#importUrl
+  # Comment out - left in each model's yaml... predicates vary among work models
+  # keyword:
+  #   type: string
+  #   multiple: true
+  #   index_keys:
+  #     - "keyword_sim"
+  #     - "keyword_tesim"
+  #   form:
+  #     primary: false
+  #   predicate: http://schema.org/keywords
+  publisher:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "publisher_sim"
+      - "publisher_tesim"
+    predicate: http://purl.org/dc/elements/1.1/publisher
+  label:
+    type: string
+    form:
+      primary: false
+    index_keys:
+      - "label_sim"
+      - "label_tesim"
+    predicate: info:fedora/fedora-system:def/model#downloadFilename
+  language:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "language_sim"
+      - "language_tesim"
+    predicate: http://purl.org/dc/elements/1.1/language
+  # Override because nonstandard predicate
+  license:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - license_tesim
+    predicate: http://purl.org/dc/terms/rights
+  relative_path:
+    type: string
+    predicate: http://scholarsphere.psu.edu/ns#relativePath
+  related_url:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "related_url_sim"
+      - "related_url_tesim"
+    predicate: http://www.w3.org/2000/01/rdf-schema#seeAlso
+  resource_type:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "resource_type_sim"
+      - "resource_type_tesim"
+    predicate: http://purl.org/dc/terms/type
+  rights_notes:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "rights_notes_sim"
+      - "rights_notes_tesim"
+    predicate: http://purl.org/dc/elements/1.1/rights
+  # nonstandard definition: multiple false, required true
+  rights_statement:
+    type: string
+    multiple: false
+    form:
+      required: false
+      primary: false
+    index_keys:
+    - rights_statement_tesim
+    - rights_statement_sim
+    predicate: http://www.europeana.eu/schemas/edm/rights
+  source:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "source_sim"
+      - "source_tesim"
+    predicate: http://purl.org/dc/terms/source
+  subject:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+      - "subject_sim"
+      - "subject_tesim"
+    predicate: http://purl.org/dc/elements/1.1/subject
+  long:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - long_tesim
+    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#long
+  lat:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - lat_tesim
+    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#lat
+  alt:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - alt_tesim
+    predicate: http://www.w3.org/2003/01/geo/wgs84_pos#alt
+  owner:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    predicate: http://opaquenamespace.org/ns/hydra/owner
+  on_behalf_of:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - on_behalf_of_ssim
+    predicate: http://scholarsphere.psu.edu/ns#onBehalfOf
+  state:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    predicate: http://fedora.info/definitions/1/0/access/ObjState#objState
+  proxy_depositor:
+    type: string
+    multiple: false
+    form:
+      primary: false
+    index_keys:
+    - proxy_depositor_ssim
+    predicate: http://scholarsphere.psu.edu/ns#proxyDepositor

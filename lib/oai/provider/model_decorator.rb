@@ -4,6 +4,7 @@ module OAI
   module Provider
     module ModelDecorator
       # Map Qualified Dublin Core (Terms) fields to Oregon Digital fields
+      # rubocop:disable Metrics/MethodLength
       def map_oai_qdc
         { title: :title,
           alternative: :alternative_title,
@@ -39,6 +40,7 @@ module OAI
           part: :part,
           volume: :volume }
       end
+      # rubocop:enable Metrics/MethodLength
 
       # rubocop:disable Metrics/MethodLength
       def map_oai_adl

@@ -1,132 +1,96 @@
-# Turn on RSpec cops
-require: rubocop-rspec
-inherit_from: .rubocop_todo.yml
-
-# With the rubocop 0.47.0 and rubocop-rspec 1.8.0 the following stderr message was sent:
-#   An error occurred while RSpec/DescribedClass cop was inspecting path/to/file
-RSpec/DescribedClass:
-  Enabled: false
+inherit_gem:
+  bixby: bixby_default.yml
 
 AllCops:
+  NewCops: disable
+  TargetRubyVersion: 3.2.2
   DisplayCopNames: true
-  TargetRubyVersion: 2.3
   Exclude:
-    - 'hyrax-webapp/**/*'
-    - 'bin/**/*'
-    - 'db/**/*'
-    - 'config/**/*'
-    - 'vendor/**/*'
-    - 'lib/dog_biscuits/**/*'
-    - 'lib/dog_biscuits.rb'
-    - '.internal_test_app/**/*'
-    - 'spec/fixtures/**/*'
-    - 'spec/internal/**/*'
-    - 'spec/test_app_templates/**/*'
-    - 'Rakefile'
-    - 'lib/tasks/rubocop.rake'
-    # disabling collections controller as most of the rubocop errors are in hyrax
-    - 'app/controllers/hyrax/dashboard/collections_controller.rb'
+  # NOTE: When we run knapsack's rubocop, we don't want to check the submodule
+  #       for Hyku.  We'll assume it's okay and has it's own policing policies.
+  - "hyrax-webapp/**/*"
+  - 'bin/**/*'
+  - 'db/**/*'
+  - 'config/**/*'
+  - 'vendor/**/*'
+  - 'lib/tasks/rubocop.rake'
 
-Rails:
-  Enabled: true
-
-Rails/DynamicFindBy:
-  Whitelist:
-    - find_by_user_key
+Layout/HashAlignment:
   Exclude:
-    - 'lib/importer/factory/object_factory.rb'
+  - app/forms/hyrax/forms/admin/adl_appearance_decorator.rb
 
-Rails/UnknownEnv:
-  Environments:
-    - development
-    - production
-    - staging
-    - test
-
-Metrics/LineLength:
-  Max: 120
+Metrics/BlockLength:
+  AllowedMethods: ['included', 'describe', 'it', 'context']
   Exclude:
-    - 'app/controllers/catalog_controller.rb'
-    - 'spec/controllers/curation_concerns/generic_works_controller_spec.rb'
-    - 'spec/services/iiif_collection_thumbnail_path_service_spec.rb'
-    - 'spec/services/iiif_work_thumbnail_path_service_spec.rb'
-    - 'spec/routing/proprietor/accounts_routing_spec.rb'
-
-Layout/IndentationConsistency:
-  EnforcedStyle: rails
-
-Layout/DotPosition:
-  EnforcedStyle: leading
-
-Style/Documentation:
-  Enabled: false
-
-Style/StringLiterals:
-  Enabled: false
-
-Style/WordArray:
-  Enabled: false
-
-Metrics/ClassLength:
-  Exclude:
-    - 'app/controllers/catalog_controller.rb'
+  - "spec/**/*.rb"
+  - app/controllers/catalog_controller_decorator.rb
 
 Metrics/ModuleLength:
-  Max: 200
-
-Rails/HasAndBelongsToMany:
   Exclude:
-    - 'app/models/role.rb'
+  - lib/dog_biscuits.rb
+  - app/models/solr_document_decorator.rb
 
-RSpec/AnyInstance:
+Style/AsciiComments:
   Enabled: false
 
-RSpec/InstanceVariable:
-  Exclude:
-    - 'spec/controllers/hyku/registrations_controller_spec.rb'
-
-RSpec/NamedSubject:
+# rubocop suggests !thing.nil? instead, but that is NOT equivalent
+Style/DoubleNegation:
   Enabled: false
 
-RSpec/DescribeClass:
-  Exclude:
-    - 'spec/requests/**/*'
-    - 'spec/features/**/*'
-    - 'spec/views/**/*'
-    - 'spec/routing/**/*'
-    - 'spec/tasks/**/*'
+Style/CollectionMethods:
+  PreferredMethods:
+    collect: 'map'
+    collect!: 'map!'
+    inject: 'reduce'
+    detect: 'find'
+    find_all: 'select'
 
-Rails/FilePath:
-  Exclude:
-    - 'spec/routing/**/*'
+Style/SymbolArray:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Rails/ApplicationJob:
+  Enabled: false
+
+Rails/ApplicationMailer:
+  Enabled: false
+
+Rails/ApplicationRecord:
+  Enabled: false
+
+Rails/RakeEnvironment:
+  Enabled: false
+
+# We define custom methods like `find_by_user_key`,
+# `find_by_created_date`, etc
+Rails/DynamicFindBy:
+  Enabled: false
+
+# # By default RSpec/MessageSpies has the following:
+# #   Prefer have_received for setting message expectations. Setup form as a spy using allow or instance_spy.
+# # The default assumes EnforcedStyle is 'have_received'. Most of our specs are 'receive'
+RSpec/MessageSpies:
+  Enabled: false
 
 RSpec/ExpectActual:
-  Exclude:
-    - 'spec/routing/**/*'
+  Enabled: false
 
-RSpec/VerifiedDoubles:
+RSpec/LetSetup:
   Enabled: false
 
 RSpec/MessageExpectation:
   Enabled: false
 
-# By default RSpec/MessageSpies has the following:
-#   Prefer have_received for setting message expectations. Setup form as a spy using allow or instance_spy.
-RSpec/MessageSpies:
-  Enabled: true
-  EnforcedStyle: receive
-
-RSpec/ExampleLength:
-  Max: 20
-
 RSpec/NestedGroups:
-  Max: 4
-
-RSpec/MultipleExpectations:
   Enabled: false
 
-Metrics/BlockLength:
-  Exclude:
-    - 'spec/**/*.rb'
-    - 'lib/tasks/*.rake'
-    - 'app/controllers/catalog_controller.rb'
+RSpec/LeadingSubject:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 16

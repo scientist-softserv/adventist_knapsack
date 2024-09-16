@@ -1,0 +1,5 @@
+# This file is blank to override base Hyku
+# Each model will have its own model resource metadata.yaml
+# that includes basic metadata for more customizations
+
+attributes: {}
