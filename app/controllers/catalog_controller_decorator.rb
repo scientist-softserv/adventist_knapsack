@@ -115,12 +115,12 @@ CatalogController.configure_blacklight do |config|
 
   config.add_sort_field "score desc, #{uploaded_field} desc", label: "Relevance"
   # TODO: replace CatalogController.title_field to return 'title_ssi'
-  config.add_sort_field "title_ssi asc", label: "Title"
+  config.add_sort_field "title_ssim asc", label: "Title"
   # TODO: replace CatalogController.creator_field to return 'creator_ssi'
-  config.add_sort_field "creator_ssi asc", label: "Author"
+  config.add_sort_field "creator_ssim asc", label: "Author"
   # TODO: replace CatalogController.created_field to return 'created_ssi'
-  config.add_sort_field "created_ssi asc", label: "Published Date (Ascending)"
-  config.add_sort_field "created_ssi desc", label: "Published Date (Descending)"
+  config.add_sort_field "#{CatalogController.created_field} asc", label: "Published Date (Ascending)"
+  config.add_sort_field "#{CatalogController.created_field} desc", label: "Published Date (Descending)"
   config.add_sort_field "#{CatalogController.modified_field} asc", label: "Upload Date (Ascending)"
   config.add_sort_field "#{CatalogController.modified_field} desc", label: "Upload Date (Descending)"
 end
