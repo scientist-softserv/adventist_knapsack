@@ -28,8 +28,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_published_tesim
-    - date_published_sim
+    - date_published_tesi
+    - date_published_si
     predicate: http://schema.org/datePublished
   date_issued:
     type: date_time
@@ -37,8 +37,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_issued_tesim
-    - date_issued_sim
+    - date_issued_tesi
+    - date_issued_si
     predicate: http://purl.org/dc/terms/issued
   keyword:
     type: string
@@ -71,8 +71,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_available_tesim
-    - date_available_sim
+    - date_available_tesi
+    - date_available_si
     predicate: http://purl.org/dc/terms/available
   date_submitted:
     type: string
@@ -80,8 +80,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_submitted_tesim
-    - date_submitted_sim
+    - date_submitted_tesi
+    - date_submitted_si
     predicate: http://london.ac.uk/ontologies/terms#dateSubmitted
   date_accepted:
     type: string
@@ -89,8 +89,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_accepted_tesim
-    - date_accepted_sim
+    - date_accepted_tesi
+    - date_accepted_si
     predicate: http://purl.org/dc/terms/dateAccepted
   orcid:
     type: string
@@ -115,8 +115,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - publication_status_tesim
-    - publication_status_sim
+    - publication_status_tesi
+    - publication_status_si
     predicate: http://purl.org/ontology/bibo/status
   refereed:
     type: string
@@ -133,7 +133,7 @@ attributes:
     form:
       primary: false
     index_keys:
-    - issue_number_tesim
+    - issue_number_tesi
     predicate: http://schema.org/issueNumber
   official_url:
     type: string

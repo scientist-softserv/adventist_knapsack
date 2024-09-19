@@ -28,8 +28,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_published_tesim
-    - date_published_sim
+    - date_published_tesi
+    - date_published_si
     predicate: http://schema.org/datePublished
   resource_type_general:
     type: string
@@ -45,8 +45,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_collected_tesim
-    - date_collected_sim
+    - date_collected_tesi
+    - date_collected_si
     predicate: http://purl.org/spar/fabio/hasDateCollected
   date_issued:
     type: date_time
@@ -54,8 +54,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_issued_tesim
-    - date_issued_sim
+    - date_issued_tesi
+    - date_issued_si
     predicate: http://purl.org/dc/terms/issued
   keyword:
     type: string
@@ -96,8 +96,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_accepted_tesim
-    - date_accepted_sim
+    - date_accepted_tesi
+    - date_accepted_si
     predicate: http://purl.org/dc/terms/dateAccepted
   date_copyrighted:
     type: date_time
@@ -105,8 +105,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_copyrighted_tesim
-    - date_copyrighted_sim
+    - date_copyrighted_tesi
+    - date_copyrighted_si
     predicate: http://purl.org/dc/terms/dateCopyrighted
   content_version:
     type: string
@@ -123,8 +123,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_available_tesim
-    - date_available_sim
+    - date_available_tesi
+    - date_available_si
     predicate: http://purl.org/dc/terms/available
   date_submitted:
     type: string
@@ -132,8 +132,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_submitted_tesim
-    - date_submitted_sim
+    - date_submitted_tesi
+    - date_submitted_si
     predicate: http://london.ac.uk/ontologies/terms#dateSubmitted
   for_indexing:
     type: string
@@ -166,7 +166,7 @@ attributes:
     form:
       primary: false
     index_keys:
-    - number_of_downloads_tesim
+    - number_of_downloads_tesi
     predicate: http://dlib.york.ac.uk/ontologies/generic#numberOfDownloads
   readme:
     type: string
@@ -174,7 +174,7 @@ attributes:
     form:
       primary: false
     index_keys:
-    - readme_tesim
+    - readme_tesi
     predicate: http://dlib.york.ac.uk/ontologies/generic#readme
   requestor_email:
     type: string
@@ -199,8 +199,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_updated_tesim
-    - date_updated_sim
+    - date_updated_tesi
+    - date_updated_si
     predicate: http://schema.org/dateModified
   last_access:
     type: date_time
@@ -208,5 +208,5 @@ attributes:
     form:
       primary: false
     index_keys:
-    - last_access_tesim
+    - last_access_tesi
     predicate: http://dlib.york.ac.uk/ontologies/generic#lastAccess
