@@ -64,6 +64,15 @@ attributes:
     - date_issued_tesim
     - date_issued_sim
     predicate: http://purl.org/dc/terms/issued
+  department:
+    type: string
+    multiple: true
+    form:
+      primary: false
+    index_keys:
+    - department_tesim
+    - department_sim
+    predicate: http://schema.org/department
   doi:
     type: string
     multiple: true
