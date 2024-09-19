@@ -15,10 +15,7 @@ Hyrax::Renderers::AttributeRenderer.class_eval do
   def render
     markup = ''
 
-    # This is a temporary solution for prohibiting blank metadata fields from being displayed.
-    # Many fields with no assigned values are returning as [""] causing the field to render.
-    # TODO: Find the root cause of this issue are return the following line to its original state.
-    return markup if Array.wrap(values).first.blank? && !options[:include_empty]
+    return markup if values.blank? && !options[:include_empty]
     markup << %(<div class='metadata-group md-#{field}'><dt>#{label}</dt>\n<dd><ul class='tabular'>)
     attributes = microdata_object_attributes(field).merge(class: "attribute attribute-#{field}")
     Array(values).each do |value|
