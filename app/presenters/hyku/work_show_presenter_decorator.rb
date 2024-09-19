@@ -28,9 +28,9 @@ module Hyku
       Hyrax.config.iiif_image_server? &&
         representative_id.present? &&
         representative_presenter.present? &&
-        members_include_iiif_viewable? && 
+        members_include_iiif_viewable? &&
         (iiif_media? || !no_children)
-      end
+    end
 
     # Returns true if all of the member_presenters are file_set presenters
     def no_child_works?
