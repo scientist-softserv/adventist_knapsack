@@ -1,13 +1,15 @@
 # frozen_string_literal: true
+# Override Hyku 5
 
 module PdfJsHelperDecorator
   def pdf_js_url(file_set_presenter)
+    # Use import_url if file set is not yet characterized
     # assumes that the download path exists if the file set has been characterized
     url = if file_set_presenter.try(:mime_type)
             "/pdf.js/viewer.html?file=#{hyrax.download_path(file_set_presenter.id)}"
 
           else
-            file_set_presenter.solr_document["import_url_ssim"].first
+            Array.wrap(file_set_presenter.solr_document["import_url_ssim"]).first
           end
 
     url + "##{query_param}"

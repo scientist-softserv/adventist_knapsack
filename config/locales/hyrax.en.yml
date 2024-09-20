@@ -1130,6 +1130,7 @@ en:
     labels:
       collection:
         size: Size
+        department: Department, Faculty, or School
         total_items: Total items
       collection_type:
         allow_multiple_membership: MULTIPLE MEMBERSHIP
