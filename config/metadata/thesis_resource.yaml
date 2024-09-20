@@ -28,8 +28,8 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_issued_tesim
-    - date_issued_sim
+    - date_issued_tesi
+    - date_issued_si
     predicate: http://purl.org/dc/terms/issued
   keyword:
     type: string
