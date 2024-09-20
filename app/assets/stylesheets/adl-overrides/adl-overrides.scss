@@ -488,6 +488,10 @@ body.works-show.adl_show {
   }
 }
 
+.card-title {
+  font-size: 2rem;
+}
+
 .dashboard {
   //fix the collection image thumbnails in the dashboard so they don't overlap with the collection title & so they are square
   .collections-wrapper .thumbnail-title-wrapper .thumbnail-wrapper > img {
