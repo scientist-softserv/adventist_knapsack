@@ -67,7 +67,7 @@ attributes:
     form:
       primary: false
     index_keys:
-    - preflabel_tesim
+    - preflabel_tesi
     - preflabel_si
     predicate: http://www.w3.org/2004/02/skos/core#prefLabel
   altlabel:
@@ -84,7 +84,7 @@ attributes:
     form:
       primary: false
     index_keys:
-    - rdfs_label_tesim
+    - rdfs_label_tesi
     predicate: http://www.w3.org/2000/01/rdf-schema#label
   # seems to be just a composite field?
   date:
@@ -314,8 +314,8 @@ attributes:
       required: true
       primary: true
     index_keys:
-    - rights_statement_tesim
-    - rights_statement_sim
+    - rights_statement_tesi
+    - rights_statement_si
     predicate: http://www.europeana.eu/schemas/edm/rights
   source:
     type: string
@@ -371,7 +371,7 @@ attributes:
     form:
       primary: false
     index_keys:
-    - on_behalf_of_ssim
+    - on_behalf_of_ssi
     predicate: http://scholarsphere.psu.edu/ns#onBehalfOf
   state:
     type: string
@@ -385,5 +385,5 @@ attributes:
     form:
       primary: false
     index_keys:
-    - proxy_depositor_ssim
+    - proxy_depositor_ssi
     predicate: http://scholarsphere.psu.edu/ns#proxyDepositor

@@ -63,6 +63,6 @@ attributes:
     form:
       primary: false
     index_keys:
-    - date_available_tesim
-    - date_available_sim
+    - date_available_tesi
+    - date_available_si
     predicate: http://purl.org/dc/terms/available
