@@ -59,10 +59,11 @@ attributes:
     predicate: http://dlib.york.ac.uk/ontologies/uketd#qualificationLevel
   date_available:
     type: date_time
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_available_tesi
-    - date_available_si
+    - date_available_tesim
+    - date_available_sim
     predicate: http://purl.org/dc/terms/available

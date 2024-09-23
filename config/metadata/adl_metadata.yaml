@@ -309,13 +309,14 @@ attributes:
   # nonstandard definition: multiple false, required true
   rights_statement:
     type: string
-    multiple: false
+    multiple: true
     form:
       required: true
       primary: true
+      multiple: true
     index_keys:
-    - rights_statement_tesi
-    - rights_statement_si
+    - rights_statement_tesim
+    - rights_statement_sim
     predicate: http://www.europeana.eu/schemas/edm/rights
   source:
     type: string

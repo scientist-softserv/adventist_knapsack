@@ -24,12 +24,13 @@
 attributes:
   date_issued:
     type: date_time
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_issued_tesi
-    - date_issued_si
+    - date_issued_tesim
+    - date_issued_sim
     predicate: http://purl.org/dc/terms/issued
   keyword:
     type: string
