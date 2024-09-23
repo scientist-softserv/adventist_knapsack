@@ -13,8 +13,8 @@ module DogBiscuits
     #   label: a human-readable label for the property REQUIRED
     #   index: any additional options for the blacklight index in an array
     #     excluding helper_method and item prop
-    #     provide in a hash, eg. [{ if: false }], or [{ link_to_search: true }]
-    #     nb. for link_to_search, just provide true
+    #     provide in a hash, eg. [{ if: false }], or [{ link_to_facet: true }]
+    #     nb. for link_to_facet, just provide true
     #   schema_org: hash containing property; can also include type and value
     #   help_text: help text to include in the form
     #   render_as: a custom renderer for the field (omit facetable)
@@ -26,7 +26,7 @@ module DogBiscuits
         {
           file_format: {
             label: 'File format',
-            index: [{ link_to_search: true }]
+            index: [{ link_to_facet: true }]
           },
           embargo_release_date: {
             label: 'Embargo releases on',
@@ -84,11 +84,11 @@ module DogBiscuits
             label: 'Altitude'
           },
           awarding_institution: {
-            index: [{ link_to_search: true }],
+            index: [{ link_to_facet: true }],
             label: 'Awarding institution'
           },
           based_near: {
-            index: [{ link_to_search: true }],
+            index: [{ link_to_facet: true }],
             schema_org: {
               property: "contentLocation",
               type: "http://schema.org/Place",
@@ -98,7 +98,7 @@ module DogBiscuits
             help_text: "A place name related to the work, such as its site of publication, or the city, state, or country the work contents are about. Calls upon the <a href='http://www.geonames.org'>GeoNames web service</a>."
           },
           based_near_label: {
-            index: [{ link_to_search: true }],
+            index: [{ link_to_facet: true }],
             schema_org: {
               property: "contentLocation",
               type: "http://schema.org/Place",
@@ -111,7 +111,7 @@ module DogBiscuits
             help_text: "The version of the file, eg. Author's Original or Accepted Manuscript."
           },
           contributor: {
-            index: [{ link_to_search: true }],
+            index: [{ link_to_facet: true }],
             schema_org: {
               property: "contributor",
               type: "http://schema.org/Person",
@@ -121,7 +121,7 @@ module DogBiscuits
             help_text: "A person or group you want to recognize for playing a role in the creation of the work, but not the primary role."
           },
           contributor_combined: {
-            index: [{ link_to_search: true }],
+            index: [{ link_to_facet: true }],
             schema_org: {
               property: "contributor",
               type: "http://schema.org/Person",
@@ -133,7 +133,7 @@ module DogBiscuits
             label: 'Contributor type'
           },
           creator: {
-            index: [{ link_to_search: true }],
+            index: [{ link_to_facet: true }],
             label: 'Creator',
             schema_org: {
               property: "creator",
@@ -297,7 +297,7 @@ module DogBiscuits
             label: 'Journal name'
           },
           keyword: {
-            index: [{ link_to_search: true }],
+            index: [{ link_to_facet: true }],
             label: 'Keywords',
             schema_org: {
               property: "keywords"
@@ -305,7 +305,7 @@ module DogBiscuits
             help_text: "Words or phrases you select to describe what the work is about. These are used to search for content."
           },
           language: {
-            index: [{ link_to_search: true }],
+            index: [{ link_to_facet: true }],
             label: 'Language',
             schema_org: {
               property: "language"
@@ -417,7 +417,7 @@ module DogBiscuits
             helper_method: 'publication_status'
           },
           publisher: {
-            index: [{ link_to_search: true }],
+            index: [{ link_to_facet: true }],
             schema_org: {
               property: "publisher",
               type: "http://schema.org/Organization",
@@ -444,7 +444,7 @@ module DogBiscuits
             label: 'Related URL'
           },
           resource_type: {
-            index: [{ link_to_search: true }],
+            index: [{ link_to_facet: true }],
             schema_org: {
               'Article' => "http://schema.org/Article",
               'Audio' => "http://schema.org/AudioObject",
@@ -501,7 +501,7 @@ module DogBiscuits
             label: 'Source'
           },
           subject: {
-            index: [{ link_to_search: true }],
+            index: [{ link_to_facet: true }],
             schema_org: {
               property: "about",
               type: "http://schema.org/Thing",
