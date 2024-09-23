@@ -24,21 +24,23 @@
 attributes:
   date_published:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_published_tesi
-    - date_published_si
+    - date_published_tesim
+    - date_published_sim
     predicate: http://schema.org/datePublished
   date_issued:
     type: date_time
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_issued_tesi
-    - date_issued_si
+    - date_issued_tesim
+    - date_issued_sim
     predicate: http://purl.org/dc/terms/issued
   keyword:
     type: string
@@ -67,30 +69,33 @@ attributes:
     predicate: http://id.loc.gov/vocabulary/identifiers/uri
   date_available:
     type: date_time
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_available_tesi
-    - date_available_si
+    - date_available_tesim
+    - date_available_sim
     predicate: http://purl.org/dc/terms/available
   date_submitted:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_submitted_tesi
-    - date_submitted_si
+    - date_submitted_tesim
+    - date_submitted_sim
     predicate: http://london.ac.uk/ontologies/terms#dateSubmitted
   date_accepted:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_accepted_tesi
-    - date_accepted_si
+    - date_accepted_tesim
+    - date_accepted_sim
     predicate: http://purl.org/dc/terms/dateAccepted
   orcid:
     type: string
@@ -111,12 +116,13 @@ attributes:
     predicate: http://id.loc.gov/ontologies/bibframe/partOf
   publication_status:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - publication_status_tesi
-    - publication_status_si
+    - publication_status_tesim
+    - publication_status_sim
     predicate: http://purl.org/ontology/bibo/status
   refereed:
     type: string
@@ -129,11 +135,12 @@ attributes:
     predicate: http://london.ac.uk/ontologies/terms#refereed
   issue_number:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - issue_number_tesi
+    - issue_number_tesim
     predicate: http://schema.org/issueNumber
   official_url:
     type: string

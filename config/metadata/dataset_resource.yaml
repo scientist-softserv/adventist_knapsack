@@ -24,12 +24,13 @@
 attributes:
   date_published:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_published_tesi
-    - date_published_si
+    - date_published_tesim
+    - date_published_sim
     predicate: http://schema.org/datePublished
   resource_type_general:
     type: string
@@ -41,21 +42,23 @@ attributes:
     predicate: http://purl.org/spar/datacite/hasGeneralResourceType
   date_collected:
     type: date_time
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_collected_tesi
-    - date_collected_si
+    - date_collected_tesim
+    - date_collected_sim
     predicate: http://purl.org/spar/fabio/hasDateCollected
   date_issued:
     type: date_time
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_issued_tesi
-    - date_issued_si
+    - date_issued_tesim
+    - date_issued_sim
     predicate: http://purl.org/dc/terms/issued
   keyword:
     type: string
@@ -92,21 +95,23 @@ attributes:
     predicate: http://purl.org/dc/terms/accessRights
   date_accepted:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_accepted_tesi
-    - date_accepted_si
+    - date_accepted_tesim
+    - date_accepted_sim
     predicate: http://purl.org/dc/terms/dateAccepted
   date_copyrighted:
     type: date_time
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_copyrighted_tesi
-    - date_copyrighted_si
+    - date_copyrighted_tesim
+    - date_copyrighted_sim
     predicate: http://purl.org/dc/terms/dateCopyrighted
   content_version:
     type: string
@@ -119,21 +124,23 @@ attributes:
     predicate: http://schema.org/version
   date_available:
     type: date_time
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_available_tesi
-    - date_available_si
+    - date_available_tesim
+    - date_available_sim
     predicate: http://purl.org/dc/terms/available
   date_submitted:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_submitted_tesi
-    - date_submitted_si
+    - date_submitted_tesim
+    - date_submitted_sim
     predicate: http://london.ac.uk/ontologies/terms#dateSubmitted
   for_indexing:
     type: string
@@ -153,9 +160,10 @@ attributes:
     predicate: http://www.loc.gov/premis/rdf/v1#hasRestriction
   date_valid:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
     - date_valid_tesim
     - date_valid_sim
@@ -195,12 +203,13 @@ attributes:
     predicate: http://id.loc.gov/ontologies/bibframe/subtitle
   date_updated:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_updated_tesi
-    - date_updated_si
+    - date_updated_tesim
+    - date_updated_sim
     predicate: http://schema.org/dateModified
   last_access:
     type: date_time

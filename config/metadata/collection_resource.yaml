@@ -21,48 +21,53 @@ attributes:
     predicate: http://purl.org/dc/terms/date
   date_available:
     type: date_time
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_available_tesi
-    - date_available_si
+    - date_available_tesim
+    - date_available_sim
     predicate: http://purl.org/dc/terms/available
   date_published:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_published_tesi
-    - date_published_si
+    - date_published_tesim
+    - date_published_sim
     predicate: http://schema.org/datePublished
   date_submitted:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_submitted_tesi
-    - date_submitted_si
+    - date_submitted_tesim
+    - date_submitted_sim
     predicate: http://london.ac.uk/ontologies/terms#dateSubmitted
   date_accepted:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_accepted_tesi
-    - date_accepted_si
+    - date_accepted_tesim
+    - date_accepted_sim
     predicate: http://purl.org/dc/terms/dateAccepted
   date_issued:
     type: date_time
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - date_issued_tesi
-    - date_issued_si
+    - date_issued_tesim
+    - date_issued_sim
     predicate: http://purl.org/dc/terms/issued
   department:
     type: string
@@ -100,11 +105,12 @@ attributes:
     predicate: http://id.loc.gov/vocabulary/relators/fnd
   issue_number:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - issue_number_tesi
+    - issue_number_isim
     predicate: http://schema.org/issueNumber
   location:
     type: string
@@ -176,12 +182,13 @@ attributes:
     predicate: http://id.loc.gov/ontologies/bibframe/partOf
   publication_status:
     type: string
-    multiple: false
+    multiple: true
     form:
       primary: false
+      multiple: true
     index_keys:
-    - publication_status_tesi
-    - publication_status_si
+    - publication_status_tesim
+    - publication_status_sim
     predicate: http://purl.org/ontology/bibo/status
   place_of_publication:
     type: string
@@ -429,13 +436,14 @@ attributes:
   # nonstandard definition: multiple false, required true
   rights_statement:
     type: string
-    multiple: false
+    multiple: true
     form:
       required: false
       primary: false
+      multiple: true
     index_keys:
-    - rights_statement_tesi
-    - rights_statement_si
+    - rights_statement_tesim
+    - rights_statement_sim
     predicate: http://www.europeana.eu/schemas/edm/rights
   source:
     type: string
