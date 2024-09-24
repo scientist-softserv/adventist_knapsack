@@ -61,6 +61,7 @@ CatalogController.configure_blacklight do |config|
     { prop => CatalogController.send(:index_options, prop, DogBiscuits.config.property_mappings[prop]) }
   end
   CatalogController.send(:add_index_field, config, index_props)
+  config.add_index_field 'all_text_tsimv', label: "Item contents", highlight: true, helper_method: :render_ocr_snippets, if: :query_present?
 
   config.search_fields.delete('all_fields')
   config.add_search_field('all_fields',
