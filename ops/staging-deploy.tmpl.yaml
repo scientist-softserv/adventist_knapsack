@@ -165,6 +165,8 @@ extraEnvVars: &envVars
     value: "false"
   - name: HYRAX_FITS_PATH
     value: /app/fits/fits.sh
+  - name: HYKU_SHOW_BACKTRACE
+    value: "true"
   - name: IN_DOCKER
     value: "false"
   - name: INITIAL_ADMIN_EMAIL
