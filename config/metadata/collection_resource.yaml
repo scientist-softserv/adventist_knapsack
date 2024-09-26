@@ -110,7 +110,7 @@ attributes:
       primary: false
       multiple: true
     index_keys:
-    - issue_number_isim
+    - issue_number_tesim
     predicate: http://schema.org/issueNumber
   location:
     type: string
