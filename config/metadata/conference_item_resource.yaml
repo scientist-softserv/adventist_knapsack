@@ -27,7 +27,7 @@ attributes:
     multiple: true
     form:
       primary: false
-      multiple: true
+      multiple: false
     index_keys:
     - date_published_tesim
     - date_published_sim
@@ -46,7 +46,7 @@ attributes:
     multiple: true
     form:
       primary: false
-      multiple: true
+      multiple: false
     index_keys:
     - date_available_tesim
     - date_available_sim
@@ -56,7 +56,7 @@ attributes:
     multiple: true
     form:
       primary: false
-      multiple: true
+      multiple: false
     index_keys:
     - date_submitted_tesim
     - date_submitted_sim
@@ -66,7 +66,7 @@ attributes:
     multiple: true
     form:
       primary: false
-      multiple: true
+      multiple: false
     index_keys:
     - date_accepted_tesim
     - date_accepted_sim
@@ -85,7 +85,7 @@ attributes:
     multiple: true
     form:
       primary: false
-      multiple: true
+      multiple: false
     index_keys:
     - event_date_tesim
     - event_date_sim
@@ -111,6 +111,7 @@ attributes:
     multiple: true
     form:
       primary: false
+      multiple: false
     index_keys:
     - pagination_tesim
     predicate: http://schema.org/pagination

@@ -62,7 +62,7 @@ attributes:
     multiple: true
     form:
       primary: false
-      multiple: true
+      multiple: false
     index_keys:
     - date_available_tesim
     - date_available_sim
