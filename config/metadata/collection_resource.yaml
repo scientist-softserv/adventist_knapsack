@@ -15,6 +15,7 @@ attributes:
     multiple: true
     form:
       primary: false
+      multiple: false
     index_keys:
     - date_tesim
     - date_sim
@@ -24,7 +25,7 @@ attributes:
     multiple: true
     form:
       primary: false
-      multiple: true
+      multiple: false
     index_keys:
     - date_available_tesim
     - date_available_sim
@@ -34,7 +35,7 @@ attributes:
     multiple: true
     form:
       primary: false
-      multiple: true
+      multiple: false
     index_keys:
     - date_published_tesim
     - date_published_sim
@@ -44,7 +45,7 @@ attributes:
     multiple: true
     form:
       primary: false
-      multiple: true
+      multiple: false
     index_keys:
     - date_submitted_tesim
     - date_submitted_sim
@@ -54,7 +55,7 @@ attributes:
     multiple: true
     form:
       primary: false
-      multiple: true
+      multiple: false
     index_keys:
     - date_accepted_tesim
     - date_accepted_sim
@@ -64,7 +65,7 @@ attributes:
     multiple: true
     form:
       primary: false
-      multiple: true
+      multiple: false
     index_keys:
     - date_issued_tesim
     - date_issued_sim
@@ -108,7 +109,7 @@ attributes:
     multiple: true
     form:
       primary: false
-      multiple: true
+      multiple: false
     index_keys:
     - issue_number_tesim
     predicate: http://schema.org/issueNumber
@@ -168,6 +169,7 @@ attributes:
     multiple: true
     form:
       primary: false
+      multiple: false
     index_keys:
     - pagination_tesim
     predicate: http://schema.org/pagination
@@ -236,6 +238,7 @@ attributes:
     multiple: false
     form:
       primary: false
+      multiple: false
     index_keys:
     - preflabel_tesi
     - preflabel_si
@@ -253,6 +256,7 @@ attributes:
     multiple: true
     form:
       primary: false
+      multiple: false
     index_keys:
     - volume_number_tesim
     predicate: http://schema.org/volumeNumber
@@ -275,7 +279,6 @@ attributes:
       - "access_right_sim"
       - "access_right_tesim"
     predicate: http://purl.org/dc/terms/accessRights
-  # slugs previously used same predicate
   alternative_title:
     type: string
     multiple: true
@@ -285,12 +288,6 @@ attributes:
       - "alternative_title_sim"
       - "alternative_title_tesim"
     predicate: http://purl.org/dc/terms/alternative
-  arkivo_checksum:
-    type: string
-    multiple: false
-    form:
-      primary: false
-    predicate: http://scholarsphere.psu.edu/ns#arkivoChecksum
   based_near:
     type: string
     multiple: true
@@ -333,6 +330,7 @@ attributes:
     multiple: true
     form:
       primary: false
+      multiple: false
     index_keys:
       - "date_created_sim"
       - "date_created_tesim"
@@ -492,26 +490,23 @@ attributes:
     multiple: false
     form:
       primary: false
+      multiple: false
     predicate: http://opaquenamespace.org/ns/hydra/owner
   on_behalf_of:
     type: string
     multiple: false
     form:
       primary: false
+      multiple: false
     index_keys:
     - on_behalf_of_ssi
     predicate: http://scholarsphere.psu.edu/ns#onBehalfOf
-  state:
-    type: string
-    multiple: false
-    form:
-      primary: false
-    predicate: http://fedora.info/definitions/1/0/access/ObjState#objState
   proxy_depositor:
     type: string
     multiple: false
     form:
       primary: false
+      multiple: false
     index_keys:
     - proxy_depositor_ssi
     predicate: http://scholarsphere.psu.edu/ns#proxyDepositor

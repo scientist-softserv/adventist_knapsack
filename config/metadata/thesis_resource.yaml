@@ -27,7 +27,7 @@ attributes:
     multiple: true
     form:
       primary: false
-      multiple: true
+      multiple: false
     index_keys:
     - date_issued_tesim
     - date_issued_sim
@@ -96,6 +96,7 @@ attributes:
     multiple: true
     form:
       primary: false
+      multiple: false
     index_keys:
     - date_of_award_tesim
     - date_of_award_sim
