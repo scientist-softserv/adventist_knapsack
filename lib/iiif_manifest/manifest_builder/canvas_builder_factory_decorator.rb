@@ -8,10 +8,19 @@ module IIIFManifest
       def from(work)
         composite_builder.new(
           *file_set_presenters(work).map do |presenter|
-            next if presenter.solr_document['original_filename_ssi'].downcase.end_with?(HykuKnapsack::Engine::THUMBNAIL_FILE_SUFFIX) || !presenter.image?
+            next if thumbnail?(presenter) || !presenter.image?
             canvas_builder_factory.new(presenter, work)
           end
         )
+      end
+
+      private
+
+      # older filesets may not have original_filename_ssi indexed so fallback to label_ssi
+      def thumbnail?(presenter)
+        filename = presenter.solr_document['original_filename_ssi'] || presenter.solr_document['label_ssi']
+        return false unless filename
+        filename.end_with?(HykuKnapsack::Engine::THUMBNAIL_FILE_SUFFIX)
       end
     end
   end
