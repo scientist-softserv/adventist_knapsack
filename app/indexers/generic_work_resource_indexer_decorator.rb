@@ -3,4 +3,3 @@
 GenericWorkResourceIndexer.include Hyrax::Indexer(:slug_metadata)
 GenericWorkResourceIndexer.include(SlugIndexing)
 GenericWorkResourceIndexer.include(SortedDateIndexer)
-
