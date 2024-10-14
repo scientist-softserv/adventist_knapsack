@@ -26,6 +26,7 @@ attributes:
     form:
       primary: false
       multiple: false
+      display: false
     index_keys:
     - date_available_tesim
     - date_available_sim
@@ -46,6 +47,7 @@ attributes:
     form:
       primary: false
       multiple: false
+      display: false
     index_keys:
     - date_submitted_tesim
     - date_submitted_sim
@@ -56,6 +58,7 @@ attributes:
     form:
       primary: false
       multiple: false
+      display: false
     index_keys:
     - date_accepted_tesim
     - date_accepted_sim
@@ -100,6 +103,7 @@ attributes:
     multiple: true
     form:
       primary: false
+      display: false
     index_keys:
     - funder_tesim
     - funder_sim
@@ -110,6 +114,7 @@ attributes:
     form:
       primary: false
       multiple: false
+      display: false
     index_keys:
     - issue_number_tesim
     predicate: http://schema.org/issueNumber
@@ -127,6 +132,7 @@ attributes:
     multiple: true
     form:
       primary: false
+      display: false
     index_keys:
     - managing_organisation_tesim
     - managing_organisation_sim
@@ -152,6 +158,7 @@ attributes:
     multiple: true
     form:
       primary: false
+      display: false
     index_keys:
     - orcid_tesim
     predicate: http://id.loc.gov/vocabulary/identifiers/orcid
@@ -160,6 +167,7 @@ attributes:
     multiple: true
     form:
       primary: false
+      display: false
     index_keys:
     - output_of_tesim
     - output_of_sim
@@ -170,6 +178,7 @@ attributes:
     form:
       primary: false
       multiple: false
+      display: false
     index_keys:
     - pagination_tesim
     predicate: http://schema.org/pagination
@@ -239,6 +248,7 @@ attributes:
     form:
       primary: false
       multiple: false
+      display: false
     index_keys:
     - preflabel_tesi
     - preflabel_si
@@ -248,6 +258,7 @@ attributes:
     multiple: true
     form:
       primary: false
+      display: false
     index_keys:
     - altlabel_tesim
     predicate: http://www.w3.org/2004/02/skos/core#altLabel
@@ -379,6 +390,7 @@ attributes:
     type: string
     form:
       primary: false
+      display: false
     index_keys:
       - "label_sim"
       - "label_tesim"
@@ -491,6 +503,7 @@ attributes:
     form:
       primary: false
       multiple: false
+      display: false
     predicate: http://opaquenamespace.org/ns/hydra/owner
   on_behalf_of:
     type: string
@@ -498,6 +511,7 @@ attributes:
     form:
       primary: false
       multiple: false
+      display: false
     index_keys:
     - on_behalf_of_ssi
     predicate: http://scholarsphere.psu.edu/ns#onBehalfOf
@@ -507,6 +521,7 @@ attributes:
     form:
       primary: false
       multiple: false
+      display: false
     index_keys:
     - proxy_depositor_ssi
     predicate: http://scholarsphere.psu.edu/ns#proxyDepositor

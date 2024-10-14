@@ -32,6 +32,16 @@ attributes:
     - date_issued_tesim
     - date_issued_sim
     predicate: http://purl.org/dc/terms/issued
+  date:
+    type: string
+    multiple: true
+    form:
+      primary: false
+      multiple: false
+    index_keys:
+    - date_tesim
+    - date_sim
+    predicate: http://purl.org/dc/terms/date
   keyword:
     type: string
     multiple: true
