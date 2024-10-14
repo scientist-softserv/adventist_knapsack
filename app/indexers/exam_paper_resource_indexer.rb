@@ -12,6 +12,8 @@ class ExamPaperResourceIndexer < Hyrax::ValkyrieWorkIndexer
   include Hyrax::Indexer(:slug_metadata)
   include HykuIndexing
   include SlugIndexing
+  include SortedDateIndexer
+
   # Uncomment this block if you want to add custom indexing behavior:
   #  def to_solr
   #    super.tap do |index_document|
