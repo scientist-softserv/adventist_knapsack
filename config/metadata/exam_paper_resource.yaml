@@ -31,6 +31,16 @@ attributes:
     - keyword_tesim
     - keyword_sim
     predicate: http://schema.org/keywords
+  date:
+    type: string
+    multiple: true
+    form:
+      primary: false
+      multiple: false
+    index_keys:
+    - date_tesim
+    - date_sim
+    predicate: http://purl.org/dc/terms/date
   module_code:
     type: string
     multiple: true

@@ -32,6 +32,16 @@ attributes:
     - date_published_tesim
     - date_published_sim
     predicate: http://schema.org/datePublished
+  date:
+    type: string
+    multiple: true
+    form:
+      primary: false
+      multiple: false
+    index_keys:
+    - date_tesim
+    - date_sim
+    predicate: http://purl.org/dc/terms/date
   date_issued:
     type: date_time
     multiple: true
