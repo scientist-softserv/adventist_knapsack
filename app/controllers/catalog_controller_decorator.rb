@@ -46,6 +46,7 @@ CatalogController.configure_blacklight do |config|
   # see: https://github.com/scientist-softserv/adventist-dl/blob/97bd05946345926b2b6c706bd90e183a9d78e8ef/app/controllers/catalog_controller.rb#L38-L40
   config.index_fields.keys.each do |key|
     next if key == 'all_text_timv'
+    next if key == 'all_text_tsimv'
     next if key == 'file_set_text_tsimv'
 
     config.index_fields.delete(key)
@@ -61,7 +62,6 @@ CatalogController.configure_blacklight do |config|
     { prop => CatalogController.send(:index_options, prop, DogBiscuits.config.property_mappings[prop]) }
   end
   CatalogController.send(:add_index_field, config, index_props)
-  config.add_index_field 'all_text_tsimv', label: "Item contents", highlight: true, helper_method: :render_ocr_snippets, if: :query_present?
 
   config.search_fields.delete('all_fields')
   config.add_search_field('all_fields',
