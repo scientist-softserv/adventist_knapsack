@@ -27,13 +27,19 @@ module HykuKnapsack
       return url if request.params[:q].blank?
 
       key = doc.any_highlighting? ? 'parent_query' : 'query'
-      query = { key => request.params[:q] }.to_query
+      query = { key => request.params[:q], highlight: doc.any_highlighting? }.to_query
       if url.include?("?")
         url + "&#{query}"
       else
         url + "?#{query}"
       end
     end
+
+
+    # todo: understanstand parent_query vs query
+    ## remove label when no snippets
+    ## add highlight param == true logic into this to fix highlighting when match is found from catalog search
+
   end
 
   # A Blacklight index field helper_method
