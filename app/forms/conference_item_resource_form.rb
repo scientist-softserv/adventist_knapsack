@@ -16,7 +16,8 @@ class ConferenceItemResourceForm < Hyrax::Forms::ResourceForm(ConferenceItemReso
   include Hyrax::FormFields(:slug_metadata)
   include VideoEmbedBehavior::Validation
   include(SlugBugValkyrie)
-
+  # Directly include form fields behavior needed for `based_near`
+  include BasedNearFormFieldsBehavior
   # Define custom form fields using the Valkyrie::ChangeSet interface
   #
   # property :my_custom_form_field
