@@ -95,15 +95,6 @@ attributes:
     #   - "alternative_title_sim"
     #   - "alternative_title_tesim"
     predicate: http://purl.org/dc/terms/alternative
-  based_near:
-    type: string
-    multiple: true
-    form:
-      primary: false
-    index_keys:
-      - "based_near_sim"
-      - "based_near_tesim"
-    predicate: http://xmlns.com/foaf/0.1/based_near
   bibliographic_citation:
     type: string
     multiple: true

@@ -6,8 +6,7 @@
 # @see https://github.com/samvera/hyrax/wiki/Hyrax-Valkyrie-Usage-Guide#forms
 # @see https://github.com/samvera/valkyrie/wiki/ChangeSets-and-Dirty-Tracking
 class JournalArticleResourceForm < Hyrax::Forms::ResourceForm(JournalArticleResource)
-  # Commented out basic_metadata because these terms were added to journal_article_resource so we can customize it.
-  # include Hyrax::FormFields(:basic_metadata)
+  include Hyrax::FormFields(:basic_metadata)
   include Hyrax::FormFields(:adl_metadata)
   include Hyrax::FormFields(:journal_article_resource)
   include Hyrax::FormFields(:bulkrax_metadata)
@@ -16,8 +15,6 @@ class JournalArticleResourceForm < Hyrax::Forms::ResourceForm(JournalArticleReso
   include Hyrax::FormFields(:slug_metadata)
   include VideoEmbedBehavior::Validation
   include(SlugBugValkyrie)
-  # Directly include form fields behavior needed for `based_near`
-  include BasedNearFormFieldsBehavior
   # Define custom form fields using the Valkyrie::ChangeSet interface
   #
   # property :my_custom_form_field
