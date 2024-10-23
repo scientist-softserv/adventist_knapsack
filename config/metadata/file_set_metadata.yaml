@@ -32,15 +32,6 @@ attributes:
   #   primary: false
   # missing: access_right
   # missing: alternative_title
-  based_near:
-    type: string
-    multiple: true
-    form:
-      primary: false
-    index_keys:
-      - "based_near_sim"
-      - "based_near_tesim"
-    predicate: http://xmlns.com/foaf/0.1/based_near
   # missing: bibliograpic_citation
   contributor:
     type: string

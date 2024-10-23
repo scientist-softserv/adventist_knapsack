@@ -6,8 +6,7 @@
 # @see https://github.com/samvera/hyrax/wiki/Hyrax-Valkyrie-Usage-Guide#forms
 # @see https://github.com/samvera/valkyrie/wiki/ChangeSets-and-Dirty-Tracking
 class ExamPaperResourceForm < Hyrax::Forms::ResourceForm(ExamPaperResource)
-  # Commented out basic_metadata because these terms were added to exam_paper_resource so we can customize it.
-  # include Hyrax::FormFields(:basic_metadata)
+  include Hyrax::FormFields(:basic_metadata)
   include Hyrax::FormFields(:adl_metadata)
   include Hyrax::FormFields(:exam_paper_resource)
   include Hyrax::FormFields(:bulkrax_metadata)
@@ -16,7 +15,6 @@ class ExamPaperResourceForm < Hyrax::Forms::ResourceForm(ExamPaperResource)
   include Hyrax::FormFields(:slug_metadata)
   include VideoEmbedBehavior::Validation
   include(SlugBugValkyrie)
-
   # Define custom form fields using the Valkyrie::ChangeSet interface
   #
   # property :my_custom_form_field
