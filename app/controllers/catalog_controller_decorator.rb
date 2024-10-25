@@ -62,7 +62,13 @@ CatalogController.configure_blacklight do |config|
     { prop => CatalogController.send(:index_options, prop, DogBiscuits.config.property_mappings[prop]) }
   end
   CatalogController.send(:add_index_field, config, index_props)
-  config.add_index_field 'all_text_tsimv', label: "Item contents", highlight: true, helper_method: :render_ocr_snippets, if: :query_present?
+  # this is identical to what is in Hyku but the dog biscuits code seems to mean it doesn't carry through
+  config.add_index_field 'all_text_tsimv',
+  label: "Item contents",
+  highlight: true,
+  helper_method: :render_ocr_snippets,
+  values: ->(field_config, document, _context) { document.highlight_field(field_config.field).map(&:html_safe) if document.has_highlight_field? field_config.field }
+
   config.add_index_field 'based_near_label_tesim', itemprop: 'contentLocation', link_to_facet: 'based_near_label_sim'
 
   config.search_fields.delete('all_fields')
@@ -74,7 +80,7 @@ CatalogController.configure_blacklight do |config|
                  DogBiscuits.config.all_properties.map { |p| "#{p}_tesim" }).uniq.join(" ")
     title_name = 'title_tesim'
     field.solr_parameters = {
-      qf: "#{all_names} file_format_tesim all_text_timv",
+      qf: "#{all_names} file_format_tesim all_text_timv all_text_tsimv",
       pf: title_name.to_s
     }
   end
