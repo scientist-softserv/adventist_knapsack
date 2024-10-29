@@ -46,6 +46,7 @@ CatalogController.configure_blacklight do |config|
   # see: https://github.com/scientist-softserv/adventist-dl/blob/97bd05946345926b2b6c706bd90e183a9d78e8ef/app/controllers/catalog_controller.rb#L38-L40
   config.index_fields.keys.each do |key|
     next if key == 'all_text_timv'
+    next if key == 'all_text_tsimv'
     next if key == 'file_set_text_tsimv'
 
     config.index_fields.delete(key)
@@ -62,13 +63,6 @@ CatalogController.configure_blacklight do |config|
     { prop => CatalogController.send(:index_options, prop, DogBiscuits.config.property_mappings[prop]) }
   end
   CatalogController.send(:add_index_field, config, index_props)
-  # this is identical to what is in Hyku but the dog biscuits code seems to mean it doesn't carry through
-  config.add_index_field 'all_text_tsimv',
-  label: "Item contents",
-  highlight: true,
-  helper_method: :render_ocr_snippets,
-  values: ->(field_config, document, _context) { document.highlight_field(field_config.field).map(&:html_safe) if document.has_highlight_field? field_config.field }
-
   config.add_index_field 'based_near_label_tesim', itemprop: 'contentLocation', link_to_facet: 'based_near_label_sim'
 
   config.search_fields.delete('all_fields')
