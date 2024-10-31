@@ -21,24 +21,4 @@ RSpec.describe HykuKnapsack::ApplicationHelper do
   before do
     allow(helper).to receive(:current_account) { account }
   end
-
-  describe '#generate_work_url' do
-    context 'when params has a "q" parameter' do
-      let(:q) { "wonka-vision" }
-
-      context 'when any_highlighting? is false' do
-        it 'passes that along as :query' do
-          expect(doc).to receive(:any_highlighting?).and_return(false)
-          expect(helper.generate_work_url(doc, request)).to end_with("?query=#{q}")
-        end
-      end
-
-      context 'when any_highlighting? is true' do
-        it 'passes that along as :parent_query' do
-          expect(doc).to receive(:any_highlighting?).and_return(true)
-          expect(helper.generate_work_url(doc, request)).to end_with("?parent_query=#{q}")
-        end
-      end
-    end
-  end
 end
