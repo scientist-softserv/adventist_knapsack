@@ -176,7 +176,7 @@ extraEnvVars: &envVars
   - name: REDIS_URL
     value: redis://:$REDIS_PASSWORD@adventist-knapsack-production-redis-master:6379/0
   - name: REPOSITORY_S3_STORAGE
-    value: true
+    value: "true"
   - name: REPOSITORY_S3_BUCKET
     value: samvera-original-files
   - name: REPOSITORY_S3_REGION
