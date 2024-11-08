@@ -132,6 +132,15 @@ IiifPrint.config do |config|
     params.merge!(embargo_params).merge!(lease_params).merge!(visibility_params)
   end
   # rubocop:enable Layout/LineLength
+
+  # Optional limits for ImageMagick `identify` command.
+  # Set these limits if you want to control memory usage. If set to `nil` or left blank, 
+  # ImageMagick will fall back to the defaults specified in `imagemagick-6-policy.xml`.
+
+  # If you don't want to override, leave these as `nil` or comment them out.
+  config.memory_limit = "3GiB"  # Example setting: "512MiB"
+  config.map_limit = "3GiB"     # Example setting: "1GiB"
+  config.disk_limit = "50GiB"   # Example setting: "20KP"
 end
 
 require "iiif_print/split_pdfs/adventist_pages_to_jpgs_splitter"
