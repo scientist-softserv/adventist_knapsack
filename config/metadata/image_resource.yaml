@@ -245,7 +245,7 @@ attributes:
     type: string
     multiple: true
     form:
-      required: true
+      required: false
       primary: true
       multiple: true
     index_keys:
