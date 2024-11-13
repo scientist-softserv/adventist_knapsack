@@ -33,8 +33,8 @@ module PdfJsHelperDecorator
   end
 
   def pdf_file_set_presenters(presenters)
-    presenters.select(&:pdf?).presence || presenters.select do |file_set_presenter|
-      file_set_presenter.solr_document["label_ssi"].downcase.end_with? ".pdf"
+    presenters.select(&:pdf?).presence || presenters.select do |fsp|
+      (fsp.solr_document['original_filename_tesi'] || fsp.solr_document['label_ssi'])&.downcase&.end_with?('.pdf')
     end
   end
 

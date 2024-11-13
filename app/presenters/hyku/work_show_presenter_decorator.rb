@@ -12,8 +12,8 @@ module Hyku
     # OVERRIDE incorporates fallback to PDF.js viewer via fileset's import_url
     # see also pdf_js_helper_decorator
     def show_pdf_viewer?
-      return unless Flipflop.default_pdf_viewer? || !iiif_viewer?
-      return unless file_set_presenters.any?(&:pdf?) || pdf_extension?
+      return false unless Flipflop.default_pdf_viewer? || !iiif_viewer?
+      return false unless file_set_presenters.any?(&:pdf?) || pdf_extension?
 
       no_child_works?
     end
@@ -38,11 +38,17 @@ module Hyku
     end
 
     def pdf_extension?
-      file_set_presenters.any? { |fsp| fsp&.label&.downcase&.end_with?('.pdf') }
+      # Valkyrie works are apparently not getting label assigned, but earlier works
+      # used label for file name. Using a combination of both.
+      file_set_presenters.any? do |fsp|
+        (fsp.solr_document['original_filename_tesi'] || fsp.solr_document['label_ssi'])&.downcase&.end_with?('.pdf')
+      end
     end
 
     def iiif_media?(presenter: representative_presenter)
-      iiif_media_predicates.any? { |predicate| presenter.try(predicate) || presenter.try(:solr_document).try(predicate) }
+      # override TenantConfig to include pdfs so we can use the UV regardless of the config
+      predicates = (iiif_media_predicates + %i[pdf?]).uniq
+      predicates.any? { |predicate| presenter.try(predicate) || presenter.try(:solr_document).try(predicate) }
     end
 
     # Override Tenant Config
