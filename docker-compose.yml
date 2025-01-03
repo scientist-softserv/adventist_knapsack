@@ -19,18 +19,22 @@ x-app: &app
     - GOOD_JOB_CLEANUP_DISCARDED_JOBS=false
     - GOOD_JOB_CLEANUP_INTERVAL_SECONDS=86400
     - GOOD_JOB_CLEANUP_PRESERVED_JOBS_BEFORE_SECONDS_AGO=604800
-    - HYRAX_ACTIVE_JOB_QUEUE=good_job
     - HYKU_ADMIN_HOST=adl.test
-    - VIRTUAL_HOST=.adl.test
     - HYKU_DEFAULT_HOST=%{tenant}.adl.test
     - HYKU_ROOT_HOST=adl.test
-    - VIRTUAL_PORT=3000
+    - HYRAX_ACTIVE_JOB_QUEUE=good_job
   volumes:
     - node_modules:/app/samvera/hyrax-webapp/node_modules:cached
     - uploads:/app/samvera/hyrax-webapp/public/uploads:cached
     - assets:/app/samvera/hyrax-webapp/public/assets:cached
     - cache:/app/samvera/hyrax-webapp/tmp/cache:cached
     - .:/app/samvera
+  env_file:
+    - .env
+  networks:
+    internal:
+
+
 
 x-app-worker: &app-worker
     <<: *app
@@ -49,12 +53,21 @@ x-app-worker: &app-worker
     image: ghcr.io/scientist-softserv/adventist_knapsack/worker:${TAG:-latest}
     # Uncomment command to access container with out starting bin/worker. Useful for debugging or updating Gemfile.lock
     # command: sleep infinity
-    volumes:
-      - node_modules:/app/samvera/hyrax-webapp/node_modules:cached
-      - uploads:/app/samvera/hyrax-webapp/public/uploads:cached
-      - assets:/app/samvera/hyrax-webapp/public/assets:cached
-      - cache:/app/samvera/hyrax-webapp/tmp/cache:cached
-      - .:/app/samvera
+    depends_on:
+      check_volumes:
+        condition: service_completed_successfully
+      initialize_app:
+        condition: service_completed_successfully
+      db:
+        condition: service_started
+      solr:
+        condition: service_started
+      fcrepo:
+        condition: service_started
+      redis:
+        condition: service_started
+      zoo:
+        condition: service_started
 
 volumes:
   assets:
@@ -103,16 +116,49 @@ services:
     extends:
       file: hyrax-webapp/docker-compose.yml
       service: base
-    image: ghcr.io/samvera/hyku/base:${TAG:-latest}
+    image: ghcr.io/samvera/hyku/base:${BASE_TAG:-latest}
     command: bash -l -c "echo 'base is only used for building base images, which in turn reduces image build times. It does not need to be run'"
 
   web:
     <<: *app
-    extends:
-      file: hyrax-webapp/docker-compose.yml
-      service: web
     # Uncomment command to access container with out starting bin/web. Useful for debugging or updating Gemfile.lock
     # command: sleep infinity
+    environment:
+      - AUXILIARY_QUEUE_TENANTS="sdapi" # This line is what makes the knapsack include use the local code instead of the remote gem
+      - AWS_REGION=us-east-1
+      - AWS_S3_BUCKET=space-stone-production-preprocessedbucketf21466dd-15sun4xy658nh
+      - BUNDLE_DISABLE_LOCAL_BRANCH_CHECK=true
+      - BUNDLE_LOCAL__HYKU_KNAPSACK=/app/samvera # This line is what makes the knapsack include use the local code instead of the remote gem
+      - FITS_SERVLET_URL=http://fits:8080/fits
+      - GOOD_JOB_CLEANUP_DISCARDED_JOBS=false
+      - GOOD_JOB_CLEANUP_INTERVAL_SECONDS=86400
+      - GOOD_JOB_CLEANUP_PRESERVED_JOBS_BEFORE_SECONDS_AGO=604800
+      - HYKU_ADMIN_HOST=adl.test
+      - HYKU_DEFAULT_HOST=%{tenant}.adl.test
+      - HYKU_ROOT_HOST=adl.test
+      - HYRAX_ACTIVE_JOB_QUEUE=good_job
+      - VIRTUAL_HOST=.adl.test
+      - VIRTUAL_PORT=3000
+
+    depends_on:
+      db:
+        condition: service_started
+      solr:
+        condition: service_started
+      fcrepo:
+        condition: service_started
+      redis:
+        condition: service_started
+      zoo:
+        condition: service_started
+      check_volumes:
+        condition: service_started
+      chrome:
+        condition: service_started
+      worker:
+        condition: service_started
+      initialize_app:
+        condition: service_completed_successfully
 
   worker:
     <<: *app-worker
