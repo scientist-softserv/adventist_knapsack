@@ -18,12 +18,12 @@ module Bulkrax
       true
     end
 
-    # @see https://github.com/scientist-softserv/adventist-dl/issues/281
+    # @see https://github.com/notch8/adventist-dl/issues/281
     def collections_created?
       true
     end
 
-    # @see https://github.com/scientist-softserv/adventist-dl/issues/281
+    # @see https://github.com/notch8/adventist-dl/issues/281
     def find_collection_ids
       self.collection_ids = []
     end

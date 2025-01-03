@@ -55,7 +55,7 @@ module HykuKnapsack
       # Adventist::TextFileTextExtractionService to the beginning of the services array we are
       # enabling text extraction from plain text files.
       #
-      # https://github.com/scientist-softserv/adventist-dl/blob/97bd05946345926b2b6c706bd90e183a9d78e8ef/config/application.rb#L68-L73
+      # https://github.com/notch8/adventist-dl/blob/97bd05946345926b2b6c706bd90e183a9d78e8ef/config/application.rb#L68-L73
       Hyrax::DerivativeService.services = [
         Adventist::TextFileTextExtractionService,
         IiifPrint::DerivativeRodeoService,
@@ -91,7 +91,7 @@ module HykuKnapsack
       end
 
       DerivativeRodeo::Generators::HocrGenerator.additional_tessearct_options = "-l eng_best"
-      # See: https://github.com/scientist-softserv/adventist-dl/issues/676
+      # See: https://github.com/notch8/adventist-dl/issues/676
       IiifPrint::DerivativeRodeoService.named_derivatives_and_generators_filter =
         lambda do |_file_set:, filename:, named_derivatives_and_generators:|
           named_derivatives_and_generators.reject do |named_derivative, _generators|

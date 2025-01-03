@@ -15,7 +15,7 @@ module HykuKnapsack
       ##
       # What the heck is going on here?
       #
-      # As part of https://github.com/scientist-softserv/adventist_knapsack/pull/87 we have
+      # As part of https://github.com/notch8/adventist_knapsack/pull/87 we have
       # attempted to rid the collection form of the alternative_title (to deal with the conflicting
       # predicate for slugs).  However, it is declared by way of
       # `Hyrax::Forms::CollectionForm.delegate(:alternative_title, to: :model)`

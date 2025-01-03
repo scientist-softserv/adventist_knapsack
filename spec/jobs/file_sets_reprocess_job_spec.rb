@@ -9,7 +9,7 @@ RSpec.describe FileSetsReprocessJob, clean: true do
 
   describe '#perform' do
     # TODO: commenting out failing job - loading issue - this work was merged as WIP
-    # ref: https://github.com/scientist-softserv/adventist-dl/commit/54d7cf8ed278b5fa09ee2cd14ca81f856e660add
+    # ref: https://github.com/notch8/adventist-dl/commit/54d7cf8ed278b5fa09ee2cd14ca81f856e660add
     # TODO: Make this job work with valkyrie
     xit 'submits jobs' do
       expect(described_class::ConditionallyResplitFileSetJob).to receive(:perform_later).with(file_set_id: file_set.id)
@@ -23,7 +23,7 @@ RSpec.describe FileSetsReprocessJob, clean: true do
   describe 'ConditionallyResplitFileSetJob#perform' do
     describe '#perform' do
       # TODO: commenting out failing job - loading issue - this work was merged as WIP
-      # ref: https://github.com/scientist-softserv/adventist-dl/commit/54d7cf8ed278b5fa09ee2cd14ca81f856e660add
+      # ref: https://github.com/notch8/adventist-dl/commit/54d7cf8ed278b5fa09ee2cd14ca81f856e660add
       # TODO: Make this job work with valkyrie
       xit 'submits IiifPrint::Jobs::RequestSplitPdfJob' do
         file_set

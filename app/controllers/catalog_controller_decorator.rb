@@ -43,7 +43,7 @@ CatalogController.configure_blacklight do |config|
 
   # Clobber all existing index and show fields that come from Hyku base but skip
   # the non-DogBiscuit keys that Adventist had already configured in a pre-Knapsack state
-  # see: https://github.com/scientist-softserv/adventist-dl/blob/97bd05946345926b2b6c706bd90e183a9d78e8ef/app/controllers/catalog_controller.rb#L38-L40
+  # see: https://github.com/notch8/adventist-dl/blob/97bd05946345926b2b6c706bd90e183a9d78e8ef/app/controllers/catalog_controller.rb#L38-L40
   config.index_fields.keys.each do |key|
     next if key == 'all_text_timv'
     next if key == 'all_text_tsimv'

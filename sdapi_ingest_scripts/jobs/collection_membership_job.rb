@@ -3,7 +3,7 @@
 ## The purpose of this job is to take an array of collection ids and remove the
 # membership relationshp from every work of a given work type. These are the 20
 # collections that we were unable to delete, most likely due to too many members
-# causing timeouts. Ref https://github.com/scientist-softserv/adventist-dl/issues/459
+# causing timeouts. Ref https://github.com/notch8/adventist-dl/issues/459
 class CollectionMembershipJob < ApplicationJob
   queue_as :collections
 

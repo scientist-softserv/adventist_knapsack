@@ -9,7 +9,7 @@ module CreateDerivativesJobDecorator
   end
 
   ##
-  # @see https://github.com/scientist-softserv/adventist-dl/issues/311 for discussion on structure
+  # @see https://github.com/notch8/adventist-dl/issues/311 for discussion on structure
   #      of non-Archival PDF.
   NON_ARCHIVAL_PDF_SUFFIXES = [".reader.pdf", ".pdf-r.pdf"].freeze
 

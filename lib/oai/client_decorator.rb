@@ -9,7 +9,7 @@ module OAI
   # Typically, the resumption token represents the full context of the previous request.  However,
   # in the Adventist implementation it's operating a bit like a pagination page indicator.
   #
-  # @see https://github.com/scientist-softserv/adventist-dl/issues/271
+  # @see https://github.com/notch8/adventist-dl/issues/271
   module ClientDecorator
     # @note override
     def do_resumable(responseClass, verb, opts)

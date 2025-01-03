@@ -6,7 +6,7 @@
 # @note This class is starting it's life in the Adventist repository but is being designed so that
 #       we could copy it rather easily into Bulkrax.
 #
-# @see https://github.com/scientist-softserv/adventist-dl/issues/430
+# @see https://github.com/notch8/adventist-dl/issues/430
 #
 # @example
 #   switch!('sdapi'); RerunErroredEntriesForImporterJob.perform_later(importer_id: 123, last_run_id: 456)

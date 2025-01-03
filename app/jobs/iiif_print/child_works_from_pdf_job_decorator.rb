@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # OVERRIDE: Overriding entire job temporarily, pending cleanup via
-# https://github.com/scientist-softserv/adventist_knapsack/issues/728
+# https://github.com/notch8/adventist_knapsack/issues/728
 # OVERRIDE to end job based on pdfjs/uv flipper before doing anything
 # so we don't get job errors
 require 'iiif_print/jobs/application_job'

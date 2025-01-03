@@ -9,7 +9,7 @@ RSpec.describe IiifPrint do
 
       it 'is defined in HykuKnapsack::Engine' do
         # Verifying that we're using the configured title generator for PDFs.
-        # Triage for: https://github.com/scientist-softserv/adventist-dl/issues/628
+        # Triage for: https://github.com/notch8/adventist-dl/issues/628
         expect(subject.source_location[0]).to(
           eq(HykuKnapsack::Engine.root.join('config', 'initializers', 'iiif_print.rb').to_s)
         )
